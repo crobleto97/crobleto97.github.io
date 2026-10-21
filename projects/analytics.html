@@ -25,7 +25,22 @@
   <section><h2>How it works</h2><ol class="flow"><li><span><b>Ingest.</b> Python loads the raw files, fixes types and logs what it rejected.</span></li><li><span><b>Validate.</b> Data-quality checks on keys, nulls, duplicates and value ranges before anything reaches the database.</span></li><li><span><b>Model.</b> PostgreSQL star schema: fact tables for orders and deliveries, dimensions for customer, product, supplier, geography and date.</span></li><li><span><b>Query.</b> SQL views with CTEs and window functions for the business KPIs.</span></li><li><span><b>Report.</b> Power BI on top of the model, with Power Query and DAX measures for revenue, margin, on-time delivery and retention.</span></li></ol></section>
   <section><h2>Stack</h2><p>Python, pandas, PostgreSQL, SQL, Power BI, Power Query, DAX.</p></section>
   <section><h2>What I'll measure</h2><ul class="checks"><li>Revenue, margin and order volume by region and category</li><li>On-time delivery rate and average delay by supplier</li><li>Customer segmentation and retention by cohort</li><li>Rows rejected by each data-quality check</li></ul></section>
-  <section><h2>Progress</h2><p class="empty">Code, screenshots and results will appear here as each stage is finished.</p></section>
+  <section><h2>Progress</h2>
+    <ul class="checks">
+      <li><b>Done:</b> ingestion with data-quality checks. 9 files, about 1.5M rows; every run logs its checks and rejected rows.</li>
+      <li><b>Done:</b> star schema in PostgreSQL with 5 dimensions and 2 fact tables, plus 5 SQL views for the KPIs.</li>
+      <li><b>Next:</b> Power BI report.</li>
+    </ul>
+    <p><a href="https://github.com/crobleto97/ops-analytics-olist">See the code on GitHub</a></p>
+  </section>
+  <section><h2>First findings</h2>
+    <ul class="checks">
+      <li>6.8% of orders arrive late, and late orders get half the review score: 2.3 against 4.3 out of 5.</li>
+      <li>Most of the delay happens with the carrier. In the Northeast a late order spends 36 days in transit, against 14 for an on-time one.</li>
+      <li>98 of 2,970 sellers account for half of all late orders.</li>
+      <li>The worst routes all start in São Paulo and end in the Northeast.</li>
+    </ul>
+  </section>
 </div>
 </main>
 <footer>Christian Robleto Romero · Pamplona, Spain · 2026</footer>
