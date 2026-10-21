@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Christian Robleto Romero</title>
+<meta name="description" content="Data and AI engineer based in Pamplona. Pipelines, dashboards and LLM systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="wrap">
+<header class="site-head">
+  <a class="mark" href="#top">Christian Robleto Romero</a>
+  <nav aria-label="Sections"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <h1>Data pipelines and LLM systems that people use every week</h1>
+  <p class="lede">I'm a data and automation analyst working with applied AI. I take messy operational data, clean it, model it and turn it into pipelines, dashboards and LLM workflows that a team can rely on.</p>
+  <p class="meta">Industrial engineer with three-plus years in operations and supply chain, and an MSc in Data Analysis for Engineering at TECNUN (Universidad de Navarra). Based in Pamplona, Spain. Spanish and English.</p>
+</section>
+
+<section id="work">
+  <div class="sec-head">
+    <h2>What I'm building</h2>
+    <p>Three connected projects, built in this order. Each page shows the plan, the stack and the progress so far.</p>
+  </div>
+  <ol class="line">
+    <li class="station active">
+      <span class="node" aria-hidden="true">1</span>
+      <h3><a href="projects/analytics.html">Operations analytics platform</a></h3>
+      <p>Sales, delivery and supplier KPIs from raw data to a Power BI report, with a proper star schema in between.</p>
+      <span class="stack">Python · PostgreSQL · SQL · Power BI · DAX</span>
+      <span class="status">In progress</span>
+    </li>
+    <li class="station">
+      <span class="node" aria-hidden="true">2</span>
+      <h3><a href="projects/agentic-rag.html">Document agent with evaluation</a></h3>
+      <p>A retrieval agent that answers from a document set, cites its sources and asks for human review when it isn't sure.</p>
+      <span class="stack">LangGraph · Pydantic · pgvector · LLM APIs</span>
+      <span class="status planned">Planned</span>
+    </li>
+    <li class="station">
+      <span class="node" aria-hidden="true">3</span>
+      <h3><a href="projects/production.html">Taking the agent to production</a></h3>
+      <p>The agent from project 2 behind an API, with tests, a container and a pipeline that runs on every push.</p>
+      <span class="stack">FastAPI · pytest · Docker · GitHub Actions</span>
+      <span class="status planned">Planned</span>
+    </li>
+  </ol>
+
+  <div class="later">
+    <h3>LLM pipeline for qualifying prospects from public sources</h3>
+    <p>A weekly batch pipeline I designed and ran in production: web search, a two-pass LLM classification with structured output, caching and fuzzy matching. A case study rebuilt on public data is on the way.</p>
+    <span class="status prep">Case study in preparation</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="sec-head"><h2>About</h2></div>
+  <div class="about">
+    <div class="story">
+      <p>I started in industrial engineering in Nicaragua and spent more than three years in operations, logistics and supply chain, where most problems turned out to be data problems: stock nobody could trust, reports built by hand, decisions made on last month's numbers.</p>
+      <p>That pushed me into data. I moved to Spain for a master's in data analysis and then joined CIMA, where I built automation for the institutional development team: an LLM pipeline that has processed more than 56,000 records, an RFM dashboard, Salesforce automation with Power Automate Desktop and a master dataset that joins the CRM with other sources.</p>
+      <p>I care about the unglamorous parts that make a system last: clean inputs, checks that catch bad data early, and outputs short enough that people actually read them.</p>
+    </div>
+    <ol class="timeline" aria-label="Experience and education">
+      <li><span class="when">2025 – 2026</span><strong>Data Analyst, Institutional Development</strong><span class="what">CIMA, Universidad de Navarra</span></li>
+      <li><span class="when">2024 – 2026</span><strong>MSc Data Analysis for Engineering</strong><span class="what">TECNUN, Universidad de Navarra</span></li>
+      <li><span class="when">2023 – 2024</span><strong>Logistics Operations Manager</strong><span class="what">KUAI Logistics</span></li>
+      <li><span class="when">2023</span><strong>Supply Chain Analyst</strong><span class="what">VF Corporation</span></li>
+      <li><span class="when">2020 – 2022</span><strong>Operations Coordinator</strong><span class="what">Hugo Technologies. Cut estimated delivery time by 18%.</span></li>
+      <li><span class="when">2015 – 2019</span><strong>Industrial Engineering</strong><span class="what">Universidad Americana (UAM), Nicaragua</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="skills">
+    <div>
+      <h3>What I use every day</h3>
+      <p class="note">Tools I've used in production work.</p>
+      <ul class="tags">
+        <li>Python</li><li>pandas</li><li>ETL pipelines</li><li>REST APIs</li><li>LLM APIs</li><li>Structured outputs (JSON)</li><li>Data validation</li><li>Fuzzy matching</li><li>Excel</li><li>Chart.js dashboards</li><li>Power Automate Desktop</li><li>Salesforce</li>
+      </ul>
+    </div>
+    <div>
+      <h3>What I'm building with now</h3>
+      <p class="note">Covered by the projects above. Code is linked from each project page as it ships.</p>
+      <ul class="tags learning">
+        <li>SQL modelling</li><li>PostgreSQL</li><li>Power BI &amp; DAX</li><li>RAG &amp; embeddings</li><li>pgvector</li><li>LangGraph</li><li>pytest</li><li>Docker</li><li>CI/CD</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Looking for a data, automation or applied AI role</h2>
+  <p class="col">Open to data analyst, data engineer and applied AI positions in Spain or remote. Write to me at <strong>cgalileorr97@gmail.com</strong> or on LinkedIn.</p>
+  <div class="links">
+    <a href="https://www.linkedin.com/in/chris-robleto">LinkedIn</a>
+    <a href="https://github.com/crobleto97">GitHub</a>
+    <a href="mailto:cgalileorr97@gmail.com">Email</a>
+    <a href="cv/Christian_Robleto_CV_EN.pdf">CV in English (PDF)</a>
+    <a href="cv/Christian_Robleto_CV_ES.pdf">CV en español (PDF)</a>
+  </div>
+</section>
+</main>
+
+<footer>Christian Robleto Romero · Pamplona, Spain · 2026</footer>
+</div>
+
+</body>
+</html>

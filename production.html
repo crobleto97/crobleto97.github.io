@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taking the agent to production</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="back" href="../index.html">Christian Robleto Romero</a>
+</header>
+<main>
+<section class="proj-hero">
+  <h1>Taking the agent to production</h1>
+  <p class="lede">The document agent from project 2, packaged the way a team would run it: behind an API, tested, containerised and deployed by a pipeline on every push.</p>
+  <div class="facts"><span>Status <b>Planned</b></span><span>Order <b>Project 3 of 3</b></span><span>Type <b>Personal project</b></span></div>
+</section>
+<div class="prose">
+  <section><h2>The problem</h2><p>A notebook that works on my machine is not something a team can depend on. This stage adds the engineering around the agent so that a change can't reach users without passing tests and the evaluation set.</p></section>
+  <section><h2>How it works</h2><ol class="flow"><li><span><b>Serve.</b> FastAPI endpoints with async request handling.</span></li><li><span><b>Test.</b> pytest for units and integration, plus the evaluation set from project 2 as a regression check.</span></li><li><span><b>Lint.</b> Linting and type checks on every commit.</span></li><li><span><b>Package.</b> A Docker image built in CI.</span></li><li><span><b>Deploy.</b> GitHub Actions deploys only when every earlier step passes.</span></li></ol></section>
+  <section><h2>Stack</h2><p>FastAPI, asyncio, pytest, Docker, GitHub Actions, YAML.</p></section>
+  <section><h2>What I'll measure</h2><ul class="checks"><li>Test coverage and pipeline run time</li><li>Evaluation score on every release, compared with the previous one</li><li>API latency under load</li></ul></section>
+  <section><h2>Progress</h2><p class="empty">Code, screenshots and results will appear here as each stage is finished.</p></section>
+</div>
+</main>
+<footer>Christian Robleto Romero · Pamplona, Spain · 2026</footer>
+</div>
+</body>
+</html>

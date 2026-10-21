@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Document agent with evaluation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="back" href="../index.html">Christian Robleto Romero</a>
+</header>
+<main>
+<section class="proj-hero">
+  <h1>Document agent with evaluation</h1>
+  <p class="lede">A retrieval agent that answers questions from a set of technical or procedural documents, returns structured answers with sources, and hands off to a person when its confidence is low.</p>
+  <div class="facts"><span>Status <b>Planned</b></span><span>Order <b>Project 2 of 3</b></span><span>Type <b>Personal project</b></span></div>
+</section>
+<div class="prose">
+  <section><h2>The problem</h2><p>Calling an LLM API is easy. Knowing whether a new version of an assistant got better or worse is the hard part. This project is built around a fixed test set, so every change to prompts, chunking or retrieval can be measured.</p></section>
+  <section><h2>How it works</h2><ol class="flow"><li><span><b>Classify.</b> Detect what the question is asking and whether it needs the documents at all.</span></li><li><span><b>Retrieve.</b> Search chunks stored in PostgreSQL with pgvector and score their relevance.</span></li><li><span><b>Answer.</b> Generate a structured answer validated with Pydantic, citing the chunks it used.</span></li><li><span><b>Check.</b> Verify the answer is grounded in the cited sources.</span></li><li><span><b>Escalate.</b> Send low-confidence answers to human review instead of returning them.</span></li></ol></section>
+  <section><h2>Stack</h2><p>Python, LangGraph, Pydantic, PostgreSQL with pgvector, embeddings, LLM APIs.</p></section>
+  <section><h2>What I'll measure</h2><ul class="checks"><li>Answer correctness on a 50-question test set</li><li>Retrieval quality and groundedness</li><li>Latency and cost per question</li><li>Failure and escalation rate</li></ul></section>
+  <section><h2>Progress</h2><p class="empty">Code, screenshots and results will appear here as each stage is finished.</p></section>
+</div>
+</main>
+<footer>Christian Robleto Romero · Pamplona, Spain · 2026</footer>
+</div>
+</body>
+</html>
