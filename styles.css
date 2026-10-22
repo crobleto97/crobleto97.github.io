@@ -3,7 +3,7 @@
 :root{
   --bg:#F3F6F5; --surface:#FFFFFF; --ink:#13222A; --muted:#55666B; --line:#C6D2D0;
   --accent:#17708C; --accent-soft:#DCEBEF;
-  --run:#9A5F0C; --run-soft:#F4E7CF;   /* in progress */
+  --run:#8A540A; --run-soft:#F4E7CF;   /* in progress */
   --ok:#2A7655;  --ok-soft:#DCEEE5;    /* done */
   --stage-bg:#0B1519;                  /* dark panels, both themes */
   --circuit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' fill='none' stroke='rgba(23,112,140,.17)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30H80l20 20h52M30 96v52l20 20h62M196 26v54l-20 20h-44l-20 20v70M154 180h52l20 20v22M66 212h22M192 140h34M210 60h22'/%3E%3Ccircle cx='14' cy='30' r='4'/%3E%3Ccircle cx='156' cy='50' r='4'/%3E%3Ccircle cx='30' cy='92' r='4'/%3E%3Ccircle cx='116' cy='168' r='4'/%3E%3Ccircle cx='196' cy='22' r='4'/%3E%3Ccircle cx='112' cy='194' r='4'/%3E%3Ccircle cx='150' cy='180' r='4'/%3E%3Ccircle cx='226' cy='226' r='4'/%3E%3Crect x='56' y='206' width='10' height='12' rx='2'/%3E%3Crect x='88' y='206' width='10' height='12' rx='2'/%3E%3Crect x='186' y='134' width='6' height='12' rx='1'/%3E%3Crect x='204' y='54' width='6' height='12' rx='1'/%3E%3C/svg%3E");   /* circuit background */
