@@ -26,23 +26,51 @@
     });
     pauseOffscreen(dag);
     var paths = $$('[data-link]', dag), dnodes = $$('.n', dag);
-    var clear = function () {
-      dag.classList.remove('focus');
-      paths.concat(dnodes).forEach(function (el) { el.classList.remove('hl'); });
-    };
-    dnodes.forEach(function (node) {
+    var wrap = dag.closest('.dag-wrap');
+    var info = wrap && wrap.querySelector('.dag-info');
+    var selected = null;
+    function highlight(node) {
       var id = node.getAttribute('data-node');
-      node.addEventListener('pointerenter', function () {
-        clear(); dag.classList.add('focus'); node.classList.add('hl');
-        paths.forEach(function (p) {
-          var ends = p.getAttribute('data-link').split(' ');
-          if (ends.indexOf(id) === -1) return;
-          p.classList.add('hl');
-          dnodes.forEach(function (n) { if (ends.indexOf(n.getAttribute('data-node')) !== -1) n.classList.add('hl'); });
-        });
+      paths.concat(dnodes).forEach(function (el) { el.classList.remove('hl'); });
+      dag.classList.add('focus');
+      node.classList.add('hl');
+      paths.forEach(function (p) {
+        var ends = p.getAttribute('data-link').split(' ');
+        if (ends.indexOf(id) === -1) return;
+        p.classList.add('hl');
+        dnodes.forEach(function (n) { if (ends.indexOf(n.getAttribute('data-node')) !== -1) n.classList.add('hl'); });
       });
-      node.addEventListener('pointerleave', clear);
+      if (info) {
+        info.querySelector('.dag-kind').textContent = node.getAttribute('data-kind');
+        info.querySelector('.dag-title').textContent = node.querySelector('text').textContent;
+        info.querySelector('.dag-text').textContent = node.getAttribute('data-info');
+        info.setAttribute('data-kind', node.getAttribute('data-kind'));
+      }
+    }
+    function choose(node) {
+      if (selected) { selected.classList.remove('sel'); selected.setAttribute('aria-pressed', 'false'); }
+      selected = node;
+      node.classList.add('sel'); node.setAttribute('aria-pressed', 'true');
+      highlight(node);
+    }
+    dnodes.forEach(function (node) {
+      var label = node.querySelector('text').textContent;
+      node.setAttribute('tabindex', '0');
+      node.setAttribute('role', 'button');
+      node.setAttribute('aria-pressed', 'false');
+      node.setAttribute('aria-label', label + ': ' + node.getAttribute('data-kind').toLowerCase() + ' step');
+      node.addEventListener('click', function () { choose(node); });
+      node.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(node); }
+      });
+      // hover previews a step; leaving goes back to the selected one
+      node.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') highlight(node); });
+      node.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && selected) highlight(selected); });
     });
+    // the diagram is now driven by the panel, so the SVG itself is a group of buttons
+    dag.setAttribute('role', 'group');
+    var start = dag.querySelector('[data-node="val"]');
+    if (start) choose(start);
   }
 
   /* ---------- project picker ("select your character") ---------- */

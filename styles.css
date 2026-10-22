@@ -77,7 +77,19 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero .meta{color:var(--muted);max-width:38rem}
 
 /* hero diagram: sources -> validate -> model -> outputs */
-.dag{width:100%;height:auto;display:block;max-width:34rem;justify-self:end}
+.dag-wrap{margin:0;display:grid;gap:.9rem;width:100%;max-width:34rem;justify-self:end}
+.dag{width:100%;height:auto;display:block}
+.dag .n{cursor:pointer;outline:none}
+.dag .n:focus-visible rect{stroke:var(--accent);stroke-width:3}
+.dag .n.sel rect{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2.2}
+.dag-info{display:grid;gap:.25rem;padding:.9rem 1.1rem;border-radius:12px;border:1px solid var(--line);background:var(--surface);
+  font-family:var(--display);min-height:7.2rem}
+.dag-kind{font-size:.78rem;font-weight:600;color:var(--accent)}
+.dag-info[data-kind="Source"] .dag-kind{color:var(--muted)}
+.dag-info[data-kind="Output"] .dag-kind{color:var(--ok)}
+.dag-title{font-size:1.05rem;font-weight:700}
+.dag-text{font-family:var(--body);font-size:.95rem;color:var(--muted);line-height:1.5}
+.dag-hint{font-size:.78rem;color:var(--muted);margin-top:.2rem}
 .dag .cap{font-family:var(--display);font-size:11px;fill:var(--muted)}
 .dag .edge{fill:none;stroke:var(--line);stroke-width:1.6;transition:stroke .2s}
 .dag .flow{fill:none;stroke:var(--accent);stroke-width:1.9;stroke-dasharray:3 13;stroke-linecap:round;animation:flow 1.6s linear infinite;transition:opacity .2s}
@@ -321,7 +333,7 @@ body{background-color:var(--bg);
 @media (max-width:860px){
   .stage-inner:has(.stat){grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem 1.5rem}
   .hero{grid-template-columns:minmax(0,1fr);padding-block:2.5rem 1.5rem}
-  .dag{justify-self:start;max-width:30rem}
+  .dag-wrap{justify-self:start;max-width:30rem}
 }
 @media (max-width:640px){
   .navlink{display:none}
