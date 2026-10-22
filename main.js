@@ -147,7 +147,8 @@
       t.setAttribute('data-status', p.getAttribute('data-status'));
       var locked = p.classList.contains('locked');
       t.innerHTML = '<span class="tile-num">' + (locked ? '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>' : (i + 1)) +
-        '</span><span class="tile-name">' + p.getAttribute('data-short') + '</span><span class="tile-dot" aria-hidden="true"></span>';
+        '</span><span class="tile-name">' + p.getAttribute('data-short') + '</span><span class="tile-dot" aria-hidden="true"></span>' +
+        '<span class="tile-bar" aria-hidden="true" style="--v:' + ((p.querySelector('.meter') || { style: { getPropertyValue: function () { return ''; } } }).style.getPropertyValue('--v') || (locked ? '0' : '0')) + '"></span>';
       t.addEventListener('click', function () { select(i, true); });
       p.setAttribute('role', 'tabpanel');
       p.setAttribute('aria-labelledby', t.id);
@@ -188,6 +189,11 @@
       });
       current = i;
       if (focusTab) tabs[i].focus({ preventScroll: true });
+      // keep the active tile visible when the roster scrolls sideways (phones)
+      if (roster.scrollWidth > roster.clientWidth) {
+        var t = tabs[i];
+        roster.scrollTo({ left: t.offsetLeft - (roster.clientWidth - t.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+      }
     }
     prev.addEventListener('click', function () { select(current - 1, false, -1); });
     next.addEventListener('click', function () { select(current + 1, false, 1); });

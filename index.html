@@ -106,84 +106,89 @@
     <div class="pick-stage">
       <article class="pick" id="pick-analytics" data-status="progress" data-short="Ops analytics">
         <div class="pick-main">
-          <p class="pick-num">Project 1</p>
+          <div class="pick-head"><p class="pick-num">Project 1</p><span class="status">In progress</span></div>
           <h3><a href="projects/analytics.html">Operations analytics platform</a></h3>
           <p class="pick-sum">Sales, delivery and supplier KPIs from raw data to a Power BI report, with a proper star schema in between.</p>
           <div class="pick-actions"><a class="btn btn-solid" href="projects/analytics.html">Open project</a></div>
+          <dl class="pick-stats"><div><dt>Progress</dt><dd><span class="meter" style="--v:.67"><i></i></span>2 of 3 stages done</dd></div><div><dt>Stack</dt><dd><ul class="chips"><li>Python</li><li>PostgreSQL</li><li>SQL</li><li>Power BI</li><li>DAX</li></ul></dd></div></dl>
         </div>
-        <figure class="pick-visual findings">
+        <figure class="pick-visual dash" data-dash>
           <figcaption>First findings <span>public e-commerce data</span></figcaption>
-          <div class="fnd-ring" role="img" aria-label="6.8% of orders arrive late">
-            <svg viewBox="0 0 42 42" aria-hidden="true"><circle class="trk" cx="21" cy="21" r="16"/><circle class="val" cx="21" cy="21" r="16" pathLength="100" stroke-dasharray="6.8 100"/></svg>
-            <p><b>6.8%</b> of orders arrive late</p>
+          <div class="dash-tabs" role="tablist" aria-label="Findings">
+            <button type="button" role="tab" id="dt-late" aria-controls="dp-late">Late orders</button><button type="button" role="tab" id="dt-rev" aria-controls="dp-rev">Reviews</button><button type="button" role="tab" id="dt-transit" aria-controls="dp-transit">Transit</button><button type="button" role="tab" id="dt-sellers" aria-controls="dp-sellers">Sellers</button>
           </div>
-          <div class="fnd-block" role="img" aria-label="Average review score out of 5: 4.3 for on-time orders, 2.3 for late orders">
-            <p class="fnd-t">Average review score, out of 5</p>
-            <div class="hbar"><span>On time</span><i style="--v:.86"></i><b>4.3</b></div>
-            <div class="hbar late"><span>Late</span><i style="--v:.46"></i><b>2.3</b></div>
+          <div class="dash-panel" role="tabpanel" id="dp-late" aria-labelledby="dt-late">
+            <div class="dash-ring">
+              <svg viewBox="0 0 42 42" role="img" aria-label="6.8% of orders arrive late, 93.2% on time"><circle class="ok" cx="21" cy="21" r="15.5" pathLength="100"/><circle class="val" cx="21" cy="21" r="15.5" pathLength="100" stroke-dasharray="6.8 100"/></svg>
+              <ul class="legend"><li><i class="late"></i>Late <b>6.8%</b></li><li><i></i>On time <b>93.2%</b></li></ul>
+            </div>
+            <p class="insight">6.8% of orders arrive late.</p>
           </div>
-          <div class="fnd-block" role="img" aria-label="98 of 2,970 sellers, about 3 percent, account for half of all late orders">
-            <p class="fnd-t">98 of 2,970 sellers account for half of all late orders</p>
-            <div class="hbar late"><span>Sellers</span><i style="--v:.033"></i><b>3%</b></div>
-            <div class="hbar late"><span>Late orders</span><i style="--v:.5"></i><b>50%</b></div>
+          <div class="dash-panel" role="tabpanel" id="dp-rev" aria-labelledby="dt-rev">
+            <p class="chart-t">Average review score, out of 5</p>
+            <div class="bar-row"><span class="bar-l">On time</span><span class="bar" style="--v:0.86" tabindex="0" data-tip="On-time orders: 4.3 out of 5 on average"><i></i></span><b>4.3</b></div>
+            <div class="bar-row"><span class="bar-l">Late</span><span class="bar late" style="--v:0.46" tabindex="0" data-tip="Late orders: 2.3 out of 5 on average"><i></i></span><b>2.3</b></div>
+            <div class="axis" aria-hidden="true"><span style="--p:0">0</span><span style="--p:0.2">1</span><span style="--p:0.4">2</span><span style="--p:0.6">3</span><span style="--p:0.8">4</span><span style="--p:1">5</span></div>
+            <p class="insight">Late orders get about half the review score.</p>
           </div>
+          <div class="dash-panel" role="tabpanel" id="dp-transit" aria-labelledby="dt-transit">
+            <p class="chart-t">Days in transit, Northeast</p>
+            <div class="bar-row"><span class="bar-l">On time</span><span class="bar" style="--v:0.35" tabindex="0" data-tip="On-time orders in the Northeast: 14 days in transit"><i></i></span><b>14</b></div>
+            <div class="bar-row"><span class="bar-l">Late</span><span class="bar late" style="--v:0.9" tabindex="0" data-tip="Late orders in the Northeast: 36 days in transit"><i></i></span><b>36</b></div>
+            <div class="axis" aria-hidden="true"><span style="--p:0">0</span><span style="--p:0.25">10</span><span style="--p:0.5">20</span><span style="--p:0.75">30</span><span style="--p:1">40</span></div>
+            <p class="insight">Most of the delay happens with the carrier.</p>
+          </div>
+          <div class="dash-panel" role="tabpanel" id="dp-sellers" aria-labelledby="dt-sellers">
+            <p class="chart-t">Who is behind the late orders</p>
+            <div class="bar-row"><span class="bar-l">Sellers</span><span class="bar late" style="--v:0.033" tabindex="0" data-tip="98 of 2,970 sellers, about 3.3%"><i></i></span><b>3%</b></div>
+            <div class="bar-row"><span class="bar-l">Late orders</span><span class="bar late" style="--v:0.5" tabindex="0" data-tip="Half of all late orders"><i></i></span><b>50%</b></div>
+            <div class="axis" aria-hidden="true"><span style="--p:0">0</span><span style="--p:0.25">25</span><span style="--p:0.5">50</span><span style="--p:0.75">75</span><span style="--p:1">100</span></div>
+            <p class="insight">98 of 2,970 sellers account for half of all late orders.</p>
+          </div>
+          <p class="dash-src">Figures from the project's first findings. Hover or focus a bar for its value.</p>
         </figure>
-        <dl class="pick-stats">
-          <div><dt>Status</dt><dd><span class="status">In progress</span></dd></div>
-          <div><dt>Progress</dt><dd><span class="meter" style="--v:.67"><i></i></span>2 of 3 stages done</dd></div>
-          <div><dt>Stack</dt><dd><ul class="chips"><li>Python</li><li>PostgreSQL</li><li>SQL</li><li>Power BI</li><li>DAX</li></ul></dd></div>
-        </dl>
       </article>
       <article class="pick" id="pick-agent" data-status="planned" data-short="Document agent">
         <div class="pick-main">
-          <p class="pick-num">Project 2</p>
+          <div class="pick-head"><p class="pick-num">Project 2</p><span class="status">Planned</span></div>
           <h3><a href="projects/agentic-rag.html">Document agent with evaluation</a></h3>
           <p class="pick-sum">A retrieval agent that answers from a document set, cites its sources and asks for human review when it isn't sure.</p>
           <div class="pick-actions"><a class="btn btn-solid" href="projects/agentic-rag.html">Open project</a></div>
+          <dl class="pick-stats"><div><dt>Progress</dt><dd><span class="meter" style="--v:0"><i></i></span>Starts after project 1</dd></div><div><dt>Stack</dt><dd><ul class="chips"><li>LangGraph</li><li>Pydantic</li><li>pgvector</li><li>LLM APIs</li></ul></dd></div></dl>
         </div>
-        <figure class="pick-visual" data-flow="v">
-          <figcaption>Planned flow <span>from the project plan</span></figcaption>
-          <ol class="viz-steps"><li>Classify</li><li>Retrieve</li><li>Answer</li><li>Check</li><li data-branch data-note="low confidence">Escalate</li></ol>
+        <figure class="pick-visual explorer" data-explorer data-label="Proposed architecture of the document agent">
+          <figcaption>Proposed architecture <span>planned, not built yet</span></figcaption>
+          <script type="application/json">{"w": 360, "h": 392, "start": "ret", "nodes": [{"id": "q", "label": "Question", "x": 30, "y": 8, "w": 150, "kind": "in", "info": "A question about the document set."}, {"id": "cls", "label": "Classify", "x": 30, "y": 76, "w": 150, "kind": "mid", "info": "Detects what the question is asking and whether it needs the documents at all."}, {"id": "ret", "label": "Retrieve", "x": 30, "y": 144, "w": 150, "kind": "mid", "info": "Searches chunks stored in PostgreSQL with pgvector and scores their relevance."}, {"id": "store", "label": "pgvector store", "x": 205, "y": 144, "w": 140, "kind": "data", "info": "Document chunks and their embeddings, stored in PostgreSQL with pgvector."}, {"id": "ans", "label": "Answer", "x": 30, "y": 212, "w": 150, "kind": "mid", "info": "Generates a structured answer validated with Pydantic, citing the chunks it used."}, {"id": "llm", "label": "LLM API", "x": 205, "y": 212, "w": 140, "kind": "side", "info": "The language model that writes the answer, called through an API."}, {"id": "chk", "label": "Check", "x": 30, "y": 280, "w": 150, "kind": "mid", "info": "Verifies that the answer is grounded in the cited sources."}, {"id": "out", "label": "Answer with sources", "x": 30, "y": 348, "w": 150, "kind": "out", "info": "A structured answer that cites the documents it came from."}, {"id": "rev", "label": "Human review", "x": 205, "y": 348, "w": 140, "kind": "side", "info": "Low-confidence answers go to a person instead of being returned."}], "edges": [{"from": "q", "to": "cls"}, {"from": "cls", "to": "ret"}, {"from": "ret", "to": "ans"}, {"from": "ans", "to": "chk"}, {"from": "chk", "to": "out", "label": "grounded", "lx": 112, "ly": 336}, {"from": "store", "to": "ret"}, {"from": "llm", "to": "ans"}, {"from": "chk", "to": "rev", "dashed": true, "label": "low confidence", "lx": 196, "ly": 330}, {"from": "cls", "to": "ans", "dashed": true, "d": "M30,93 C8,93 8,229 30,229", "label": "no documents needed", "lx": 12, "ly": 161, "rotate": -90, "anchor": "middle"}]}</script>
+          <ul class="explorer-list"><li><b>Question.</b> A question about the document set.</li><li><b>Classify.</b> Detects what the question is asking and whether it needs the documents at all.</li><li><b>Retrieve.</b> Searches chunks stored in PostgreSQL with pgvector and scores their relevance.</li><li><b>pgvector store.</b> Document chunks and their embeddings, stored in PostgreSQL with pgvector.</li><li><b>Answer.</b> Generates a structured answer validated with Pydantic, citing the chunks it used.</li><li><b>LLM API.</b> The language model that writes the answer, called through an API.</li><li><b>Check.</b> Verifies that the answer is grounded in the cited sources.</li><li><b>Answer with sources.</b> A structured answer that cites the documents it came from.</li><li><b>Human review.</b> Low-confidence answers go to a person instead of being returned.</li></ul>
         </figure>
-        <dl class="pick-stats">
-          <div><dt>Status</dt><dd><span class="status">Planned</span></dd></div>
-          <div><dt>Progress</dt><dd><span class="meter" style="--v:0"><i></i></span>Starts after project 1</dd></div>
-          <div><dt>Stack</dt><dd><ul class="chips"><li>LangGraph</li><li>Pydantic</li><li>pgvector</li><li>LLM APIs</li></ul></dd></div>
-        </dl>
       </article>
       <article class="pick" id="pick-production" data-status="planned" data-short="Agent in production">
         <div class="pick-main">
-          <p class="pick-num">Project 3</p>
+          <div class="pick-head"><p class="pick-num">Project 3</p><span class="status">Planned</span></div>
           <h3><a href="projects/production.html">Taking the agent to production</a></h3>
           <p class="pick-sum">The agent from project 2 behind an API, with tests, a container and a pipeline that runs on every push.</p>
           <div class="pick-actions"><a class="btn btn-solid" href="projects/production.html">Open project</a></div>
+          <dl class="pick-stats"><div><dt>Progress</dt><dd><span class="meter" style="--v:0"><i></i></span>Starts after project 2</dd></div><div><dt>Stack</dt><dd><ul class="chips"><li>FastAPI</li><li>pytest</li><li>Docker</li><li>GitHub Actions</li></ul></dd></div></dl>
         </div>
-        <figure class="pick-visual" data-flow="v">
-          <figcaption>Planned pipeline <span>deploys only when every step passes</span></figcaption>
-          <ol class="viz-steps"><li>Serve</li><li>Test</li><li>Lint</li><li>Package</li><li>Deploy</li></ol>
+        <figure class="pick-visual explorer" data-explorer data-label="Planned deployment pipeline">
+          <figcaption>Planned pipeline <span>not running yet</span></figcaption>
+          <script type="application/json">{"w": 360, "h": 398, "start": "test", "groups": [{"x": 16, "y": 58, "w": 334, "h": 276, "label": "GitHub Actions, on every push"}], "nodes": [{"id": "push", "label": "Push", "x": 30, "y": 8, "w": 150, "kind": "in", "info": "A change is pushed to the repository. It can't reach users without passing every step below."}, {"id": "lint", "label": "Lint", "x": 30, "y": 86, "w": 150, "kind": "mid", "info": "Linting and type checks on every commit."}, {"id": "test", "label": "Test", "x": 30, "y": 154, "w": 150, "kind": "mid", "info": "pytest for units and integration, plus the evaluation set from project 2 as a regression check."}, {"id": "eval", "label": "Evaluation set", "x": 205, "y": 154, "w": 130, "kind": "data", "info": "The fixed test set from project 2. Each release is scored and compared with the previous one."}, {"id": "pkg", "label": "Package", "x": 30, "y": 222, "w": 150, "kind": "mid", "info": "A Docker image built in CI."}, {"id": "dep", "label": "Deploy", "x": 30, "y": 290, "w": 150, "kind": "mid", "info": "GitHub Actions deploys only when every earlier step passes."}, {"id": "serve", "label": "Serve", "x": 30, "y": 356, "w": 150, "kind": "out", "info": "The agent behind FastAPI endpoints with async request handling."}], "edges": [{"from": "push", "to": "lint"}, {"from": "lint", "to": "test", "label": "pass", "lx": 112, "ly": 141}, {"from": "test", "to": "pkg", "label": "pass", "lx": 112, "ly": 209}, {"from": "pkg", "to": "dep", "label": "pass", "lx": 112, "ly": 277}, {"from": "dep", "to": "serve"}, {"from": "eval", "to": "test"}]}</script>
+          <ul class="explorer-list"><li><b>Push.</b> A change is pushed to the repository. It can't reach users without passing every step below.</li><li><b>Lint.</b> Linting and type checks on every commit.</li><li><b>Test.</b> pytest for units and integration, plus the evaluation set from project 2 as a regression check.</li><li><b>Evaluation set.</b> The fixed test set from project 2. Each release is scored and compared with the previous one.</li><li><b>Package.</b> A Docker image built in CI.</li><li><b>Deploy.</b> GitHub Actions deploys only when every earlier step passes.</li><li><b>Serve.</b> The agent behind FastAPI endpoints with async request handling.</li></ul>
         </figure>
-        <dl class="pick-stats">
-          <div><dt>Status</dt><dd><span class="status">Planned</span></dd></div>
-          <div><dt>Progress</dt><dd><span class="meter" style="--v:0"><i></i></span>Starts after project 2</dd></div>
-          <div><dt>Stack</dt><dd><ul class="chips"><li>FastAPI</li><li>pytest</li><li>Docker</li><li>GitHub Actions</li></ul></dd></div>
-        </dl>
       </article>
       <article class="pick locked" id="pick-llm" data-status="prep" data-short="LLM prospect pipeline">
         <div class="pick-main">
-          <p class="pick-num">Case study</p>
+          <div class="pick-head"><p class="pick-num">Case study</p><span class="status">Case study in preparation</span></div>
           <h3>LLM pipeline for qualifying prospects from public sources</h3>
           <p class="pick-sum">A weekly batch pipeline I designed and ran in production: web search, a two-pass LLM classification with structured output, caching and fuzzy matching. A case study rebuilt on public data is on the way.</p>
+          
+          <dl class="pick-stats"><div><dt>Stack</dt><dd><ul class="chips"><li>Web search</li><li>LLM APIs</li><li>Structured output</li><li>Caching</li><li>Fuzzy matching</li></ul></dd></div></dl>
         </div>
         <figure class="pick-visual" data-flow="v">
           <figcaption>Concept view <span>case study in preparation</span></figcaption>
           <ol class="viz-steps"><li>Web search</li><li>LLM pass 1</li><li>LLM pass 2</li><li>Fuzzy match</li></ol>
         </figure>
-        <dl class="pick-stats">
-          <div><dt>Status</dt><dd><span class="status">Case study in preparation</span></dd></div>
-          <div><dt>Stack</dt><dd><ul class="chips"><li>Web search</li><li>LLM APIs</li><li>Structured output</li><li>Caching</li><li>Fuzzy matching</li></ul></dd></div>
-        </dl>
       </article>
-    </div>
   </div>
 </section>
 

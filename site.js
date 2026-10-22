@@ -268,3 +268,158 @@
     window.addEventListener('resize', function () { if (!menu.hidden && window.innerWidth > 820) setMenu(false); });
   }
 })();
+
+/* ---------- explorable diagram ----------
+   <figure data-explorer><script type="application/json">{ "w":360, "h":400, "start":"id",
+     "nodes":[{"id","label","x","y","w","kind":"in|mid|out|data|side","info"}],
+     "edges":[{"from","to","label","dashed","d"}], "groups":[{"x","y","w","h","label"}] }</script>
+     <ul class="explorer-list"> plain-text fallback </ul></figure>
+   Nodes are real buttons; selecting one highlights its connections and shows its description. */
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function el(n, a, t) { var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); if (t) e.textContent = t; return e; }
+  var KIND = { 'in': 'Input', mid: 'Step', out: 'Output', data: 'Data store', side: 'Service', gate: 'Check' };
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-explorer]'), function (fig) {
+    var spec;
+    try { spec = JSON.parse(fig.querySelector('script[type="application/json"]').textContent); } catch (e) { return; }
+    var H = 34, byId = {};
+    spec.nodes.forEach(function (n) { byId[n.id] = n; });
+    var svg = el('svg', { 'class': 'xp', viewBox: '0 0 ' + spec.w + ' ' + spec.h, role: 'group', 'aria-label': fig.getAttribute('data-label') || 'Diagram' });
+    var gG = el('g', { 'aria-hidden': 'true' }), eG = el('g', { 'aria-hidden': 'true' }), lG = el('g', { 'aria-hidden': 'true' }), nG = el('g', {});
+
+    (spec.groups || []).forEach(function (g) {
+      gG.appendChild(el('rect', { 'class': 'xp-group', x: g.x, y: g.y, width: g.w, height: g.h, rx: 14 }));
+      gG.appendChild(el('text', { 'class': 'xp-group-label', x: g.x + 12, y: g.y + 16 }, g.label));
+    });
+
+    var edges = spec.edges.map(function (e) {
+      var a = byId[e.from], b = byId[e.to], d = e.d;
+      if (!d) {
+        var ay = a.y + H / 2, by = b.y + H / 2;
+        if (Math.abs(a.y - b.y) < 4) {           // same row: side by side
+          var left = a.x < b.x ? a : b, right = a.x < b.x ? b : a;
+          d = 'M' + (left.x + left.w) + ',' + (left.y + H / 2) + ' H' + right.x;
+        } else if (Math.abs((a.x + a.w / 2) - (b.x + b.w / 2)) < 4) {  // same column
+          d = 'M' + (a.x + a.w / 2) + ',' + (a.y + H) + ' V' + b.y;
+        } else {                                  // diagonal: leave from the bottom, arrive from the top
+          var x1 = a.x + a.w / 2, y1 = a.y + H, x2 = b.x + b.w / 2, y2 = b.y, m = (y1 + y2) / 2;
+          d = 'M' + x1 + ',' + y1 + ' C' + x1 + ',' + m + ' ' + x2 + ',' + m + ' ' + x2 + ',' + y2;
+        }
+      }
+      var p = el('path', { 'class': 'xp-edge' + (e.dashed ? ' dashed' : ''), d: d });
+      eG.appendChild(p);
+      var lab = null;
+      if (e.label) {
+        lab = el('text', { 'class': 'xp-label', x: e.lx, y: e.ly, 'text-anchor': e.anchor || 'start' }, e.label);
+        if (e.rotate) lab.setAttribute('transform', 'rotate(' + e.rotate + ' ' + e.lx + ' ' + e.ly + ')');
+        lG.appendChild(lab);
+      }
+      return { from: e.from, to: e.to, path: p, label: lab };
+    });
+
+    var buttons = spec.nodes.map(function (n) {
+      var g = el('g', { 'class': 'xp-node k-' + n.kind, tabindex: '0', role: 'button', 'aria-pressed': 'false',
+        'aria-label': n.label + ', ' + (KIND[n.kind] || 'step').toLowerCase() });
+      g.appendChild(el('rect', { 'class': 'xp-ring', x: n.x - 4, y: n.y - 4, width: n.w + 8, height: H + 8, rx: 11 }));
+      g.appendChild(el('rect', { 'class': 'xp-box', x: n.x, y: n.y, width: n.w, height: H, rx: n.kind === 'data' ? 16 : 8 }));
+      g.appendChild(el('text', { x: n.x + n.w / 2, y: n.y + H / 2 + 4.5, 'text-anchor': 'middle' }, n.label));
+      g._node = n;
+      nG.appendChild(g);
+      return g;
+    });
+
+    svg.appendChild(gG); svg.appendChild(eG); svg.appendChild(lG); svg.appendChild(nG);
+    var panel = document.createElement('div');
+    panel.className = 'xp-info';
+    panel.setAttribute('aria-live', 'polite');
+    panel.innerHTML = '<span class="xp-kind"></span><strong class="xp-title"></strong><span class="xp-text"></span>';
+    var list = fig.querySelector('.explorer-list');
+    if (list) list.hidden = true;
+    fig.appendChild(svg); fig.appendChild(panel);
+    fig.classList.add('built');
+
+    var selected = null;
+    function show(g) {
+      var n = g._node;
+      buttons.forEach(function (b) { b.classList.remove('hl'); });
+      edges.forEach(function (e) {
+        var on = e.from === n.id || e.to === n.id;
+        e.path.classList.toggle('hl', on);
+        if (e.label) e.label.classList.toggle('hl', on);
+        if (on) buttons.forEach(function (b) { if (b._node.id === e.from || b._node.id === e.to) b.classList.add('hl'); });
+      });
+      svg.classList.add('focus');
+      panel.querySelector('.xp-kind').textContent = KIND[n.kind] || 'Step';
+      panel.querySelector('.xp-title').textContent = n.label;
+      panel.querySelector('.xp-text').textContent = n.info;
+      panel.setAttribute('data-kind', n.kind);
+      if (!reduce) { panel.classList.remove('swap'); void panel.offsetWidth; panel.classList.add('swap'); }
+    }
+    function choose(g) {
+      if (selected) { selected.classList.remove('sel'); selected.setAttribute('aria-pressed', 'false'); }
+      selected = g; g.classList.add('sel'); g.setAttribute('aria-pressed', 'true');
+      show(g);
+    }
+    buttons.forEach(function (g, i) {
+      g.addEventListener('click', function () { choose(g); });
+      g.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(g); }
+        if (/^Arrow/.test(e.key)) {
+          e.preventDefault();
+          var d = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : -1;
+          buttons[(i + d + buttons.length) % buttons.length].focus();
+        }
+      });
+      g.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') show(g); });
+      g.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && selected) show(selected); });
+    });
+    var start = buttons.filter(function (b) { return b._node.id === spec.start; })[0] || buttons[0];
+    choose(start);
+  });
+})();
+
+/* ---------- analytics mini dashboard ----------
+   <div class="dash" data-dash> with tabs (role=tab, aria-controls) and one panel per view.
+   Bars and rings read their values from data attributes; nothing is generated. */
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-dash]'), function (dash) {
+    var tabs = Array.prototype.slice.call(dash.querySelectorAll('[role="tab"]'));
+    var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+    function select(i, focus) {
+      tabs.forEach(function (t, k) {
+        var on = k === i;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        panels[k].hidden = !on;
+        if (on) { panels[k].classList.remove('enter'); void panels[k].offsetWidth; panels[k].classList.add('enter'); }
+      });
+      if (focus) tabs[i].focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(i); });
+      t.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault(); select((i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length, true);
+        }
+      });
+    });
+    // tooltips for bars: shown on hover and on keyboard focus
+    var tip = document.createElement('div');
+    tip.className = 'dash-tip'; tip.setAttribute('role', 'tooltip'); tip.hidden = true;
+    dash.appendChild(tip);
+    Array.prototype.forEach.call(dash.querySelectorAll('[data-tip]'), function (b) {
+      function on() {
+        tip.textContent = b.getAttribute('data-tip'); tip.hidden = false;
+        var r = b.getBoundingClientRect(), d = dash.getBoundingClientRect();
+        tip.style.left = Math.min(d.width - 12, Math.max(12, r.left - d.left + r.width / 2)) + 'px';
+        tip.style.top = (r.top - d.top) + 'px';
+      }
+      function off() { tip.hidden = true; }
+      b.addEventListener('pointerenter', on); b.addEventListener('pointerleave', off);
+      b.addEventListener('focus', on); b.addEventListener('blur', off);
+    });
+    select(0);
+  });
+})();
