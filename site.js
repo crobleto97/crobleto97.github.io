@@ -174,7 +174,8 @@
     { group: 'Links', label: 'Email cgalileorr97@gmail.com', href: 'mailto:cgalileorr97@gmail.com', keys: 'mail contact' },
     { group: 'Links', label: 'CV in English (PDF)', href: base + 'cv/Christian_Robleto_CV_EN.pdf', keys: 'resume cv' },
     { group: 'Links', label: 'CV en español (PDF)', href: base + 'cv/Christian_Robleto_CV_ES.pdf', keys: 'resume cv spanish' },
-    { group: 'Actions', label: 'Switch light / dark theme', action: function () { var t = document.querySelector('.theme-toggle'); if (t) t.click(); }, keys: 'theme dark light mode' }
+    { group: 'Actions', label: 'Switch light / dark theme', action: function () { var t = document.querySelector('.theme-toggle'); if (t) t.click(); }, keys: 'theme dark light mode' },
+    { group: 'Actions', label: 'Open terminal', action: function () { openTerminal(); }, keys: 'terminal console shell cli developer' }
   ];
 
   var dlg = document.createElement('dialog');
@@ -251,6 +252,112 @@
     b.setAttribute('aria-keyshortcuts', isMac ? 'Meta+K' : 'Control+K');
     b.addEventListener('click', open);
   });
+
+  /* ---------- terminal (an easter egg opened from the palette) ----------
+     Commands read the real page content, from this page or from the home page, so nothing is duplicated. */
+  var term = null, termData = null, hist = [], hpos = 0;
+  var CMDS = ['help', 'projects', 'open', 'about', 'skills', 'contact', 'cv', 'theme', 'clear', 'exit'];
+  function loadData() {
+    if (termData) return Promise.resolve(termData);
+    var fromHome = document.querySelector('#about') ? Promise.resolve(document)
+      : fetch(base + 'index.html').then(function (r) { return r.text(); }).then(function (t) { return new DOMParser().parseFromString(t, 'text/html'); });
+    return fromHome.then(function (doc) {
+      var txt = function (el) { return el ? el.textContent.replace(/\s+/g, ' ').trim() : ''; };
+      termData = {
+        projects: Array.prototype.map.call(doc.querySelectorAll('.pick'), function (p) {
+          var a = p.querySelector('h3 a');
+          return { title: txt(p.querySelector('h3')), status: txt(p.querySelector('.status')), href: a ? base + a.getAttribute('href') : null };
+        }),
+        story: Array.prototype.map.call(doc.querySelectorAll('#about .story p'), txt),
+        journey: Array.prototype.map.call(doc.querySelectorAll('.timeline li'), function (li) {
+          return txt(li.querySelector('.when')) + '  ' + txt(li.querySelector('strong')) + ', ' + txt(li.querySelector('.what'));
+        }),
+        skills: Array.prototype.map.call(doc.querySelectorAll('.skills > div'), function (d) {
+          return { title: txt(d.querySelector('h3')), tags: Array.prototype.map.call(d.querySelectorAll('.tags li'), txt) };
+        })
+      };
+      return termData;
+    });
+  }
+  function buildTerminal() {
+    term = document.createElement('dialog');
+    term.className = 'term';
+    term.setAttribute('aria-label', 'Terminal');
+    term.innerHTML =
+      '<div class="term-bar"><span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="term-title">christian@portfolio: ~</span>' +
+      '<button type="button" class="term-close" aria-label="Close terminal">Close <kbd>Esc</kbd></button></div>' +
+      '<div class="term-out" role="log" aria-live="polite" tabindex="-1"></div>' +
+      '<form class="term-line"><label for="term-in"><span aria-hidden="true">$</span><span class="term-sr">Command</span></label>' +
+      '<input id="term-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="term-help"></form>' +
+      '<p id="term-help" class="term-sr">Type help and press Enter to see the commands. Escape closes the terminal.</p>';
+    document.body.appendChild(term);
+    var out = term.querySelector('.term-out'), input = term.querySelector('input');
+    function line(text, cls) { var d = document.createElement('div'); d.className = 'tl' + (cls ? ' ' + cls : ''); d.textContent = text; out.appendChild(d); return d; }
+    function link(label, href, prefix) {
+      var d = line(prefix || '', 'link'); var a = document.createElement('a'); a.href = href; a.textContent = label; d.appendChild(a);
+    }
+    function scroll() { out.scrollTop = out.scrollHeight; }
+    var run = {
+      help: function () {
+        line('Commands', 'h');
+        [['projects', 'list the projects and their status'], ['open <n>', 'open project n'], ['about', 'who I am and where I have worked'],
+         ['skills', 'tools I use'], ['contact', 'how to reach me'], ['cv', 'download links for the CV'], ['theme', 'switch light and dark'],
+         ['clear', 'clear the screen'], ['exit', 'close the terminal']].forEach(function (c) { line('  ' + (c[0] + '            ').slice(0, 12) + c[1]); });
+      },
+      projects: function (d) {
+        d.projects.forEach(function (p, i) { line('  ' + (i + 1) + '  ' + p.title + '  [' + p.status + ']'); });
+        line('Type open 1 to open the first one.', 'dim');
+      },
+      open: function (d, arg) {
+        var n = parseInt(arg, 10), p = d.projects[n - 1];
+        if (!arg) return line('Usage: open <number>. Type projects to see the numbers.', 'err');
+        if (!p) return line('No project ' + arg + '. Type projects to see the list.', 'err');
+        if (!p.href) return line(p.title + ' has no page yet: ' + p.status.toLowerCase() + '.', 'dim');
+        line('Opening ' + p.title + '...', 'dim'); setTimeout(function () { location.href = p.href; }, 250);
+      },
+      about: function (d) { d.story.forEach(function (t) { line(t); line(''); }); line('Journey', 'h'); d.journey.forEach(function (t) { line('  ' + t); }); },
+      skills: function (d) { d.skills.forEach(function (g) { line(g.title, 'h'); line('  ' + g.tags.join(', ')); }); },
+      contact: function () {
+        link('cgalileorr97@gmail.com', 'mailto:cgalileorr97@gmail.com', '  email     ');
+        link('linkedin.com/in/chris-robleto', 'https://www.linkedin.com/in/chris-robleto', '  linkedin  ');
+        link('github.com/crobleto97', 'https://github.com/crobleto97', '  github    ');
+      },
+      cv: function () {
+        link('English (PDF)', base + 'cv/Christian_Robleto_CV_EN.pdf', '  ');
+        link('Español (PDF)', base + 'cv/Christian_Robleto_CV_ES.pdf', '  ');
+      },
+      theme: function () { var t = document.querySelector('.theme-toggle'); if (t) { t.click(); line('Theme switched.', 'dim'); } },
+      clear: function () { out.innerHTML = ''; },
+      exit: function () { term.close(); }
+    };
+    term.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var raw = input.value.trim(); input.value = '';
+      if (!raw) return;
+      hist.push(raw); hpos = hist.length;
+      line('$ ' + raw, 'cmd');
+      var parts = raw.split(/\s+/), cmd = parts[0].toLowerCase(), arg = parts[1];
+      if (!run[cmd]) { line('command not found: ' + cmd + '. Type help.', 'err'); scroll(); return; }
+      loadData().then(function (d) { run[cmd](d, arg); scroll(); }, function () { line('Could not read the page content. Try again on the home page.', 'err'); scroll(); });
+    });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowUp' && hist.length) { e.preventDefault(); hpos = Math.max(0, hpos - 1); input.value = hist[hpos]; }
+      else if (e.key === 'ArrowDown' && hist.length) { e.preventDefault(); hpos = Math.min(hist.length, hpos + 1); input.value = hist[hpos] || ''; }
+      else if (e.key === 'Tab' && input.value) {
+        var m = CMDS.filter(function (c) { return c.indexOf(input.value.toLowerCase()) === 0; });
+        if (m.length === 1) { e.preventDefault(); input.value = m[0] + (m[0] === 'open' ? ' ' : ''); }
+      }
+      else if (e.key === 'l' && e.ctrlKey) { e.preventDefault(); out.innerHTML = ''; }
+    });
+    term.querySelector('.term-close').addEventListener('click', function () { term.close(); });
+    term.addEventListener('click', function (e) { if (e.target === term) term.close(); });
+    line('Portfolio terminal. Type help to see what you can do, exit to leave.', 'dim');
+  }
+  function openTerminal() {
+    if (!term) buildTerminal();
+    if (!term.open) term.showModal();
+    term.querySelector('input').focus();
+  }
 
   /* mobile menu */
   var btn = document.querySelector('.menu-btn'), menu = document.getElementById('mobile-menu');

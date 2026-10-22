@@ -99,6 +99,30 @@ kbd{font:600 .72rem var(--display);padding:.12rem .4rem;border-radius:6px;border
 .cmdk-foot{display:flex;gap:1rem;flex-wrap:wrap;padding:.6rem 1rem;border-top:1px solid var(--line);font:500 .78rem var(--display);color:var(--muted)}
 .cmdk-foot kbd{margin-right:.2rem}
 
+/* terminal: one deliberate dark look in both themes */
+.term{--t-bg:#0B1519;--t-ink:#D7E4E4;--t-dim:#8FA5A8;--t-acc:#62BAD6;--t-ok:#6CC59A;--t-err:#E9A06A;
+  width:min(720px,calc(100% - 24px));height:min(70vh,520px);margin:10vh auto auto;padding:0;border:1px solid #24363C;border-radius:14px;
+  background:var(--t-bg);color:var(--t-ink);box-shadow:0 30px 90px -20px rgba(0,0,0,.6);overflow:hidden}
+.term[open]{display:grid;grid-template-rows:auto minmax(0,1fr) auto;animation:cmdk-in .18s cubic-bezier(.2,.7,.2,1)}
+.term::backdrop{background:rgba(4,9,11,.55)}
+.term,.term input,.term-out{font:400 .92rem/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.term-bar{display:flex;align-items:center;gap:.75rem;padding:.55rem .75rem;border-bottom:1px solid #1E2F35;font-family:var(--display);font-size:.82rem;color:var(--t-dim)}
+.term-dots{display:flex;gap:6px}.term-dots i{width:10px;height:10px;border-radius:50%;background:#2A3E45}
+.term-title{flex:1}
+.term-close{display:inline-flex;align-items:center;gap:.4rem;border:1px solid #2A3E45;background:transparent;color:var(--t-ink);border-radius:8px;padding:.25rem .55rem;font:500 .8rem var(--display);cursor:pointer}
+.term-close kbd{background:transparent;border-color:#2A3E45;color:var(--t-dim)}
+.term-close:hover{border-color:var(--t-acc)}
+.term-out{overflow-y:auto;padding:.9rem 1rem;white-space:pre-wrap;word-break:break-word;outline:none}
+.tl.cmd{color:var(--t-acc);margin-top:.5rem}
+.tl.h{color:var(--t-ok);margin-top:.35rem}
+.tl.dim{color:var(--t-dim)}
+.tl.err{color:var(--t-err)}
+.tl a{color:var(--t-acc)}
+.term-line{display:flex;align-items:center;gap:.6rem;padding:.7rem 1rem;border-top:1px solid #1E2F35}
+.term-line label{color:var(--t-ok)}
+.term-line input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--t-ink);caret-color:var(--t-acc)}
+.term-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--display);font-weight:600;font-size:1rem;
   padding:.7rem 1.25rem;border-radius:999px;white-space:nowrap;border:1.5px solid var(--ink);color:var(--ink);background:transparent;text-decoration:none;
@@ -562,7 +586,7 @@ body{background-color:var(--bg);
   html{scroll-behavior:auto}
   .dag .pk,.dag .n .pulse,.dag.enter *,.dag-info.swap *,.tile-dot,.packet::after,.stage,.pick,.pick .meter i,.viz .flow,.viz .vn rect,.hbar i::before,.fnd-ring .val,.dash-panel.enter,.dash-panel .bar i,.dash-ring .val,.xp-info.swap>*,.pick .pick-visual{animation:none !important}
   .dag .edge,.dag .n .box,.btn,.navlink,.site-head,.theme-toggle,.tile,.pick-arrow,.packet .tail,.menu-btn path,.cmdk-btn{transition:none}
-  .cmdk[open],.flow li.flash{animation:none}
+  .cmdk[open],.term[open],.flow li.flash{animation:none}
   .pn,.timeline li::before,.timeline strong{transition:none}
   .js .statement .w{opacity:1;transition:none}
   .js .pre{opacity:1;transform:none}
