@@ -15,36 +15,71 @@
     new IntersectionObserver(function (es) { el.classList.toggle('idle', !es[0].isIntersecting); }).observe(el);
   }
 
-  /* ---------- hero diagram: moving data + highlight a node's connections ---------- */
+  /* ---------- hero: living data network ----------
+     Static edges, small data packets travelling along them (SVG animateMotion, paused off screen),
+     a pulse when a packet reaches a node, and a selectable step with a description panel. */
   var dag = document.querySelector('.dag');
   if (dag) {
-    $$('.edge', dag).forEach(function (edge, i) {
-      var flow = edge.cloneNode(false);
-      flow.setAttribute('class', 'flow');
-      flow.style.animationDelay = (-i * 0.37) + 's';
-      edge.parentNode.appendChild(flow);
-    });
-    pauseOffscreen(dag);
+    var SVGNS = 'http://www.w3.org/2000/svg';
+    var mk = function (n, a) { var e = document.createElementNS(SVGNS, n); for (var k in a) e.setAttribute(k, a[k]); return e; };
     var paths = $$('[data-link]', dag), dnodes = $$('.n', dag);
+    var byId = {};
+    dnodes.forEach(function (n) {
+      byId[n.getAttribute('data-node')] = n;
+      n.classList.add('k-' + (n.getAttribute('data-kind') || '').toLowerCase());
+      var r = n.querySelector('.box');
+      var x = +r.getAttribute('x'), y = +r.getAttribute('y'), w = +r.getAttribute('width'), h = +r.getAttribute('height');
+      // a pulse plate that flashes when a packet arrives (shadow and focus ring are in the markup)
+      n.insertBefore(mk('rect', { 'class': 'pulse', x: x, y: y, width: w, height: h, rx: 8 }), r);
+    });
+    var packets = mk('g', { 'class': 'packets' });
+    if (!reduce) dag.classList.add('enter'); // one-time draw-in of edges and nodes
+    if (!reduce) {
+      paths.forEach(function (p, i) {
+        var ends = p.getAttribute('data-link').split(' ');
+        p.id = 'edge-' + ends.join('-');
+        var dur = 2.8 + (i % 3) * 0.35;
+        var c = mk('circle', { 'class': 'pk', r: 2.6, 'data-link': p.getAttribute('data-link') });
+        var am = mk('animateMotion', { dur: dur + 's', repeatCount: 'indefinite', begin: (-i * 0.53).toFixed(2) + 's', calcMode: 'spline', keyTimes: '0;1', keySplines: '.45 0 .55 1' });
+        am.appendChild(mk('mpath', { href: '#' + p.id }));
+        c.appendChild(am);
+        packets.appendChild(c);
+        // pulse the node the packet arrives at
+        var target = byId[ends[1]];
+        am.addEventListener('repeatEvent', function () {
+          if (!target || dag.classList.contains('idle')) return;
+          target.classList.remove('ping'); void target.getBoundingClientRect(); target.classList.add('ping');
+        });
+      });
+      // packets travel under the nodes, over the edges
+      dag.querySelector('.particles').appendChild(packets);
+    }
+    if (hasIO) new IntersectionObserver(function (es) {
+      var on = es[0].isIntersecting;
+      dag.classList.toggle('idle', !on);
+      if (dag.pauseAnimations) { if (on) dag.unpauseAnimations(); else dag.pauseAnimations(); }
+    }).observe(dag);
+
     var wrap = dag.closest('.dag-wrap');
     var info = wrap && wrap.querySelector('.dag-info');
-    var selected = null;
+    var selected = null, shownId = null;
     function highlight(node) {
       var id = node.getAttribute('data-node');
-      paths.concat(dnodes).forEach(function (el) { el.classList.remove('hl'); });
       dag.classList.add('focus');
-      node.classList.add('hl');
-      paths.forEach(function (p) {
+      dnodes.forEach(function (n) { n.classList.toggle('hl', n === node); });
+      paths.concat($$('.pk', dag)).forEach(function (p) {
         var ends = p.getAttribute('data-link').split(' ');
-        if (ends.indexOf(id) === -1) return;
-        p.classList.add('hl');
-        dnodes.forEach(function (n) { if (ends.indexOf(n.getAttribute('data-node')) !== -1) n.classList.add('hl'); });
+        var on = ends.indexOf(id) !== -1;
+        p.classList.toggle('hl', on);
+        if (on) ends.forEach(function (e) { if (byId[e]) byId[e].classList.add('hl'); });
       });
-      if (info) {
-        info.querySelector('.dag-kind').textContent = node.getAttribute('data-kind');
+      if (info && shownId !== id) {
+        shownId = id;
+        info.querySelector('.dag-kind span').textContent = node.getAttribute('data-kind');
         info.querySelector('.dag-title').textContent = node.querySelector('text').textContent;
         info.querySelector('.dag-text').textContent = node.getAttribute('data-info');
         info.setAttribute('data-kind', node.getAttribute('data-kind'));
+        if (!reduce) { info.classList.remove('swap'); void info.offsetWidth; info.classList.add('swap'); }
       }
     }
     function choose(node) {
@@ -53,23 +88,31 @@
       node.classList.add('sel'); node.setAttribute('aria-pressed', 'true');
       highlight(node);
     }
-    dnodes.forEach(function (node) {
+    var order = dnodes.slice();
+    dnodes.forEach(function (node, i) {
       var label = node.querySelector('text').textContent;
       node.setAttribute('tabindex', '0');
       node.setAttribute('role', 'button');
       node.setAttribute('aria-pressed', 'false');
-      node.setAttribute('aria-label', label + ': ' + node.getAttribute('data-kind').toLowerCase() + ' step');
+      node.setAttribute('aria-label', label + ', ' + node.getAttribute('data-kind').toLowerCase() + ' step');
       node.addEventListener('click', function () { choose(node); });
       node.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(node); }
+        // arrow keys move between steps
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          var d = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : -1;
+          order[(i + d + order.length) % order.length].focus();
+        }
       });
+      node.addEventListener('focus', function () { highlight(node); });
+      node.addEventListener('blur', function () { if (selected) highlight(selected); });
       // hover previews a step; leaving goes back to the selected one
       node.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') highlight(node); });
       node.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && selected) highlight(selected); });
     });
-    // the diagram is now driven by the panel, so the SVG itself is a group of buttons
     dag.setAttribute('role', 'group');
-    var start = dag.querySelector('[data-node="val"]');
+    var start = byId.val;
     if (start) choose(start);
   }
 

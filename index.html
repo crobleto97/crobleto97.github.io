@@ -46,33 +46,39 @@
     </div>
   </div>
   <figure class="dag-wrap">
-  <svg class="dag" viewBox="0 0 460 280" role="img" aria-labelledby="dag-t">
-      <title id="dag-t">Raw sources flow through validation and modelling into dashboards, LLM workflows and agents</title>
-      <text class="cap" x="20" y="14">Sources</text><text class="cap" x="190" y="14">Clean and model</text><text class="cap" x="342" y="14">Outputs</text>
-      <g aria-hidden="true">
-        <path class="edge" data-link="csv val" d="M124,46 C157,46 157,96 190,96"/>
-        <path class="edge" data-link="api val" d="M124,106 C157,106 157,96 190,96"/>
-        <path class="edge" data-link="crm val" d="M124,166 C157,166 157,96 190,96"/>
-        <path class="edge" data-link="web val" d="M124,226 C157,226 157,96 190,96"/>
-        <path class="edge" data-link="val mod" d="M238,112 L238,160"/>
-        <path class="edge" data-link="mod dash" d="M286,176 C314,176 314,66 342,66"/>
-        <path class="edge" data-link="mod llm" d="M286,176 C314,176 314,146 342,146"/>
-        <path class="edge" data-link="mod agt" d="M286,176 C314,176 314,226 342,226"/>
+  <svg class="dag" viewBox="0 0 478 296" role="group" aria-labelledby="dag-t">
+      <title id="dag-t">How data moves: sources are validated and modelled, then feed dashboards, LLM workflows and agents. Select a step to read about it.</title>
+      <defs><radialGradient id="dag-glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="var(--accent)" stop-opacity=".22"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></radialGradient></defs>
+      <g class="lanes" aria-hidden="true">
+        <rect class="lane" x="8" y="4" width="140" height="286" rx="14"/><rect class="lane core-lane" x="176" y="4" width="128" height="286" rx="14"/><rect class="lane" x="330" y="4" width="146" height="286" rx="14"/>
+        <ellipse cx="240" cy="150" rx="120" ry="120" fill="url(#dag-glow)"/>
+        <text class="cap" x="20" y="24">Sources</text><text class="cap" x="188" y="24">Clean and model</text><text class="cap" x="342" y="24">Outputs</text>
       </g>
-      <g aria-hidden="true">
-        <g class="n" data-node="csv" data-kind="Source" data-info="Flat exports from operational systems such as orders, deliveries and suppliers. Types are fixed on the way in."><rect x="20" y="30" width="104" height="32" rx="7"/><text x="30" y="50.5">Raw CSV files</text></g>
-        <g class="n" data-node="api" data-kind="Source" data-info="Data pulled from services over HTTP and stored in a predictable shape."><rect x="20" y="90" width="104" height="32" rx="7"/><text x="30" y="110.5">REST APIs</text></g>
-        <g class="n" data-node="crm" data-kind="Source" data-info="Customer records that need cleaning, deduplication and matching against other sources."><rect x="20" y="150" width="104" height="32" rx="7"/><text x="30" y="170.5">CRM exports</text></g>
-        <g class="n" data-node="web" data-kind="Source" data-info="Public sources found by search, then classified by an LLM into structured fields."><rect x="20" y="210" width="104" height="32" rx="7"/><text x="30" y="230.5">Public web</text></g>
-        <g class="n core" data-node="val" data-kind="Processing" data-info="Checks on keys, nulls, duplicates and value ranges. Rejected rows are logged, so bad data stops here."><rect x="190" y="80" width="96" height="32" rx="7"/><text x="200" y="100.5">Validate</text></g>
-        <g class="n core" data-node="mod" data-kind="Processing" data-info="Clean data shaped for questions: a star schema, SQL views and the KPIs built on them."><rect x="190" y="160" width="96" height="32" rx="7"/><text x="200" y="180.5">Model</text></g>
-        <g class="n" data-node="dash" data-kind="Output" data-info="Reports a team reads every week: KPIs, trends and segments."><rect x="342" y="50" width="112" height="32" rx="7"/><text x="352" y="70.5">Dashboards</text></g>
-        <g class="n" data-node="llm" data-kind="Output" data-info="Language-model steps with structured output, validated before anything is saved."><rect x="342" y="130" width="112" height="32" rx="7"/><text x="352" y="150.5">LLM workflows</text></g>
-        <g class="n" data-node="agt" data-kind="Output" data-info="Retrieval agents that answer from documents, cite their sources and hand off when unsure."><rect x="342" y="210" width="112" height="32" rx="7"/><text x="352" y="230.5">Agents</text></g>
+      <g class="edges" aria-hidden="true">
+        <path class="edge" id="e-csv-val" data-link="csv val" d="M136,58 C163,58 163,108 190,108" pathLength="1"/>
+        <path class="edge" id="e-api-val" data-link="api val" d="M136,118 C163,118 163,108 190,108" pathLength="1"/>
+        <path class="edge" id="e-crm-val" data-link="crm val" d="M136,178 C163,178 163,108 190,108" pathLength="1"/>
+        <path class="edge" id="e-web-val" data-link="web val" d="M136,238 C163,238 163,108 190,108" pathLength="1"/>
+        <path class="edge" id="e-val-mod" data-link="val mod" d="M240,124 L240,172" pathLength="1"/>
+        <path class="edge" id="e-mod-dash" data-link="mod dash" d="M290,188 C316,188 316,78 342,78" pathLength="1"/>
+        <path class="edge" id="e-mod-llm" data-link="mod llm" d="M290,188 C316,188 316,158 342,158" pathLength="1"/>
+        <path class="edge" id="e-mod-agt" data-link="mod agt" d="M290,188 C316,188 316,238 342,238" pathLength="1"/>
+      </g>
+      <g class="particles" aria-hidden="true"></g>
+      <g class="nodes">
+        <g class="n" data-node="csv" data-kind="Source" data-info="Flat exports from operational systems such as orders, deliveries and suppliers. Types are fixed on the way in."><rect class="sh" x="20" y="45" width="116" height="32" rx="8"/><rect class="ring" x="16" y="38" width="124" height="40" rx="11"/><rect class="box" x="20" y="42" width="116" height="32" rx="8"/><circle class="pip" cx="31" cy="58" r="3"/><text x="41" y="62.5">Raw CSV files</text></g>
+        <g class="n" data-node="api" data-kind="Source" data-info="Data pulled from services over HTTP and stored in a predictable shape."><rect class="sh" x="20" y="105" width="116" height="32" rx="8"/><rect class="ring" x="16" y="98" width="124" height="40" rx="11"/><rect class="box" x="20" y="102" width="116" height="32" rx="8"/><circle class="pip" cx="31" cy="118" r="3"/><text x="41" y="122.5">REST APIs</text></g>
+        <g class="n" data-node="crm" data-kind="Source" data-info="Customer records that need cleaning, deduplication and matching against other sources."><rect class="sh" x="20" y="165" width="116" height="32" rx="8"/><rect class="ring" x="16" y="158" width="124" height="40" rx="11"/><rect class="box" x="20" y="162" width="116" height="32" rx="8"/><circle class="pip" cx="31" cy="178" r="3"/><text x="41" y="182.5">CRM exports</text></g>
+        <g class="n" data-node="web" data-kind="Source" data-info="Public sources found by search, then classified by an LLM into structured fields."><rect class="sh" x="20" y="225" width="116" height="32" rx="8"/><rect class="ring" x="16" y="218" width="124" height="40" rx="11"/><rect class="box" x="20" y="222" width="116" height="32" rx="8"/><circle class="pip" cx="31" cy="238" r="3"/><text x="41" y="242.5">Public web</text></g>
+        <g class="n core" data-node="val" data-kind="Processing" data-info="Checks on keys, nulls, duplicates and value ranges. Rejected rows are logged, so bad data stops here."><rect class="sh" x="190" y="95" width="100" height="32" rx="8"/><rect class="ring" x="186" y="88" width="108" height="40" rx="11"/><rect class="box" x="190" y="92" width="100" height="32" rx="8"/><circle class="pip" cx="201" cy="108" r="3"/><text x="211" y="112.5">Validate</text></g>
+        <g class="n core" data-node="mod" data-kind="Processing" data-info="Clean data shaped for questions: a star schema, SQL views and the KPIs built on them."><rect class="sh" x="190" y="175" width="100" height="32" rx="8"/><rect class="ring" x="186" y="168" width="108" height="40" rx="11"/><rect class="box" x="190" y="172" width="100" height="32" rx="8"/><circle class="pip" cx="201" cy="188" r="3"/><text x="211" y="192.5">Model</text></g>
+        <g class="n" data-node="dash" data-kind="Output" data-info="Reports a team reads every week: KPIs, trends and segments."><rect class="sh" x="342" y="65" width="124" height="32" rx="8"/><rect class="ring" x="338" y="58" width="132" height="40" rx="11"/><rect class="box" x="342" y="62" width="124" height="32" rx="8"/><circle class="pip" cx="353" cy="78" r="3"/><text x="363" y="82.5">Dashboards</text></g>
+        <g class="n" data-node="llm" data-kind="Output" data-info="Language-model steps with structured output, validated before anything is saved."><rect class="sh" x="342" y="145" width="124" height="32" rx="8"/><rect class="ring" x="338" y="138" width="132" height="40" rx="11"/><rect class="box" x="342" y="142" width="124" height="32" rx="8"/><circle class="pip" cx="353" cy="158" r="3"/><text x="363" y="162.5">LLM workflows</text></g>
+        <g class="n" data-node="agt" data-kind="Output" data-info="Retrieval agents that answer from documents, cite their sources and hand off when unsure."><rect class="sh" x="342" y="225" width="124" height="32" rx="8"/><rect class="ring" x="338" y="218" width="132" height="40" rx="11"/><rect class="box" x="342" y="222" width="124" height="32" rx="8"/><circle class="pip" cx="353" cy="238" r="3"/><text x="363" y="242.5">Agents</text></g>
       </g>
     </svg>
     <figcaption class="dag-info" aria-live="polite">
-      <span class="dag-kind">Processing</span>
+      <span class="dag-kind"><i aria-hidden="true"></i><span>Processing</span></span>
       <strong class="dag-title">Validate</strong>
       <span class="dag-text">Checks on keys, nulls, duplicates and value ranges. Rejected rows are logged, so bad data stops here.</span>
       <span class="dag-hint">Select a step in the diagram to see what happens there.</span>
