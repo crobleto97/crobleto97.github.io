@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
-<link rel="stylesheet" href="styles.css?v=7">
-<script src="theme.js?v=7"></script>
-<script src="main.js?v=7" defer></script>
+<link rel="stylesheet" href="styles.css?v=8">
+<script src="theme.js?v=8"></script>
+<script src="main.js?v=8" defer></script>
 </head>
 <body>
 <a class="skip" href="#top">Skip to content</a>
@@ -78,38 +78,61 @@
     <h2>What I'm building</h2>
     <p>Three connected projects, built in this order. Each page shows the plan, the stack and the progress so far.</p>
   </div>
-  <!-- To add a project: copy one <li class="station">. set data-status="planned|progress|done" on the <li> and update the pill text (Planned, In progress, Done). -->
-  <ol class="line" data-scroll>
-    <li class="station" data-status="progress">
-      <span class="node" aria-hidden="true">1</span>
-      <h3><a href="projects/analytics.html">Operations analytics platform</a></h3>
-      <p>Sales, delivery and supplier KPIs from raw data to a Power BI report, with a proper star schema in between.</p>
-      <span class="stack">Python · PostgreSQL · SQL · Power BI · DAX</span>
-      <span class="status">In progress</span>
-      <span class="more" aria-hidden="true">View project</span>
-    </li>
-    <li class="station" data-status="planned">
-      <span class="node" aria-hidden="true">2</span>
-      <h3><a href="projects/agentic-rag.html">Document agent with evaluation</a></h3>
-      <p>A retrieval agent that answers from a document set, cites its sources and asks for human review when it isn't sure.</p>
-      <span class="stack">LangGraph · Pydantic · pgvector · LLM APIs</span>
-      <span class="status">Planned</span>
-      <span class="more" aria-hidden="true">View project</span>
-    </li>
-    <li class="station" data-status="planned">
-      <span class="node" aria-hidden="true">3</span>
-      <h3><a href="projects/production.html">Taking the agent to production</a></h3>
-      <p>The agent from project 2 behind an API, with tests, a container and a pipeline that runs on every push.</p>
-      <span class="stack">FastAPI · pytest · Docker · GitHub Actions</span>
-      <span class="status">Planned</span>
-      <span class="more" aria-hidden="true">View project</span>
-    </li>
-  </ol>
-
-  <div class="later">
-    <h3>LLM pipeline for qualifying prospects from public sources</h3>
-    <p>A weekly batch pipeline I designed and ran in production: web search, a two-pass LLM classification with structured output, caching and fuzzy matching. A case study rebuilt on public data is on the way.</p>
-    <span class="status" data-status="prep">Case study in preparation</span>
+  <!-- Project picker. To add a project, copy one <article class="pick">. Set data-status (planned | progress | done | prep),
+       data-short (name on its roster tile), the pill text and the progress meter (--v from 0 to 1). The roster builds itself. -->
+  <div class="picker">
+    <div class="pick-stage">
+      <article class="pick" id="pick-analytics" data-status="progress" data-short="Ops analytics">
+        <div class="pick-main">
+          <p class="pick-num">Project 1</p>
+          <h3><a href="projects/analytics.html">Operations analytics platform</a></h3>
+          <p class="pick-sum">Sales, delivery and supplier KPIs from raw data to a Power BI report, with a proper star schema in between.</p>
+          <div class="pick-actions"><a class="btn btn-solid" href="projects/analytics.html">Open project</a></div>
+        </div>
+        <dl class="pick-stats">
+          <div><dt>Status</dt><dd><span class="status">In progress</span></dd></div>
+          <div><dt>Progress</dt><dd><span class="meter" style="--v:.67"><i></i></span>2 of 3 stages done</dd></div>
+          <div><dt>Stack</dt><dd><ul class="chips"><li>Python</li><li>PostgreSQL</li><li>SQL</li><li>Power BI</li><li>DAX</li></ul></dd></div>
+        </dl>
+      </article>
+      <article class="pick" id="pick-agent" data-status="planned" data-short="Document agent">
+        <div class="pick-main">
+          <p class="pick-num">Project 2</p>
+          <h3><a href="projects/agentic-rag.html">Document agent with evaluation</a></h3>
+          <p class="pick-sum">A retrieval agent that answers from a document set, cites its sources and asks for human review when it isn't sure.</p>
+          <div class="pick-actions"><a class="btn btn-solid" href="projects/agentic-rag.html">Open project</a></div>
+        </div>
+        <dl class="pick-stats">
+          <div><dt>Status</dt><dd><span class="status">Planned</span></dd></div>
+          <div><dt>Progress</dt><dd><span class="meter" style="--v:0"><i></i></span>Starts after project 1</dd></div>
+          <div><dt>Stack</dt><dd><ul class="chips"><li>LangGraph</li><li>Pydantic</li><li>pgvector</li><li>LLM APIs</li></ul></dd></div>
+        </dl>
+      </article>
+      <article class="pick" id="pick-production" data-status="planned" data-short="Agent in production">
+        <div class="pick-main">
+          <p class="pick-num">Project 3</p>
+          <h3><a href="projects/production.html">Taking the agent to production</a></h3>
+          <p class="pick-sum">The agent from project 2 behind an API, with tests, a container and a pipeline that runs on every push.</p>
+          <div class="pick-actions"><a class="btn btn-solid" href="projects/production.html">Open project</a></div>
+        </div>
+        <dl class="pick-stats">
+          <div><dt>Status</dt><dd><span class="status">Planned</span></dd></div>
+          <div><dt>Progress</dt><dd><span class="meter" style="--v:0"><i></i></span>Starts after project 2</dd></div>
+          <div><dt>Stack</dt><dd><ul class="chips"><li>FastAPI</li><li>pytest</li><li>Docker</li><li>GitHub Actions</li></ul></dd></div>
+        </dl>
+      </article>
+      <article class="pick locked" id="pick-llm" data-status="prep" data-short="LLM prospect pipeline">
+        <div class="pick-main">
+          <p class="pick-num">Case study</p>
+          <h3>LLM pipeline for qualifying prospects from public sources</h3>
+          <p class="pick-sum">A weekly batch pipeline I designed and ran in production: web search, a two-pass LLM classification with structured output, caching and fuzzy matching. A case study rebuilt on public data is on the way.</p>
+        </div>
+        <dl class="pick-stats">
+          <div><dt>Status</dt><dd><span class="status">Case study in preparation</span></dd></div>
+          <div><dt>Stack</dt><dd><ul class="chips"><li>Web search</li><li>LLM APIs</li><li>Structured output</li><li>Caching</li><li>Fuzzy matching</li></ul></dd></div>
+        </dl>
+      </article>
+    </div>
   </div>
 </section>
 
