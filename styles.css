@@ -6,18 +6,17 @@
   --run:#9A5F0C; --run-soft:#F4E7CF;   /* in progress */
   --ok:#2A7655;  --ok-soft:#DCEEE5;    /* done */
   --stage-bg:#0B1519;                  /* dark panels, both themes */
-  --trace:rgba(23,112,140,.15);        /* circuit background */
-  --tile:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30H80l20 20h52M30 96v52l20 20h62M196 26v54l-20 20h-44l-20 20v70M154 180h52l20 20v22M66 212h22M192 140h34M210 60h22'/%3E%3Ccircle cx='14' cy='30' r='4'/%3E%3Ccircle cx='156' cy='50' r='4'/%3E%3Ccircle cx='30' cy='92' r='4'/%3E%3Ccircle cx='116' cy='168' r='4'/%3E%3Ccircle cx='196' cy='22' r='4'/%3E%3Ccircle cx='112' cy='194' r='4'/%3E%3Ccircle cx='150' cy='180' r='4'/%3E%3Ccircle cx='226' cy='226' r='4'/%3E%3Crect x='56' y='206' width='10' height='12' rx='2'/%3E%3Crect x='88' y='206' width='10' height='12' rx='2'/%3E%3Crect x='186' y='134' width='6' height='12' rx='1'/%3E%3Crect x='204' y='54' width='6' height='12' rx='1'/%3E%3C/svg%3E");
+  --circuit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' fill='none' stroke='rgba(23,112,140,.17)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30H80l20 20h52M30 96v52l20 20h62M196 26v54l-20 20h-44l-20 20v70M154 180h52l20 20v22M66 212h22M192 140h34M210 60h22'/%3E%3Ccircle cx='14' cy='30' r='4'/%3E%3Ccircle cx='156' cy='50' r='4'/%3E%3Ccircle cx='30' cy='92' r='4'/%3E%3Ccircle cx='116' cy='168' r='4'/%3E%3Ccircle cx='196' cy='22' r='4'/%3E%3Ccircle cx='112' cy='194' r='4'/%3E%3Ccircle cx='150' cy='180' r='4'/%3E%3Ccircle cx='226' cy='226' r='4'/%3E%3Crect x='56' y='206' width='10' height='12' rx='2'/%3E%3Crect x='88' y='206' width='10' height='12' rx='2'/%3E%3Crect x='186' y='134' width='6' height='12' rx='1'/%3E%3Crect x='204' y='54' width='6' height='12' rx='1'/%3E%3C/svg%3E");   /* circuit background */
   --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
   --body:"Literata",Georgia,"Times New Roman",serif;
   --step-0:1.0625rem; --step-1:1.25rem; --step-2:1.65rem; --step-3:2.4rem; --step-4:clamp(2.3rem,5.2vw,3.9rem);
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0E171B; --surface:#14222A; --ink:#E3ECEC; --muted:#94A7AA; --line:#2A3C42;
-  --accent:#5FB8D4; --accent-soft:#17343F; --run:#E4AC52; --run-soft:#3A2D16; --ok:#6CC59A; --ok-soft:#173A2B; --stage-bg:#15303A; --trace:rgba(108,197,154,.11); color-scheme:dark}}
+  --accent:#5FB8D4; --accent-soft:#17343F; --run:#E4AC52; --run-soft:#3A2D16; --ok:#6CC59A; --ok-soft:#173A2B; --stage-bg:#15303A; --circuit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' fill='none' stroke='rgba(108,197,154,.12)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30H80l20 20h52M30 96v52l20 20h62M196 26v54l-20 20h-44l-20 20v70M154 180h52l20 20v22M66 212h22M192 140h34M210 60h22'/%3E%3Ccircle cx='14' cy='30' r='4'/%3E%3Ccircle cx='156' cy='50' r='4'/%3E%3Ccircle cx='30' cy='92' r='4'/%3E%3Ccircle cx='116' cy='168' r='4'/%3E%3Ccircle cx='196' cy='22' r='4'/%3E%3Ccircle cx='112' cy='194' r='4'/%3E%3Ccircle cx='150' cy='180' r='4'/%3E%3Ccircle cx='226' cy='226' r='4'/%3E%3Crect x='56' y='206' width='10' height='12' rx='2'/%3E%3Crect x='88' y='206' width='10' height='12' rx='2'/%3E%3Crect x='186' y='134' width='6' height='12' rx='1'/%3E%3Crect x='204' y='54' width='6' height='12' rx='1'/%3E%3C/svg%3E"); color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0E171B; --surface:#14222A; --ink:#E3ECEC; --muted:#94A7AA; --line:#2A3C42;
-  --accent:#5FB8D4; --accent-soft:#17343F; --run:#E4AC52; --run-soft:#3A2D16; --ok:#6CC59A; --ok-soft:#173A2B; --stage-bg:#15303A; --trace:rgba(108,197,154,.11); color-scheme:dark}
+  --accent:#5FB8D4; --accent-soft:#17343F; --run:#E4AC52; --run-soft:#3A2D16; --ok:#6CC59A; --ok-soft:#173A2B; --stage-bg:#15303A; --circuit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' fill='none' stroke='rgba(108,197,154,.12)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30H80l20 20h52M30 96v52l20 20h62M196 26v54l-20 20h-44l-20 20v70M154 180h52l20 20v22M66 212h22M192 140h34M210 60h22'/%3E%3Ccircle cx='14' cy='30' r='4'/%3E%3Ccircle cx='156' cy='50' r='4'/%3E%3Ccircle cx='30' cy='92' r='4'/%3E%3Ccircle cx='116' cy='168' r='4'/%3E%3Ccircle cx='196' cy='22' r='4'/%3E%3Ccircle cx='112' cy='194' r='4'/%3E%3Ccircle cx='150' cy='180' r='4'/%3E%3Ccircle cx='226' cy='226' r='4'/%3E%3Crect x='56' y='206' width='10' height='12' rx='2'/%3E%3Crect x='88' y='206' width='10' height='12' rx='2'/%3E%3Crect x='186' y='134' width='6' height='12' rx='1'/%3E%3Crect x='204' y='54' width='6' height='12' rx='1'/%3E%3C/svg%3E"); color-scheme:dark}
 
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:5rem;overflow-x:clip}
@@ -47,6 +46,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .navlink:hover{color:var(--ink);background:var(--accent-soft)}
 .navlink[aria-current="true"]{color:var(--ink);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
 .site-head .btn{margin-left:.5rem}
+
+
+/* light/dark toggle */
+.theme-toggle{display:inline-grid;place-items:center;width:38px;height:38px;margin-left:.35rem;border-radius:50%;cursor:pointer;
+  border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:0;transition:border-color .15s,transform .15s}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent);transform:rotate(-12deg)}
+.theme-toggle svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme-toggle .i-sun{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .theme-toggle .i-sun{display:block}:root:not([data-theme="light"]) .theme-toggle .i-moon{display:none}}
+:root[data-theme="dark"] .theme-toggle .i-sun{display:block}
+:root[data-theme="dark"] .theme-toggle .i-moon{display:none}
+:root[data-theme="light"] .theme-toggle .i-sun{display:none}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--display);font-weight:600;font-size:1rem;
@@ -176,30 +187,27 @@ footer{padding-block:3rem 2.5rem;color:var(--muted);font-size:.9rem;border-top:1
 .empty{padding:1.1rem 1.25rem;border:1px dashed var(--line);border-radius:8px;color:var(--muted);font-size:1rem}
 
 
-/* circuit board background: a masked tile, strongest in the side margins, fainter behind the text column.
-   JS moves it at a quarter of the scroll speed (transform only). */
-.circuit{position:fixed;left:0;right:0;top:-240px;height:calc(100vh + 480px);z-index:-1;pointer-events:none;background:var(--trace);
-  -webkit-mask-image:var(--tile),linear-gradient(90deg,#000 0,#000 max(0px,calc(50% - 40rem)),rgba(0,0,0,.28) calc(50% - 26rem),rgba(0,0,0,.28) calc(50% + 26rem),#000 min(100%,calc(50% + 40rem)),#000 100%);
-  -webkit-mask-size:240px 240px,100% 100%;-webkit-mask-repeat:repeat,no-repeat;-webkit-mask-composite:source-in;
-  mask-image:var(--tile),linear-gradient(90deg,#000 0,#000 max(0px,calc(50% - 40rem)),rgba(0,0,0,.28) calc(50% - 26rem),rgba(0,0,0,.28) calc(50% + 26rem),#000 min(100%,calc(50% + 40rem)),#000 100%);
-  mask-size:240px 240px,100% 100%;mask-repeat:repeat,no-repeat;mask-composite:intersect;
-  transform:translate3d(0,var(--py,0px),0);will-change:transform}
-.stage::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(98,186,214,.13);
-  -webkit-mask-image:var(--tile);-webkit-mask-size:240px 240px;mask-image:var(--tile);mask-size:240px 240px}
+/* circuit board background: painted as the page background so it scrolls with the page at no extra cost.
+   The gradient on top fades it behind the text column. */
+body{background-color:var(--bg);
+  background-image:linear-gradient(90deg,transparent 0,transparent max(0px,calc(50% - 40rem)),
+    color-mix(in srgb,var(--bg) 72%,transparent) calc(50% - 26rem),color-mix(in srgb,var(--bg) 72%,transparent) calc(50% + 26rem),
+    transparent min(100%,calc(50% + 40rem)),transparent 100%),var(--circuit);
+  background-size:100% 100%,240px 240px}
+.stage::before{content:"";position:absolute;inset:0;z-index:-1;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' fill='none' stroke='rgba(98,186,214,.13)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30H80l20 20h52M30 96v52l20 20h62M196 26v54l-20 20h-44l-20 20v70M154 180h52l20 20v22M66 212h22M192 140h34M210 60h22'/%3E%3Ccircle cx='14' cy='30' r='4'/%3E%3Ccircle cx='156' cy='50' r='4'/%3E%3Ccircle cx='30' cy='92' r='4'/%3E%3Ccircle cx='116' cy='168' r='4'/%3E%3Ccircle cx='196' cy='22' r='4'/%3E%3Ccircle cx='112' cy='194' r='4'/%3E%3Ccircle cx='150' cy='180' r='4'/%3E%3Ccircle cx='226' cy='226' r='4'/%3E%3Crect x='56' y='206' width='10' height='12' rx='2'/%3E%3Crect x='88' y='206' width='10' height='12' rx='2'/%3E%3Crect x='186' y='134' width='6' height='12' rx='1'/%3E%3Crect x='204' y='54' width='6' height='12' rx='1'/%3E%3C/svg%3E");background-size:240px 240px}
 
 /* companion: a data packet that rides a trace in the left margin and follows the scroll with a little lag.
    Built by main.js only when the margin is wide enough; otherwise the header progress bar is shown instead. */
 .trail{position:absolute;left:0;top:0;pointer-events:none;z-index:2}
 .trail svg{position:absolute;left:0;top:0;overflow:visible}
 .trail .bus,.trail .spur{fill:none;stroke:var(--line);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.trail .glow{fill:none;stroke:var(--accent);stroke-linecap:round;stroke-linejoin:round}
-.trail .glow.wide{stroke-width:5;opacity:.18}
-.trail .glow.core{stroke-width:2;opacity:.9}
 .trail .node{fill:var(--bg);stroke:var(--line);stroke-width:1.5;transition:fill .3s,stroke .3s}
 .trail .node.on{fill:var(--accent);stroke:var(--accent)}
 .trail .spur.on{stroke:color-mix(in srgb,var(--accent) 60%,var(--line))}
 .packet{position:absolute;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--accent);
   box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent),0 0 22px 6px color-mix(in srgb,var(--accent) 40%,transparent);will-change:transform}
+.packet .tail{position:absolute;left:50%;bottom:50%;width:3px;height:120px;margin-left:-1.5px;border-radius:2px;
+  background:linear-gradient(to top,var(--accent),transparent);transform-origin:50% 100%;transform:scaleY(0);opacity:.8;pointer-events:none}
 .packet::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1.5px solid var(--accent);opacity:0;animation:ping 2.4s ease-out infinite}
 @keyframes ping{0%{transform:scale(.5);opacity:.6}80%,100%{transform:scale(1.6);opacity:0}}
 .has-trail .site-head .progress{display:none}
@@ -239,6 +247,7 @@ footer{padding-block:3rem 2.5rem;color:var(--muted);font-size:.9rem;border-top:1
 @media (max-width:640px){
   .navlink{display:none}
   .site-head .btn{margin-left:0}
+  .site-head nav{gap:.5rem}
   .stage{clip-path:inset(0 8px round 20px)}
   .stage .stage-inner{padding-inline:28px}
 }
@@ -256,9 +265,8 @@ footer{padding-block:3rem 2.5rem;color:var(--muted);font-size:.9rem;border-top:1
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .dag .flow,.station[data-status="progress"]::before,.station[data-status="progress"] .node{animation:none}
-  .dag .edge,.dag .flow,.dag .n rect,.btn,.navlink,.more,.site-head{transition:none}
+  .dag .edge,.dag .flow,.dag .n rect,.btn,.navlink,.more,.site-head,.theme-toggle{transition:none}
   .js .line .station,.js .statement .w{opacity:1;transform:none;transition:none}
   .stage{--p:1 !important}
   .packet::after{animation:none}
-  .circuit{transform:none}
 }

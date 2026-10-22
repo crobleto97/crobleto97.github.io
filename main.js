@@ -76,9 +76,6 @@
     return Math.max(0, Math.min(1, (vh - top) / (vh * 0.75)));
   }
 
-  /* ---------- circuit background: slow parallax ---------- */
-  var circuit = document.querySelector('.circuit');
-
   /* ---------- companion: a packet on a trace in the left margin ---------- */
   var NS = 'http://www.w3.org/2000/svg';
   var trail = null; // {box, path, glows, packet, nodes, spurs, samples, len, cur, v}
@@ -130,29 +127,36 @@
     });
 
     var bus = el('path', { 'class': 'bus', d: d });
-    var wide = el('path', { 'class': 'glow wide', d: d });
-    var core = el('path', { 'class': 'glow core', d: d });
     svg.appendChild(bus);
     spurs.forEach(function (s) { svg.appendChild(s); });
-    svg.appendChild(wide); svg.appendChild(core);
     nodes.forEach(function (n) { svg.appendChild(n.el); });
+    // the packet and its streak are plain elements moved with transform only (no SVG repaints while scrolling)
     var packet = document.createElement('div');
     packet.className = 'packet';
+    var tail = document.createElement('span');
+    tail.className = 'tail';
+    packet.appendChild(tail);
     box.appendChild(svg); box.appendChild(packet);
     document.body.appendChild(box);
 
-    var len = bus.getTotalLength(), samples = [];
-    for (var l = 0; l <= len; l += 6) samples.push([l, bus.getPointAtLength(l).y]);
-    samples.push([len, bus.getPointAtLength(len).y]);
-    trail = { box: box, path: bus, wide: wide, core: core, packet: packet, nodes: nodes, samples: samples, len: len, cur: -1, v: 0 };
+    // sample the path once: [length, x, y] every 2px
+    var len = bus.getTotalLength(), pts = [];
+    for (var l = 0; l < len; l += 2) { var q = bus.getPointAtLength(l); pts.push([l, q.x, q.y]); }
+    var qe = bus.getPointAtLength(len); pts.push([len, qe.x, qe.y]);
+    trail = { box: box, packet: packet, tail: tail, nodes: nodes, pts: pts, len: len, cur: -1, v: 0, t: 0, lit: -1 };
   }
 
   function lengthAtY(y) {
-    var s = trail.samples, lo = 0, hi = s.length - 1;
-    if (y <= s[0][1]) return 0;
-    if (y >= s[hi][1]) return trail.len;
-    while (hi - lo > 1) { var mid = (lo + hi) >> 1; if (s[mid][1] < y) lo = mid; else hi = mid; }
+    var s = trail.pts, lo = 0, hi = s.length - 1;
+    if (y <= s[0][2]) return 0;
+    if (y >= s[hi][2]) return trail.len;
+    while (hi - lo > 1) { var mid = (lo + hi) >> 1; if (s[mid][2] < y) lo = mid; else hi = mid; }
     return s[hi][0];
+  }
+  function pointAt(l) {
+    var s = trail.pts, i = Math.min(s.length - 2, Math.max(0, Math.floor(l / 2)));
+    var a = s[i], b = s[i + 1], k = b[0] > a[0] ? (l - a[0]) / (b[0] - a[0]) : 0;
+    return [a[1] + (b[1] - a[1]) * k, a[2] + (b[2] - a[2]) * k];
   }
 
   var trailRunning = false;
@@ -160,23 +164,30 @@
     var bottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
     return bottom ? trail.len : lengthAtY(window.scrollY + window.innerHeight * 0.42);
   }
-  function drawTrail() {
+  function drawTrail(now) {
     var t = trail, target = trailTarget();
+    var dt = t.t ? Math.min(64, now - t.t) : 16;
+    t.t = now;
     if (t.cur < 0 || reduce) { t.v = 0; t.cur = target; }
-    else { var prev = t.cur; t.cur += (target - t.cur) * 0.09; t.v = t.cur - prev; }
-    var p = t.path.getPointAtLength(t.cur);
-    t.packet.style.transform = 'translate3d(' + p.x + 'px,' + p.y + 'px,0)';
-    // the tail grows with speed, so a fast scroll leaves a longer streak
-    var tail = Math.min(t.cur, 24 + Math.min(150, Math.abs(t.v) * 9));
-    var start = t.v >= 0 ? t.cur - tail : t.cur;
-    t.wide.setAttribute('stroke-dasharray', '0 ' + Math.max(0, start) + ' ' + tail + ' ' + t.len);
-    t.core.setAttribute('stroke-dasharray', '0 ' + Math.max(0, start + tail * 0.45) + ' ' + tail * 0.55 + ' ' + t.len);
-    t.nodes.forEach(function (n) {
-      var on = n.y <= p.y + 1;
-      n.el.classList.toggle('on', on); n.sp.classList.toggle('on', on);
-    });
+    else {
+      // frame-rate independent smoothing: closes ~63% of the gap every 70ms
+      var prev = t.cur;
+      t.cur += (target - t.cur) * (1 - Math.exp(-dt / 70));
+      t.v = (t.cur - prev) / dt; // px per ms
+    }
+    var p = pointAt(t.cur);
+    t.packet.style.transform = 'translate3d(' + p[0].toFixed(1) + 'px,' + p[1].toFixed(1) + 'px,0)';
+    // streak behind the packet, longer when it moves faster
+    var stretch = Math.min(1, Math.abs(t.v) / 2.5);
+    t.tail.style.transform = 'rotate(' + (t.v < 0 ? 180 : 0) + 'deg) scaleY(' + stretch.toFixed(3) + ')';
+    var lit = 0;
+    t.nodes.forEach(function (n) { if (n.y <= p[1] + 1) lit++; });
+    if (lit !== t.lit) {
+      t.lit = lit;
+      t.nodes.forEach(function (n, i) { var on = i < lit; n.el.classList.toggle('on', on); n.sp.classList.toggle('on', on); });
+    }
     if (Math.abs(target - t.cur) > 0.3) requestAnimationFrame(drawTrail);
-    else trailRunning = false;
+    else { trailRunning = false; t.t = 0; t.tail.style.transform = 'scaleY(0)'; }
   }
   function kickTrail() {
     if (!trail || trailRunning) return;
@@ -208,7 +219,6 @@
 
     kickTrail();
     if (reduce) return;
-    if (circuit) circuit.style.setProperty('--py', (-((y * 0.25) % 240)).toFixed(1) + 'px');
     stages.forEach(function (s) {
       var p = progress(s);
       s.style.setProperty('--p', p.toFixed(3));
