@@ -106,16 +106,12 @@ section{padding-block:3rem}
 /* project picker ("select your character"): one project card at a time, roster of tiles below.
    Without JS every card is shown in a stack. */
 .picker{display:grid;grid-template-columns:minmax(0,1fr);gap:1.25rem}
-.pick-stage{display:grid;grid-template-columns:minmax(0,1fr);gap:1.25rem;counter-reset:pk}
-.pick{position:relative;isolation:isolate;overflow:hidden;counter-increment:pk;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
-  gap:2rem 3rem;padding:clamp(1.5rem,3.5vw,2.75rem);border-radius:22px;background:var(--surface);border:1px solid var(--line);
+.pick-stage{display:grid;grid-template-columns:minmax(0,1fr);gap:1.25rem}
+.pick{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+  grid-template-areas:"main visual" "stats visual";align-items:start;gap:1.75rem 3rem;padding:clamp(1.5rem,3.5vw,2.75rem);border-radius:22px;background:var(--surface);border:1px solid var(--line);
   box-shadow:0 30px 60px -45px color-mix(in srgb,var(--ink) 40%,transparent)}
-.pick::after{content:counter(pk,decimal-leading-zero);position:absolute;right:1.25rem;bottom:-2.2rem;z-index:-1;pointer-events:none;
-  font-family:var(--display);font-weight:800;font-size:clamp(7rem,14vw,11rem);line-height:1;color:transparent;
-  -webkit-text-stroke:1.5px var(--line);font-variant-numeric:tabular-nums}
 .pick.locked{border-style:dashed}
-.pick.locked::after{content:"?"}
-.pick-main{display:grid;gap:1rem;align-content:start}
+.pick-main{grid-area:main;display:grid;gap:1rem;align-content:start}
 .pick-num{font-family:var(--display);font-size:.9rem;font-weight:600;color:var(--muted)}
 .pick h3{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-0.02em}
 .pick h3 a{color:var(--ink);text-decoration:none}
@@ -123,7 +119,8 @@ section{padding-block:3rem}
 .pick-sum{color:var(--muted);font-size:1.05rem;max-width:42ch}
 .pick-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.5rem}
 .btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.pick-stats{margin:0;display:grid;gap:1.1rem;align-content:start;padding-left:1.75rem;border-left:1px dashed var(--line)}
+.pick-stats{grid-area:stats;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem 1.5rem;align-content:start;padding-top:1.25rem;border-top:1px dashed var(--line)}
+.pick-stats>div:last-child{grid-column:1/-1}
 .pick-stats>div{display:grid;gap:.4rem}
 .pick-stats dt{font-family:var(--display);font-size:.82rem;font-weight:600;color:var(--muted)}
 .pick-stats dd{margin:0;display:grid;gap:.45rem;justify-items:start;font-family:var(--display);font-size:.92rem}
@@ -142,6 +139,51 @@ section{padding-block:3rem}
 @keyframes in-right{from{transform:translateX(48px);opacity:0}}
 @keyframes in-left{from{transform:translateX(-48px);opacity:0}}
 @keyframes fill{from{transform:scaleX(0)}}
+
+
+/* visual panel inside each project card: a technical surface on a dot grid */
+.pick-visual{grid-area:visual;align-self:stretch;margin:0;display:grid;grid-template-rows:auto 1fr;gap:1.1rem;align-content:start;padding:1.25rem;border-radius:16px;
+  border:1px solid var(--line);background-color:var(--bg);
+  background-image:radial-gradient(color-mix(in srgb,var(--ink) 10%,transparent) 1px,transparent 1.2px);background-size:16px 16px}
+.pick-visual figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem .75rem;font-family:var(--display);font-size:.88rem;font-weight:700}
+.pick-visual figcaption span{color:var(--muted);font-weight:500}
+.viz-steps{margin:0;padding-left:1.2rem;font-family:var(--display);font-size:.9rem;display:grid;gap:.2rem}
+.built .viz-steps{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* flow diagrams (site.js builds them from the step list) */
+.viz{display:block;width:100%;height:auto;overflow:visible;align-self:center}
+.findings{grid-template-rows:none}
+[data-layout="v"] .viz{max-width:320px;justify-self:center}
+.viz .edge{fill:none;stroke:var(--line);stroke-width:1.6}
+.viz .edge.dashed{stroke-dasharray:4 5}
+.viz .flow{fill:none;stroke:var(--accent);stroke-width:1.9;stroke-dasharray:3 13;stroke-linecap:round;animation:flow 1.6s linear infinite}
+.viz .vn rect{fill:var(--surface);stroke:var(--line);stroke-width:1.4;animation:vglow calc(var(--n,5) * .7s) ease-in-out infinite;animation-delay:calc(var(--i,0) * .7s)}
+.viz .vn.in rect{stroke:var(--muted)}
+.viz .vn.mid rect{stroke:var(--accent);stroke-opacity:.55}
+.viz .vn.out rect{fill:var(--accent-soft);stroke:var(--accent)}
+.viz .vn.side rect{stroke:var(--run);stroke-dasharray:4 4}
+.viz .vn text{font-family:var(--display);font-size:14px;font-weight:600;fill:var(--ink)}
+.viz .note{font-family:var(--display);font-size:11px;fill:var(--muted)}
+@keyframes vglow{0%,22%,100%{stroke-width:1.4}9%{stroke-width:2.8;fill:var(--accent-soft)}}
+
+/* analytics findings: real numbers from the project page, drawn to scale */
+.findings{gap:1.25rem}
+.fnd-ring{display:flex;align-items:center;gap:1rem}
+.fnd-ring svg{width:64px;height:64px;flex:none}
+.fnd-ring .trk{fill:none;stroke:var(--line);stroke-width:5}
+.fnd-ring .val{fill:none;stroke:var(--run);stroke-width:5;stroke-linecap:round;transform:rotate(-90deg);transform-origin:center}
+.fnd-ring p{font-family:var(--display);font-size:.95rem;color:var(--muted)}
+.fnd-ring b{display:block;font-size:1.7rem;line-height:1.1;color:var(--ink);font-weight:800}
+.fnd-block{display:grid;gap:.5rem}
+.fnd-t{font-family:var(--display);font-size:.85rem;color:var(--muted)}
+.hbar{display:grid;grid-template-columns:5.5rem minmax(0,1fr) 2.8rem;align-items:center;gap:.6rem;font-family:var(--display);font-size:.85rem}
+.hbar i{position:relative;height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.hbar i::before{content:"";position:absolute;inset:0;background:var(--accent);transform-origin:left;transform:scaleX(var(--v))}
+.hbar.late i::before{background:var(--run)}
+.hbar b{text-align:right;font-variant-numeric:tabular-nums}
+.pick.active .hbar i::before{animation:fill .9s cubic-bezier(.2,.7,.2,1) .2s both}
+.pick.active .fnd-ring .val{animation:ring 1.1s cubic-bezier(.2,.7,.2,1) .1s both}
+@keyframes ring{from{stroke-dasharray:0 100}}
 
 .roster-bar{display:flex;align-items:center;gap:.6rem;min-width:0}
 .roster{display:flex;gap:.6rem;flex:1;min-width:0;overflow-x:auto;padding:5px 3px;scrollbar-width:none}
@@ -292,14 +334,13 @@ body{background-color:var(--bg);
   .stage .stage-inner{padding-inline:28px}
 }
 @media (max-width:760px){
-  .pick{grid-template-columns:minmax(0,1fr)}
-  .pick-stats{padding-left:0;border-left:0;padding-top:1.25rem;border-top:1px dashed var(--line)}
+  .pick{grid-template-columns:minmax(0,1fr);grid-template-areas:"main" "visual" "stats"}
   .tile{min-width:8.5rem}
   .about,.skills{grid-template-columns:minmax(0,1fr);gap:2.5rem}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .dag .flow,.tile-dot,.packet::after,.stage,.pick,.pick .meter i{animation:none !important}
+  .dag .flow,.tile-dot,.packet::after,.stage,.pick,.pick .meter i,.viz .flow,.viz .vn rect,.hbar i::before,.fnd-ring .val{animation:none !important}
   .dag .edge,.dag .flow,.dag .n rect,.btn,.navlink,.site-head,.theme-toggle,.tile,.pick-arrow,.packet .tail{transition:none}
   .js .statement .w{opacity:1;transition:none}
 }

@@ -8,9 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
-<link rel="stylesheet" href="styles.css?v=8">
-<script src="theme.js?v=8"></script>
-<script src="main.js?v=8" defer></script>
+<link rel="stylesheet" href="styles.css?v=9">
+<script src="theme.js?v=9"></script>
+<script src="site.js?v=9" defer></script>
+<script src="main.js?v=9" defer></script>
 </head>
 <body>
 <a class="skip" href="#top">Skip to content</a>
@@ -89,6 +90,23 @@
           <p class="pick-sum">Sales, delivery and supplier KPIs from raw data to a Power BI report, with a proper star schema in between.</p>
           <div class="pick-actions"><a class="btn btn-solid" href="projects/analytics.html">Open project</a></div>
         </div>
+        <figure class="pick-visual findings">
+          <figcaption>First findings <span>public e-commerce data</span></figcaption>
+          <div class="fnd-ring" role="img" aria-label="6.8% of orders arrive late">
+            <svg viewBox="0 0 42 42" aria-hidden="true"><circle class="trk" cx="21" cy="21" r="16"/><circle class="val" cx="21" cy="21" r="16" pathLength="100" stroke-dasharray="6.8 100"/></svg>
+            <p><b>6.8%</b> of orders arrive late</p>
+          </div>
+          <div class="fnd-block" role="img" aria-label="Average review score out of 5: 4.3 for on-time orders, 2.3 for late orders">
+            <p class="fnd-t">Average review score, out of 5</p>
+            <div class="hbar"><span>On time</span><i style="--v:.86"></i><b>4.3</b></div>
+            <div class="hbar late"><span>Late</span><i style="--v:.46"></i><b>2.3</b></div>
+          </div>
+          <div class="fnd-block" role="img" aria-label="98 of 2,970 sellers, about 3 percent, account for half of all late orders">
+            <p class="fnd-t">98 of 2,970 sellers account for half of all late orders</p>
+            <div class="hbar late"><span>Sellers</span><i style="--v:.033"></i><b>3%</b></div>
+            <div class="hbar late"><span>Late orders</span><i style="--v:.5"></i><b>50%</b></div>
+          </div>
+        </figure>
         <dl class="pick-stats">
           <div><dt>Status</dt><dd><span class="status">In progress</span></dd></div>
           <div><dt>Progress</dt><dd><span class="meter" style="--v:.67"><i></i></span>2 of 3 stages done</dd></div>
@@ -102,6 +120,10 @@
           <p class="pick-sum">A retrieval agent that answers from a document set, cites its sources and asks for human review when it isn't sure.</p>
           <div class="pick-actions"><a class="btn btn-solid" href="projects/agentic-rag.html">Open project</a></div>
         </div>
+        <figure class="pick-visual" data-flow="v">
+          <figcaption>Planned flow <span>from the project plan</span></figcaption>
+          <ol class="viz-steps"><li>Classify</li><li>Retrieve</li><li>Answer</li><li>Check</li><li data-branch data-note="low confidence">Escalate</li></ol>
+        </figure>
         <dl class="pick-stats">
           <div><dt>Status</dt><dd><span class="status">Planned</span></dd></div>
           <div><dt>Progress</dt><dd><span class="meter" style="--v:0"><i></i></span>Starts after project 1</dd></div>
@@ -115,6 +137,10 @@
           <p class="pick-sum">The agent from project 2 behind an API, with tests, a container and a pipeline that runs on every push.</p>
           <div class="pick-actions"><a class="btn btn-solid" href="projects/production.html">Open project</a></div>
         </div>
+        <figure class="pick-visual" data-flow="v">
+          <figcaption>Planned pipeline <span>deploys only when every step passes</span></figcaption>
+          <ol class="viz-steps"><li>Serve</li><li>Test</li><li>Lint</li><li>Package</li><li>Deploy</li></ol>
+        </figure>
         <dl class="pick-stats">
           <div><dt>Status</dt><dd><span class="status">Planned</span></dd></div>
           <div><dt>Progress</dt><dd><span class="meter" style="--v:0"><i></i></span>Starts after project 2</dd></div>
@@ -127,6 +153,10 @@
           <h3>LLM pipeline for qualifying prospects from public sources</h3>
           <p class="pick-sum">A weekly batch pipeline I designed and ran in production: web search, a two-pass LLM classification with structured output, caching and fuzzy matching. A case study rebuilt on public data is on the way.</p>
         </div>
+        <figure class="pick-visual" data-flow="v">
+          <figcaption>Concept view <span>case study in preparation</span></figcaption>
+          <ol class="viz-steps"><li>Web search</li><li>LLM pass 1</li><li>LLM pass 2</li><li>Fuzzy match</li></ol>
+        </figure>
         <dl class="pick-stats">
           <div><dt>Status</dt><dd><span class="status">Case study in preparation</span></dd></div>
           <div><dt>Stack</dt><dd><ul class="chips"><li>Web search</li><li>LLM APIs</li><li>Structured output</li><li>Caching</li><li>Fuzzy matching</li></ul></dd></div>
