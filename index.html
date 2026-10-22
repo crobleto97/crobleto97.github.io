@@ -17,7 +17,11 @@
 <div class="wrap">
 <header class="site-head">
   <a class="mark" href="#top">Christian Robleto Romero</a>
-  <nav aria-label="Sections"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <nav aria-label="Sections">
+    <a class="navlink" href="#work">Work</a><a class="navlink" href="#about">About</a><a class="navlink" href="#skills">Skills</a>
+    <a class="btn btn-solid btn-sm" href="#contact">Get in touch</a>
+  </nav>
+  <span class="progress" aria-hidden="true"></span>
 </header>
 
 <main id="top">
@@ -26,6 +30,10 @@
     <h1>Data pipelines and LLM systems that people use every week</h1>
     <p class="lede">I'm a data and automation analyst working with applied AI. I take messy operational data, clean it, model it and turn it into pipelines, dashboards and LLM workflows that a team can rely on.</p>
     <p class="meta">Industrial engineer with three-plus years in operations and supply chain, and an MSc in Data Analysis for Engineering at TECNUN (Universidad de Navarra). Based in Pamplona, Spain. Spanish and English.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="#work">See what I'm building</a>
+      <a class="btn" href="cv/Christian_Robleto_CV_EN.pdf">Download CV (PDF)</a>
+    </div>
   </div>
   <svg class="dag" viewBox="0 0 460 280" role="img" aria-labelledby="dag-t">
     <title id="dag-t">Raw sources flow through validation and modelling into dashboards, LLM workflows and agents</title>
@@ -54,19 +62,29 @@
   </svg>
 </section>
 
+<section class="stage bleed" data-scroll aria-label="In numbers">
+  <div class="stage-inner">
+    <div class="stat"><span class="num" data-count="56000" data-suffix="+">56,000+</span><span class="lbl">records processed by the LLM pipeline I built and ran in production</span></div>
+    <div class="stat"><span class="num" data-count="1.5" data-decimals="1" data-suffix="M">1.5M</span><span class="lbl">rows ingested and validated in the operations analytics project</span></div>
+    <div class="stat"><span class="num" data-count="18" data-suffix="%">18%</span><span class="lbl">cut in estimated delivery time as an operations coordinator</span></div>
+    <div class="stat"><span class="num" data-count="3" data-suffix="+">3+</span><span class="lbl">years in operations, logistics and supply chain before data</span></div>
+  </div>
+</section>
+
 <section id="work">
   <div class="sec-head">
     <h2>What I'm building</h2>
     <p>Three connected projects, built in this order. Each page shows the plan, the stack and the progress so far.</p>
   </div>
   <!-- To add a project: copy one <li class="station">. set data-status="planned|progress|done" on the <li> and update the pill text (Planned, In progress, Done). -->
-  <ol class="line">
+  <ol class="line" data-scroll>
     <li class="station" data-status="progress">
       <span class="node" aria-hidden="true">1</span>
       <h3><a href="projects/analytics.html">Operations analytics platform</a></h3>
       <p>Sales, delivery and supplier KPIs from raw data to a Power BI report, with a proper star schema in between.</p>
       <span class="stack">Python · PostgreSQL · SQL · Power BI · DAX</span>
       <span class="status">In progress</span>
+      <span class="more" aria-hidden="true">View project</span>
     </li>
     <li class="station" data-status="planned">
       <span class="node" aria-hidden="true">2</span>
@@ -74,6 +92,7 @@
       <p>A retrieval agent that answers from a document set, cites its sources and asks for human review when it isn't sure.</p>
       <span class="stack">LangGraph · Pydantic · pgvector · LLM APIs</span>
       <span class="status">Planned</span>
+      <span class="more" aria-hidden="true">View project</span>
     </li>
     <li class="station" data-status="planned">
       <span class="node" aria-hidden="true">3</span>
@@ -81,6 +100,7 @@
       <p>The agent from project 2 behind an API, with tests, a container and a pipeline that runs on every push.</p>
       <span class="stack">FastAPI · pytest · Docker · GitHub Actions</span>
       <span class="status">Planned</span>
+      <span class="more" aria-hidden="true">View project</span>
     </li>
   </ol>
 
@@ -91,13 +111,16 @@
   </div>
 </section>
 
+<section class="statement" data-scroll>
+  <p>I care about the unglamorous parts that make a system last: clean inputs, checks that catch bad data early, and outputs short enough that people actually read them.</p>
+</section>
+
 <section id="about">
   <div class="sec-head"><h2>About</h2></div>
   <div class="about">
     <div class="story">
       <p>I started in industrial engineering in Nicaragua and spent more than three years in operations, logistics and supply chain, where most problems turned out to be data problems: stock nobody could trust, reports built by hand, decisions made on last month's numbers.</p>
       <p>That pushed me into data. I moved to Spain for a master's in data analysis and then joined CIMA, where I built automation for the institutional development team: an LLM pipeline that has processed more than 56,000 records, an RFM dashboard, Salesforce automation with Power Automate Desktop and a master dataset that joins the CRM with other sources.</p>
-      <p>I care about the unglamorous parts that make a system last: clean inputs, checks that catch bad data early, and outputs short enough that people actually read them.</p>
     </div>
     <ol class="timeline" aria-label="Experience and education">
       <li><span class="when">2025 – 2026</span><strong>Data Analyst, Institutional Development</strong><span class="what">CIMA, Universidad de Navarra</span></li>
@@ -129,15 +152,17 @@
   </div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact" class="contact stage bleed" data-scroll>
+  <div class="stage-inner">
   <h2>Looking for a data, automation or applied AI role</h2>
   <p class="col">Open to data analyst, data engineer and applied AI positions in Spain or remote. Write to me at <strong>cgalileorr97@gmail.com</strong> or on LinkedIn.</p>
   <div class="links">
-    <a class="primary" href="https://www.linkedin.com/in/chris-robleto">LinkedIn</a>
-    <a href="https://github.com/crobleto97">GitHub</a>
-    <a href="mailto:cgalileorr97@gmail.com">Email</a>
-    <a href="cv/Christian_Robleto_CV_EN.pdf">CV in English (PDF)</a>
-    <a href="cv/Christian_Robleto_CV_ES.pdf">CV en español (PDF)</a>
+    <a class="btn btn-solid" href="https://www.linkedin.com/in/chris-robleto">LinkedIn</a>
+    <a class="btn" href="https://github.com/crobleto97">GitHub</a>
+    <a class="btn" href="mailto:cgalileorr97@gmail.com">Email</a>
+    <a class="btn" href="cv/Christian_Robleto_CV_EN.pdf">CV in English (PDF)</a>
+    <a class="btn" href="cv/Christian_Robleto_CV_ES.pdf">CV en español (PDF)</a>
+  </div>
   </div>
 </section>
 </main>
