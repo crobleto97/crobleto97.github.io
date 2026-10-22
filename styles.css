@@ -291,11 +291,16 @@ section{padding-block:3rem}
 
 /* analytics mini dashboard: real figures, one view at a time */
 .dash{gap:1rem;position:relative;grid-template-rows:none;align-content:start}
-.dash-tabs{display:flex;flex-wrap:wrap;gap:.3rem;padding:.25rem;border-radius:12px;background:var(--surface);border:1px solid var(--line);justify-self:start}
-.dash-tabs button{font:600 .82rem var(--display);padding:.45rem .75rem;border-radius:9px;border:0;background:transparent;color:var(--muted);cursor:pointer;transition:background .15s,color .15s}
-.dash-tabs button:hover{color:var(--ink)}
-.dash-tabs button[aria-selected="true"]{background:var(--accent);color:var(--surface)}
-html:not(.js) .dash-tabs{display:none}
+.dash-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+.dash-tabs button{display:grid;gap:.15rem;align-content:start;text-align:left;padding:.7rem .8rem;border-radius:12px;cursor:pointer;
+  border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-family:var(--display);transition:border-color .15s,box-shadow .15s,transform .15s}
+.dash-tabs b{font-size:1.35rem;font-weight:800;letter-spacing:-0.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.dash-tabs b small{font-size:.7em;font-weight:600;color:var(--muted)}
+.dash-tabs span{font-size:.78rem;font-weight:500;color:var(--muted);line-height:1.3}
+.dash-tabs button:hover{border-color:var(--accent)}
+.dash-tabs button[aria-selected="true"]{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.dash-tabs button[aria-selected="true"] b{color:var(--accent)}
+html:not(.js) .dash-tabs{pointer-events:none}
 .dash-panel{display:grid;gap:.65rem;align-content:start;min-height:10.5rem}
 .dash-panel.enter{animation:swap .4s cubic-bezier(.2,.7,.2,1) both}
 .chart-t{font:600 .85rem var(--display);color:var(--muted)}
@@ -327,7 +332,7 @@ html:not(.js) .dash-tabs{display:none}
 /* explorable diagrams (agent architecture, deployment pipeline) */
 .explorer{gap:.9rem;grid-template-rows:none;align-content:start}
 .explorer-list{margin:0;padding-left:1.1rem;display:grid;gap:.35rem;font-size:.92rem}
-.xp{display:block;width:100%;max-width:360px;height:auto;justify-self:center;overflow:visible}
+.xp{display:block;width:100%;max-width:300px;height:auto;justify-self:center;overflow:visible}
 .xp-group{fill:none;stroke:var(--line);stroke-dasharray:5 5}
 .xp-group-label{font:600 10.5px var(--display);fill:var(--muted)}
 .xp-edge{fill:none;stroke:var(--line);stroke-width:1.6;transition:stroke .2s,opacity .2s}
