@@ -26,11 +26,12 @@
 </section>
 <div class="prose">
   <section><h2>The problem</h2><p>Calling an LLM API is easy. Knowing whether a new version of an assistant got better or worse is the hard part. This project is built around a fixed test set, so every change to prompts, chunking or retrieval can be measured.</p></section>
-  <section><h2>How it works</h2><ol class="flow"><li><span><b>Classify.</b> Detect what the question is asking and whether it needs the documents at all.</span></li><li><span><b>Retrieve.</b> Search chunks stored in PostgreSQL with pgvector and score their relevance.</span></li><li><span><b>Answer.</b> Generate a structured answer validated with Pydantic, citing the chunks it used.</span></li><li><span><b>Check.</b> Verify the answer is grounded in the cited sources.</span></li><li><span><b>Escalate.</b> Send low-confidence answers to human review instead of returning them.</span></li></ol></section>
+  <section><h2>How it works</h2><ol class="flow"><li><span><b>Classify.</b> Detect what the question is asking and whether it needs the documents at all.</span></li><li><span><b>Retrieve.</b> Search chunks stored in PostgreSQL with pgvector and score their relevance.</span></li><li><span><b>Answer.</b> Generate a structured answer validated with Pydantic, citing the chunks it used.</span></li><li><span><b>Check.</b> Verify the answer is grounded in the cited sources.</span></li><li data-branch data-note="low confidence"><span><b>Escalate.</b> Send low-confidence answers to human review instead of returning them.</span></li></ol></section>
   <section><h2>Stack</h2><p>Python, LangGraph, Pydantic, PostgreSQL with pgvector, embeddings, LLM APIs.</p></section>
   <section><h2>What I'll measure</h2><ul class="checks"><li>Answer correctness on a 50-question test set</li><li>Retrieval quality and groundedness</li><li>Latency and cost per question</li><li>Failure and escalation rate</li></ul></section>
   <section><h2>Progress</h2><p class="empty">Code, screenshots and results will appear here as each stage is finished.</p></section>
 </div>
+<nav class="proj-nav" aria-label="More projects"><a class="pn prev" href="analytics.html"><span>Previous project</span><b>Operations analytics platform</b></a><a class="pn next" href="production.html"><span>Next project</span><b>Taking the agent to production</b></a></nav>
 </main>
 <footer>Christian Robleto Romero · Pamplona, Spain · 2026</footer>
 </div>

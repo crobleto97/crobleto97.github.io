@@ -167,6 +167,15 @@
     select(0, false, 0);
   }
 
+  /* ---------- timeline: emphasise the stop in the middle of the screen ---------- */
+  var stops = $$('.timeline li');
+  if (stops.length && hasIO) {
+    var tio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.classList.toggle('cur', e.isIntersecting); });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    stops.forEach(function (s) { tio.observe(s); });
+  }
+
   /* ---------- statement: split into words so they can light up ---------- */
   var statement = document.querySelector('.statement p');
   var words = [], litWords = -1, statementNear = false;

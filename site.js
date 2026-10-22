@@ -19,7 +19,7 @@
     var old = fig.querySelector('svg.viz');
     if (old) old.remove();
     var items = $$('li', list).map(function (li) {
-      return { label: (li.getAttribute('data-label') || li.textContent).trim(), branch: li.hasAttribute('data-branch'), note: li.getAttribute('data-note') || '' };
+      return { label: (li.getAttribute('data-label') || li.textContent).trim(), branch: li.hasAttribute('data-branch'), note: li.getAttribute('data-note') || '', target: li.getAttribute('data-target') };
     });
     var main = items.filter(function (s) { return !s.branch; });
     var side = items.filter(function (s) { return s.branch; })[0];
@@ -38,7 +38,9 @@
       main.forEach(function (s, i) { nodes.push({ s: s, x: 20, y: 12 + i * step, w: nw }); });
       H = 12 + n * step - 20;
     }
-    svg = el('svg', { 'class': 'viz', viewBox: '0 0 ' + W + ' ' + H, 'aria-hidden': 'true', focusable: 'false' });
+    var jump = fig.hasAttribute('data-jump');
+    svg = el('svg', jump ? { 'class': 'viz', viewBox: '0 0 ' + W + ' ' + H, role: 'group', 'aria-label': 'Steps' }
+                         : { 'class': 'viz', viewBox: '0 0 ' + W + ' ' + H, 'aria-hidden': 'true', focusable: 'false' });
     svg.style.setProperty('--n', n + (side ? 1 : 0));
 
     var edges = el('g', {}), flows = el('g', {}), boxes = el('g', {});
@@ -56,6 +58,18 @@
       var g = el('g', { 'class': 'vn ' + kind, style: '--i:' + idx });
       g.appendChild(el('rect', { x: nd.x, y: nd.y, width: nd.w, height: nh, rx: 9 }));
       g.appendChild(el('text', { x: nd.x + nd.w / 2, y: nd.y + nh / 2 + 5, 'text-anchor': 'middle' }, nd.s.label));
+      if (jump && nd.s.target) {
+        g.setAttribute('tabindex', '0'); g.setAttribute('role', 'button');
+        g.setAttribute('aria-label', 'Read step: ' + nd.s.label);
+        var t = nd.s.target;
+        var goTo = function () {
+          var li = document.getElementById(t); if (!li) return;
+          li.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+          li.classList.remove('flash'); void li.offsetWidth; li.classList.add('flash');
+        };
+        g.addEventListener('click', goTo);
+        g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTo(); } });
+      }
       boxes.appendChild(g);
     }
     nodes.forEach(function (nd, i) { box(nd, i === 0 ? 'in' : i === n - 1 ? 'out' : 'mid', i); });
@@ -87,6 +101,33 @@
     fig.classList.add('built');
     fig.setAttribute('data-layout', vertical ? 'v' : 'h');
   }
+
+  // project pages: draw the "How it works" steps as a diagram in the page header
+  $$('ol.flow').forEach(function (ol) {
+    var hero = document.querySelector('.proj-hero');
+    if (!hero) return;
+    var fig = document.createElement('figure');
+    fig.className = 'pick-visual proj-visual';
+    fig.setAttribute('data-flow', '');
+    fig.setAttribute('data-jump', '');
+    var cap = document.createElement('figcaption');
+    cap.innerHTML = 'How it works <span>select a step to read it</span>';
+    var steps = document.createElement('ol');
+    steps.className = 'viz-steps';
+    $$('li', ol).forEach(function (li, i) {
+      var b = li.querySelector('b');
+      var s = document.createElement('li');
+      s.textContent = (b ? b.textContent : li.textContent).replace(/\.\s*$/, '');
+      if (li.hasAttribute('data-branch')) { s.setAttribute('data-branch', ''); s.setAttribute('data-note', li.getAttribute('data-note') || ''); }
+      li.id = li.id || 'step-' + (i + 1);
+      s.setAttribute('data-target', li.id);
+      steps.appendChild(s);
+    });
+    steps.setAttribute('aria-hidden', 'true'); // the real list is right below in the page
+    fig.appendChild(cap); fig.appendChild(steps);
+    hero.appendChild(fig);
+    hero.classList.add('has-visual');
+  });
 
   var flowFigs = $$('[data-flow]');
   function buildAll(force) {
