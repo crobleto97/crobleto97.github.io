@@ -182,6 +182,8 @@
         p.classList.toggle('active', on);
         p.classList.remove('from-left', 'from-right');
         if (on && dir && !reduce) { void p.offsetWidth; p.classList.add(dir > 0 ? 'from-right' : 'from-left'); }
+        // replay the card's diagram entrance
+        if (on && !reduce) $$('svg.xp, svg.viz', p).forEach(function (s) { s.classList.remove('enter'); void s.getBoundingClientRect(); s.classList.add('enter'); });
         if (on) p.removeAttribute('inert'); else p.setAttribute('inert', '');
         p.setAttribute('aria-hidden', on ? 'false' : 'true');
         tabs[k].setAttribute('aria-selected', on ? 'true' : 'false');
@@ -216,12 +218,51 @@
     select(0, false, 0);
   }
 
+  /* ---------- scroll storytelling: headings and blocks rise once as they enter ---------- */
+  if (!reduce && hasIO) {
+    var vh0 = window.innerHeight;
+    var risers = $$('.sec-head, .statement p, .about .story, .timeline, .skills > div, .contact .stage-inner > *, .picker');
+    var ro = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pre'); ro.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    risers.forEach(function (el, i) {
+      if (el.getBoundingClientRect().top > vh0) {
+        el.classList.add('pre', 'rise');
+        // siblings inside the closing screen arrive one after another
+        if (el.parentNode.classList.contains('stage-inner')) el.style.transitionDelay = (Array.prototype.indexOf.call(el.parentNode.children, el) * 70) + 'ms';
+        ro.observe(el);
+      }
+    });
+  }
+
+  /* ---------- copy email ---------- */
+  $$('[data-copy]').forEach(function (b) {
+    var status = b.parentNode.querySelector('.copy-status');
+    b.addEventListener('click', function () {
+      var text = b.getAttribute('data-copy');
+      function done(ok) {
+        if (status) status.textContent = ok ? 'Email address copied' : 'Select and copy: ' + text;
+        if (!ok) return;
+        b.classList.add('done');
+        clearTimeout(b._t); b._t = setTimeout(function () { b.classList.remove('done'); }, 1800);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { done(true); }, fallback);
+      else fallback();
+      function fallback() {
+        var t = document.createElement('textarea'); t.value = text; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+        t.remove(); done(ok);
+      }
+    });
+  });
+
   /* ---------- timeline: emphasise the stop in the middle of the screen ---------- */
   var stops = $$('.timeline li');
   if (stops.length && hasIO) {
     var tio = new IntersectionObserver(function (es) {
       es.forEach(function (e) { e.target.classList.toggle('cur', e.isIntersecting); });
-    }, { rootMargin: '-45% 0px -45% 0px' });
+    }, { rootMargin: '-48% 0px -48% 0px' });
     stops.forEach(function (s) { tio.observe(s); });
   }
 

@@ -45,7 +45,9 @@
 
     var edges = el('g', {}), flows = el('g', {}), boxes = el('g', {});
     function link(d, dashed) {
-      edges.appendChild(el('path', { 'class': 'edge' + (dashed ? ' dashed' : ''), d: d }));
+      var ea = { 'class': 'edge' + (dashed ? ' dashed' : ''), d: d };
+      if (!dashed) ea.pathLength = 1;
+      edges.appendChild(el('path', ea));
       if (!dashed) flows.appendChild(el('path', { 'class': 'flow', d: d }));
     }
     nodes.forEach(function (nd, i) {
@@ -243,6 +245,7 @@
   document.addEventListener('keydown', function (e) {
     if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); dlg.open ? close() : open(); }
   });
+  $$('.kbd-k').forEach(function (k) { k.textContent = isMac ? '⌘K' : 'Ctrl K'; });
   $$('.cmdk-btn').forEach(function (b) {
     var k = b.querySelector('kbd'); if (k) k.textContent = isMac ? '⌘K' : 'Ctrl K';
     b.setAttribute('aria-keyshortcuts', isMac ? 'Meta+K' : 'Control+K');
@@ -308,7 +311,9 @@
           d = 'M' + x1 + ',' + y1 + ' C' + x1 + ',' + m + ' ' + x2 + ',' + m + ' ' + x2 + ',' + y2;
         }
       }
-      var p = el('path', { 'class': 'xp-edge' + (e.dashed ? ' dashed' : ''), d: d });
+      var pa = { 'class': 'xp-edge' + (e.dashed ? ' dashed' : ''), d: d };
+      if (!e.dashed) pa.pathLength = 1;
+      var p = el('path', pa);
       eG.appendChild(p);
       var lab = null;
       if (e.label) {
@@ -320,7 +325,7 @@
     });
 
     var buttons = spec.nodes.map(function (n) {
-      var g = el('g', { 'class': 'xp-node k-' + n.kind, tabindex: '0', role: 'button', 'aria-pressed': 'false',
+      var g = el('g', { 'class': 'xp-node k-' + n.kind, style: '--i:' + spec.nodes.indexOf(n), tabindex: '0', role: 'button', 'aria-pressed': 'false',
         'aria-label': n.label + ', ' + (KIND[n.kind] || 'step').toLowerCase() });
       g.appendChild(el('rect', { 'class': 'xp-ring', x: n.x - 4, y: n.y - 4, width: n.w + 8, height: H + 8, rx: 11 }));
       g.appendChild(el('rect', { 'class': 'xp-box', x: n.x, y: n.y, width: n.w, height: H, rx: n.kind === 'data' ? 16 : 8 }));
@@ -421,5 +426,17 @@
       b.addEventListener('focus', on); b.addEventListener('blur', off);
     });
     select(0);
+  });
+})();
+
+/* ---------- diagrams build in the first time they come into view ---------- */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('enter'); io.unobserve(e.target); } });
+  }, { threshold: 0.25 });
+  // picker cards replay their own entrance when selected (main.js); the rest build once
+  Array.prototype.forEach.call(document.querySelectorAll('svg.viz, svg.xp'), function (s) {
+    if (!s.closest('.pick')) io.observe(s);
   });
 })();
