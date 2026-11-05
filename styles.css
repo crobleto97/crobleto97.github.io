@@ -40,7 +40,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:space-between;align-items:center;gap:1rem;
   padding-block:1rem;background:color-mix(in srgb,var(--bg) 95%,transparent);
   box-shadow:0 0 0 100vmax color-mix(in srgb,var(--bg) 95%,transparent);clip-path:inset(0 -100vmax)}
-.site-head.scrolled{padding-block:.6rem}
+/* the header keeps the same height when scrolled: resizing a sticky header near the top made the page shake */
 .site-head .progress{position:absolute;left:calc(50% - 50vw);right:calc(50% - 50vw);bottom:0;height:2px;background:var(--accent);
   transform-origin:left;transform:scaleX(0);will-change:transform}
 .mark{font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
