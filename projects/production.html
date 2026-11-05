@@ -3,37 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Taking the agent to production</title>
+<title data-es="Llevar el agente a producción">Taking the agent to production</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
-<link rel="stylesheet" href="../styles.css?v=10">
-<script src="../theme.js?v=10"></script>
-<script src="../site.js?v=10" defer></script>
+<link rel="stylesheet" href="../styles.css?v=11">
+<script src="../theme.js?v=11"></script>
+<script src="../site.js?v=11" defer></script>
 </head>
 <body>
 <div class="wrap">
 <header class="site-head">
   <a class="back" href="../index.html#work">← Christian Robleto Romero</a>
-  <div class="head-tools"><button class="cmdk-btn" type="button" aria-label="Search and jump"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>Search</span><kbd>Ctrl K</kbd></button>
+  <div class="head-tools"><button class="cmdk-btn" type="button" aria-label="Search and jump" data-es-aria-label="Buscar en la web"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span><span lang="en">Search</span><span lang="es">Buscar</span></span><kbd>Ctrl K</kbd></button>
+  <div class="lang-switch" role="group" aria-label="Language" data-es-aria-label="Idioma"><button type="button" data-set-lang="en" aria-pressed="true" title="English">EN</button><button type="button" data-set-lang="es" aria-pressed="false" title="Español">ES</button></div>
   <button class="theme-toggle" type="button" aria-label="Switch theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.7 6.7 0 0 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></div>
 </header>
 <main>
 <section class="proj-hero">
-  <h1>Taking the agent to production</h1>
-  <p class="lede">The document agent from project 2, packaged the way a team would run it: behind an API, tested, containerised and deployed by a pipeline on every push.</p>
-  <div class="facts"><span>Status <b class="status" data-status="planned">Planned</b></span><span>Order <b>Project 3 of 3</b></span><span>Type <b>Personal project</b></span></div>
+  <h1><span lang="en">Taking the agent to production</span><span lang="es">Llevar el agente a producción</span></h1>
+  <p class="lede"><span lang="en">The document agent from project 2, packaged the way a team would run it: behind an API, tested, containerised and deployed by a pipeline on every push.</span><span lang="es">El agente documental del proyecto 2, empaquetado como lo usaría un equipo: detrás de una API, con tests, en un contenedor y desplegado por un pipeline en cada push.</span></p>
+  <div class="facts"><span><span lang="en">Status</span><span lang="es">Estado</span> <b class="status" data-status="planned"><span lang="en">Planned</span><span lang="es">Planificado</span></b></span><span><span lang="en">Order</span><span lang="es">Orden</span> <b><span lang="en">Project 3 of 3</span><span lang="es">Proyecto 3 de 3</span></b></span><span><span lang="en">Type</span><span lang="es">Tipo</span> <b><span lang="en">Personal project</span><span lang="es">Proyecto personal</span></b></span></div>
 </section>
 <div class="prose">
-  <section><h2>The problem</h2><p>A notebook that works on my machine is not something a team can depend on. This stage adds the engineering around the agent so that a change can't reach users without passing tests and the evaluation set.</p></section>
-  <section><h2>How it works</h2><ol class="flow"><li><span><b>Serve.</b> FastAPI endpoints with async request handling.</span></li><li><span><b>Test.</b> pytest for units and integration, plus the evaluation set from project 2 as a regression check.</span></li><li><span><b>Lint.</b> Linting and type checks on every commit.</span></li><li><span><b>Package.</b> A Docker image built in CI.</span></li><li><span><b>Deploy.</b> GitHub Actions deploys only when every earlier step passes.</span></li></ol></section>
+  <section><h2><span lang="en">The problem</span><span lang="es">El problema</span></h2><p><span lang="en">A notebook that works on my machine is not something a team can depend on. This stage adds the engineering around the agent so that a change can't reach users without passing tests and the evaluation set.</span><span lang="es">Un notebook que funciona en mi ordenador no es algo de lo que un equipo pueda depender. Esta etapa añade la ingeniería alrededor del agente para que ningún cambio llegue a los usuarios sin pasar los tests y el conjunto de evaluación.</span></p></section>
+  <section><h2><span lang="en">How it works</span><span lang="es">Cómo funciona</span></h2><ol class="flow"><li><span lang="en"><b>Serve.</b> FastAPI endpoints with async request handling.</span><span lang="es"><b>Servir.</b> Endpoints de FastAPI con gestión asíncrona de peticiones.</span></li><li><span lang="en"><b>Test.</b> pytest for units and integration, plus the evaluation set from project 2 as a regression check.</span><span lang="es"><b>Test.</b> pytest para tests unitarios y de integración, más el conjunto de evaluación del proyecto 2 como prueba de regresión.</span></li><li><span lang="en"><b>Lint.</b> Linting and type checks on every commit.</span><span lang="es"><b>Lint.</b> Linting y comprobación de tipos en cada commit.</span></li><li><span lang="en"><b>Package.</b> A Docker image built in CI.</span><span lang="es"><b>Empaquetar.</b> Una imagen de Docker construida en CI.</span></li><li><span lang="en"><b>Deploy.</b> GitHub Actions deploys only when every earlier step passes.</span><span lang="es"><b>Desplegar.</b> GitHub Actions despliega solo cuando pasan todos los pasos anteriores.</span></li></ol></section>
   <section><h2>Stack</h2><p>FastAPI, asyncio, pytest, Docker, GitHub Actions, YAML.</p></section>
-  <section><h2>What I'll measure</h2><ul class="checks"><li>Test coverage and pipeline run time</li><li>Evaluation score on every release, compared with the previous one</li><li>API latency under load</li></ul></section>
-  <section><h2>Progress</h2><p class="empty">Code, screenshots and results will appear here as each stage is finished.</p></section>
+  <section><h2><span lang="en">What I'll measure</span><span lang="es">Qué voy a medir</span></h2><ul class="checks"><li><span lang="en">Test coverage and pipeline run time</span><span lang="es">Cobertura de tests y tiempo de ejecución del pipeline</span></li><li><span lang="en">Evaluation score on every release, compared with the previous one</span><span lang="es">Puntuación de evaluación en cada versión, comparada con la anterior</span></li><li><span lang="en">API latency under load</span><span lang="es">Latencia de la API bajo carga</span></li></ul></section>
+  <section><h2><span lang="en">Progress</span><span lang="es">Avance</span></h2><p class="empty"><span lang="en">Code, screenshots and results will appear here as each stage is finished.</span><span lang="es">El código, las capturas y los resultados aparecerán aquí a medida que termine cada etapa.</span></p></section>
 </div>
-<nav class="proj-nav" aria-label="More projects"><a class="pn prev" href="agentic-rag.html"><span>Previous project</span><b>Document agent with evaluation</b></a><a class="pn next" href="../index.html#work"><span>Back to</span><b>All projects</b></a></nav>
+<nav class="proj-nav" aria-label="More projects" data-es-aria-label="Más proyectos"><a class="pn prev" href="agentic-rag.html"><span><span lang="en">Previous project</span><span lang="es">Proyecto anterior</span></span><b><span lang="en">Document agent with evaluation</span><span lang="es">Agente documental con evaluación</span></b></a><a class="pn next" href="../index.html#work"><span><span lang="en">Back to</span><span lang="es">Volver a</span></span><b><span lang="en">All projects</span><span lang="es">Todos los proyectos</span></b></a></nav>
 </main>
-<footer>Christian Robleto Romero · Pamplona, Spain · 2026</footer>
+<footer><span lang="en">Christian Robleto Romero · Pamplona, Spain · 2026</span><span lang="es">Christian Robleto Romero · Pamplona, España · 2026</span></footer>
 </div>
 </body>
 </html>

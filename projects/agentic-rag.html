@@ -3,37 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Document agent with evaluation</title>
+<title data-es="Agente documental con evaluación">Document agent with evaluation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
-<link rel="stylesheet" href="../styles.css?v=10">
-<script src="../theme.js?v=10"></script>
-<script src="../site.js?v=10" defer></script>
+<link rel="stylesheet" href="../styles.css?v=11">
+<script src="../theme.js?v=11"></script>
+<script src="../site.js?v=11" defer></script>
 </head>
 <body>
 <div class="wrap">
 <header class="site-head">
   <a class="back" href="../index.html#work">← Christian Robleto Romero</a>
-  <div class="head-tools"><button class="cmdk-btn" type="button" aria-label="Search and jump"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>Search</span><kbd>Ctrl K</kbd></button>
+  <div class="head-tools"><button class="cmdk-btn" type="button" aria-label="Search and jump" data-es-aria-label="Buscar en la web"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span><span lang="en">Search</span><span lang="es">Buscar</span></span><kbd>Ctrl K</kbd></button>
+  <div class="lang-switch" role="group" aria-label="Language" data-es-aria-label="Idioma"><button type="button" data-set-lang="en" aria-pressed="true" title="English">EN</button><button type="button" data-set-lang="es" aria-pressed="false" title="Español">ES</button></div>
   <button class="theme-toggle" type="button" aria-label="Switch theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.7 6.7 0 0 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></div>
 </header>
 <main>
 <section class="proj-hero">
-  <h1>Document agent with evaluation</h1>
-  <p class="lede">A retrieval agent that answers questions from a set of technical or procedural documents, returns structured answers with sources, and hands off to a person when its confidence is low.</p>
-  <div class="facts"><span>Status <b class="status" data-status="planned">Planned</b></span><span>Order <b>Project 2 of 3</b></span><span>Type <b>Personal project</b></span></div>
+  <h1><span lang="en">Document agent with evaluation</span><span lang="es">Agente documental con evaluación</span></h1>
+  <p class="lede"><span lang="en">A retrieval agent that answers questions from a set of technical or procedural documents, returns structured answers with sources, and hands off to a person when its confidence is low.</span><span lang="es">Un agente de recuperación que responde preguntas sobre un conjunto de documentos técnicos o de procedimientos, devuelve respuestas estructuradas con fuentes y pasa el caso a una persona cuando su confianza es baja.</span></p>
+  <div class="facts"><span><span lang="en">Status</span><span lang="es">Estado</span> <b class="status" data-status="planned"><span lang="en">Planned</span><span lang="es">Planificado</span></b></span><span><span lang="en">Order</span><span lang="es">Orden</span> <b><span lang="en">Project 2 of 3</span><span lang="es">Proyecto 2 de 3</span></b></span><span><span lang="en">Type</span><span lang="es">Tipo</span> <b><span lang="en">Personal project</span><span lang="es">Proyecto personal</span></b></span></div>
 </section>
 <div class="prose">
-  <section><h2>The problem</h2><p>Calling an LLM API is easy. Knowing whether a new version of an assistant got better or worse is the hard part. This project is built around a fixed test set, so every change to prompts, chunking or retrieval can be measured.</p></section>
-  <section><h2>How it works</h2><ol class="flow"><li><span><b>Classify.</b> Detect what the question is asking and whether it needs the documents at all.</span></li><li><span><b>Retrieve.</b> Search chunks stored in PostgreSQL with pgvector and score their relevance.</span></li><li><span><b>Answer.</b> Generate a structured answer validated with Pydantic, citing the chunks it used.</span></li><li><span><b>Check.</b> Verify the answer is grounded in the cited sources.</span></li><li data-branch data-note="low confidence"><span><b>Escalate.</b> Send low-confidence answers to human review instead of returning them.</span></li></ol></section>
-  <section><h2>Stack</h2><p>Python, LangGraph, Pydantic, PostgreSQL with pgvector, embeddings, LLM APIs.</p></section>
-  <section><h2>What I'll measure</h2><ul class="checks"><li>Answer correctness on a 50-question test set</li><li>Retrieval quality and groundedness</li><li>Latency and cost per question</li><li>Failure and escalation rate</li></ul></section>
-  <section><h2>Progress</h2><p class="empty">Code, screenshots and results will appear here as each stage is finished.</p></section>
+  <section><h2><span lang="en">The problem</span><span lang="es">El problema</span></h2><p><span lang="en">Calling an LLM API is easy. Knowing whether a new version of an assistant got better or worse is the hard part. This project is built around a fixed test set, so every change to prompts, chunking or retrieval can be measured.</span><span lang="es">Llamar a la API de un LLM es fácil. Lo difícil es saber si una nueva versión de un asistente ha mejorado o empeorado. Este proyecto gira en torno a un conjunto de pruebas fijo, así que cada cambio en los prompts, el troceado o la recuperación se puede medir.</span></p></section>
+  <section><h2><span lang="en">How it works</span><span lang="es">Cómo funciona</span></h2><ol class="flow"><li><span lang="en"><b>Classify.</b> Detect what the question is asking and whether it needs the documents at all.</span><span lang="es"><b>Clasificar.</b> Detectar qué pide la pregunta y si necesita los documentos.</span></li><li><span lang="en"><b>Retrieve.</b> Search chunks stored in PostgreSQL with pgvector and score their relevance.</span><span lang="es"><b>Recuperar.</b> Buscar fragmentos guardados en PostgreSQL con pgvector y puntuar su relevancia.</span></li><li><span lang="en"><b>Answer.</b> Generate a structured answer validated with Pydantic, citing the chunks it used.</span><span lang="es"><b>Responder.</b> Generar una respuesta estructurada, validada con Pydantic, que cita los fragmentos usados.</span></li><li><span lang="en"><b>Check.</b> Verify the answer is grounded in the cited sources.</span><span lang="es"><b>Comprobar.</b> Verificar que la respuesta se apoya en las fuentes citadas.</span></li><li data-branch data-note="low confidence" data-note-es="poca confianza"><span lang="en"><b>Escalate.</b> Send low-confidence answers to human review instead of returning them.</span><span lang="es"><b>Escalar.</b> Enviar las respuestas con poca confianza a revisión humana en lugar de devolverlas.</span></li></ol></section>
+  <section><h2>Stack</h2><p><span lang="en">Python, LangGraph, Pydantic, PostgreSQL with pgvector, embeddings, LLM APIs.</span><span lang="es">Python, LangGraph, Pydantic, PostgreSQL con pgvector, embeddings, APIs de LLM.</span></p></section>
+  <section><h2><span lang="en">What I'll measure</span><span lang="es">Qué voy a medir</span></h2><ul class="checks"><li><span lang="en">Answer correctness on a 50-question test set</span><span lang="es">Exactitud de las respuestas en un conjunto de 50 preguntas</span></li><li><span lang="en">Retrieval quality and groundedness</span><span lang="es">Calidad de la recuperación y grado de fundamentación</span></li><li><span lang="en">Latency and cost per question</span><span lang="es">Latencia y coste por pregunta</span></li><li><span lang="en">Failure and escalation rate</span><span lang="es">Tasa de fallos y de escalado</span></li></ul></section>
+  <section><h2><span lang="en">Progress</span><span lang="es">Avance</span></h2><p class="empty"><span lang="en">Code, screenshots and results will appear here as each stage is finished.</span><span lang="es">El código, las capturas y los resultados aparecerán aquí a medida que termine cada etapa.</span></p></section>
 </div>
-<nav class="proj-nav" aria-label="More projects"><a class="pn prev" href="analytics.html"><span>Previous project</span><b>Operations analytics platform</b></a><a class="pn next" href="production.html"><span>Next project</span><b>Taking the agent to production</b></a></nav>
+<nav class="proj-nav" aria-label="More projects" data-es-aria-label="Más proyectos"><a class="pn prev" href="analytics.html"><span><span lang="en">Previous project</span><span lang="es">Proyecto anterior</span></span><b><span lang="en">Operations analytics platform</span><span lang="es">Plataforma de analítica de operaciones</span></b></a><a class="pn next" href="production.html"><span><span lang="en">Next project</span><span lang="es">Siguiente proyecto</span></span><b><span lang="en">Taking the agent to production</span><span lang="es">Llevar el agente a producción</span></b></a></nav>
 </main>
-<footer>Christian Robleto Romero · Pamplona, Spain · 2026</footer>
+<footer><span lang="en">Christian Robleto Romero · Pamplona, Spain · 2026</span><span lang="es">Christian Robleto Romero · Pamplona, España · 2026</span></footer>
 </div>
 </body>
 </html>

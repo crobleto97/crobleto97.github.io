@@ -3,74 +3,75 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Operations analytics platform</title>
+<title data-es="Plataforma de analítica de operaciones">Operations analytics platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
-<link rel="stylesheet" href="../styles.css?v=10">
-<script src="../theme.js?v=10"></script>
-<script src="../site.js?v=10" defer></script>
+<link rel="stylesheet" href="../styles.css?v=11">
+<script src="../theme.js?v=11"></script>
+<script src="../site.js?v=11" defer></script>
 </head>
 <body>
 <div class="wrap">
 <header class="site-head">
   <a class="back" href="../index.html#work">← Christian Robleto Romero</a>
-  <div class="head-tools"><button class="cmdk-btn" type="button" aria-label="Search and jump"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>Search</span><kbd>Ctrl K</kbd></button>
+  <div class="head-tools"><button class="cmdk-btn" type="button" aria-label="Search and jump" data-es-aria-label="Buscar en la web"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span><span lang="en">Search</span><span lang="es">Buscar</span></span><kbd>Ctrl K</kbd></button>
+  <div class="lang-switch" role="group" aria-label="Language" data-es-aria-label="Idioma"><button type="button" data-set-lang="en" aria-pressed="true" title="English">EN</button><button type="button" data-set-lang="es" aria-pressed="false" title="Español">ES</button></div>
   <button class="theme-toggle" type="button" aria-label="Switch theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.7 6.7 0 0 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></div>
 </header>
 <main>
 <section class="proj-hero">
-  <h1>Operations analytics platform</h1>
-  <p class="lede">An end-to-end analytics project on public e-commerce and logistics data: from raw CSV files to a star schema in PostgreSQL and a Power BI report built for operations decisions.</p>
-  <div class="facts"><span>Status <b class="status" data-status="progress">In progress</b></span><span>Order <b>Project 1 of 3</b></span><span>Type <b>Personal project</b></span></div>
+  <h1><span lang="en">Operations analytics platform</span><span lang="es">Plataforma de analítica de operaciones</span></h1>
+  <p class="lede"><span lang="en">An end-to-end analytics project on public e-commerce and logistics data: from raw CSV files to a star schema in PostgreSQL and a Power BI report built for operations decisions.</span><span lang="es">Un proyecto de analítica de principio a fin con datos públicos de e-commerce y logística: de archivos CSV en bruto a un esquema en estrella en PostgreSQL y un informe de Power BI pensado para decidir en operaciones.</span></p>
+  <div class="facts"><span><span lang="en">Status</span><span lang="es">Estado</span> <b class="status" data-status="progress"><span lang="en">In progress</span><span lang="es">En curso</span></b></span><span><span lang="en">Order</span><span lang="es">Orden</span> <b><span lang="en">Project 1 of 3</span><span lang="es">Proyecto 1 de 3</span></b></span><span><span lang="en">Type</span><span lang="es">Tipo</span> <b><span lang="en">Personal project</span><span lang="es">Proyecto personal</span></b></span></div>
 </section>
 <div class="prose">
-  <section><h2>The problem</h2><p>Operations teams usually have the data to answer questions about late deliveries, supplier reliability or margin by region, but it sits in flat exports that nobody has joined or modelled. Reports get rebuilt by hand every month and the numbers rarely match between them.</p></section>
-  <section><h2>How it works</h2><ol class="flow"><li><span><b>Ingest.</b> Python loads the raw files, fixes types and logs what it rejected.</span></li><li><span><b>Validate.</b> Data-quality checks on keys, nulls, duplicates and value ranges before anything reaches the database.</span></li><li><span><b>Model.</b> PostgreSQL star schema: fact tables for orders and deliveries, dimensions for customer, product, supplier, geography and date.</span></li><li><span><b>Query.</b> SQL views with CTEs and window functions for the business KPIs.</span></li><li><span><b>Report.</b> Power BI on top of the model, with Power Query and DAX measures for revenue, margin, on-time delivery and retention.</span></li></ol></section>
+  <section><h2><span lang="en">The problem</span><span lang="es">El problema</span></h2><p><span lang="en">Operations teams usually have the data to answer questions about late deliveries, supplier reliability or margin by region, but it sits in flat exports that nobody has joined or modelled. Reports get rebuilt by hand every month and the numbers rarely match between them.</span><span lang="es">Los equipos de operaciones suelen tener los datos para responder preguntas sobre entregas con retraso, fiabilidad de proveedores o margen por región, pero están en exportaciones planas que nadie ha unido ni modelado. Los informes se rehacen a mano cada mes y las cifras casi nunca coinciden entre ellos.</span></p></section>
+  <section><h2><span lang="en">How it works</span><span lang="es">Cómo funciona</span></h2><ol class="flow"><li><span lang="en"><b>Ingest.</b> Python loads the raw files, fixes types and logs what it rejected.</span><span lang="es"><b>Ingesta.</b> Python carga los archivos en bruto, corrige los tipos y registra lo que rechaza.</span></li><li><span lang="en"><b>Validate.</b> Data-quality checks on keys, nulls, duplicates and value ranges before anything reaches the database.</span><span lang="es"><b>Validación.</b> Comprobaciones de calidad de claves, nulos, duplicados y rangos de valores antes de que nada llegue a la base de datos.</span></li><li><span lang="en"><b>Model.</b> PostgreSQL star schema: fact tables for orders and deliveries, dimensions for customer, product, supplier, geography and date.</span><span lang="es"><b>Modelo.</b> Esquema en estrella en PostgreSQL: tablas de hechos de pedidos y entregas, y dimensiones de cliente, producto, proveedor, geografía y fecha.</span></li><li><span lang="en"><b>Query.</b> SQL views with CTEs and window functions for the business KPIs.</span><span lang="es"><b>Consulta.</b> Vistas SQL con CTE y funciones de ventana para los KPIs del negocio.</span></li><li><span lang="en"><b>Report.</b> Power BI on top of the model, with Power Query and DAX measures for revenue, margin, on-time delivery and retention.</span><span lang="es"><b>Informe.</b> Power BI sobre el modelo, con Power Query y medidas DAX de ingresos, margen, entregas a tiempo y retención.</span></li></ol></section>
   <section><h2>Stack</h2><p>Python, pandas, PostgreSQL, SQL, Power BI, Power Query, DAX.</p></section>
-  <section><h2>What I'll measure</h2><ul class="checks"><li>Revenue, margin and order volume by region and category</li><li>On-time delivery rate and average delay by supplier</li><li>Customer segmentation and retention by cohort</li><li>Rows rejected by each data-quality check</li></ul></section>
-  <section><h2>Progress</h2>
+  <section><h2><span lang="en">What I'll measure</span><span lang="es">Qué voy a medir</span></h2><ul class="checks"><li><span lang="en">Revenue, margin and order volume by region and category</span><span lang="es">Ingresos, margen y volumen de pedidos por región y categoría</span></li><li><span lang="en">On-time delivery rate and average delay by supplier</span><span lang="es">Tasa de entregas a tiempo y retraso medio por proveedor</span></li><li><span lang="en">Customer segmentation and retention by cohort</span><span lang="es">Segmentación de clientes y retención por cohorte</span></li><li><span lang="en">Rows rejected by each data-quality check</span><span lang="es">Filas rechazadas por cada comprobación de calidad</span></li></ul></section>
+  <section><h2><span lang="en">Progress</span><span lang="es">Avance</span></h2>
     <ul class="checks">
-      <li><b>Done:</b> ingestion with data-quality checks. 9 files, about 1.5M rows; every run logs its checks and rejected rows.</li>
-      <li><b>Done:</b> star schema in PostgreSQL with 5 dimensions and 2 fact tables, plus 5 SQL views for the KPIs.</li>
-      <li><b>Next:</b> Power BI report.</li>
+      <li><span lang="en"><b>Done:</b> ingestion with data-quality checks. 9 files, about 1.5M rows; every run logs its checks and rejected rows.</span><span lang="es"><b>Hecho:</b> ingesta con comprobaciones de calidad. 9 archivos y cerca de 1,5 millones de filas; cada ejecución registra sus comprobaciones y las filas rechazadas.</span></li>
+      <li><span lang="en"><b>Done:</b> star schema in PostgreSQL with 5 dimensions and 2 fact tables, plus 5 SQL views for the KPIs.</span><span lang="es"><b>Hecho:</b> esquema en estrella en PostgreSQL con 5 dimensiones y 2 tablas de hechos, más 5 vistas SQL para los KPIs.</span></li>
+      <li><span lang="en"><b>Next:</b> Power BI report.</span><span lang="es"><b>Siguiente:</b> informe de Power BI.</span></li>
     </ul>
-    <p><a href="https://github.com/crobleto97/ops-analytics-olist">See the code on GitHub</a></p>
+    <p><a href="https://github.com/crobleto97/ops-analytics-olist"><span lang="en">See the code on GitHub</span><span lang="es">Ver el código en GitHub</span></a></p>
   </section>
-  <section><h2>First findings</h2>
+  <section><h2><span lang="en">First findings</span><span lang="es">Primeros hallazgos</span></h2>
     <ul class="checks">
-      <li>6.8% of orders arrive late, and late orders get half the review score: 2.3 against 4.3 out of 5.</li>
-      <li>Most of the delay happens with the carrier. In the Northeast a late order spends 36 days in transit, against 14 for an on-time one.</li>
-      <li>98 of 2,970 sellers account for half of all late orders.</li>
-      <li>The worst routes all start in São Paulo and end in the Northeast.</li>
+      <li><span lang="en">6.8% of orders arrive late, and late orders get half the review score: 2.3 against 4.3 out of 5.</span><span lang="es">El 6,8 % de los pedidos llega tarde, y esos pedidos reciben la mitad de valoración: 2,3 frente a 4,3 sobre 5.</span></li>
+      <li><span lang="en">Most of the delay happens with the carrier. In the Northeast a late order spends 36 days in transit, against 14 for an on-time one.</span><span lang="es">Casi todo el retraso se produce con la transportista. En el Nordeste, un pedido con retraso pasa 36 días en tránsito, frente a 14 uno a tiempo.</span></li>
+      <li><span lang="en">98 of 2,970 sellers account for half of all late orders.</span><span lang="es">98 de 2.970 vendedores concentran la mitad de los pedidos con retraso.</span></li>
+      <li><span lang="en">The worst routes all start in São Paulo and end in the Northeast.</span><span lang="es">Las peores rutas salen todas de São Paulo y acaban en el Nordeste.</span></li>
     </ul>
     <figure class="pick-visual findings page-findings">
-      <figcaption>The first findings, drawn to scale</figcaption>
-      <div class="fnd-ring" role="img" aria-label="6.8% of orders arrive late">
+      <figcaption><span lang="en">The first findings, drawn to scale</span><span lang="es">Los primeros hallazgos, a escala</span></figcaption>
+      <div class="fnd-ring" role="img" aria-label="6.8% of orders arrive late" data-es-aria-label="El 6,8 % de los pedidos llega tarde">
         <svg viewBox="0 0 42 42" aria-hidden="true"><circle class="trk" cx="21" cy="21" r="16"/><circle class="val" cx="21" cy="21" r="16" pathLength="100" stroke-dasharray="6.8 100"/></svg>
-        <p><b>6.8%</b> of orders arrive late</p>
+        <p><span lang="en"><b>6.8%</b> of orders arrive late</span><span lang="es"><b>6,8 %</b> de los pedidos llega tarde</span></p>
       </div>
-      <div class="fnd-block" role="img" aria-label="Average review score out of 5: 4.3 for on-time orders, 2.3 for late orders">
-        <p class="fnd-t">Average review score, out of 5</p>
-        <div class="hbar"><span>On time</span><i style="--v:.86"></i><b>4.3</b></div>
-        <div class="hbar late"><span>Late</span><i style="--v:.46"></i><b>2.3</b></div>
+      <div class="fnd-block" role="img" aria-label="Average review score out of 5: 4.3 for on-time orders, 2.3 for late orders" data-es-aria-label="Valoración media sobre 5: 4,3 en pedidos a tiempo y 2,3 en pedidos con retraso">
+        <p class="fnd-t"><span lang="en">Average review score, out of 5</span><span lang="es">Valoración media, sobre 5</span></p>
+        <div class="hbar"><span><span lang="en">On time</span><span lang="es">A tiempo</span></span><i style="--v:.86"></i><b><span lang="en">4.3</span><span lang="es">4,3</span></b></div>
+        <div class="hbar late"><span><span lang="en">Late</span><span lang="es">Con retraso</span></span><i style="--v:.46"></i><b><span lang="en">2.3</span><span lang="es">2,3</span></b></div>
       </div>
-      <div class="fnd-block" role="img" aria-label="Northeast: a late order spends 36 days in transit, an on-time one 14 days">
-        <p class="fnd-t">Days in transit in the Northeast</p>
-        <div class="hbar"><span>On time</span><i style="--v:.389"></i><b>14</b></div>
-        <div class="hbar late"><span>Late</span><i style="--v:1"></i><b>36</b></div>
+      <div class="fnd-block" role="img" aria-label="Northeast: a late order spends 36 days in transit, an on-time one 14 days" data-es-aria-label="Nordeste: un pedido con retraso pasa 36 días en tránsito y uno a tiempo, 14 días">
+        <p class="fnd-t"><span lang="en">Days in transit in the Northeast</span><span lang="es">Días en tránsito en el Nordeste</span></p>
+        <div class="hbar"><span><span lang="en">On time</span><span lang="es">A tiempo</span></span><i style="--v:.389"></i><b>14</b></div>
+        <div class="hbar late"><span><span lang="en">Late</span><span lang="es">Con retraso</span></span><i style="--v:1"></i><b>36</b></div>
       </div>
-      <div class="fnd-block" role="img" aria-label="98 of 2,970 sellers, about 3 percent, account for half of all late orders">
-        <p class="fnd-t">98 of 2,970 sellers account for half of all late orders</p>
-        <div class="hbar late"><span>Sellers</span><i style="--v:.033"></i><b>3%</b></div>
-        <div class="hbar late"><span>Late orders</span><i style="--v:.5"></i><b>50%</b></div>
+      <div class="fnd-block" role="img" aria-label="98 of 2,970 sellers, about 3 percent, account for half of all late orders" data-es-aria-label="98 de 2.970 vendedores, alrededor del 3 %, concentran la mitad de los pedidos con retraso">
+        <p class="fnd-t"><span lang="en">98 of 2,970 sellers account for half of all late orders</span><span lang="es">98 de 2.970 vendedores concentran la mitad de los retrasos</span></p>
+        <div class="hbar late"><span><span lang="en">Sellers</span><span lang="es">Vendedores</span></span><i style="--v:.033"></i><b>3%</b></div>
+        <div class="hbar late"><span><span lang="en">Late orders</span><span lang="es">Retrasos</span></span><i style="--v:.5"></i><b>50%</b></div>
       </div>
     </figure>
   </section>
 </div>
-<nav class="proj-nav" aria-label="More projects"><a class="pn prev" href="../index.html#work"><span>Back to</span><b>All projects</b></a><a class="pn next" href="agentic-rag.html"><span>Next project</span><b>Document agent with evaluation</b></a></nav>
+<nav class="proj-nav" aria-label="More projects" data-es-aria-label="Más proyectos"><a class="pn prev" href="../index.html#work"><span><span lang="en">Back to</span><span lang="es">Volver a</span></span><b><span lang="en">All projects</span><span lang="es">Todos los proyectos</span></b></a><a class="pn next" href="agentic-rag.html"><span><span lang="en">Next project</span><span lang="es">Siguiente proyecto</span></span><b><span lang="en">Document agent with evaluation</span><span lang="es">Agente documental con evaluación</span></b></a></nav>
 </main>
-<footer>Christian Robleto Romero · Pamplona, Spain · 2026</footer>
+<footer><span lang="en">Christian Robleto Romero · Pamplona, Spain · 2026</span><span lang="es">Christian Robleto Romero · Pamplona, España · 2026</span></footer>
 </div>
 </body>
 </html>
