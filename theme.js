@@ -97,9 +97,24 @@
     Array.prototype.forEach.call(document.querySelectorAll('.theme-toggle'), function (b) {
       b.addEventListener('click', function () {
         var next = current() === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        try { localStorage.setItem(KEY, next); } catch (e) {}
-        label();
+        function swap() {
+          root.setAttribute('data-theme', next);
+          try { localStorage.setItem(KEY, next); } catch (e) {}
+          label();
+        }
+        // The new theme grows as a circle from the button. Browsers without View Transitions,
+        // or people who asked for less motion, get the instant swap.
+        var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!document.startViewTransition || still) { swap(); return; }
+        var r = b.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
+        var end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+        root.classList.add('vt-theme');
+        var vt = document.startViewTransition(swap);
+        vt.ready.then(function () {
+          root.animate({ clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + end + 'px at ' + x + 'px ' + y + 'px)'] },
+            { duration: 550, easing: 'cubic-bezier(.4,0,.2,1)', pseudoElement: '::view-transition-new(root)' });
+        }).catch(function () {});
+        vt.finished.finally(function () { root.classList.remove('vt-theme'); });
       });
     });
     Array.prototype.forEach.call(document.querySelectorAll('[data-set-lang]'), function (b) {
