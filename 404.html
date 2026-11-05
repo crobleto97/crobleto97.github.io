@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-es="Página no encontrada · Christian Robleto Romero">Page not found · Christian Robleto Romero</title>
+<meta name="robots" content="noindex">
+<!-- GitHub Pages serves this file for any missing address, so every path here is absolute. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/styles.css?v=13">
+<script src="/theme.js?v=11"></script>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<style>
+.nf{padding-block:4rem 3rem;display:grid;gap:1.4rem;max-width:44rem}
+.nf-code{font-family:var(--display);font-weight:800;font-size:clamp(5rem,18vw,9rem);line-height:.9;letter-spacing:-.04em;color:var(--accent)}
+.nf h1{font-size:var(--step-3);font-weight:800;letter-spacing:-.02em;max-width:18ch}
+.nf .lede{color:var(--muted);font-size:1.1rem;max-width:36rem}
+.nf-log{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;line-height:1.7;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem;overflow-wrap:anywhere}
+.nf-log .bad{color:#B4442F}
+.nf-log .ok{color:var(--ok)}
+.nf-log .dim{color:var(--muted)}
+:root[data-theme="dark"] .nf-log .bad{color:#F08A70}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .nf-log .bad{color:#F08A70}}
+.nf-cta{display:flex;flex-wrap:wrap;gap:.75rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="back" href="/">← Christian Robleto Romero</a>
+  <div class="head-tools">
+  <div class="lang-switch" role="group" aria-label="Language" data-es-aria-label="Idioma"><button type="button" data-set-lang="en" aria-pressed="true" title="English">EN</button><button type="button" data-set-lang="es" aria-pressed="false" title="Español">ES</button></div>
+  <button class="theme-toggle" type="button" aria-label="Switch theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.7 6.7 0 0 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
+  </div>
+</header>
+<main>
+<section class="nf">
+  <div class="nf-code" aria-hidden="true">404</div>
+  <h1><span lang="en">This row didn't pass validation</span><span lang="es">Esta fila no pasó la validación</span></h1>
+  <p class="lede"><span lang="en">The page you asked for isn't here. It may have moved, or the link has a typo. Nothing is broken on your side.</span><span lang="es">La página que buscas no está aquí. Puede que se haya movido o que el enlace tenga una errata. No es culpa tuya.</span></p>
+  <div class="nf-log" role="note">
+    <div><span class="dim">$</span> validate <span id="nf-path">/</span></div>
+    <div><span class="ok">✓</span> <span lang="en">site reachable</span><span lang="es">sitio accesible</span></div>
+    <div><span class="bad">✗</span> <span lang="en">path not found in index: row rejected and logged</span><span lang="es">ruta no encontrada en el índice: fila rechazada y registrada</span></div>
+    <div><span class="dim">→</span> <span lang="en">suggested fix: start from the home page</span><span lang="es">solución sugerida: empezar desde la portada</span></div>
+  </div>
+  <div class="nf-cta">
+    <a class="btn btn-solid" href="/"><span lang="en">Go to the home page</span><span lang="es">Ir a la portada</span></a>
+    <a class="btn" href="/#work"><span lang="en">See my projects</span><span lang="es">Ver mis proyectos</span></a>
+  </div>
+</section>
+</main>
+<footer><span lang="en">Christian Robleto Romero · Pamplona, Spain · 2026</span><span lang="es">Christian Robleto Romero · Pamplona, España · 2026</span></footer>
+</div>
+<script>
+// show the address that failed, as typed (textContent, so nothing in it can run)
+var path = location.pathname;
+try { path = decodeURIComponent(path); } catch (e) {}
+document.getElementById('nf-path').textContent = path.slice(0, 80);
+</script>
+</body>
+</html>
