@@ -8,6 +8,8 @@
   root.classList.add('js');
   if (reduce) root.classList.add('reduce');
   var hasIO = 'IntersectionObserver' in window;
+  var T = function (en, es) { return window.I18N ? I18N.t(en, es) : en; };
+  var onLang = function (fn) { document.addEventListener('langchange', fn); };
 
   // Pause CSS animations inside an element while it is off screen.
   function pauseOffscreen(el) {
@@ -63,6 +65,9 @@
     var wrap = dag.closest('.dag-wrap');
     var info = wrap && wrap.querySelector('.dag-info');
     var selected = null, shownId = null;
+    var KIND_ES = { Source: 'Fuente', Processing: 'Procesamiento', Output: 'Salida' };
+    var kindOf = function (n) { var k = n.getAttribute('data-kind'); return T(k, KIND_ES[k] || k); };
+    var infoOf = function (n) { return T(n.getAttribute('data-info'), n.getAttribute('data-info-es') || n.getAttribute('data-info')); };
     function highlight(node) {
       var id = node.getAttribute('data-node');
       dag.classList.add('focus');
@@ -75,9 +80,9 @@
       });
       if (info && shownId !== id) {
         shownId = id;
-        info.querySelector('.dag-kind span').textContent = node.getAttribute('data-kind');
+        info.querySelector('.dag-kind > span').textContent = kindOf(node);
         info.querySelector('.dag-title').textContent = node.querySelector('text').textContent;
-        info.querySelector('.dag-text').textContent = node.getAttribute('data-info');
+        info.querySelector('.dag-text').textContent = infoOf(node);
         info.setAttribute('data-kind', node.getAttribute('data-kind'));
         if (!reduce) { info.classList.remove('swap'); void info.offsetWidth; info.classList.add('swap'); }
       }
@@ -90,11 +95,9 @@
     }
     var order = dnodes.slice();
     dnodes.forEach(function (node, i) {
-      var label = node.querySelector('text').textContent;
       node.setAttribute('tabindex', '0');
       node.setAttribute('role', 'button');
       node.setAttribute('aria-pressed', 'false');
-      node.setAttribute('aria-label', label + ', ' + node.getAttribute('data-kind').toLowerCase() + ' step');
       node.addEventListener('click', function () { choose(node); });
       node.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(node); }
@@ -112,8 +115,16 @@
       node.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && selected) highlight(selected); });
     });
     dag.setAttribute('role', 'group');
+    function nodeLabels() {
+      dnodes.forEach(function (node) {
+        var label = node.querySelector('text').textContent;
+        node.setAttribute('aria-label', T(label + ', ' + kindOf(node).toLowerCase() + ' step', label + ', paso de ' + kindOf(node).toLowerCase()));
+      });
+    }
+    nodeLabels();
     var start = byId.val;
     if (start) choose(start);
+    onLang(function () { nodeLabels(); shownId = null; if (selected) highlight(selected); });
   }
 
   /* ---------- project picker ("select your character") ---------- */
@@ -121,7 +132,13 @@
   if (picker) {
     var picks = $$('.pick', picker);
     var stage = picker.querySelector('.pick-stage');
-    var real = picks.filter(function (p) { return !p.classList.contains('locked'); }).length;
+    // numbered projects: not locked and not marked as a side project
+    var numbered = picks.filter(function (p) { return !p.classList.contains('locked') && !p.hasAttribute('data-side'); });
+    var real = numbered.length;
+    var shortOf = function (p) { return T(p.getAttribute('data-short'), p.getAttribute('data-short-es') || p.getAttribute('data-short')); };
+    var ICON_LOCK = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+    var ICON_SIDE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>';
+    var nextBtns = [];
     var current = 0;
     picker.classList.add('on');
     pauseOffscreen(picker);
@@ -129,12 +146,10 @@
     var roster = document.createElement('div');
     roster.className = 'roster';
     roster.setAttribute('role', 'tablist');
-    roster.setAttribute('aria-label', 'Projects');
     var prev = document.createElement('button');
-    prev.type = 'button'; prev.className = 'pick-arrow'; prev.setAttribute('aria-label', 'Previous project');
+    prev.type = 'button'; prev.className = 'pick-arrow';
     prev.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
     var next = prev.cloneNode(true);
-    next.setAttribute('aria-label', 'Next project');
     next.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
 
     var tabs = picks.map(function (p, i) {
@@ -146,14 +161,13 @@
       t.setAttribute('aria-controls', p.id);
       t.setAttribute('data-status', p.getAttribute('data-status'));
       var locked = p.classList.contains('locked');
-      t.innerHTML = '<span class="tile-num">' + (locked ? '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>' : (i + 1)) +
-        '</span><span class="tile-name">' + p.getAttribute('data-short') + '</span><span class="tile-dot" aria-hidden="true"></span>' +
+      var side = p.hasAttribute('data-side');
+      t.innerHTML = '<span class="tile-num">' + (locked ? ICON_LOCK : side ? ICON_SIDE : (numbered.indexOf(p) + 1)) +
+        '</span><span class="tile-name"></span><span class="tile-dot" aria-hidden="true"></span>' +
         '<span class="tile-bar" aria-hidden="true" style="--v:' + ((p.querySelector('.meter') || { style: { getPropertyValue: function () { return ''; } } }).style.getPropertyValue('--v') || (locked ? '0' : '0')) + '"></span>';
       t.addEventListener('click', function () { select(i, true); });
       p.setAttribute('role', 'tabpanel');
       p.setAttribute('aria-labelledby', t.id);
-      var num = p.querySelector('.pick-num');
-      if (num && !locked) num.textContent = 'Project ' + (i + 1) + ' of ' + real;
       // "next" button inside each card
       var actions = p.querySelector('.pick-actions') || (function () {
         var d = document.createElement('div'); d.className = 'pick-actions'; p.querySelector('.pick-main').appendChild(d); return d;
@@ -161,13 +175,30 @@
       var nb = document.createElement('button');
       nb.type = 'button'; nb.className = 'btn';
       var ni = (i + 1) % picks.length;
-      nb.innerHTML = (ni === 0 ? 'Back to the first' : 'Next: ' + picks[ni].getAttribute('data-short')) +
-        ' <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+      nextBtns.push({ el: nb, to: ni });
       nb.addEventListener('click', function () { select(ni, false, 1); tabs[ni].focus({ preventScroll: true }); });
       actions.appendChild(nb);
       roster.appendChild(t);
       return t;
     });
+
+    // every text the picker writes, in the current language
+    function pickerLabels() {
+      roster.setAttribute('aria-label', T('Projects', 'Proyectos'));
+      prev.setAttribute('aria-label', T('Previous project', 'Proyecto anterior'));
+      next.setAttribute('aria-label', T('Next project', 'Proyecto siguiente'));
+      picks.forEach(function (p, k) {
+        tabs[k].querySelector('.tile-name').textContent = shortOf(p);
+        var n = numbered.indexOf(p), num = p.querySelector('.pick-num');
+        if (num && n !== -1) num.textContent = T('Project ' + (n + 1) + ' of ' + real, 'Proyecto ' + (n + 1) + ' de ' + real);
+      });
+      nextBtns.forEach(function (b) {
+        b.el.innerHTML = (b.to === 0 ? T('Back to the first', 'Volver al primero') : T('Next: ', 'Siguiente: ') + shortOf(picks[b.to])) +
+          ' <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+      });
+    }
+    pickerLabels();
+    onLang(pickerLabels);
 
     var bar = document.createElement('div');
     bar.className = 'roster-bar';
@@ -241,7 +272,7 @@
     b.addEventListener('click', function () {
       var text = b.getAttribute('data-copy');
       function done(ok) {
-        if (status) status.textContent = ok ? 'Email address copied' : 'Select and copy: ' + text;
+        if (status) status.textContent = ok ? T('Email address copied', 'Email copiado') : T('Select and copy: ', 'Selecciona y copia: ') + text;
         if (!ok) return;
         b.classList.add('done');
         clearTimeout(b._t); b._t = setTimeout(function () { b.classList.remove('done'); }, 1800);
@@ -270,10 +301,18 @@
   var statement = document.querySelector('.statement p');
   var words = [], litWords = -1, statementNear = false;
   if (statement && !reduce) {
-    statement.innerHTML = statement.textContent.trim().split(/\s+/).map(function (w) {
-      return '<span class="w">' + w + '</span>';
-    }).join(' ');
-    words = $$('.w', statement);
+    var parts = $$('[lang]', statement);
+    (parts.length ? parts : [statement]).forEach(function (part) {
+      part.innerHTML = part.textContent.trim().split(/\s+/).map(function (w) {
+        return '<span class="w">' + w + '</span>';
+      }).join(' ');
+    });
+    var pickWords = function () {
+      var vis = statement.querySelector('[lang="' + (window.I18N ? I18N.lang : 'en') + '"]') || statement;
+      words = $$('.w', vis); litWords = -1;
+    };
+    pickWords();
+    onLang(function () { pickWords(); onScroll(); });
     if (hasIO) new IntersectionObserver(function (es) { statementNear = es[0].isIntersecting; onScroll(); },
       { rootMargin: '20% 0px' }).observe(statement);
     else statementNear = true;
@@ -281,7 +320,10 @@
 
   /* ---------- counters: start when the numbers panel comes into view ---------- */
   var nums = $$('.num[data-count]');
+  var fmt = function (v, dec) { return v.toLocaleString(T('en-US', 'es-ES'), { minimumFractionDigits: dec, maximumFractionDigits: dec, useGrouping: 'always' }); };
+  var countersRan = false;
   function runCounters() {
+    countersRan = true;
     nums.forEach(function (el) {
       var end = parseFloat(el.getAttribute('data-count'));
       var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
@@ -290,7 +332,7 @@
       function step(t) {
         if (!t0) t0 = t;
         var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
-        el.textContent = (end * e).toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + suf;
+        el.textContent = fmt(end * e, dec) + suf;
         if (k < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
@@ -302,6 +344,12 @@
       if (es[0].isIntersecting) { co.disconnect(); runCounters(); }
     }, { threshold: 0.4 });
     co.observe(nums[0].closest('.stage') || nums[0]);
+    onLang(function () {
+      if (!countersRan) return;
+      nums.forEach(function (el) {
+        el.textContent = fmt(parseFloat(el.getAttribute('data-count')), parseInt(el.getAttribute('data-decimals') || '0', 10)) + (el.getAttribute('data-suffix') || '');
+      });
+    });
   }
 
   /* ---------- header: current section via IntersectionObserver ---------- */
