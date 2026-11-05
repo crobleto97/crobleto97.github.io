@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Castles of Navarre map</title>
+<meta name="description" content="An interactive 3D map of 80 castles in Navarre, built from Wikidata, OpenStreetMap and Wikipedia with Python and MapLibre.">
+<meta property="og:title" content="Castles of Navarre · interactive map">
+<meta property="og:description" content="80 fortifications and 1,200 years of history on a 3D map, built from open data.">
+<meta property="og:image" content="https://crobleto97.github.io/castillos/preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<link rel="stylesheet" href="../styles.css?v=10">
+<script src="../theme.js?v=10"></script>
+<script src="../site.js?v=10" defer></script>
+<style>
+.clip{margin:0;display:grid;gap:.6rem}
+.clip video{width:100%;max-width:420px;aspect-ratio:4/5;height:auto;border-radius:16px;border:1px solid var(--line);background:var(--surface);display:block}
+.clip figcaption{font-family:var(--display);font-size:.88rem;color:var(--muted)}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:1rem;margin:0;padding:0;list-style:none}
+.nums li{display:grid;gap:.15rem}
+.nums b{font-family:var(--display);font-size:var(--step-2);font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1}
+.nums span{color:var(--muted);font-size:.95rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="site-head">
+  <a class="back" href="../index.html#work">← Christian Robleto Romero</a>
+  <div class="head-tools"><button class="cmdk-btn" type="button" aria-label="Search and jump"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>Search</span><kbd>Ctrl K</kbd></button>
+  <button class="theme-toggle" type="button" aria-label="Switch theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.7 6.7 0 0 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></div>
+</header>
+<main>
+<section class="proj-hero">
+  <h1>Castles of Navarre</h1>
+  <p class="lede">An interactive 3D map of 80 castles and fortifications in Navarre, with a timeline from the 8th century. I built it from open data: Wikidata, OpenStreetMap and Wikipedia, joined and cleaned in Python.</p>
+  <div class="facts"><span>Status <b class="status" data-status="done">Live</b></span><span>Type <b>Side project</b></span><span>Map language <b>Spanish</b></span></div>
+  <div class="cta"><a class="btn btn-solid" href="../castillos/">Open the map</a><a class="btn" href="https://github.com/crobleto97/crobleto97.github.io/tree/main/castillos">See the code</a></div>
+</section>
+<div class="prose">
+  <section><h2>Why</h2><p>I saw <i>LAYRS: Amsterdam</i>, a map of every building in Amsterdam coloured by the year it was built, and wanted to try the same idea with Navarre's castles. Most of them no longer stand, so the question was how many there were, when they appeared and what is left of them.</p></section>
+  <section><h2>See it move</h2>
+    <figure class="clip">
+      <video src="media/castles-map.mp4" poster="media/castles-map-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Screen recording of the map: castles appear century by century as the timeline plays, then the camera flies to Olite and opens its record"></video>
+      <figcaption>Recorded from the live map: the timeline from the year 700 to today, then the record for Olite.</figcaption>
+    </figure>
+  </section>
+  <section><h2>In numbers</h2>
+    <ul class="nums">
+      <li><b>295</b><span>candidate records from Wikidata and OSM</span></li>
+      <li><b>80</b><span>castles, towers and forts after cleaning</span></li>
+      <li><b>64</b><span>Wikipedia articles read, in Spanish and Basque</span></li>
+      <li><b>55</b><span>records fully confirmed by a source</span></li>
+    </ul>
+  </section>
+  <section><h2>How it works</h2><ol class="flow">
+    <li><span><b>Collect.</b> SPARQL queries to Wikidata for castles, fortresses, towers and gates in Navarre, plus an OpenStreetMap export of everything tagged as a castle or fort.</span></li>
+    <li><span><b>Match and clean.</b> Python joins both sources by Wikidata ID, then by distance and name. It merges duplicates, translates Basque-only names and sets aside 211 records that aren't castles: 139 prehistoric hillforts and archaeological sites, 27 city gates and walls, and 45 manor houses and other buildings.</span></li>
+    <li><span><b>Enrich.</b> One record per castle, written from its Wikipedia articles: date, current condition, a short history and the source, with a confidence level on every record.</span></li>
+    <li><span><b>Map.</b> MapLibre GL with open elevation tiles for the 3D relief, OSM rivers and main roads, a timeline and a record panel for each castle. No map server: everything ships with the page.</span></li>
+  </ol></section>
+  <section><h2>Stack</h2><p>Python, pandas, SPARQL (Wikidata), Overpass API (OpenStreetMap), Wikipedia API, MapLibre GL JS, GeoJSON, terrain tiles.</p></section>
+  <section><h2>What the data shows</h2>
+    <ul class="checks">
+      <li>The oldest documented castle in the kingdom is Leguín, near Urroz. Abd al-Rahman III's army destroyed it in 924.</li>
+      <li>41 of the 61 dated castles first appear between 1000 and 1300, when the kingdom held its frontiers with Castile, Aragon and al-Andalus.</li>
+      <li>Many of the vanished castles were pulled down on purpose. After the conquest of 1512, Castile ordered Navarre's fortresses demolished.</li>
+    </ul>
+  </section>
+  <section><h2>Data quality</h2>
+    <p>Every record says how far its source backs it. 55 are confirmed, 3 are doubtful because the sources disagree, 9 are partial and 13 have no source yet. Several of those 13 only appear in a catalogue that blocks automated access, so they will be checked by hand.</p>
+    <p><a href="https://github.com/crobleto97/crobleto97.github.io/tree/main/castillos">See the code and data on GitHub</a></p>
+  </section>
+</div>
+<nav class="proj-nav" aria-label="More projects"><a class="pn prev" href="../index.html#work"><span>Back to</span><b>All projects</b></a><a class="pn next" href="analytics.html"><span>Next project</span><b>Operations analytics platform</b></a></nav>
+</main>
+<footer>Christian Robleto Romero · Pamplona, Spain · 2026</footer>
+</div>
+</body>
+</html>

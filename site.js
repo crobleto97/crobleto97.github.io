@@ -169,6 +169,7 @@
     { group: 'Projects', label: 'Operations analytics platform', href: base + 'projects/analytics.html', keys: 'power bi postgresql sql star schema kpi' },
     { group: 'Projects', label: 'Document agent with evaluation', href: base + 'projects/agentic-rag.html', keys: 'rag langgraph pgvector llm' },
     { group: 'Projects', label: 'Taking the agent to production', href: base + 'projects/production.html', keys: 'fastapi docker ci github actions' },
+    { group: 'Projects', label: 'Castles of Navarre map', href: base + 'projects/castles-map.html', keys: 'map 3d castillos navarra maplibre wikidata openstreetmap side project' },
     { group: 'Links', label: 'LinkedIn', href: 'https://www.linkedin.com/in/chris-robleto', keys: 'profile' },
     { group: 'Links', label: 'GitHub', href: 'https://github.com/crobleto97', keys: 'code repositories' },
     { group: 'Links', label: 'Email cgalileorr97@gmail.com', href: 'mailto:cgalileorr97@gmail.com', keys: 'mail contact' },

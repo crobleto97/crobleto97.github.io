@@ -1,0 +1,1654 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-15T20:08:49Z",
+    "timestamp_areas_base": "2026-10-14T11:21:03Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 3414017823,
+  "lat": 42.3818648,
+  "lon": -2.0732957,
+  "tags": {
+    "historic": "castle",
+    "name": "Torre de Rada",
+    "website": "https://www.castillosnet.org/espana/informacion.php?ref=NA-CAS-067&seo=Torre%20de%20Rada"
+  }
+},
+{
+  "type": "node",
+  "id": 4072062713,
+  "lat": 42.3876213,
+  "lon": -1.7984182,
+  "tags": {
+    "historic": "castle",
+    "name": "Castillo de Falces",
+    "website": "https://www.castillosnet.org/espana/informacion.php?ref=NA-CAS-052"
+  }
+},
+{
+  "type": "node",
+  "id": 4170345447,
+  "lat": 42.3266959,
+  "lon": -1.7386820,
+  "tags": {
+    "historic": "castle",
+    "name": "Castillo de Marcilla",
+    "wikidata": "Q8342674",
+    "wikipedia": "es:Castillo palacio de Marcilla"
+  }
+},
+{
+  "type": "node",
+  "id": 4170956747,
+  "lat": 41.9228400,
+  "lon": -1.4227589,
+  "tags": {
+    "addr:city": "Cortes",
+    "addr:postcode": "31530",
+    "historic": "castle",
+    "name": "Castillo de Cortes",
+    "wikidata": "Q16516799"
+  }
+},
+{
+  "type": "node",
+  "id": 4179480990,
+  "lat": 42.2535582,
+  "lon": -1.5196065,
+  "tags": {
+    "castle_type": "defensive",
+    "heritage": "yes",
+    "historic": "castle",
+    "name": "Castillo de Peñaflor",
+    "name:es": "Castillo de Peñaflor",
+    "name:eu": "Peñaflor gaztelua",
+    "ruins": "yes",
+    "start_date": "C13",
+    "website": "https://www.castillosnet.org/monumento.php?r=NA-CAS-080&seo=castillo-de-penaflor-valtierra-navarra-comunidad-foral-de-navarra"
+  }
+},
+{
+  "type": "node",
+  "id": 4522202181,
+  "lat": 42.0495280,
+  "lon": -1.8939902,
+  "tags": {
+    "addr:city": "Fitero",
+    "addr:postcode": "31593",
+    "castle_type": "fortress",
+    "historic": "castle",
+    "name": "Castillo de Tudején",
+    "ruins": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4795820368,
+  "lat": 42.3669501,
+  "lon": -1.6294639,
+  "tags": {
+    "historic": "castle",
+    "name": "Palacio Fortificado",
+    "note": "http://www.castillosnet.org/espana/informacion.php?ref=NA-CAS-056"
+  }
+},
+{
+  "type": "node",
+  "id": 4861251318,
+  "lat": 41.9730010,
+  "lon": -1.6376738,
+  "tags": {
+    "historic": "castle",
+    "name": "Castillo de Ablitas",
+    "website": "https://www.castillosnet.org/espana/informacion.php?ref=NA-CAS-032",
+    "wikidata": "Q20492288"
+  }
+},
+{
+  "type": "node",
+  "id": 4863370047,
+  "lat": 41.9634013,
+  "lon": -1.6923300,
+  "tags": {
+    "building": "yes",
+    "historic": "castle",
+    "name": "Castillo Palacio de Monteagudo",
+    "wikidata": "Q25404414",
+    "wikipedia": "es:Castillo-Palacio de Monteagudo"
+  }
+},
+{
+  "type": "node",
+  "id": 4978778337,
+  "lat": 42.8575477,
+  "lon": -1.4573066,
+  "tags": {
+    "historic": "castle",
+    "name": "Zuntzarrengo Armategi Buru jauregia",
+    "name:es": "Palacio Fortificado de Zunzarren",
+    "name:eu": "Zuntzarrengo Armategi Buru jauregia",
+    "website": "https://www.castillosnet.org/espana/informacion.php?ref=NA-CAS-026"
+  }
+},
+{
+  "type": "node",
+  "id": 5219639981,
+  "lat": 42.8156465,
+  "lon": -1.6515286,
+  "tags": {
+    "historic": "city_gate",
+    "name": "Portal de La Taconera",
+    "tourism": "attraction",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5410468629,
+  "lat": 42.6338241,
+  "lon": -2.1061762,
+  "tags": {
+    "historic": "castle",
+    "name": "Castillo de San Esteban de Deio",
+    "name:es": "Castillo de San Esteban de Deio",
+    "name:eu": "Deioko gaztelua",
+    "wikidata": "Q3571711",
+    "wikipedia": "eu:Deioko gaztelua"
+  }
+},
+{
+  "type": "node",
+  "id": 5583577208,
+  "lat": 42.4945728,
+  "lon": -1.2988708,
+  "tags": {
+    "historic": "castle",
+    "name": "Castillo de Peña",
+    "name:es": "Castillo de Peña",
+    "name:eu": "Peñako gaztelua",
+    "wikidata": "Q3326877"
+  }
+},
+{
+  "type": "node",
+  "id": 5627125965,
+  "lat": 42.2462957,
+  "lon": -1.7624439,
+  "tags": {
+    "historic": "castle",
+    "name": "Castillo de Milagro",
+    "wikidata": "Q111482219"
+  }
+},
+{
+  "type": "node",
+  "id": 5638267982,
+  "lat": 42.6305699,
+  "lon": -1.9934513,
+  "tags": {
+    "historic": "castle",
+    "name": "Castillo de Arinzano",
+    "website": "https://www.castillosnet.org/espana/informacion.php?ref=NA-CAS-006"
+  }
+},
+{
+  "type": "node",
+  "id": 6429116992,
+  "lat": 42.6715476,
+  "lon": -2.0058336,
+  "tags": {
+    "description": "Fuerte de artillería carlista construido en la Tercera Guerra Carlista para defender Estella.",
+    "historic": "castle",
+    "name": "Fuerte de San Juan"
+  }
+},
+{
+  "type": "node",
+  "id": 7310409478,
+  "lat": 42.6575185,
+  "lon": -1.6148452,
+  "tags": {
+    "historic": "castle",
+    "name": "Gergako Gaztelua",
+    "wikidata": "Q112195868",
+    "wikipedia": "eu:Gergako gaztelua"
+  }
+},
+{
+  "type": "node",
+  "id": 8417897267,
+  "lat": 43.0516497,
+  "lon": -1.9611629,
+  "tags": {
+    "access": "yes",
+    "castle_type": "defensive",
+    "historic": "castle",
+    "historic:civilization": "medieval",
+    "name": "Gorritiko Gaztelua"
+  }
+},
+{
+  "type": "node",
+  "id": 9678603213,
+  "lat": 42.4818380,
+  "lon": -1.9744567,
+  "tags": {
+    "castle_type": "fortress",
+    "historic": "castle",
+    "name": "Fuente Cazorla"
+  }
+},
+{
+  "type": "node",
+  "id": 10968853661,
+  "lat": 43.0220259,
+  "lon": -1.2760653,
+  "tags": {
+    "historic": "fort"
+  }
+},
+{
+  "type": "node",
+  "id": 11618316759,
+  "lat": 42.6275179,
+  "lon": -2.3183405,
+  "tags": {
+    "access": "yes",
+    "castle_type": "defensive",
+    "historic": "castle",
+    "historic:civilization": "medieval",
+    "name": "Castillo de Punicastro"
+  }
+},
+{
+  "type": "node",
+  "id": 12903799015,
+  "lat": 42.0658104,
+  "lon": -1.6035782,
+  "tags": {
+    "description": "Puerta de acceso a la zona de cultivo llamada La Mejana",
+    "historic": "city_gate",
+    "name": "Puerta de La Mejana",
+    "wikimedia_commons": "File:Puerta mejana224.jpg"
+  }
+},
+{
+  "type": "node",
+  "id": 13346795076,
+  "lat": 42.1189929,
+  "lon": -1.5691981,
+  "tags": {
+    "historic": "castle",
+    "name": "Castillo de Mirapeix (ruinas)",
+    "wikidata": "Q3573709",
+    "wikipedia": "es:Castillo de Mirapeix"
+  }
+},
+{
+  "type": "node",
+  "id": 14075019272,
+  "lat": 42.8118987,
+  "lon": -1.6500580,
+  "tags": {
+    "castle_type": "fortress",
+    "historic": "castle",
+    "name": "Baluarte de San Juan"
+  }
+},
+{
+  "type": "way",
+  "id": 42946489,
+  "center": {
+    "lat": 42.8118842,
+    "lon": -1.6495947
+  },
+  "tags": {
+    "historic": "castle",
+    "name": "Iruñeko zitadela",
+    "name:ca": "Ciutadella de Pamplona",
+    "name:en": "Citadel of Pamplona",
+    "name:es": "Ciudadela de Pamplona",
+    "name:eu": "Iruñeko zitadela",
+    "official_name": "Iruñeko zitadela/Ciudadela de Pamplona",
+    "wikidata": "Q206258"
+  }
+},
+{
+  "type": "way",
+  "id": 91096338,
+  "center": {
+    "lat": 42.8104799,
+    "lon": -1.6155744
+  },
+  "tags": {
+    "building": "civic",
+    "building:levels": "2",
+    "historic": "castle",
+    "name": "Palacio de Mendillorri",
+    "source": "PNOA",
+    "wikidata": "Q25475808"
+  }
+},
+{
+  "type": "way",
+  "id": 93052097,
+  "center": {
+    "lat": 42.8567374,
+    "lon": -1.6656266
+  },
+  "tags": {
+    "access": "customers",
+    "alt_name:es": "Fuerte de Alfonso XII",
+    "alt_name:eu": "Alfontso XII.aren gotorlekua",
+    "building": "yes",
+    "historic": "castle",
+    "name": "San Kristobal gotorlekua",
+    "name:es": "Fuerte de San Cristóbal",
+    "name:eu": "San Kristobal gotorlekua",
+    "official_name": "Fuerte de San Cristóbal / Alfontso XII.aren gotorlekua",
+    "wikidata": "Q3324672",
+    "wikipedia": "es:Fuerte de San Cristóbal (Navarra)"
+  }
+},
+{
+  "type": "way",
+  "id": 96311715,
+  "center": {
+    "lat": 42.5940760,
+    "lon": -1.2158098
+  },
+  "tags": {
+    "building": "yes",
+    "castle_type": "defensive",
+    "historic": "castle",
+    "level": "0",
+    "name": "Castillo de Javier",
+    "ref:bic": "RI-51-0008672",
+    "ruins": "no",
+    "website": "https://www.castillodejavier.es/",
+    "wikidata": "Q112738",
+    "wikimedia_commons": "Category:Castle of Javier",
+    "wikipedia": "eu:Xabierko gaztelua"
+  }
+},
+{
+  "type": "way",
+  "id": 115135090,
+  "center": {
+    "lat": 42.7628253,
+    "lon": -1.7150888
+  },
+  "tags": {
+    "building": "ruins",
+    "historic": "castle",
+    "historic:civilization": "medieval",
+    "name": "Gendulaingo jauregia",
+    "name:es": "Palacio de Guenduláin",
+    "name:eu": "Gendulaingo jauregia",
+    "name:fr": "Palais de Guendulain",
+    "official_name": "Señorio de Guenduláin / Gendulaingo jauregia",
+    "wikidata": "Q20492603",
+    "wikipedia": "eu:Gendulaingo jauregia"
+  }
+},
+{
+  "type": "way",
+  "id": 159238736,
+  "center": {
+    "lat": 42.4823017,
+    "lon": -1.6497564
+  },
+  "tags": {
+    "barrier": "city_wall",
+    "historic": "citywalls",
+    "material": "stone"
+  }
+},
+{
+  "type": "way",
+  "id": 221962552,
+  "center": {
+    "lat": 43.2462264,
+    "lon": -1.7021899
+  },
+  "tags": {
+    "alt_name": "Mindurienea",
+    "building": "tower",
+    "historic": "tower",
+    "man_made": "tower",
+    "name": "Minddurenea Dorrea",
+    "name:es": "Torre de Mindurienea",
+    "name:eu": "Minddurenea Dorrea",
+    "tower:type": "defensive"
+  }
+},
+{
+  "type": "way",
+  "id": 222124926,
+  "center": {
+    "lat": 43.2465380,
+    "lon": -1.7033257
+  },
+  "tags": {
+    "alt_name": "Kaxerna dorretxea",
+    "building": "yes",
+    "castle_type": "tower",
+    "historic": "castle",
+    "name": "Zabaleta dorretxea",
+    "wikidata": "Q12269140",
+    "wikipedia": "eu:Zabaleta dorretxea"
+  }
+},
+{
+  "type": "way",
+  "id": 252443634,
+  "center": {
+    "lat": 42.6039282,
+    "lon": -1.6451625
+  },
+  "tags": {
+    "addr:city": "Barásoain / Barasoain",
+    "addr:housenumber": "16",
+    "addr:postcode": "31395",
+    "addr:street": "Calle Doctor Navarro",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Casa de la Familia Azpilcueta"
+  }
+},
+{
+  "type": "way",
+  "id": 252615890,
+  "center": {
+    "lat": 42.7120804,
+    "lon": -1.3238324
+  },
+  "tags": {
+    "addr:city": "Artieda",
+    "addr:housenumber": "3",
+    "addr:postcode": "31480",
+    "addr:street": "Calle la Plaza",
+    "building": "yes",
+    "historic": "castle",
+    "name": "Palacio de Artieda",
+    "website": "https://www.xn--castillosdeespaa-lub.es/es/content/artieda-palacio-de",
+    "wikidata": "Q20492000"
+  }
+},
+{
+  "type": "way",
+  "id": 306485978,
+  "center": {
+    "lat": 42.6713585,
+    "lon": -1.8180593
+  },
+  "tags": {
+    "addr:city": "Puente la Reina/Gares",
+    "addr:housenumber": "2",
+    "addr:postcode": "31100",
+    "addr:street": "Calle San Pedro",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Casa del Vínculo"
+  }
+},
+{
+  "type": "way",
+  "id": 315319474,
+  "center": {
+    "lat": 42.7176926,
+    "lon": -1.6709282
+  },
+  "tags": {
+    "addr:city": "Subiza / Zubitza",
+    "addr:housenumber": "23",
+    "addr:postcode": "31191",
+    "addr:street": "Calle Mayor",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Palacio de Subiza",
+    "wikidata": "Q66040782"
+  }
+},
+{
+  "type": "way",
+  "id": 404109770,
+  "center": {
+    "lat": 42.9755247,
+    "lon": -1.6761680
+  },
+  "tags": {
+    "building": "yes",
+    "castle_type": "palace",
+    "historic": "castle",
+    "name": "Zenotz Jauregia"
+  }
+},
+{
+  "type": "way",
+  "id": 421021402,
+  "center": {
+    "lat": 42.6969029,
+    "lon": -1.6378120
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "castle",
+    "name": "Castillo de Tiebas",
+    "website": "https://www.castillopalaciodetiebas.es/",
+    "wikidata": "Q42449594"
+  }
+},
+{
+  "type": "way",
+  "id": 421174239,
+  "center": {
+    "lat": 43.1370304,
+    "lon": -1.6207688
+  },
+  "tags": {
+    "access": "private",
+    "addr:city": "Oieregi",
+    "addr:housenumber": "20",
+    "addr:postcode": "31720",
+    "addr:street": "San Juan Bautista kalea",
+    "building": "yes",
+    "castle_type": "palace",
+    "heritage": "yes",
+    "historic": "castle",
+    "name": "Erreparazeko Jauregia",
+    "name:es": "Palacio Reparazea",
+    "name:eu": "Erreparazeko Jauregia",
+    "official_name": "Erreparazeko Jauregia / Palacio Reparazea"
+  }
+},
+{
+  "type": "way",
+  "id": 453079894,
+  "center": {
+    "lat": 43.2003364,
+    "lon": -1.4801298
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "image": "https://commons.wikimedia.org/wiki/File:Amaiurko_arkua.jpg",
+    "layer": "1",
+    "name": "Amaiurko arkua",
+    "name:eu": "Amaiurko arkua",
+    "wikidata": "Q25475886",
+    "wikipedia": "eu:Amaiurko arkua"
+  }
+},
+{
+  "type": "way",
+  "id": 458985237,
+  "center": {
+    "lat": 43.1747315,
+    "lon": -1.4479786
+  },
+  "tags": {
+    "building": "yes",
+    "castle_type": "manor",
+    "historic": "castle",
+    "name": "Etxenike jauregia",
+    "name:es": "Palacio de Etxenike",
+    "name:eu": "Etxenike jauregia",
+    "wikimedia_commons": "File:Etxenike_jauregia.jpg"
+  }
+},
+{
+  "type": "way",
+  "id": 494989415,
+  "center": {
+    "lat": 42.0671948,
+    "lon": -1.6069049
+  },
+  "tags": {
+    "building": "ruins",
+    "height": "20",
+    "historic": "castle"
+  }
+},
+{
+  "type": "way",
+  "id": 496068360,
+  "center": {
+    "lat": 42.6679759,
+    "lon": -2.0308281
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "name": "Puerta de Castilla"
+  }
+},
+{
+  "type": "way",
+  "id": 497023729,
+  "center": {
+    "lat": 42.8282913,
+    "lon": -1.5112811
+  },
+  "tags": {
+    "addr:city": "Erantsus/Eransus",
+    "addr:housenumber": "1",
+    "addr:postcode": "31486",
+    "addr:street": "Señorío de Eransus",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Palacio de Armerías"
+  }
+},
+{
+  "type": "way",
+  "id": 502470076,
+  "center": {
+    "lat": 42.8146035,
+    "lon": -1.7180419
+  },
+  "tags": {
+    "historic": "castle",
+    "name": "Palacio de Arazuri",
+    "wikidata": "Q19609290",
+    "wikipedia": "eu:Aratzuriko gaztelua"
+  }
+},
+{
+  "type": "way",
+  "id": 538362623,
+  "center": {
+    "lat": 42.8134422,
+    "lon": -1.6502467
+  },
+  "tags": {
+    "barrier": "city_wall",
+    "historic": "castle",
+    "name": "Ciudadela de Pamplona",
+    "wikidata": "Q206258"
+  }
+},
+{
+  "type": "way",
+  "id": 545296197,
+  "center": {
+    "lat": 43.0296036,
+    "lon": -1.3599726
+  },
+  "tags": {
+    "access": "yes",
+    "historic": "fort",
+    "name": "Redoute de Lindus"
+  }
+},
+{
+  "type": "way",
+  "id": 549405957,
+  "center": {
+    "lat": 42.6520527,
+    "lon": -1.6265588
+  },
+  "tags": {
+    "addr:city": "Unzué / Untzue",
+    "addr:housenumber": "6",
+    "addr:postcode": "31396",
+    "addr:street": "Plaza de Arizu",
+    "building": "house",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Casa Ayerra"
+  }
+},
+{
+  "type": "way",
+  "id": 585624142,
+  "center": {
+    "lat": 42.4814983,
+    "lon": -1.6506543
+  },
+  "tags": {
+    "building": "yes",
+    "building:material": "stone",
+    "historic": "tower",
+    "man_made": "tower",
+    "name": "Torre romana del Chapitel",
+    "tower:construction": "freestanding",
+    "tower:type": "defensive"
+  }
+},
+{
+  "type": "way",
+  "id": 586110542,
+  "center": {
+    "lat": 43.1888510,
+    "lon": -1.8567025
+  },
+  "tags": {
+    "building": "yes",
+    "castle_type": "manor",
+    "historic": "castle",
+    "name": "Alduntzin jauregia",
+    "name:es": "Palacio de Alduncin",
+    "name:eu": "Alduntzin jauregia",
+    "official_name": "Alduntzin jauregia / Palacio de Alduncin",
+    "wikimedia_commons": "File:Alduntzin_jauregia.jpg"
+  }
+},
+{
+  "type": "way",
+  "id": 590436642,
+  "center": {
+    "lat": 42.7623624,
+    "lon": -1.9507685
+  },
+  "tags": {
+    "addr:city": "Riezu / Errezu",
+    "addr:housenumber": "1",
+    "addr:postcode": "31176",
+    "addr:street": "Plaza de la Fuente",
+    "building": "yes",
+    "castle_type": "stately",
+    "contact:phone": "+34 600 40 56 60",
+    "historic": "castle",
+    "name": "Casa Palacio de Riezu",
+    "name:es": "Casa Palacio de Riezu",
+    "name:eu": "Errezuko etxe-jauregia"
+  }
+},
+{
+  "type": "way",
+  "id": 627872987,
+  "center": {
+    "lat": 43.0905552,
+    "lon": -1.6053352
+  },
+  "tags": {
+    "alt_name": "Beola jauregia",
+    "building": "yes",
+    "castle_type": "manor",
+    "historic": "castle",
+    "name": "Galtzada jauregia",
+    "name:es": "Palacio Galtzada",
+    "name:eu": "Galtzada jauregia",
+    "official_name": "Galtzada jauregia / Palacio Galtzada",
+    "tourism": "hotel",
+    "wikidata": "Q25475850",
+    "wikimedia_commons": "File:Galtzada_jauregia.jpg"
+  }
+},
+{
+  "type": "way",
+  "id": 686151932,
+  "center": {
+    "lat": 42.8031524,
+    "lon": -1.6984610
+  },
+  "tags": {
+    "building": "detached",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Eultza Jaurerria",
+    "name:es": "Señorío de Eulza",
+    "name:eu": "Eultza Jaurerria",
+    "wikidata": "Q99670624",
+    "wikipedia": "es:Eulza"
+  }
+},
+{
+  "type": "way",
+  "id": 739360889,
+  "center": {
+    "lat": 42.6760210,
+    "lon": -1.8905036
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate"
+  }
+},
+{
+  "type": "way",
+  "id": 755467110,
+  "center": {
+    "lat": 42.7620398,
+    "lon": -1.5305033
+  },
+  "tags": {
+    "building": "yes",
+    "castle_type": "palace",
+    "historic": "castle",
+    "name": "Palacio de Góngora"
+  }
+},
+{
+  "type": "way",
+  "id": 759389688,
+  "center": {
+    "lat": 42.6037555,
+    "lon": -1.6456023
+  },
+  "tags": {
+    "addr:city": "Barásoain / Barasoain",
+    "addr:housenumber": "9",
+    "addr:postcode": "31395",
+    "addr:street": "Calle Doctor Navarro",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Casa de Olagüe y Lanz de Yribarren"
+  }
+},
+{
+  "type": "way",
+  "id": 759884884,
+  "center": {
+    "lat": 43.1310188,
+    "lon": -1.5474200
+  },
+  "tags": {
+    "addr:city": "Irurita",
+    "addr:housenumber": "1",
+    "addr:postcode": "31730",
+    "addr:street": "Plaza Duquesa de Goyeneche",
+    "building": "yes",
+    "castle_type": "manor",
+    "historic": "castle",
+    "name": "Iriarteko Gastonen dorretxea",
+    "name:es": "Palacio de Gaston",
+    "name:eu": "Iriarteko Gastonen dorretxea"
+  }
+},
+{
+  "type": "way",
+  "id": 782366448,
+  "center": {
+    "lat": 42.6196689,
+    "lon": -1.6128826
+  },
+  "tags": {
+    "addr:city": "Solchaga / Soltxaga",
+    "addr:housenumber": "6",
+    "addr:postcode": "31395",
+    "addr:street": "Calle Frontón",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle"
+  }
+},
+{
+  "type": "way",
+  "id": 783122289,
+  "center": {
+    "lat": 42.7681942,
+    "lon": -1.4283792
+  },
+  "tags": {
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Señorío de Liberri"
+  }
+},
+{
+  "type": "way",
+  "id": 785407616,
+  "center": {
+    "lat": 42.5882656,
+    "lon": -1.6331320
+  },
+  "tags": {
+    "addr:city": "Sansomain / Santsomain",
+    "addr:housenumber": "4",
+    "addr:postcode": "31395",
+    "addr:street": "San Pedro kalea",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Santsomain Jauregia"
+  }
+},
+{
+  "type": "way",
+  "id": 792389372,
+  "center": {
+    "lat": 42.7948221,
+    "lon": -1.4017972
+  },
+  "tags": {
+    "addr:city": "Erdozain",
+    "addr:housenumber": "2",
+    "addr:postcode": "31418",
+    "addr:street": "Calle Nuestra Señora de las Nieves",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Palacio de Erdozain"
+  }
+},
+{
+  "type": "way",
+  "id": 798505388,
+  "center": {
+    "lat": 42.7561484,
+    "lon": -1.9079814
+  },
+  "tags": {
+    "addr:city": "Viguria / Biguria",
+    "addr:housenumber": "5",
+    "addr:postcode": "31291",
+    "addr:street": "Calle el Rosario kalea",
+    "building": "yes",
+    "castle_type": "palace",
+    "historic": "castle",
+    "name": "Montehermosoko Markesaren jauregia",
+    "name:es": "Palacio del Marqués de Monte Hermoso",
+    "name:eu": "Montehermosoko Markesaren jauregia",
+    "official_name": "Biguriako jauregia / Palacio de Viguria",
+    "wikidata": "Q20492173",
+    "wikipedia": "eu:Biguriako jauregia"
+  }
+},
+{
+  "type": "way",
+  "id": 807264759,
+  "center": {
+    "lat": 42.8186571,
+    "lon": -1.6508726
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "name": "Portal Nuevo",
+    "name:es": "Portal Nuevo",
+    "name:eu": "Atari Berria",
+    "start_date": "1571",
+    "tourism": "attraction",
+    "wikidata": "Q12254357"
+  }
+},
+{
+  "type": "way",
+  "id": 858210760,
+  "center": {
+    "lat": 42.8210307,
+    "lon": -1.6432483
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "name": "Portal de Zumalacarregui",
+    "name:es": "Portal de Zumalacarregui",
+    "name:eu": "Zumalakarregiko atea"
+  }
+},
+{
+  "type": "way",
+  "id": 858210770,
+  "center": {
+    "lat": 42.8156360,
+    "lon": -1.6515202
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "name": "Portal de La Taconera",
+    "tourism": "attraction",
+    "wheelchair": "limited",
+    "wikidata": "Q20492674"
+  }
+},
+{
+  "type": "way",
+  "id": 858210773,
+  "center": {
+    "lat": 42.8164136,
+    "lon": -1.6502613
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "name": "Portal de San Nicolás",
+    "tourism": "attraction",
+    "wheelchair": "limited",
+    "wikidata": "Q19694104"
+  }
+},
+{
+  "type": "way",
+  "id": 1015319593,
+  "center": {
+    "lat": 42.5752211,
+    "lon": -1.2833173
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1144433645,
+  "center": {
+    "lat": 42.7780800,
+    "lon": -2.2092651
+  },
+  "tags": {
+    "building": "ruins",
+    "castle_type": "palace",
+    "historic": "castle",
+    "name": "Palacio de Eulate"
+  }
+},
+{
+  "type": "way",
+  "id": 1161057291,
+  "center": {
+    "lat": 42.7394893,
+    "lon": -1.3162730
+  },
+  "tags": {
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle"
+  }
+},
+{
+  "type": "way",
+  "id": 1161058183,
+  "center": {
+    "lat": 42.7401217,
+    "lon": -1.3175476
+  },
+  "tags": {
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Palacio-Torre de Lindo"
+  }
+},
+{
+  "type": "way",
+  "id": 1173235100,
+  "center": {
+    "lat": 42.8697866,
+    "lon": -2.2245760
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "castle",
+    "name": "Castillo de Ziordia"
+  }
+},
+{
+  "type": "way",
+  "id": 1223578790,
+  "center": {
+    "lat": 42.6881643,
+    "lon": -1.7709929
+  },
+  "tags": {
+    "addr:city": "Muruzabal",
+    "addr:housenumber": "4",
+    "addr:postcode": "31152",
+    "addr:street": "Plaza Mayor",
+    "building": "yes",
+    "castle_type": "palace",
+    "historic": "castle",
+    "name": "Palacio Cabo de Armeria de Marques de Zabalegui"
+  }
+},
+{
+  "type": "way",
+  "id": 1269012562,
+  "center": {
+    "lat": 42.7134858,
+    "lon": -1.3243723
+  },
+  "tags": {
+    "addr:city": "Artieda",
+    "addr:housenumber": "10",
+    "addr:postcode": "31480",
+    "addr:street": "Calle la Plaza",
+    "building": "church",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "San Cipriano"
+  }
+},
+{
+  "type": "way",
+  "id": 1269026432,
+  "center": {
+    "lat": 42.7140646,
+    "lon": -1.3408433
+  },
+  "tags": {
+    "addr:city": "Grez / Geretz",
+    "addr:housenumber": "5",
+    "addr:postcode": "31449",
+    "addr:street": "Calle San Sebastián",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Palacio Barroco de Grez"
+  }
+},
+{
+  "type": "way",
+  "id": 1311369730,
+  "center": {
+    "lat": 42.8184119,
+    "lon": -1.6455964
+  },
+  "tags": {
+    "access": "yes",
+    "addr:city": "Pamplona / Iruña",
+    "addr:housenumber": "2",
+    "addr:postcode": "31001",
+    "addr:street": "Calle Mayor",
+    "bic:inscription_date": "1997",
+    "building": "civic",
+    "castle_type": "palace",
+    "fee": "no",
+    "heritage": "2",
+    "historic": "castle",
+    "name": "Palacio del Condestable",
+    "name:es": "Palacio del Condestable",
+    "name:eu": "Kondestablearen Jauregia",
+    "opening_hours": "Mo-Fr 09:00-22:00; Sa,Su 09:30-14:00,17:00-21:00",
+    "protection_title": "Bien de Interés Cultural",
+    "protection_title:category": "Monumento histórico",
+    "ref:bic": "RI-51-0009735",
+    "tourism": "attraction",
+    "wheelchair": "yes",
+    "wikidata": "Q16518040",
+    "wikipedia": "es:Palacio del Condestable (Pamplona)"
+  }
+},
+{
+  "type": "way",
+  "id": 1333211660,
+  "center": {
+    "lat": 42.6724828,
+    "lon": -1.8129758
+  },
+  "tags": {
+    "addr:city": "Puente la Reina/Gares",
+    "addr:housenumber": "2",
+    "addr:postcode": "31100",
+    "addr:street": "Calle Mayor",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Torre del Relox"
+  }
+},
+{
+  "type": "way",
+  "id": 1335200128,
+  "center": {
+    "lat": 42.6793703,
+    "lon": -1.7862805
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "layer": "1",
+    "name": "Puerta de Obanos",
+    "name:es": "Puerta de Obanos",
+    "name:eu": "Obanosko atea"
+  }
+},
+{
+  "type": "way",
+  "id": 1335200157,
+  "center": {
+    "lat": 42.6791786,
+    "lon": -1.7862365
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "layer": "1",
+    "name": "Puerta de San Francisco Javier"
+  }
+},
+{
+  "type": "way",
+  "id": 1335937085,
+  "center": {
+    "lat": 42.6794394,
+    "lon": -1.7856217
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "name": "Arco Verde"
+  }
+},
+{
+  "type": "way",
+  "id": 1337209976,
+  "center": {
+    "lat": 42.8058793,
+    "lon": -1.1296921
+  },
+  "tags": {
+    "alt_name": "Eneco García",
+    "building": "yes",
+    "castle_type": "palace",
+    "historic": "castle",
+    "name": "Eneko Gartzia"
+  }
+},
+{
+  "type": "way",
+  "id": 1340234002,
+  "center": {
+    "lat": 42.8407371,
+    "lon": -1.5817893
+  },
+  "tags": {
+    "building": "yes",
+    "castle_type": "palace",
+    "historic": "castle",
+    "name": "Palacio de Olloki"
+  }
+},
+{
+  "type": "way",
+  "id": 1357815329,
+  "center": {
+    "lat": 42.8164500,
+    "lon": -1.6453047
+  },
+  "tags": {
+    "addr:city": "Pamplona / Iruña",
+    "addr:housenumber": "53",
+    "addr:postcode": "31001",
+    "addr:street": "Calle Zapatería",
+    "building": "civic",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Palacio de los Condes de Guenduláin"
+  }
+},
+{
+  "type": "way",
+  "id": 1376788513,
+  "center": {
+    "lat": 42.8012492,
+    "lon": -1.5918348
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate"
+  }
+},
+{
+  "type": "way",
+  "id": 1422970998,
+  "center": {
+    "lat": 42.2535722,
+    "lon": -1.5196618
+  },
+  "tags": {
+    "historic": "citywalls",
+    "ruins": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1429105339,
+  "center": {
+    "lat": 42.8175968,
+    "lon": -1.6457137
+  },
+  "tags": {
+    "addr:city": "Pamplona / Iruña",
+    "addr:housenumber": "10",
+    "addr:postcode": "31001",
+    "addr:street": "Calle Florencio de Ansoleaga kalea",
+    "building": "civic",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Cámara de Comptos de Navarra"
+  }
+},
+{
+  "type": "way",
+  "id": 1431390304,
+  "center": {
+    "lat": 42.8172477,
+    "lon": -1.6476220
+  },
+  "tags": {
+    "addr:city": "Pamplona / Iruña",
+    "addr:housenumber": "65",
+    "addr:postcode": "31001",
+    "addr:street": "Kale Nagusia",
+    "building": "civic",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Palacio de Ezpeleta"
+  }
+},
+{
+  "type": "way",
+  "id": 1449050645,
+  "center": {
+    "lat": 42.0588506,
+    "lon": -1.6062717
+  },
+  "tags": {
+    "building": "yes",
+    "building:colour": "#CABC91",
+    "height": "17",
+    "historic": "castle",
+    "name": "Torre Monreal",
+    "ref:bic": "RI-51-0012361",
+    "website": "https://turismo.navarra.com/item/la-torre-monreal-tudela/",
+    "wikidata": "Q3752979",
+    "wikimedia_commons": "File:Torre_Monreal,_Tudela.jpg",
+    "wikipedia": "es:Torre Monreal"
+  }
+},
+{
+  "type": "way",
+  "id": 1450953012,
+  "center": {
+    "lat": 42.0628193,
+    "lon": -1.6072809
+  },
+  "tags": {
+    "addr:city": "Tudela",
+    "addr:housenumber": "14",
+    "addr:postcode": "31500",
+    "addr:street": "Calle Herrerías",
+    "building": "yes",
+    "building:levels": "4",
+    "castle_type": "manor",
+    "historic": "castle",
+    "image": "https://commons.wikimedia.org/wiki/File:Escalera_del_Palacio_de_Marqués_de_Huarte_-_Tudela_-_Navarra.jpg",
+    "name": "Palacio de Marqués de Huarte",
+    "ref:bic": "RI-51-0006921",
+    "wikidata": "Q6058583",
+    "wikimedia_commons": "File:Escalera_del_Palacio_de_Marqués_de_Huarte_-_Tudela_-_Navarra.jpg",
+    "wikipedia": "es:Palacio del Marqués de Huarte (Tudela)"
+  }
+},
+{
+  "type": "way",
+  "id": 1453540937,
+  "center": {
+    "lat": 42.7748800,
+    "lon": -1.0930093
+  },
+  "tags": {
+    "building": "yes",
+    "castle_type": "palace",
+    "historic": "castle",
+    "name": "Jauregi"
+  }
+},
+{
+  "type": "way",
+  "id": 1453743035,
+  "center": {
+    "lat": 42.7239357,
+    "lon": -1.8779648
+  },
+  "tags": {
+    "addr:city": "Echarren de Guirguillano / Etxarrentxulo",
+    "addr:housenumber": "1",
+    "addr:postcode": "31291",
+    "addr:street": "Calle las Huertas",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Palacio de Echarren"
+  }
+},
+{
+  "type": "way",
+  "id": 1460479263,
+  "center": {
+    "lat": 42.7244117,
+    "lon": -2.0920073
+  },
+  "tags": {
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Palacio Dos Olivos"
+  }
+},
+{
+  "type": "way",
+  "id": 1463083768,
+  "center": {
+    "lat": 42.6746475,
+    "lon": -2.0639419
+  },
+  "tags": {
+    "addr:city": "Arbeiza / Arbeitza",
+    "addr:housenumber": "18",
+    "addr:postcode": "31241",
+    "addr:street": "Kale Nagusia",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle"
+  }
+},
+{
+  "type": "way",
+  "id": 1467956257,
+  "center": {
+    "lat": 42.4794363,
+    "lon": -1.6494239
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "historic:civilization": "medieval",
+    "name": "Portal de Tudela",
+    "tourism": "attraction"
+  }
+},
+{
+  "type": "way",
+  "id": 1527888193,
+  "center": {
+    "lat": 42.6447955,
+    "lon": -1.5189288
+  },
+  "tags": {
+    "addr:city": "Leoz / Leotz",
+    "addr:housenumber": "10",
+    "addr:postcode": "31395",
+    "addr:street": "Doneztebe Leotz kalea",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle"
+  }
+},
+{
+  "type": "way",
+  "id": 1531055467,
+  "center": {
+    "lat": 42.8211209,
+    "lon": -1.6425965
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate",
+    "name": "Portal de Francia",
+    "wikidata": "Q12257985"
+  }
+},
+{
+  "type": "way",
+  "id": 1536627502,
+  "center": {
+    "lat": 42.6008532,
+    "lon": -1.6443862
+  },
+  "tags": {
+    "addr:city": "Garínoain / Garinoain",
+    "addr:housenumber": "5",
+    "addr:postcode": "31395",
+    "addr:street": "Calle Auzolan",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle"
+  }
+},
+{
+  "type": "way",
+  "id": 1547515018,
+  "center": {
+    "lat": 42.3410508,
+    "lon": -1.7929089
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "castle",
+    "name": "Castillo de Peralta (Ruinas)"
+  }
+},
+{
+  "type": "way",
+  "id": 1562496600,
+  "center": {
+    "lat": 42.5750484,
+    "lon": -1.2828899
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "city_gate"
+  }
+},
+{
+  "type": "relation",
+  "id": 4558524,
+  "center": {
+    "lat": 42.7794687,
+    "lon": -1.5132653
+  },
+  "tags": {
+    "building": "yes",
+    "historic": "castle",
+    "ruins": "yes",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 7342188,
+  "center": {
+    "lat": 42.4817288,
+    "lon": -1.6492760
+  },
+  "tags": {
+    "access": "private",
+    "building": "yes",
+    "castle_type": "palace",
+    "charge": "4.90 EUR/person",
+    "fee": "yes",
+    "historic": "castle",
+    "name": "Palacio Real de Olite",
+    "name:es": "Castillo de Olite",
+    "name:eu": "Erriberriko Nafarroako Erregeen Jauregia",
+    "tourism": "attraction",
+    "type": "multipolygon",
+    "website": "https://www.olite.es/turismo/palacio-de-olite/",
+    "wikidata": "Q1934670",
+    "wikipedia": "es:Palacio Real de Olite"
+  }
+},
+{
+  "type": "relation",
+  "id": 7346033,
+  "center": {
+    "lat": 42.4820967,
+    "lon": -1.6502356
+  },
+  "tags": {
+    "addr:housenumber": "2",
+    "addr:street": "Plaza de los Teobaldos",
+    "building": "yes",
+    "castle_type": "palace",
+    "historic": "castle",
+    "name": "Palacio Viejo",
+    "type": "multipolygon",
+    "wikidata": "Q1934670",
+    "wikipedia": "es:Palacio Real de Olite"
+  }
+},
+{
+  "type": "relation",
+  "id": 10848052,
+  "center": {
+    "lat": 42.6150692,
+    "lon": -1.6100703
+  },
+  "tags": {
+    "addr:city": "Eristain",
+    "addr:postcode": "31395",
+    "addr:street": "Barrio de Eristain",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 20825847,
+  "center": {
+    "lat": 42.6398575,
+    "lon": -1.5352751
+  },
+  "tags": {
+    "addr:city": "Iriberri",
+    "addr:postcode": "31395",
+    "addr:street": "Camino de Iriberri",
+    "building": "ruins",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Señorío de Iriberri",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 21078872,
+  "center": {
+    "lat": 42.6001903,
+    "lon": -1.6441662
+  },
+  "tags": {
+    "addr:city": "Garínoain / Garinoain",
+    "addr:housenumber": "4",
+    "addr:postcode": "31395",
+    "addr:street": "Calle Catalain",
+    "building": "yes",
+    "castle_type": "stately",
+    "historic": "castle",
+    "name": "Casa Cabodevilla",
+    "type": "multipolygon"
+  }
+}
+
+  ]
+}
