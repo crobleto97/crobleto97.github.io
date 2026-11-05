@@ -1,4 +1,4 @@
-<title>Mapa de los castillos navarros</title>
+<title data-en="Map of the castles of Navarre">Mapa de los castillos navarros</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>/*__MLCSS__*/</style>
@@ -30,7 +30,7 @@ body.layers-off-places .place{display:none!important}
 .layers label{display:flex; gap:5px; align-items:center; cursor:pointer}
 .maplibregl-ctrl-bottom-right{margin-bottom:112px}
 .maplibregl-ctrl-attrib{font:11px var(--body)}
-.card{background:var(--surface); border:1px solid var(--line); border-radius:8px; box-shadow:0 6px 24px rgb(0 0 0 / .12)}
+.card{box-sizing:border-box; background:var(--surface); border:1px solid var(--line); border-radius:8px; box-shadow:0 6px 24px rgb(0 0 0 / .12)}
 #head{position:absolute; top:calc(12px + env(safe-area-inset-top,0px)); left:max(12px, env(safe-area-inset-left,0px)); width:min(300px, calc(100% - 24px)); padding:14px 16px; display:grid; gap:10px; z-index:2}
 .eyebrow{font:500 11px/1 var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--accent)}
 h1{font:700 26px/1.1 var(--display); margin:0}
@@ -45,6 +45,12 @@ h1{font:700 26px/1.1 var(--display); margin:0}
 .shapes span{display:flex; align-items:center; gap:5px}
 .s{width:10px; height:10px; border-radius:50%; border:2px solid var(--muted); box-sizing:border-box}
 .s.full{background:var(--muted)} .s.half{background:color-mix(in srgb, var(--muted) 45%, transparent)}
+.toprow{display:flex; align-items:center; justify-content:space-between; gap:8px}
+.lsw{display:flex; border:1px solid var(--line); border-radius:999px; padding:2px; flex:none}
+.lsw button{all:unset; font:600 11px/1 var(--mono); padding:5px 8px; border-radius:999px; cursor:pointer; color:var(--muted)}
+.lsw button[aria-pressed="true"]{background:var(--fg); color:var(--bg)}
+.lsw button:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+#panel .lang-note{font-size:12.5px; color:var(--muted); font-style:italic}
 #toggle{all:unset; font:600 12px var(--body); color:var(--accent); cursor:pointer}
 #head.min .hide-min{display:none}
 #panel{position:absolute; top:calc(12px + env(safe-area-inset-top,0px)); right:max(12px, env(safe-area-inset-right,0px)); width:min(360px, calc(100% - 24px)); max-height:calc(100% - 150px); overflow:auto; padding:18px; display:grid; gap:10px; z-index:3}
@@ -81,32 +87,53 @@ h1{font:700 26px/1.1 var(--display); margin:0}
   .maplibregl-ctrl-bottom-right{margin-bottom:150px}
 }
 </style>
-<div id="map" aria-label="Mapa de los castillos de Navarra"></div>
+<div id="map" aria-label="Mapa de los castillos de Navarra" data-en-aria-label="Map of the castles of Navarre"></div>
 <div id="head" class="card">
-  <div class="eyebrow"><a href="../projects/castles-map.html" style="color:inherit">Proyecto</a> · datos abiertos</div>
-  <h1>Castillos de Navarra</h1>
-  <p class="sub hide-min">80 fortificaciones, coloreadas por la época de su primera noticia. Mueve la línea de tiempo o pulsa ▶ para ver cómo se fortificó el reino. Arrastra con clic derecho (o dos dedos) para inclinar el relieve.</p>
+  <div class="toprow"><div class="eyebrow"><a href="../projects/castles-map.html" style="color:inherit" data-en="Project">Proyecto</a> · <span data-en="open data">datos abiertos</span></div><div class="lsw" role="group" aria-label="Idioma" data-en-aria-label="Language"><button type="button" data-set-lang="en" title="English">EN</button><button type="button" data-set-lang="es" title="Español">ES</button></div></div>
+  <h1 data-en="Castles of Navarre">Castillos de Navarra</h1>
+  <p class="sub hide-min" data-en="80 fortifications, coloured by the period of their first record. Move the timeline or press ▶ to watch the kingdom fortify itself. Right-click and drag (or use two fingers) to tilt the relief.">80 fortificaciones, coloreadas por la época de su primera noticia. Mueve la línea de tiempo o pulsa ▶ para ver cómo se fortificó el reino. Arrastra con clic derecho (o dos dedos) para inclinar el relieve.</p>
   <div class="legend hide-min" id="legend"></div>
-  <div class="shapes hide-min"><span><i class="s full"></i>en pie</span><span><i class="s half"></i>ruina / restos</span><span><i class="s"></i>desaparecido</span></div>
-  <div class="layers hide-min"><label><input type="checkbox" id="ly-places" checked> Pueblos</label><label><input type="checkbox" id="ly-vias" checked> Carreteras</label><label><input type="checkbox" id="ly-rios" checked> Ríos</label></div>
+  <div class="shapes hide-min"><span><i class="s full"></i><span data-en="standing">en pie</span></span><span><i class="s half"></i><span data-en="ruin / remains">ruina / restos</span></span><span><i class="s"></i><span data-en="vanished">desaparecido</span></span></div>
+  <div class="layers hide-min"><label><input type="checkbox" id="ly-places" checked> <span data-en="Towns">Pueblos</span></label><label><input type="checkbox" id="ly-vias" checked> <span data-en="Roads">Carreteras</span></label><label><input type="checkbox" id="ly-rios" checked> <span data-en="Rivers">Ríos</span></label></div>
   <button id="toggle" type="button">Ocultar leyenda</button>
 </div>
 <div id="panel" class="card" hidden>
-  <button id="close" type="button" aria-label="Cerrar ficha">×</button>
+  <button id="close" type="button" aria-label="Cerrar ficha" data-en-aria-label="Close record">×</button>
   <div id="pbody" style="display:grid;gap:10px"></div>
 </div>
 <div id="timeline" class="card">
-  <button id="play" type="button" aria-label="Reproducir línea de tiempo">▶</button>
+  <button id="play" type="button" aria-label="Reproducir línea de tiempo" data-en-aria-label="Play timeline">▶</button>
   <div class="track">
     <div id="hist" aria-hidden="true"></div>
-    <input id="year" type="range" min="700" max="1900" step="10" value="1900" aria-label="Año">
+    <input id="year" type="range" min="700" max="1900" step="10" value="1900" aria-label="Año" data-en-aria-label="Year">
     <div class="ticks"><span>700</span><span>1000</span><span>1300</span><span>1512</span><span>1900</span></div>
   </div>
   <div id="yearbox">1900</div>
-  <label id="undated"><input id="und" type="checkbox" checked> Mostrar castillos sin fecha (<span id="nund"></span>)</label>
+  <label id="undated"><input id="und" type="checkbox" checked> <span><span data-en="Show undated castles">Mostrar castillos sin fecha</span> (<span id="nund"></span>)</span></label>
 </div>
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script>
+// Language: Spanish by default here, English when chosen on the portfolio (same "lang" key) or with ?lang=en.
+// Static text carries its English in data-en; script text goes through L(spanish, english).
+let LANG = "es";
+try { const sl = localStorage.getItem("lang"); if (sl === "en" || sl === "es") LANG = sl; } catch (e) {}
+try { const q = new URLSearchParams(location.search).get("lang"); if (q === "en" || q === "es") { LANG = q; localStorage.setItem("lang", q); } } catch (e) {}
+const L = (es, en) => LANG === "en" ? en : es;
+const ESTADO = {"en pie": "standing", "restaurado": "restored", "ruina": "ruin", "restos": "remains", "desaparecido": "vanished", "sin estado": "condition unknown"};
+const CONF = {"confirmado": "confirmed", "parcial": "partial", "dudoso": "doubtful", "sin datos": "no source yet"};
+const ROMAN = {I:1,II:2,III:3,IV:4,V:5,VI:6,VII:7,VIII:8,IX:9,X:10,XI:11,XII:12,XIII:13,XIV:14,XV:15,XVI:16,XVII:17,XVIII:18,XIX:19,XX:20};
+const ord = n => n + (n % 10 === 1 && n !== 11 ? "st" : n % 10 === 2 && n !== 12 ? "nd" : n % 10 === 3 && n !== 13 ? "rd" : "th");
+// Dating notes are short Spanish phrases; translate the common patterns, leave the rest as is.
+function fechaEN(f){
+  return f.replace(/primera noticia en/g, "first record in").replace(/documentado desde/g, "documented from").replace(/documentado en/g, "documented in")
+    .replace(/obras en/g, "works in").replace(/fortificado en/g, "fortified in").replace(/navarro desde/g, "Navarrese from").replace(/reconstruido/g, "rebuilt")
+    .replace(/ampliado/g, "enlarged").replace(/base musulmana del/g, "Muslim base from the").replace(/\(base\)/g, "(base)").replace(/palacio viejo/g, "old palace").replace(/palacio nuevo/g, "new palace")
+    .replace(/torre actual del/g, "current tower from the").replace(/primera noticia/g, "first record").replace(/nivel de incendio datado/g, "dated fire layer")
+    .replace(/referencias más antiguas/g, "earliest references").replace(/sin fecha concreta/g, "no exact date").replace(/^medieval/, "Medieval")
+    .replace(/mediados del/g, "mid").replace(/según OSM/g, "per OSM").replace(/Tercera Guerra Carlista/g, "Third Carlist War").replace(/ en el /g, " in the ").replace(/finales/g, "late").replace(/principios/g, "early").replace(/hacia /g, "c. ").replace(/^origen/, "origin")
+    .replace(/s\. ([IVX]+)(?:\s*[–-]\s*([IVX]+))?(?:\s+y\s+([IVX]+))?/g, (m, a, b, c) => ord(ROMAN[a]) + (b ? "–" + ord(ROMAN[b]) : "") + (c ? " and " + ord(ROMAN[c]) : "") + " c.");
+}
+const T_EST = e => L(e, ESTADO[e] || e), T_CONF = c => L(c, CONF[c] || c), T_F = f => L(f, fechaEN(f));
 const CASTLES = __CASTLES__;
 const PROV = __PROV__;
 const CAPAS = __CAPAS__;
@@ -119,33 +146,39 @@ function addPlaces(){
   map.on("zoom", z); z();
 }
 const PERIODS = [
-  {k:0, lo:-1e9, hi:999,  name:"Reino de Pamplona", r:"s. VIII–X"},
-  {k:1, lo:1000, hi:1233, name:"Dinastía navarra", r:"1000–1234"},
-  {k:2, lo:1234, hi:1511, name:"Casas francesas y guerra civil", r:"1234–1512"},
-  {k:3, lo:1512, hi:1799, name:"Tras la conquista", r:"1512–1800"},
-  {k:4, lo:1800, hi:1e9,  name:"Época contemporánea", r:"s. XIX"},
-  {k:5, name:"Sin fecha", r:""}
+  {k:0, lo:-1e9, hi:999,  name:"Reino de Pamplona", en:"Kingdom of Pamplona", r:"s. VIII–X", ren:"8th–10th c."},
+  {k:1, lo:1000, hi:1233, name:"Dinastía navarra", en:"Navarrese dynasty", r:"1000–1234"},
+  {k:2, lo:1234, hi:1511, name:"Casas francesas y guerra civil", en:"French houses and civil war", r:"1234–1512"},
+  {k:3, lo:1512, hi:1799, name:"Tras la conquista", en:"After the conquest", r:"1512–1800"},
+  {k:4, lo:1800, hi:1e9,  name:"Época contemporánea", en:"Modern era", r:"s. XIX", ren:"19th c."},
+  {k:5, name:"Sin fecha", en:"Undated", r:""}
 ];
 CASTLES.features.forEach(f => { const a = f.properties.a; f.properties.p = a < 0 ? 5 : PERIODS.find(p => p.k < 5 && a >= p.lo && a <= p.hi).k; });
 const tok = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const esc = s => String(s ?? "").replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
 const active = new Set([0,1,2,3,4,5]);
+const PN = p => L(p.name, p.en), PR = p => L(p.r, p.ren || p.r);
 
 // Legend
 const lg = document.getElementById("legend");
 PERIODS.forEach(p => {
   const n = CASTLES.features.filter(f => f.properties.p === p.k).length;
   const b = document.createElement("button"); b.type = "button"; b.id = "per-" + p.k; b.setAttribute("aria-pressed", "true");
-  b.innerHTML = `<i class="dot" style="background:var(--p${p.k === 5 ? "n" : p.k})"></i><span>${p.name}${p.r ? ` <span style="color:var(--muted)">${p.r}</span>` : ""}</span><span class="n">${n}</span>`;
+  b.dataset.n = n; b.dataset.k = p.k;
   b.onclick = () => { active.has(p.k) ? active.delete(p.k) : active.add(p.k); b.setAttribute("aria-pressed", active.has(p.k)); applyFilter(); };
   lg.appendChild(b);
 });
+function legendText(){
+  [...lg.children].forEach(b => { const p = PERIODS[+b.dataset.k];
+    b.innerHTML = `<i class="dot" style="background:var(--p${p.k === 5 ? "n" : p.k})"></i><span>${PN(p)}${p.r ? ` <span style="color:var(--muted)">${PR(p)}</span>` : ""}</span><span class="n">${b.dataset.n}</span>`; });
+}
 ["vias", "rios"].forEach(k => document.getElementById("ly-" + k).addEventListener("change", e => {
   const v = e.target.checked ? "visible" : "none";
   (k === "vias" ? ["vias", "vias-casing"] : ["rios"]).forEach(id => map.getLayer(id) && map.setLayoutProperty(id, "visibility", v));
 }));
 document.getElementById("ly-places").addEventListener("change", e => document.body.classList.toggle("layers-off-places", !e.target.checked));
-document.getElementById("toggle").onclick = e => { const h = document.getElementById("head"); h.classList.toggle("min"); e.target.textContent = h.classList.contains("min") ? "Mostrar leyenda" : "Ocultar leyenda"; };
+document.getElementById("toggle").onclick = e => { const h = document.getElementById("head"); h.classList.toggle("min"); toggleText(); };
+function toggleText(){ document.getElementById("toggle").textContent = document.getElementById("head").classList.contains("min") ? L("Mostrar leyenda", "Show legend") : L("Ocultar leyenda", "Hide legend"); }
 document.getElementById("nund").textContent = CASTLES.features.filter(f => f.properties.a < 0).length;
 
 // Histogram by 50-year bins
@@ -167,7 +200,7 @@ const map = new maplibregl.Map({
   maxBounds: [[-4.5, 40.8], [1.2, 44.4]], pitch: 55, maxPitch: 75, minZoom: 6.5
 });
 map.addControl(new maplibregl.NavigationControl({visualizePitch: true}), "bottom-right");
-map.addControl(new maplibregl.AttributionControl({compact: true, customAttribution: "Datos: Wikidata, Wikipedia, © OpenStreetMap (ODbL)"}));
+map.addControl(new maplibregl.AttributionControl({compact: true, customAttribution: L("Datos", "Data") + ": Wikidata, Wikipedia, © OpenStreetMap (ODbL)"}));
 
 function colorExpr(){ return ["match", ["get", "p"], 0, tok("--p0"), 1, tok("--p1"), 2, tok("--p2"), 3, tok("--p3"), 4, tok("--p4"), tok("--pn")]; }
 function paintTheme(){
@@ -215,7 +248,7 @@ map.on("load", () => {
   map.addLayer({id: "sel", type: "circle", source: "c", filter: ["==", ["id"], -1], paint: {"circle-radius": ["interpolate", ["linear"], ["zoom"], 7, 10, 11, 16], "circle-color": "transparent", "circle-stroke-width": 2, "circle-stroke-color": "#000"}});
   paintTheme(); applyFilter();
   const pop = new maplibregl.Popup({closeButton: false, closeOnClick: false, offset: 10});
-  map.on("mousemove", "c", e => { map.getCanvas().style.cursor = "pointer"; const p = e.features[0].properties; pop.setLngLat(e.features[0].geometry.coordinates).setHTML(`<div class="tip">${esc(p.n)}</div><div style="font-size:12px;color:var(--muted)">${p.a > 0 ? p.a : "sin fecha"} · ${esc(p.e)}</div>`).addTo(map); });
+  map.on("mousemove", "c", e => { map.getCanvas().style.cursor = "pointer"; const p = e.features[0].properties; pop.setLngLat(e.features[0].geometry.coordinates).setHTML(`<div class="tip">${esc(p.n)}</div><div style="font-size:12px;color:var(--muted)">${p.a > 0 ? p.a : L("sin fecha", "undated")} · ${esc(T_EST(p.e))}</div>`).addTo(map); });
   map.on("mouseleave", "c", () => { map.getCanvas().style.cursor = ""; pop.remove(); });
   map.on("click", "c", e => openPanel(e.features[0]));
 });
@@ -225,7 +258,7 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener("change", paintTheme
 // Timeline
 const yr = document.getElementById("year"), yb = document.getElementById("yearbox"), und = document.getElementById("und");
 function applyFilter(){
-  const y = +yr.value; yb.textContent = y >= 1900 ? "Hoy" : y;
+  const y = +yr.value; yb.textContent = y >= 1900 ? L("Hoy", "Today") : y;
   [...hist.children].forEach((el, i) => el.classList.toggle("on", MIN + i * BIN <= y));
   if (!map.getLayer("c")) return;
   map.setFilter("c", ["all", ["in", ["get", "p"], ["literal", [...active]]],
@@ -243,19 +276,39 @@ play.onclick = () => {
 
 // Panel
 const panel = document.getElementById("panel"), pbody = document.getElementById("pbody");
+let openF = null;
 function openPanel(f){
+  openF = f;
   const p = f.properties;
   map.setFilter("sel", ["==", ["id"], f.id]);
   const per = PERIODS[p.p];
   pbody.innerHTML = `
-    <div class="eyebrow" style="color:var(--p${p.p === 5 ? "n" : p.p})">${esc(per.name)}${per.r ? " · " + per.r : ""}</div>
+    <div class="eyebrow" style="color:var(--p${p.p === 5 ? "n" : p.p})">${esc(PN(per))}${per.r ? " · " + PR(per) : ""}</div>
     <h2>${esc(p.n)}</h2>${p.eu ? `<div class="eu">${esc(p.eu)}</div>` : ""}
-    <div class="meta"><span class="year">${p.a > 0 ? p.a : "—"}</span><span>${esc(p.f || "sin fecha")}</span><span class="pill">${esc(p.e)}</span><span>${esc(p.m)}</span></div>
-    ${p.h ? `<p>${esc(p.h)}</p>` : `<p style="color:var(--muted);font-style:italic">Todavía sin historia.</p>`}
-    ${p.no ? `<p class="note">${esc(p.no)}</p>` : ""}
-    <div class="src">Confianza: <b>${esc(p.c)}</b>${p.src ? ` · <a href="${esc(p.src)}" target="_blank" rel="noopener">fuente</a>` : ""}</div>`;
+    <div class="meta"><span class="year">${p.a > 0 ? p.a : "—"}</span><span>${esc(p.f ? T_F(p.f) : L("sin fecha", "undated"))}</span><span class="pill">${esc(T_EST(p.e))}</span><span>${esc(p.m)}</span></div>
+    ${p.h ? (LANG === "en" ? `<p class="lang-note">History in Spanish, from the Wikipedia articles.</p>` : "") + `<p lang="es">${esc(p.h)}</p>` : `<p style="color:var(--muted);font-style:italic">${L("Todavía sin historia.", "No history yet.")}</p>`}
+    ${p.no ? `<p class="note" lang="es">${esc(p.no)}</p>` : ""}
+    <div class="src">${L("Confianza", "Confidence")}: <b>${esc(T_CONF(p.c))}</b>${p.src ? ` · <a href="${esc(p.src)}" target="_blank" rel="noopener">${L("fuente", "source")}</a>` : ""}</div>`;
   panel.hidden = false;
 }
-document.getElementById("close").onclick = () => { panel.hidden = true; map.setFilter("sel", ["==", ["id"], -1]); };
-applyFilter();
+document.getElementById("close").onclick = () => { panel.hidden = true; openF = null; map.setFilter("sel", ["==", ["id"], -1]); };
+// Swap static text and attributes; the Spanish original is kept in data-es-*.
+function applyLang(){
+  document.documentElement.lang = LANG;
+  document.querySelectorAll("[data-en]").forEach(el => { if (!el.hasAttribute("data-es")) el.setAttribute("data-es", el.textContent); el.textContent = el.getAttribute(LANG === "en" ? "data-en" : "data-es"); });
+  document.querySelectorAll("[data-en-aria-label]").forEach(el => { if (!el.hasAttribute("data-es-aria-label")) el.setAttribute("data-es-aria-label", el.getAttribute("aria-label")); el.setAttribute("aria-label", el.getAttribute(LANG === "en" ? "data-en-aria-label" : "data-es-aria-label")); });
+  document.title = document.querySelector("title").textContent;
+  document.querySelectorAll("[data-set-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.setLang === LANG));
+  legendText(); toggleText(); applyFilter();
+  const at = document.querySelector(".maplibregl-ctrl-attrib-inner"); if (at) at.innerHTML = at.innerHTML.replace(/^(Datos|Data):/, L("Datos", "Data") + ":");
+  if (openF && !panel.hidden) openPanel(openF);
+}
+document.querySelectorAll("[data-set-lang]").forEach(b => b.addEventListener("click", () => {
+  if (b.dataset.setLang === LANG) return;
+  LANG = b.dataset.setLang;
+  try { localStorage.setItem("lang", LANG); } catch (e) {}
+  try { const u = new URL(location.href); u.searchParams.delete("lang"); history.replaceState(null, "", u.pathname + u.search + u.hash); } catch (e) {}
+  applyLang();
+}));
+applyLang();
 </script>
