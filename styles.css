@@ -511,6 +511,24 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem
 .empty{padding:1.1rem 1.25rem;border:1px dashed var(--line);border-radius:8px;color:var(--muted);font-size:1rem}
 
 
+/* page transitions: moving between pages crossfades, and a project's title flies from its card into
+   the project page (site.js names the clicked card's title just before leaving) */
+@media (prefers-reduced-motion:no-preference){
+  @view-transition{navigation:auto}
+  .proj-hero h1{view-transition-name:proj-title}
+  ::view-transition-group(proj-title){animation-duration:.45s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+  ::view-transition-old(root),::view-transition-new(root){animation-duration:.25s}
+}
+/* theme switch: the new theme is revealed by a growing circle (theme.js), so the default crossfade is off */
+.vt-theme::view-transition-old(root),.vt-theme::view-transition-new(root){animation:none;mix-blend-mode:normal}
+
+/* spotlight: on desktop the circuit traces light up around the pointer. A small fixed disc that carries
+   a brighter copy of the circuit, lined up with the page background (site.js moves it). */
+.spot{position:fixed;left:0;top:0;width:300px;height:300px;margin:-150px 0 0 -150px;z-index:-1;pointer-events:none;
+  background-repeat:repeat;background-size:240px 240px;opacity:0;transition:opacity .35s ease;will-change:transform;
+  -webkit-mask-image:radial-gradient(circle closest-side,#000 0,rgba(0,0,0,.55) 45%,transparent 100%);
+          mask-image:radial-gradient(circle closest-side,#000 0,rgba(0,0,0,.55) 45%,transparent 100%)}
+
 /* circuit board background: painted as the page background so it scrolls with the page at no extra cost.
    The gradient on top fades it behind the text column. */
 body{background-color:var(--bg);

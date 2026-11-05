@@ -615,3 +615,61 @@ function onLang(fn) { document.addEventListener('langchange', fn); }
     if (!s.closest('.pick')) io.observe(s);
   });
 })();
+
+/* ---------- page transition: the clicked project card's title becomes the project page title ---------- */
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('.pick a[href]');
+  if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  var h = a.closest('.pick').querySelector('h3');
+  // only one element may carry the name, so clear it from any other card first
+  Array.prototype.forEach.call(document.querySelectorAll('.pick h3'), function (x) { x.style.viewTransitionName = ''; });
+  if (h) h.style.viewTransitionName = 'proj-title';
+});
+// coming back with the browser's back button: don't keep the name on the old card
+window.addEventListener('pageshow', function () {
+  Array.prototype.forEach.call(document.querySelectorAll('.pick h3'), function (x) { x.style.viewTransitionName = ''; });
+});
+
+/* ---------- spotlight: circuit traces light up around the pointer (desktop only) ----------
+   The body paints the circuit as a 240px tile anchored to the top of the page. The spot is a small fixed
+   disc with a brighter copy of the same tile; its background is offset so both line up while it moves.
+   It hides over the text column (where the background is faded) and over the dark panels (different tile). */
+(function () {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var root = document.documentElement, spot = document.createElement('div'), R = 150, TILE = 240;
+  spot.className = 'spot'; spot.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(spot);
+  var hotFor = '';
+  function paint() {
+    var key = getComputedStyle(root).getPropertyValue('--accent').trim();
+    if (key === hotFor) return;
+    hotFor = key;
+    var c = getComputedStyle(root).getPropertyValue('--circuit').trim();
+    // same drawing, stroked in the accent colour at a stronger opacity
+    var hex = key.replace('#', '%23');
+    spot.style.backgroundImage = c.replace(/stroke='[^']*'/, "stroke='" + hex + "'").replace(/stroke-width='[\d.]+'/, "stroke-width='1.6'");
+  }
+  var x = -999, y = -999, inside = false, queued = false;
+  function frame() {
+    queued = false;
+    paint();
+    var px = x + scrollX, py = y + scrollY;
+    spot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+    spot.style.backgroundPosition = (-((px - R) % TILE)) + 'px ' + (-((py - R) % TILE)) + 'px';
+    // fade out towards the middle column, where the page background is already faded behind the text
+    var off = Math.abs(x - innerWidth / 2), rem = parseFloat(getComputedStyle(root).fontSize) || 16;
+    var k = Math.max(0, Math.min(1, (off - 22 * rem) / (10 * rem)));
+    spot.style.opacity = inside ? String(k) : '0';
+  }
+  function queue() { if (!queued) { queued = true; requestAnimationFrame(frame); } }
+  document.addEventListener('pointermove', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    x = e.clientX; y = e.clientY;
+    inside = !(e.target.closest && e.target.closest('.stage, dialog'));
+    queue();
+  }, { passive: true });
+  document.addEventListener('pointerleave', function () { inside = false; queue(); });
+  window.addEventListener('scroll', function () { if (inside) queue(); }, { passive: true });
+  new MutationObserver(queue).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+})();
+
