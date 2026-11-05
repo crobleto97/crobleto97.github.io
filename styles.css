@@ -28,6 +28,8 @@ a:hover{text-decoration-thickness:2px}
 h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0;letter-spacing:-0.015em}
 p{margin:0}
 [hidden]{display:none !important}
+/* two languages side by side in the markup: show only the current one (set on <html data-lang> by theme.js) */
+html:not([data-lang="es"]) body [lang="es"],html[data-lang="es"] body [lang="en"]{display:none !important}
 .wrap{max-width:72rem;margin:0 auto}
 .col{max-width:42rem}
 .skip{position:absolute;left:-999px;top:0}
@@ -41,7 +43,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .site-head.scrolled{padding-block:.6rem}
 .site-head .progress{position:absolute;left:calc(50% - 50vw);right:calc(50% - 50vw);bottom:0;height:2px;background:var(--accent);
   transform-origin:left;transform:scaleX(0);will-change:transform}
-.mark{font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+.mark{font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
 .site-head nav{display:flex;align-items:center;gap:.25rem;font-family:var(--display);font-size:.95rem}
 .navlink{color:var(--muted);text-decoration:none;padding:.45rem .85rem;border-radius:999px;transition:background .15s,color .15s}
 .navlink:hover{color:var(--ink);background:var(--accent-soft)}
@@ -50,6 +52,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 
 /* light/dark toggle */
+.lang-switch{display:inline-flex;align-items:center;height:38px;margin-left:.35rem;padding:3px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface)}
+.lang-switch button{height:28px;min-width:34px;padding:0 .5rem;border:0;border-radius:999px;background:transparent;color:var(--muted);
+  font:700 .76rem var(--display);letter-spacing:.04em;cursor:pointer;transition:background .15s,color .15s}
+.lang-switch button:hover{color:var(--ink)}
+.lang-switch button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
 .theme-toggle{display:inline-grid;place-items:center;width:38px;height:38px;margin-left:.35rem;border-radius:50%;cursor:pointer;
   border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:0;transition:border-color .15s,transform .15s}
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent);transform:rotate(-12deg)}
@@ -249,7 +256,7 @@ section{padding-block:3rem}
   border:1px solid var(--line);background-color:var(--bg);
   background-image:radial-gradient(color-mix(in srgb,var(--ink) 10%,transparent) 1px,transparent 1.2px);background-size:16px 16px}
 .pick-visual figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem .75rem;font-family:var(--display);font-size:.88rem;font-weight:700}
-.pick-visual figcaption span{color:var(--muted);font-weight:500}
+.pick-visual figcaption .sub{color:var(--muted);font-weight:500}
 .viz-steps{margin:0;padding-left:1.2rem;font-family:var(--display);font-size:.9rem;display:grid;gap:.2rem}
 .built .viz-steps{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 
@@ -566,6 +573,7 @@ body{background-color:var(--bg);
   .cmdk-btn{padding:0;width:38px;justify-content:center}
   .cmdk-btn span,.cmdk-btn kbd{display:none}
   .theme-toggle{margin-left:0}
+  .lang-switch{margin-left:0}
 }
 @media (max-width:640px){
   .site-head .btn{margin-left:0}
