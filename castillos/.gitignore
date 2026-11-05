@@ -1,0 +1,4 @@
+geo/raw/
+*.pkl
+data/wiki/
+__pycache__/

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
 <link rel="stylesheet" href="styles.css?v=9">
 <script src="theme.js?v=9"></script>
-<script src="site.js?v=9" defer></script>
+<script src="site.js?v=10" defer></script>
 <script src="main.js?v=9" defer></script>
 </head>
 <body>
@@ -160,6 +160,23 @@
           <div><dt>Status</dt><dd><span class="status">Planned</span></dd></div>
           <div><dt>Progress</dt><dd><span class="meter" style="--v:0"><i></i></span>Starts after project 2</dd></div>
           <div><dt>Stack</dt><dd><ul class="chips"><li>FastAPI</li><li>pytest</li><li>Docker</li><li>GitHub Actions</li></ul></dd></div>
+        </dl>
+      </article>
+      <article class="pick" id="pick-castles" data-status="done" data-short="Castles map">
+        <div class="pick-main">
+          <p class="pick-num">Side project</p>
+          <h3><a href="projects/castles-map.html">Castles of Navarre, a 3D map from open data</a></h3>
+          <p class="pick-sum">80 castles and 1,200 years on an interactive 3D map, built by joining and cleaning Wikidata, OpenStreetMap and Wikipedia in Python.</p>
+          <div class="pick-actions"><a class="btn btn-solid" href="projects/castles-map.html">Open project</a><a class="btn" href="castillos/">Open the map</a></div>
+        </div>
+        <figure class="pick-visual" data-flow="v">
+          <figcaption>From records to a map <span>295 candidates, 80 castles</span></figcaption>
+          <ol class="viz-steps"><li>Collect</li><li>Match and clean</li><li>Enrich</li><li>Map</li></ol>
+        </figure>
+        <dl class="pick-stats">
+          <div><dt>Status</dt><dd><span class="status">Live</span></dd></div>
+          <div><dt>Records</dt><dd><span class="meter" style="--v:.69"><i></i></span>55 of 80 confirmed by a source</dd></div>
+          <div><dt>Stack</dt><dd><ul class="chips"><li>Python</li><li>pandas</li><li>SPARQL</li><li>OpenStreetMap</li><li>MapLibre GL</li></ul></dd></div>
         </dl>
       </article>
       <article class="pick locked" id="pick-llm" data-status="prep" data-short="LLM prospect pipeline">

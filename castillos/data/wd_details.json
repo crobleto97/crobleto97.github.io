@@ -1,0 +1,5303 @@
+{
+ "Q115205363": {
+  "label": [
+   "poblado de Irulegui"
+  ],
+  "labelEu": [
+   "Irulegi"
+  ],
+  "coord": [
+   "Point(-1.51439 42.77879)"
+  ],
+  "tipoLabel": [
+   "asentamiento",
+   "castro",
+   "oppidum",
+   "proyecto de investigación",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Aranguren"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Irulegiko_herrixka"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Irulegiko%20eskua%20-%20Nafarroako%20Gobernuaren%20irudi%20galeria%2014.jpg"
+  ],
+  "desc": [
+   "yacimiento arqueológico de la Edad del Hierro"
+  ]
+ },
+ "Q123855907": {
+  "label": [
+   "Portal de Taconera"
+  ],
+  "coord": [
+   "Point(-1.651480526 42.815659637)"
+  ],
+  "tipoLabel": [
+   "puerta de la ciudad"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Portal%20de%20Taconera%20Pamplona.JPG"
+  ],
+  "desc": [
+   "edificios del Camino de Santiago en Pamplona"
+  ]
+ },
+ "Q124306456": {
+  "label": [
+   "El Muro"
+  ],
+  "labelEu": [
+   "El Muro"
+  ],
+  "coord": [
+   "Point(-2.311464519 42.707281833)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "estructura arquitectónica desaparecida",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Campezo",
+   "Orbiso",
+   "Zúñiga"
+  ],
+  "desc": [
+   "hillfort in Basque Country"
+  ]
+ },
+ "Q112738": {
+  "label": [
+   "Castillo de Javier"
+  ],
+  "labelEu": [
+   "Xabierko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.215833333 42.594027777)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "destino turístico",
+   "monumento"
+  ],
+  "munLabel": [
+   "Javier"
+  ],
+  "herLabel": [
+   "bien de interés cultural",
+   "parte de un sitio Patrimonio de la Humanidad"
+  ],
+  "bic": [
+   "RI-51-0008672"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_Javier"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Xabierko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Castillo%20de%20Javier%20Aircraft%20Turismo%20de%20Navarra.jpg"
+  ],
+  "desc": [
+   "castillo del municipio de Javier, España"
+  ]
+ },
+ "Q11930644": {
+  "label": [
+   "Navarrería"
+  ],
+  "labelEu": [
+   "Nabarreria"
+  ],
+  "coord": [
+   "Point(-1.641780316 42.819490247)"
+  ],
+  "tipoLabel": [
+   "barrio",
+   "burgo",
+   "ciudad"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Navarrer%C3%ADa"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Nabarreria"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Nabarreriako%20iturria.JPG"
+  ],
+  "desc": [
+   "antiguo barrio de Pamplona, civitas episcopalis"
+  ]
+ },
+ "Q12257985": {
+  "label": [
+   "Portal de Francia"
+  ],
+  "labelEu": [
+   "Frantziako atea"
+  ],
+  "coord": [
+   "Point(-1.6425 42.82111111)"
+  ],
+  "tipoLabel": [
+   "puerta"
+  ],
+  "inicio": [
+   "1533-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Zumalakarregiren_atea"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Pamplona%20Frankentor%2C%202005-07-17.jpg"
+  ],
+  "desc": [
+   "edificios del Camino de Santiago en Pamplona"
+  ]
+ },
+ "Q12259811": {
+  "label": [
+   "Murallas de Pamplona"
+  ],
+  "labelEu": [
+   "Iruñeko harresiak"
+  ],
+  "coord": [
+   "Point(-1.64091 42.82126)"
+  ],
+  "tipoLabel": [
+   "fortificación",
+   "monumento"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0001098"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Fortificaciones_de_Pamplona"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Iru%C3%B1eko_harresiak"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Iru%C3%B1eko%20Harresiak.jpg"
+  ],
+  "desc": [
+   "edificaciones de Pamplona"
+  ]
+ },
+ "Q12260218": {
+  "label": [
+   "Torre Jaureguía de Donamaría"
+  ],
+  "labelEu": [
+   "Donamariko Jauregia"
+  ],
+  "coord": [
+   "Point(-1.67513 43.112121)"
+  ],
+  "tipoLabel": [
+   "casa torre",
+   "monumento"
+  ],
+  "inicio": [
+   "1488-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Donamaría"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0007236"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Casa-torre_de_Jauregu%C3%ADa"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Jauregia_dorretxea_(Donamaria)"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Jauregia%20Donamaria.JPG"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q12269140": {
+  "label": [
+   "Palacio de Zabaleta"
+  ],
+  "labelEu": [
+   "Zabaleta dorretxea"
+  ],
+  "coord": [
+   "Point(-1.703329 43.246512)"
+  ],
+  "tipoLabel": [
+   "casa torre",
+   "monumento"
+  ],
+  "inicio": [
+   "1444-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Lesaca"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0007320"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Zabaleta_dorretxea"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Zabaleta%20dorrea.jpg"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q102118366": {
+  "label": [
+   "Población de San Nicolás"
+  ],
+  "labelEu": [
+   "San Nikolas"
+  ],
+  "coord": [
+   "Point(-1.645525106 42.815871835)"
+  ],
+  "tipoLabel": [
+   "barrio",
+   "burgo"
+  ],
+  "inicio": [
+   "1170-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Poblaci%C3%B3n_de_San_Nicol%C3%A1s"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/San_Nikolas_(Iru%C3%B1ea)"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Pamplona%20-%20Iglesia%20de%20San%20Nicol%C3%A1s%2005.JPG"
+  ],
+  "desc": [
+   "barrio de Pamplona, antiguo burgo de Pamplona"
+  ]
+ },
+ "Q111420063": {
+  "label": [
+   "Casa natal de Ramón y Cajal"
+  ],
+  "labelEu": [
+   "Santiago Ramón y Cajal museo-etxea"
+  ],
+  "coord": [
+   "Point(-1.091332197 42.46168843)"
+  ],
+  "tipoLabel": [
+   "casa museo",
+   "casa natal",
+   "museo"
+  ],
+  "munLabel": [
+   "Petilla de Aragón"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Casa_natal_de_Ram%C3%B3n_y_Cajal"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Santiago_Ram%C3%B3n_y_Cajal_museo-etxea"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Casa%20natal%20de%20Ram%C3%B3n%20y%20Cajal%20JLP120121%20%2834%29.jpg"
+  ],
+  "desc": [
+   "casa museo en Petilla de Aragón dedicada a este ilustre médico"
+  ]
+ },
+ "Q112195868": {
+  "label": [
+   "Castillo de Guerga"
+  ],
+  "labelEu": [
+   "Gergako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.615174373 42.657571874)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Unzué"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Gergako_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Untzue%20-%20Eraikinak%20eta%20eliza%20-%20Orbaibar%20%283%29.jpg"
+  ],
+  "desc": [
+   "castillo medieval en Unzué, Navarra"
+  ]
+ },
+ "Q115039507": {
+  "label": [
+   "Castillo de Aixita"
+  ],
+  "labelEu": [
+   "Aixitako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.83209322 42.929601184)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Araquil"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Aixitako_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Aixitako%20gaztelua%20mapa.jpg",
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Aixitako%20gaztelua.jpg",
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Aixitako%20gazteluaren%20horma.jpg",
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Biaizpe%20%28Aixitarte%29%20eta%20Aixita%20-%20Nafarroa.jpg"
+  ],
+  "desc": [
+   "Ruinas del castillo de Aixita"
+  ]
+ },
+ "Q12254016": {
+  "labelEu": [
+   "Arlekiko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.23151667 43.00691111)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Orbaiceta"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Arlekiko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Arlekia2.jpg"
+  ]
+ },
+ "Q12254357": {
+  "label": [
+   "Puerta Nueva"
+  ],
+  "labelEu": [
+   "Ate berria"
+  ],
+  "coord": [
+   "Point(-1.65083333 42.81861111)"
+  ],
+  "inicio": [
+   "1675-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Atari_Berria"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Portal%20nuevo.JPG"
+  ]
+ },
+ "Q12258689": {
+  "label": [
+   "Gorriza"
+  ],
+  "labelEu": [
+   "Gorritza"
+  ],
+  "coord": [
+   "Point(-1.848116146 42.731158334)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "despoblado",
+   "ermita",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Guirguillano"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Gorriza"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Gorritza"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Gorriza%2002.jpg"
+  ]
+ },
+ "Q110258296": {
+  "labelEu": [
+   "Muru"
+  ],
+  "coord": [
+   "Point(-1.367908083 42.717912527)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "despoblado",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Urraúl Bajo"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Muru_(Urraulbeiti)"
+  ]
+ },
+ "Q110492406": {
+  "labelEu": [
+   "Legingo gaztelua"
+  ],
+  "coord": [
+   "Point(-1.425386334 42.756456408)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "inicio": [
+   "1000-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Izagaondoa"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Legingo_gaztelua"
+  ]
+ },
+ "Q110628361": {
+  "labelEu": [
+   "Eloko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.510252514 42.704924199)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Monreal"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Eloko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Monreal%20castillo%20Ve1.jpg"
+  ]
+ },
+ "Q110972197": {
+  "labelEu": [
+   "Gazteluberriko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.044641149 42.678959181)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Castillonuevo"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Gazteluberriko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Castillonuevo%20008.jpg"
+  ]
+ },
+ "Q111021179": {
+  "labelEu": [
+   "Burgiko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.006042358 42.720407637)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Burgui"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Burgiko_gaztelua"
+  ]
+ },
+ "Q111103525": {
+  "labelEu": [
+   "Izabako gaztelua"
+  ],
+  "coord": [
+   "Point(-0.925553196 42.861824097)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Isaba"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Izabako_gaztelua"
+  ]
+ },
+ "Q111278212": {
+  "labelEu": [
+   "Zangoza Berria"
+  ],
+  "coord": [
+   "Point(-1.283541066 42.576519914)"
+  ],
+  "tipoLabel": [
+   "burgo"
+  ],
+  "munLabel": [
+   "Sangüesa"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Zangoza_Berria"
+  ]
+ },
+ "Q111278362": {
+  "labelEu": [
+   "Zangoza Hiribildua"
+  ],
+  "coord": [
+   "Point(-1.283214951 42.573875262)"
+  ],
+  "tipoLabel": [
+   "burgo"
+  ],
+  "munLabel": [
+   "Sangüesa"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Zangoza_Hiribildua"
+  ]
+ },
+ "Q111278368": {
+  "labelEu": [
+   "Oltra"
+  ],
+  "coord": [
+   "Point(-1.286915479 42.57817606)"
+  ],
+  "tipoLabel": [
+   "burgo"
+  ],
+  "munLabel": [
+   "Sangüesa"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Oltra"
+  ]
+ },
+ "Q111324711": {
+  "labelEu": [
+   "Rocaforteko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.290386406 42.591546176)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Sangüesa"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Rocaforteko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Restos%20del%20antiguo%20castillo%20de%20Rocaforte%20%28Navarra%29.jpg"
+  ]
+ },
+ "Q111482219": {
+  "label": [
+   "Castillo de Milagro"
+  ],
+  "coord": [
+   "Point(-1.7622 42.2462)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ]
+ },
+ "Q111557583": {
+  "label": [
+   "castillo de Cáseda"
+  ],
+  "labelEu": [
+   "Kasedako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.367758235 42.524018766)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Cáseda"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Kasedako_gaztelua"
+  ]
+ },
+ "Q111590196": {
+  "labelEu": [
+   "Galipentzuko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.411604981 42.524579859)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Gallipienzo"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Galipentzuko_gaztelua"
+  ]
+ },
+ "Q111607973": {
+  "labelEu": [
+   "Oibarko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.357170756 42.591664368)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Aibar"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Oibarko_gaztelua"
+  ]
+ },
+ "Q111625810": {
+  "labelEu": [
+   "Eslabako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.458903274 42.565158449)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Eslava"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Eslabako_gaztelua"
+  ]
+ },
+ "Q111710109": {
+  "labelEu": [
+   "Tafallako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.677512795 42.529468304)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Tafalla"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Tafallako_gaztelua"
+  ]
+ },
+ "Q111894358": {
+  "labelEu": [
+   "Untzeko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.561070694 42.526401163)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "San Martín de Unx"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Untzeko_gaztelua"
+  ]
+ },
+ "Q112117567": {
+  "label": [
+   "Castillo de Murillo el Fruto"
+  ],
+  "labelEu": [
+   "Murelu Hautsiko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.461323299 42.39413968)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Murillo el Fruto"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Murillo_el_Frutoko_gaztelua"
+  ]
+ },
+ "Q112135389": {
+  "labelEu": [
+   "Melidako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.549314502 42.3593304)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Mélida"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Melidako_gaztelua"
+  ]
+ },
+ "Q112144850": {
+  "labelEu": [
+   "Kaparrotsuko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.66194409 42.336622209)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Caparroso"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Caparrosoko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Kristoko%20eliza%20-%20Caparroso%20%2804%29.jpg"
+  ]
+ },
+ "Q112862045": {
+  "labelEu": [
+   "Azagrako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.892520415 42.30896268)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Azagra"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Azagrako_gaztelua"
+  ]
+ },
+ "Q112875570": {
+  "labelEu": [
+   "Azkoiengo gaztelua"
+  ],
+  "coord": [
+   "Point(-1.792891731 42.340979391)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Peralta"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Azkoiengo_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/SubidaAtalaya%20Peralta.jpg"
+  ]
+ },
+ "Q113005799": {
+  "labelEu": [
+   "Cadreitako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.694814359 42.217889265)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Cadreita"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Cadreitako_gaztelua"
+  ]
+ },
+ "Q113136910": {
+  "labelEu": [
+   "Faltzesko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.796937605 42.384550369)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Falces"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Faltzesko_gaztelua"
+  ]
+ },
+ "Q113147329": {
+  "labelEu": [
+   "Funesko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.806300042 42.31345554)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Funes"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Funesko_gaztelua"
+  ]
+ },
+ "Q113162414": {
+  "labelEu": [
+   "Milagroko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.762940902 42.247212429)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Milagro"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Milagroko_gaztelua"
+  ]
+ },
+ "Q113170812": {
+  "labelEu": [
+   "Miranda Argako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.833221586 42.484207721)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Miranda de Arga"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Miranda_Argako_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Miranda%20Arga%20-%20Arga%203.jpg"
+  ]
+ },
+ "Q113174716": {
+  "labelEu": [
+   "Larragako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.845631581 42.559069492)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Larraga"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Larragako_gaztelua"
+  ]
+ },
+ "Q113481748": {
+  "label": [
+   "Urbe"
+  ],
+  "labelEu": [
+   "Urbe"
+  ],
+  "coord": [
+   "Point(-1.916982833 42.677841944)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "despoblado",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Cirauqui"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Urbe_(Zirauki)"
+  ]
+ },
+ "Q115912948": {
+  "labelEu": [
+   "Añorbeko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.71978383 42.658619391)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Añorbe"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/A%C3%B1orbeko_gaztelua"
+  ]
+ },
+ "Q117482778": {
+  "label": [
+   "campamento romano de Aranguren"
+  ],
+  "labelEu": [
+   "Arangurengo erromatar kanpalekua"
+  ],
+  "coord": [
+   "Point(-1.550454412 42.778871681)"
+  ],
+  "tipoLabel": [
+   "castrum",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Aranguren"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Arangurengo_erromatar_kanpalekua"
+  ]
+ },
+ "Q117487052": {
+  "labelEu": [
+   "Gazolatzeko erromatar kanpamendua"
+  ],
+  "coord": [
+   "Point(-1.725911545 42.800541207)"
+  ],
+  "tipoLabel": [
+   "castrum",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Gazólaz",
+   "Navarra"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Gazolatzeko_erromatar_kanpamendua"
+  ]
+ },
+ "Q120780128": {
+  "label": [
+   "Alto de la Cruz"
+  ],
+  "labelEu": [
+   "Alto de la Cruz"
+  ],
+  "coord": [
+   "Point(-1.445445224 41.926143242)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Cortes"
+  ],
+  "herLabel": [
+   "bien de interés cultural",
+   "zona arqueológica"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Alto_de_la_Cruz"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Pebetero%20%2844123473490%29.jpg"
+  ]
+ },
+ "Q124415906": {
+  "label": [
+   "Castillo Palacio de Cabo de Armeria de los Vélaz de Medrano de Igúzquiza"
+  ],
+  "coord": [
+   "Point(-2.087417 42.649356)"
+  ],
+  "tipoLabel": [
+   "palacio fortificado"
+  ],
+  "munLabel": [
+   "Igúzquiza"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/View%20of%20the%20Palace%20of%20Velaz%20de%20Medrano.jpg"
+  ]
+ },
+ "Q124431272": {
+  "label": [
+   "Aixkourrua"
+  ],
+  "labelEu": [
+   "Aixkourrua"
+  ],
+  "coord": [
+   "Point(-1.064891694 42.914520611)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado"
+  ],
+  "munLabel": [
+   "Ochagavía"
+  ]
+ },
+ "Q124443959": {
+  "labelEu": [
+   "Irurre gaina (aztarnategia)"
+  ],
+  "coord": [
+   "Point(-1.93562875 42.70843505)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Guesálaz"
+  ]
+ },
+ "Q124450338": {
+  "labelEu": [
+   "Agiñako esparru harresitua"
+  ],
+  "coord": [
+   "Point(-1.761998555 43.269382555)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Lesaca"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Aginako%20tontorra.jpg"
+  ]
+ },
+ "Q124459510": {
+  "labelEu": [
+   "Legin (Itzagaondoa)"
+  ],
+  "coord": [
+   "Point(-1.451072611 42.827897611)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Izagaondoa"
+  ]
+ },
+ "Q124459728": {
+  "labelEu": [
+   "Legin (Etxauri eta Oltza)"
+  ],
+  "coord": [
+   "Point(-1.778975138 42.799068444)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Cendea de Olza",
+   "Echauri",
+   "Ibero"
+  ]
+ },
+ "Q124460242": {
+  "labelEu": [
+   "Sardeako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.732371777 42.869693888)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Añézcar",
+   "Berrioplano"
+  ]
+ },
+ "Q124466760": {
+  "labelEu": [
+   "San Sebastián (Cintruenigo)"
+  ],
+  "coord": [
+   "Point(-1.828390861 42.060252111)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "eremitorio",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Cintruénigo"
+  ]
+ },
+ "Q124498868": {
+  "label": [
+   "Oianburu"
+  ],
+  "labelEu": [
+   "Oianburu"
+  ],
+  "coord": [
+   "Point(-1.701652564 42.584338855)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "In situ",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Artajona",
+   "Garínoain"
+  ]
+ },
+ "Q124537244": {
+  "label": [
+   "Murugain de Uzquita"
+  ],
+  "labelEu": [
+   "Murugain (Uzkita)"
+  ],
+  "coord": [
+   "Point(-1.502030222 42.626075194)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Leoz"
+  ]
+ },
+ "Q124552345": {
+  "label": [
+   "El Caneluche"
+  ],
+  "labelEu": [
+   "El Caneluche"
+  ],
+  "coord": [
+   "Point(-1.374904861 42.447528)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "en ruinas",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Cáseda"
+  ]
+ },
+ "Q124711112": {
+  "label": [
+   "Indusi/Murubitarte"
+  ],
+  "labelEu": [
+   "Indusi/Murubitarte"
+  ],
+  "coord": [
+   "Point(-1.519581505 42.557951477)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado"
+  ],
+  "munLabel": [
+   "Lerga"
+  ],
+  "desc": [
+   "poblado fortificado en altura"
+  ]
+ },
+ "Q125569206": {
+  "labelEu": [
+   "Basaba"
+  ],
+  "coord": [
+   "Point(-1.486448755 42.737863575)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado",
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Unciti"
+  ],
+  "desc": [
+   "yacimiento arqueológico"
+  ]
+ },
+ "Q130427607": {
+  "label": [
+   "Horno de la Ciudadela de Pamplona"
+  ],
+  "coord": [
+   "Point(-1.648594 42.813723)"
+  ],
+  "tipoLabel": [
+   "fortaleza",
+   "horno",
+   "museo de arte"
+  ],
+  "inicio": [
+   "1640-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Navarra",
+   "Pamplona"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Ciudadela-Horno%2004.jpg"
+  ],
+  "desc": [
+   "Horno situado en el interior de la Ciudadela de Pamplona"
+  ]
+ },
+ "Q133277609": {
+  "label": [
+   "Fuerte del Príncipe, Pamplona"
+  ],
+  "coord": [
+   "Point(-1.640159689 42.807365829)"
+  ],
+  "tipoLabel": [
+   "fortificación",
+   "monumento"
+  ],
+  "munLabel": [
+   "Navarra",
+   "Pamplona"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Fuerte%20del%20Pr%C3%ADncipe%20de%20Pamplona%2012.jpg"
+  ],
+  "desc": [
+   "Fuerte avanzado de la plaza fuerte de Pamplona (España)"
+  ]
+ },
+ "Q135654315": {
+  "label": [
+   "Baluarte Real, Ciudadela de Pamplona"
+  ],
+  "coord": [
+   "Point(-1.647530446 42.811142248)"
+  ],
+  "tipoLabel": [
+   "fortificación"
+  ],
+  "inicio": [
+   "1672-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Navarra",
+   "Pamplona"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Ciudadela%20Baluarte%20Real%20con%20su%20caballero%202.jpg"
+  ],
+  "desc": [
+   "Baluarte en el vértice sudeste del pentagono que forma la Ciudadela"
+  ]
+ },
+ "Q125491105": {
+  "labelEu": [
+   "Iturrotz"
+  ],
+  "coord": [
+   "Point(-1.38855 42.77024)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado",
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Lónguida"
+  ]
+ },
+ "Q125498512": {
+  "labelEu": [
+   "Murugain"
+  ],
+  "coord": [
+   "Point(-1.67033522 42.670391737)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado"
+  ],
+  "munLabel": [
+   "Tiebas-Muruarte de Reta"
+  ]
+ },
+ "Q125504770": {
+  "labelEu": [
+   "Irunberri"
+  ],
+  "coord": [
+   "Point(-1.306564316 42.653002448)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Lumbier"
+  ]
+ },
+ "Q125504859": {
+  "labelEu": [
+   "Cerro de la Peña"
+  ],
+  "coord": [
+   "Point(-1.209820281 42.709770885)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Romanzado"
+  ]
+ },
+ "Q125568643": {
+  "labelEu": [
+   "El Castillo (Murillo Berroia)"
+  ],
+  "coord": [
+   "Point(-1.262929963 42.703047954)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Romanzado"
+  ]
+ },
+ "Q125578078": {
+  "labelEu": [
+   "Iruaga"
+  ],
+  "coord": [
+   "Point(-1.472056316 42.730197091)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Unciti"
+  ]
+ },
+ "Q125621333": {
+  "labelEu": [
+   "Tabar"
+  ],
+  "coord": [
+   "Point(-1.34374107 42.668108128)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "en peligro",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Urraúl Bajo"
+  ]
+ },
+ "Q125621520": {
+  "labelEu": [
+   "Casteluzar"
+  ],
+  "coord": [
+   "Point(-1.286158718 42.68816337)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado",
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Urraúl Bajo"
+  ]
+ },
+ "Q125663703": {
+  "labelEu": [
+   "Puyo"
+  ],
+  "coord": [
+   "Point(-1.324782249 42.692244267)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "despoblado",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Urraúl Bajo"
+  ]
+ },
+ "Q125678854": {
+  "labelEu": [
+   "Artikagain"
+  ],
+  "coord": [
+   "Point(-1.651544507 42.841089441)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Ansoáin",
+   "Berrioplano"
+  ]
+ },
+ "Q125703991": {
+  "labelEu": [
+   "Belaskoain"
+  ],
+  "coord": [
+   "Point(-1.832218495 42.757435867)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "en ruinas"
+  ],
+  "munLabel": [
+   "Belascoáin"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Iglesia%20de%20la%20Asunci%C3%B3n%20%28Belasco%C3%A1in%2C%20Navarra%29.jpg"
+  ]
+ },
+ "Q125704195": {
+  "labelEu": [
+   "Santixusti"
+  ],
+  "coord": [
+   "Point(-1.706849489 42.762897318)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado"
+  ],
+  "munLabel": [
+   "Cendea de Cizur"
+  ]
+ },
+ "Q125762556": {
+  "label": [
+   "Raboseras"
+  ],
+  "labelEu": [
+   "Raboseras"
+  ],
+  "coord": [
+   "Point(-1.685946228 41.958163991)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado",
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Monteagudo"
+  ]
+ },
+ "Q127424633": {
+  "labelEu": [
+   "Alto Redondo"
+  ],
+  "coord": [
+   "Point(-1.79500149 42.834859156)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado"
+  ],
+  "munLabel": [
+   "Cendea de Olza"
+  ]
+ },
+ "Q127427615": {
+  "labelEu": [
+   "Angiruerreka"
+  ],
+  "coord": [
+   "Point(-1.373923734 42.796547644)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Aoiz"
+  ]
+ },
+ "Q127433129": {
+  "labelEu": [
+   "Aikoa"
+  ],
+  "coord": [
+   "Point(-1.257975661 42.731421885)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Urraúl Alto"
+  ]
+ },
+ "Q131832441": {
+  "labelEu": [
+   "Fiteroko erromatar kanpamendua"
+  ],
+  "coord": [
+   "Point(-1.836173288 42.054192257)"
+  ],
+  "tipoLabel": [
+   "castrum",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Cintruénigo",
+   "Fitero"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Fiteroko_erromatar_kanpamendua"
+  ]
+ },
+ "Q136565934": {
+  "labelEu": [
+   "Epertegañeta (herri harresitua)"
+  ],
+  "coord": [
+   "Point(-2.015496349 42.90121432)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Ergoyena",
+   "Unanua"
+  ]
+ },
+ "Q136603844": {
+  "labelEu": [
+   "Miravallesesko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.597013888 42.836)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Huarte"
+  ]
+ },
+ "Q124714476": {
+  "label": [
+   "Capaburros"
+  ],
+  "labelEu": [
+   "Capaburros"
+  ],
+  "coord": [
+   "Point(-1.468239583 42.503072444)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Ujué"
+  ]
+ },
+ "Q124721187": {
+  "label": [
+   "Murugáin (Cirauqui)"
+  ],
+  "labelEu": [
+   "Murugain (Zirauki)"
+  ],
+  "coord": [
+   "Point(-1.908731277 42.644658333)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Cirauqui"
+  ]
+ },
+ "Q124728559": {
+  "label": [
+   "Gazteluzar"
+  ],
+  "labelEu": [
+   "Gazteluzar (Zirauki eta Mañeru)"
+  ],
+  "coord": [
+   "Point(-1.8727686 42.6537881)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Cirauqui",
+   "Mañeru"
+  ]
+ },
+ "Q124736679": {
+  "label": [
+   "San Cristobal"
+  ],
+  "labelEu": [
+   "San Cristobal"
+  ],
+  "coord": [
+   "Point(-1.891140577 42.721396643)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Guirguillano"
+  ]
+ },
+ "Q124744664": {
+  "label": [
+   "Mauriáin"
+  ],
+  "labelEu": [
+   "Mauriain"
+  ],
+  "coord": [
+   "Point(-1.952775694 42.655)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Villatuerta"
+  ]
+ },
+ "Q124744732": {
+  "label": [
+   "Arrosia"
+  ],
+  "labelEu": [
+   "Arrosia"
+  ],
+  "coord": [
+   "Point(-2.107972068 42.540309528)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "oppidum",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Arróniz"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Arrosia_(aztarnategia)"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Arrosia-oppiduma-ortofotoa-IDENA-2026.png"
+  ]
+ },
+ "Q124744790": {
+  "label": [
+   "Castillo de Monjardín (poblado protohistorico)"
+  ],
+  "labelEu": [
+   "Deioko gaztelua (protohistoriako herri harresitua)"
+  ],
+  "coord": [
+   "Point(-2.105935954 42.633935079)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Villamayor de Monjardín"
+  ]
+ },
+ "Q124745025": {
+  "label": [
+   "El Castillo (Gorraiz, Arce)"
+  ],
+  "labelEu": [
+   "El Castillo (Gorraitz, Artzibar)"
+  ],
+  "coord": [
+   "Point(-1.328363976 42.890990751)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado"
+  ],
+  "munLabel": [
+   "Arce"
+  ]
+ },
+ "Q124745570": {
+  "labelEu": [
+   "El Castillo (Uskartze)"
+  ],
+  "coord": [
+   "Point(-1.069022138 42.767302834)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Gallués"
+  ]
+ },
+ "Q124767894": {
+  "label": [
+   "San Cristóbal (Desojo)"
+  ],
+  "labelEu": [
+   "Desoioko San Cristobal"
+  ],
+  "coord": [
+   "Point(-2.289195392 42.587571671)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado"
+  ],
+  "munLabel": [
+   "Desojo"
+  ]
+ },
+ "Q124767936": {
+  "label": [
+   "Peña Bardagorría"
+  ],
+  "labelEu": [
+   "Bardagorriko haitza"
+  ],
+  "coord": [
+   "Point(-2.058322743 42.704260186)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Valle de Yerri"
+  ]
+ },
+ "Q124785412": {
+  "labelEu": [
+   "Iruñeako Burdin Aroko herrixka"
+  ],
+  "coord": [
+   "Point(-1.641439668 42.820464114)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ]
+ },
+ "Q124796230": {
+  "labelEu": [
+   "Illarraga-Burte"
+  ],
+  "coord": [
+   "Point(-1.931975177 42.932211185)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Irañeta"
+  ]
+ },
+ "Q124796236": {
+  "labelEu": [
+   "Murugain (Longida)"
+  ],
+  "coord": [
+   "Point(-1.409681138 42.801531444)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado"
+  ],
+  "munLabel": [
+   "Lónguida"
+  ]
+ },
+ "Q124799686": {
+  "label": [
+   "Los Jeronales"
+  ],
+  "labelEu": [
+   "Los Jeronales"
+  ],
+  "coord": [
+   "Point(-1.309141 42.809365888)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Lónguida"
+  ]
+ },
+ "Q124805385": {
+  "labelEu": [
+   "Peña Gaztelu"
+  ],
+  "coord": [
+   "Point(-1.326563305 42.824561333)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "oppidum",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Lónguida"
+  ]
+ },
+ "Q124805501": {
+  "labelEu": [
+   "Gaztelualdea"
+  ],
+  "coord": [
+   "Point(-1.242888888 42.810277777)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Urraúl Alto"
+  ]
+ },
+ "Q124807477": {
+  "labelEu": [
+   "El Castejón"
+  ],
+  "coord": [
+   "Point(-1.574350637 42.162772221)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Arguedas"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Torques%20ceti.jpg"
+  ]
+ },
+ "Q124807744": {
+  "labelEu": [
+   "El Abad"
+  ],
+  "coord": [
+   "Point(-2.072318643 42.424614121)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado"
+  ],
+  "munLabel": [
+   "Lodosa"
+  ]
+ },
+ "Q124848929": {
+  "labelEu": [
+   "Muru"
+  ],
+  "coord": [
+   "Point(-1.367908082 42.717912539)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Izagaondoa"
+  ]
+ },
+ "Q124870161": {
+  "labelEu": [
+   "Montemuru"
+  ],
+  "coord": [
+   "Point(-1.4482815 42.794460777)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Lizoáin-Arriasgoiti"
+  ]
+ },
+ "Q124905208": {
+  "labelEu": [
+   "El Castillo (Longida)"
+  ],
+  "coord": [
+   "Point(-1.322328228 42.736346355)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Lónguida"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/El-Castillo-Mugeta.png"
+  ]
+ },
+ "Q124938700": {
+  "labelEu": [
+   "Los Cabezos 1"
+  ],
+  "coord": [
+   "Point(-2.110450771 42.425071869)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Sesma"
+  ]
+ },
+ "Q124938790": {
+  "labelEu": [
+   "Los Cabezos 2"
+  ],
+  "coord": [
+   "Point(-2.109574394 42.428806692)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "torre",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Sesma"
+  ]
+ },
+ "Q125095411": {
+  "labelEu": [
+   "La Atalaya"
+  ],
+  "coord": [
+   "Point(-2.053874766 42.678186008)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Allín",
+   "Estella"
+  ]
+ },
+ "Q125117109": {
+  "labelEu": [
+   "Santa Coloma"
+  ],
+  "coord": [
+   "Point(-2.23441 42.6434)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Mendaza"
+  ]
+ },
+ "Q125117425": {
+  "labelEu": [
+   "Peña de la Gallina"
+  ],
+  "coord": [
+   "Point(-2.30572153 42.709201769)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Gastiáin",
+   "Lana",
+   "Zúñiga"
+  ]
+ },
+ "Q125131797": {
+  "labelEu": [
+   "El Castillo (Piedramillera)"
+  ],
+  "coord": [
+   "Point(-2.196868163 42.633768146)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "torre",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Piedramillera"
+  ]
+ },
+ "Q125132073": {
+  "labelEu": [
+   "Pozo de la Mora"
+  ],
+  "coord": [
+   "Point(-2.177985773 42.632953663)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "oppidum",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Legaria",
+   "Oco"
+  ]
+ },
+ "Q125138414": {
+  "labelEu": [
+   "Irunzu (herri gotortua)"
+  ],
+  "coord": [
+   "Point(-1.597928826 42.854189024)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "oppidum",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Esteríbar",
+   "Ezcabarte"
+  ]
+ },
+ "Q125141056": {
+  "labelEu": [
+   "Gaztelu"
+  ],
+  "coord": [
+   "Point(-1.596891128 42.764203444)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Aranguren"
+  ]
+ },
+ "Q125148701": {
+  "labelEu": [
+   "San Quiriaco"
+  ],
+  "coord": [
+   "Point(-1.814976566 42.797630298)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "santuario",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Echauri"
+  ]
+ },
+ "Q125472395": {
+  "labelEu": [
+   "El Alto"
+  ],
+  "coord": [
+   "Point(-1.384389095 42.674224595)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Ibargoiti"
+  ]
+ },
+ "Q125472745": {
+  "labelEu": [
+   "El Castillo (Ibargoiti eta Urraulbieti)"
+  ],
+  "coord": [
+   "Point(-1.381166818 42.66518241)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Ibargoiti",
+   "Urraúl Bajo"
+  ]
+ },
+ "Q125484032": {
+  "labelEu": [
+   "Murillo"
+  ],
+  "coord": [
+   "Point(-1.363151879 42.74724926)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado"
+  ],
+  "munLabel": [
+   "Lónguida"
+  ]
+ },
+ "Q125486978": {
+  "labelEu": [
+   "Moriskoa"
+  ],
+  "coord": [
+   "Point(-1.355800535 42.823881469)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Lónguida"
+  ]
+ },
+ "Q141497575": {
+  "label": [
+   "Gazteluzar / Alto de los Fosos"
+  ],
+  "labelEu": [
+   "Gazteluzar / Alto de los Fosos"
+  ],
+  "coord": [
+   "Point(-1.706683992 42.642465848)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Añorbe"
+  ]
+ },
+ "Q141497626": {
+  "label": [
+   "El Dorre / Gazteluzar"
+  ],
+  "labelEu": [
+   "El Dorre / Gazteluzar"
+  ],
+  "coord": [
+   "Point(-1.768352641 42.625149007)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Artajona"
+  ]
+ },
+ "Q141497641": {
+  "label": [
+   "El Cerco"
+  ],
+  "labelEu": [
+   "El Cerco"
+  ],
+  "coord": [
+   "Point(-1.765400899 42.591545097)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Artajona"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Artajona%20Francis%20Vaquero%20Turismo%20de%20Navarra.jpg"
+  ]
+ },
+ "Q141520145": {
+  "labelEu": [
+   "Los Cascajos (Zangoza)"
+  ],
+  "coord": [
+   "Point(-1.302747429 42.563129863)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "castrum",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Sangüesa"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Los_Cascajos_(Zangoza)"
+  ]
+ },
+ "Q141525774": {
+  "labelEu": [
+   "Filera"
+  ],
+  "coord": [
+   "Point(-1.24120756 42.54686784)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "ciudad romana",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado"
+  ],
+  "munLabel": [
+   "Campo Real",
+   "Sangüesa"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Filera"
+  ]
+ },
+ "Q141534610": {
+  "labelEu": [
+   "Morro de la Barca"
+  ],
+  "coord": [
+   "Point(-1.568974736 42.357548698)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "en peligro",
+   "parcialmente destruido",
+   "urak higatua"
+  ],
+  "munLabel": [
+   "Mélida"
+  ]
+ },
+ "Q141534608": {
+  "labelEu": [
+   "La Granja"
+  ],
+  "coord": [
+   "Point(-1.225804055 42.605222688)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Liédena"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/La-Granja-Ledea.png"
+  ]
+ },
+ "Q141534609": {
+  "labelEu": [
+   "La Huesera"
+  ],
+  "coord": [
+   "Point(-1.536589152 42.360983838)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Mélida"
+  ]
+ },
+ "Q141548302": {
+  "labelEu": [
+   "Ereta (herri harresitua)"
+  ],
+  "coord": [
+   "Point(-1.830840166 42.527093777)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Berbinzana"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Las%20Eretas%20aztarnategiko%20etxearen%20oinarriak.jpg"
+  ]
+ },
+ "Q141549917": {
+  "labelEu": [
+   "El Castillazo"
+  ],
+  "coord": [
+   "Point(-1.77278021 42.26652319)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "en peligro",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Milagro"
+  ]
+ },
+ "Q141549920": {
+  "label": [
+   "Desolado de Rada"
+  ],
+  "labelEu": [
+   "Arrada Zaharra (aztarnategia)"
+  ],
+  "coord": [
+   "Point(-1.616417448 42.340897826)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "en ruinas",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Murillo el Cuende",
+   "Traibuenas"
+  ]
+ },
+ "Q141549950": {
+  "labelEu": [
+   "La Corona"
+  ],
+  "coord": [
+   "Point(-1.415034831 42.593422452)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Sada"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/La-Corona-herri-harresitua-MDT-2024.png"
+  ]
+ },
+ "Q141549951": {
+  "labelEu": [
+   "El Castellón / Cebror"
+  ],
+  "coord": [
+   "Point(-1.28882053 42.576920873)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Sangüesa"
+  ]
+ },
+ "Q141549949": {
+  "labelEu": [
+   "Legazpia"
+  ],
+  "coord": [
+   "Point(-1.477776311 42.390371138)",
+   "Point(-1.48 42.390361111)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "demolido o destruido",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Murillo el Fruto"
+  ]
+ },
+ "Q141549953": {
+  "labelEu": [
+   "Puy d'Ul"
+  ],
+  "coord": [
+   "Point(-1.253628136 42.568663617)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Sangüesa"
+  ]
+ },
+ "Q141592602": {
+  "labelEu": [
+   "El Castillar (Murelu Hautsi)"
+  ],
+  "coord": [
+   "Point(-1.462067349 42.394587764)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Murillo el Fruto"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Murillo%20el%20Fruto%20-%20Murillo%20el%20Fruto%20-%20Tagzania%20-%201789918578502.jpg",
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Torque%20%2845890123582%29.jpg"
+  ]
+ },
+ "Q141621893": {
+  "labelEu": [
+   "El Castellar (Biotzari eta Esa)"
+  ],
+  "coord": [
+   "Point(-1.16093731 42.64798703)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Bigüézal",
+   "Yesa"
+  ]
+ },
+ "Q141631882": {
+  "labelEu": [
+   "La Nobla"
+  ],
+  "coord": [
+   "Point(-1.744066103 42.668459749)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Enériz"
+  ]
+ },
+ "Q141647249": {
+  "labelEu": [
+   "Castejón (Faltzes)"
+  ],
+  "coord": [
+   "Point(-1.804005025 42.407831725)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Falces"
+  ]
+ },
+ "Q141657848": {
+  "labelEu": [
+   "La Atalaya"
+  ],
+  "coord": [
+   "Point(-1.773150609 42.41682411)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Falces"
+  ]
+ },
+ "Q141659616": {
+  "labelEu": [
+   "El Cabezo de San Mauricio"
+  ],
+  "coord": [
+   "Point(-1.784356615 42.3258967)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Funes"
+  ]
+ },
+ "Q141659642": {
+  "labelEu": [
+   "El Castellon/Cebror"
+  ],
+  "coord": [
+   "Point(-1.819772634 42.55184927)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Larraga"
+  ]
+ },
+ "Q141659658": {
+  "labelEu": [
+   "El Castillo (Larraga)"
+  ],
+  "coord": [
+   "Point(-1.845525307 42.55912461)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Larraga"
+  ]
+ },
+ "Q141659671": {
+  "labelEu": [
+   "Murubil"
+  ],
+  "coord": [
+   "Point(-1.787101824 42.704966397)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Legarda"
+  ]
+ },
+ "Q141659688": {
+  "labelEu": [
+   "Andelo (Burdin Aroan)"
+  ],
+  "coord": [
+   "Point(-1.859111111 42.599111111)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Mendigorría"
+  ]
+ },
+ "Q141659692": {
+  "label": [
+   "Matacalza"
+  ],
+  "labelEu": [
+   "Matacalza"
+  ],
+  "coord": [
+   "Point(-1.858984478 42.587004765)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Mendigorría"
+  ]
+ },
+ "Q141671448": {
+  "labelEu": [
+   "Alto de Cabezaguarin"
+  ],
+  "coord": [
+   "Point(-1.852578997 42.507871623)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Miranda de Arga"
+  ]
+ },
+ "Q141673597": {
+  "labelEu": [
+   "El Alto Hundido"
+  ],
+  "coord": [
+   "Point(-1.821875807 42.475365169)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Miranda de Arga"
+  ]
+ },
+ "Q136709628": {
+  "label": [
+   "Gerón"
+  ],
+  "labelEu": [
+   "Geron"
+  ],
+  "coord": [
+   "Point(-1.66756028 42.504558369)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Tafalla"
+  ],
+  "desc": [
+   "poblado fortificado en altura de la Edad del hierro en Navarra"
+  ]
+ },
+ "Q136716506": {
+  "label": [
+   "La Gariposa"
+  ],
+  "labelEu": [
+   "Gariposa"
+  ],
+  "coord": [
+   "Point(-1.683470104 42.556160082)"
+  ],
+  "tipoLabel": [
+   "castellum",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Tafalla"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Gariposa"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Castellum%20nl.png"
+  ],
+  "desc": [
+   "castellum romano en Tafalla, Navarra"
+  ]
+ },
+ "Q141343861": {
+  "label": [
+   "Torre del Chapitel"
+  ],
+  "labelEu": [
+   "Txapitel Dorrea"
+  ],
+  "coord": [
+   "Point(-1.650596219 42.481462195)"
+  ],
+  "tipoLabel": [
+   "puerta de la ciudad",
+   "torre"
+  ],
+  "munLabel": [
+   "Olite"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Txapitel_Dorrea"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Karlos%20III.aren%20plaza%2C%20Erriberri%20-%20Plaza%20de%20Carlos%20III%2C%20Olite%20-%20Tagzania%20-%201788185359388.jpg"
+  ],
+  "desc": [
+   "Torre y portal de Olite"
+  ]
+ },
+ "Q136647313": {
+  "labelEu": [
+   "Santo Tomas (Etxauri)"
+  ],
+  "coord": [
+   "Point(-1.779478676 42.805179357)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico",
+   "yacimiento arqueológico prehistórico"
+  ],
+  "munLabel": [
+   "Echauri"
+  ]
+ },
+ "Q136650655": {
+  "labelEu": [
+   "El Castillo (Ibargoiti)"
+  ],
+  "coord": [
+   "Point(-1.490414993 42.691863498)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico",
+   "yacimiento arqueológico prehistórico"
+  ],
+  "munLabel": [
+   "Ibargoiti",
+   "Salinas de Ibargoiti"
+  ]
+ },
+ "Q136653407": {
+  "labelEu": [
+   "El Montico"
+  ],
+  "coord": [
+   "Point(-1.47121 42.68538)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Ibargoiti",
+   "Idocin"
+  ]
+ },
+ "Q136653498": {
+  "labelEu": [
+   "Arriaundi"
+  ],
+  "coord": [
+   "Point(-1.750591305 42.910822388)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Iza",
+   "Juslapeña",
+   "Larumbe",
+   "Osácar"
+  ]
+ },
+ "Q136653864": {
+  "labelEu": [
+   "Eloko gaztelua (Burdin Aroko herri harresitu garaia)"
+  ],
+  "coord": [
+   "Point(-1.510252511 42.7049242)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico",
+   "yacimiento arqueológico prehistórico"
+  ],
+  "estadoLabel": [
+   "en ruinas"
+  ],
+  "munLabel": [
+   "Monreal"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/2016%20elo.jpg"
+  ]
+ },
+ "Q136654025": {
+  "labelEu": [
+   "Oskuain"
+  ],
+  "coord": [
+   "Point(-1.536106944 42.734472777)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Monreal"
+  ]
+ },
+ "Q136654669": {
+  "labelEu": [
+   "Gaztelu (Orarregi)"
+  ],
+  "coord": [
+   "Point(-1.839108055 42.887708888)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Ilzarbe",
+   "Valle de Ollo"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Gaztelu%20%28III%29%20-%20Andia%20-%20Nafarroa.jpg"
+  ]
+ },
+ "Q136655818": {
+  "labelEu": [
+   "Isterria"
+  ],
+  "coord": [
+   "Point(-1.769522182 42.807098966)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Cendea de Olza",
+   "Ibero"
+  ]
+ },
+ "Q136656035": {
+  "labelEu": [
+   "Santa Cruz"
+  ],
+  "coord": [
+   "Point(-1.781696399 42.852309194)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Olza"
+  ]
+ },
+ "Q136656199": {
+  "labelEu": [
+   "Mendillorri"
+  ],
+  "coord": [
+   "Point(-1.621709348 42.810429633)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "en ruinas"
+  ],
+  "munLabel": [
+   "Mendillorri"
+  ]
+ },
+ "Q136658841": {
+  "labelEu": [
+   "Santa Luzia"
+  ],
+  "coord": [
+   "Point(-1.671749594 42.830140352)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Pamplona",
+   "Santa Lucía-Agustinos"
+  ]
+ },
+ "Q136658992": {
+  "labelEu": [
+   "Tebaseko gaztelua (Burdin Aroko aztarnategia)"
+  ],
+  "coord": [
+   "Point(-1.637888888 42.696805555)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Tiebas",
+   "Tiebas-Muruarte de Reta"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Castillo%20de%20Tiebas%201.jpg"
+  ]
+ },
+ "Q136659196": {
+  "labelEu": [
+   "Matxamendi"
+  ],
+  "coord": [
+   "Point(-1.785266696 42.777504708)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Ubani",
+   "Zabalza"
+  ]
+ },
+ "Q136667109": {
+  "labelEu": [
+   "Turbil"
+  ],
+  "coord": [
+   "Point(-1.587204932 42.47618822)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "oppidum",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Beire"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Turbil"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Est%C3%A0tua-estela%20de%20Turbil%2020180804%20125033.jpg"
+  ]
+ },
+ "Q136669559": {
+  "label": [
+   "El Campillo"
+  ],
+  "labelEu": [
+   "El Campillo"
+  ],
+  "coord": [
+   "Point(-1.635856167 42.366808251)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "en ruinas",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Caparroso"
+  ]
+ },
+ "Q136689111": {
+  "labelEu": [
+   "Falconera"
+  ],
+  "coord": [
+   "Point(-1.632640739 42.499410501)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Olite"
+  ]
+ },
+ "Q136689960": {
+  "labelEu": [
+   "La Cañonera"
+  ],
+  "coord": [
+   "Point(-1.636269147 42.453447482)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Olite"
+  ]
+ },
+ "Q136690762": {
+  "labelEu": [
+   "Erriberri (Burdin Aroa)"
+  ],
+  "coord": [
+   "Point(-1.650739722 42.482114428)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Olite"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Olite%20-%20Galerias%20subterr%C3%A1neas%201.jpg"
+  ]
+ },
+ "Q136702900": {
+  "coord": [
+   "Point(-1.620131906 42.435602404)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Pitillas"
+  ]
+ },
+ "Q136702941": {
+  "labelEu": [
+   "La Zorrera"
+  ],
+  "coord": [
+   "Point(-1.631877662 42.40894546)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado",
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Pitillas"
+  ]
+ },
+ "Q136704379": {
+  "labelEu": [
+   "Sabasan"
+  ],
+  "coord": [
+   "Point(-1.585238141 42.432494123)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Pitillas"
+  ]
+ },
+ "Q136709627": {
+  "labelEu": [
+   "Santa Lucía/El Castillo"
+  ],
+  "coord": [
+   "Point(-1.677512805 42.529468305)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "en ruinas"
+  ],
+  "munLabel": [
+   "Tafalla"
+  ]
+ },
+ "Q136709629": {
+  "labelEu": [
+   "Valmediano"
+  ],
+  "coord": [
+   "Point(-1.645323541 42.508257166)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Tafalla"
+  ]
+ },
+ "Q141474107": {
+  "labelEu": [
+   "Vuelta de Valcirama (aztarnategia)"
+  ],
+  "coord": [
+   "Point(-1.333152707 42.600371865)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Aibar"
+  ]
+ },
+ "Q141474345": {
+  "label": [
+   "El Congosto (Carcastillo)"
+  ],
+  "labelEu": [
+   "El Congosto (Carcastillo)"
+  ],
+  "coord": [
+   "Point(-1.41814205 42.38701585)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado"
+  ],
+  "munLabel": [
+   "Carcastillo"
+  ]
+ },
+ "Q141475935": {
+  "labelEu": [
+   "La Encisa"
+  ],
+  "coord": [
+   "Point(-1.400749854 42.347987691)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado",
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Carcastillo"
+  ]
+ },
+ "Q141489554": {
+  "labelEu": [
+   "El Castillu"
+  ],
+  "coord": [
+   "Point(-1.44502577 42.44473537)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Ujué"
+  ]
+ },
+ "Q141489558": {
+  "labelEu": [
+   "Los Linares"
+  ],
+  "coord": [
+   "Point(-1.48675 42.50887)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado",
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Ujué"
+  ]
+ },
+ "Q141489556": {
+  "labelEu": [
+   "El Púlpito/Larbelz"
+  ],
+  "coord": [
+   "Point(-1.44502577 42.44473537)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "conservado",
+   "no excavado"
+  ],
+  "munLabel": [
+   "Ujué"
+  ]
+ },
+ "Q7126334": {
+  "label": [
+   "Palacio de los Reyes de Navarra"
+  ],
+  "labelEu": [
+   "Nafarroako errege-erreginen jauregia"
+  ],
+  "coord": [
+   "Point(-2.0297 42.6694)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "edificio",
+   "monumento"
+  ],
+  "munLabel": [
+   "Estella"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0000763"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Palacio_de_los_Reyes_de_Navarra_(Estella)"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Nafarroako_errege-erreginen_jauregia_(Lizarra)"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Lizarra%20-%20Palau%20dels%20reis%20de%20Navarrra.JPG"
+  ],
+  "desc": [
+   "Edificio del Camino de Santiago en Estella"
+  ]
+ },
+ "Q8342674": {
+  "label": [
+   "Castillo palacio de Marcilla"
+  ],
+  "labelEu": [
+   "Martzillako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.73861111 42.32666667)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "monumento"
+  ],
+  "munLabel": [
+   "Marcilla"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0012358"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_palacio_de_Marcilla"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Martzillako_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Castillo%20de%20Marcilla%2C%20Marcilla%2C%20Navarra%2C%20Espa%C3%B1a%2C%202015-01-06%2C%20DD%2001.JPG"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q16516755": {
+  "label": [
+   "Cara"
+  ],
+  "labelEu": [
+   "Cara"
+  ],
+  "coord": [
+   "Point(-1.5493 42.37401)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "ciudad romana",
+   "sitio arqueológico romano"
+  ],
+  "munLabel": [
+   "Santacara"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-55-0000464"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Cara_(ciudad)"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Kara_aztarnategia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Cara%20-%20Vista%20aerea%20del%20conjunto.jpg"
+  ],
+  "desc": [
+   "yacimiento arqueológico romano en Navarra (España)"
+  ]
+ },
+ "Q16516799": {
+  "label": [
+   "Castillo de Cortes"
+  ],
+  "labelEu": [
+   "Cortesko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.423017 41.922731)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "monumento"
+  ],
+  "munLabel": [
+   "Cortes"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0007018"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Cortesko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Castillo%20de%20Cortes%203.JPG"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q16518040": {
+  "label": [
+   "Palacio del Condestable"
+  ],
+  "labelEu": [
+   "Kondestablearen jauregia"
+  ],
+  "coord": [
+   "Point(-1.645496 42.818319)"
+  ],
+  "tipoLabel": [
+   "monumento",
+   "palacio"
+  ],
+  "inicio": [
+   "1548-01-01T00:00:00Z",
+   "1687-07-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "herLabel": [
+   "Bien Inventariado (Navarra)",
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0009735"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Palacio_del_Condestable_(Pamplona)"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Kondestablearen_jauregia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Palacio%20del%20Condestable%20%28Pamplona%29.JPG"
+  ],
+  "desc": [
+   "Edificio protegido en Pamplona"
+  ]
+ },
+ "Q17625576": {
+  "label": [
+   "Poblado de Urri"
+  ],
+  "labelEu": [
+   "Urriko herrixka"
+  ],
+  "coord": [
+   "Point(-1.537841222 42.8181615)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Ibiricu",
+   "Valle de Egüés"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Poblado_de_Urri"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Urri_(aztarnategia)"
+  ],
+  "desc": [
+   "poblado fortificado en altura"
+  ]
+ },
+ "Q19609290": {
+  "label": [
+   "Castillo de Arazuri"
+  ],
+  "labelEu": [
+   "Aratzuriko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.718123 42.814418)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "monumento",
+   "palacio"
+  ],
+  "inicio": [
+   "1500-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Cendea de Olza"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0003782"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Aratzuriko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Castillo%20Arazuri%2001.jpg"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q19694104": {
+  "label": [
+   "Portal de San Nicolás"
+  ],
+  "labelEu": [
+   "Takonerako atea"
+  ],
+  "coord": [
+   "Point(-1.65022222 42.81641111)"
+  ],
+  "tipoLabel": [
+   "puerta de la ciudad"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Takonerako_atea"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Pamplona%20-%20Portal%20de%20San%20Nicol%C3%A1s%201.jpg"
+  ],
+  "desc": [
+   "Antiguo portal en Pamplona trasladado a la Taconera en 1907"
+  ]
+ },
+ "Q20491996": {
+  "label": [
+   "Cerco de Artajona"
+  ],
+  "labelEu": [
+   "Artaxoako barruti harresitua"
+  ],
+  "coord": [
+   "Point(-1.76530449 42.591932221)"
+  ],
+  "tipoLabel": [
+   "Conjunto histórico",
+   "muralla"
+  ],
+  "munLabel": [
+   "Artajona"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-53-0000505"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Cerco_de_Artajona"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Artaxoako_harresiak"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Muralles%20d%27Artajona%20%28Navarra%29%20-%20panoramio.jpg"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q20492000": {
+  "label": [
+   "Palacio de Artieda"
+  ],
+  "labelEu": [
+   "Artiedako oinetxe jauregia"
+  ],
+  "coord": [
+   "Point(-1.32383333 42.71203611)"
+  ],
+  "tipoLabel": [
+   "fortificación",
+   "monumento",
+   "palacio"
+  ],
+  "munLabel": [
+   "Urraúl Bajo"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0008219"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Palacio_de_Artieda_(Navarra)"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Artiedako_jauregia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Palacio%20de%20Artieda%20%28Urra%C3%BAl%20Alto%29%2001.jpg"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q20492173": {
+  "label": [
+   "Palacio de Viguria"
+  ],
+  "labelEu": [
+   "Biguriako jauregia"
+  ],
+  "coord": [
+   "Point(-1.90812 42.756074)"
+  ],
+  "tipoLabel": [
+   "mansión",
+   "monumento"
+  ],
+  "munLabel": [
+   "Guesálaz",
+   "Viguria"
+  ],
+  "herLabel": [
+   "bien de interés cultural",
+   "elemento de la Lista Roja del Patrimonio"
+  ],
+  "bic": [
+   "RI-51-0007019"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Biguriako_jauregia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Palacio%20de%20Viguria%20%28Navarra%29%2001.jpg"
+  ],
+  "desc": [
+   "palacio y bién de interés cultural en Viguria (Navarra, España)"
+  ]
+ },
+ "Q20492288": {
+  "label": [
+   "Castillo de Ablitas"
+  ],
+  "labelEu": [
+   "Ablitasko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.637708 41.972951)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "monumento"
+  ],
+  "munLabel": [
+   "Ablitas"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0011008"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Ablitasko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Ablitas%20Castillo%20interior%20aljibe.JPG"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q20492312": {
+  "label": [
+   "Torre de Ayanz"
+  ],
+  "labelEu": [
+   "Aianzko dorrea"
+  ],
+  "coord": [
+   "Point(-1.37990278 42.75282778)"
+  ],
+  "tipoLabel": [
+   "casa torre",
+   "monumento"
+  ],
+  "munLabel": [
+   "Lónguida"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0008220"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Torre_de_Ayanz"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Aiantzeko_dorrea"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Torre%20de%20Ayanz%20-%2005.jpg"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q20492459": {
+  "label": [
+   "Iglesia-fortaleza de Santa María de Ujué"
+  ],
+  "labelEu": [
+   "Uxueko Andre Mariaren eliza"
+  ],
+  "coord": [
+   "Point(-1.49953889 42.50617778)"
+  ],
+  "tipoLabel": [
+   "basílica",
+   "fortificación",
+   "iglesia",
+   "monumento"
+  ],
+  "munLabel": [
+   "Ujué"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0001094"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Iglesia-fortaleza_de_Santa_Mar%C3%ADa_(Uju%C3%A9)"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Uxueko_Andre_Mariaren_eliza"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Church%20of%20Santa%20Mar%C3%ADa%2C%20Uju%C3%A9%2036.jpg"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q20492524": {
+  "label": [
+   "Torre de Arellano"
+  ],
+  "labelEu": [
+   "Arellanoko dorrea"
+  ],
+  "coord": [
+   "Point(-2.04388611 42.60777222)"
+  ],
+  "tipoLabel": [
+   "casa torre",
+   "monumento"
+  ],
+  "inicio": [
+   "1100-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Arellano",
+   "Navarra"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0012352"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Arellanoko_dorrea"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Torre%20Arellano.JPG"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q206258": {
+  "label": [
+   "Ciudadela de Pamplona"
+  ],
+  "labelEu": [
+   "Iruñeko zitadela"
+  ],
+  "coord": [
+   "Point(-1.64916667 42.81194444)"
+  ],
+  "tipoLabel": [
+   "ciudadela",
+   "exhibición de arte",
+   "monumento",
+   "parque urbano",
+   "traza italiana"
+  ],
+  "inicio": [
+   "1571-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0003896"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Ciudadela_de_Pamplona"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Iru%C3%B1eko_zitadela"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/CIUDADELA%20DE%20PAMPLONA.jpg"
+  ],
+  "desc": [
+   "edificios del Camino de Santiago en Pamplona"
+  ]
+ },
+ "Q430566": {
+  "label": [
+   "Castillo de Estella"
+  ],
+  "labelEu": [
+   "Zalatanbor gaztelua"
+  ],
+  "coord": [
+   "Point(-2.028611111 42.667916666)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Estella"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_Estella"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Zalatanbor_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Castillo%20Mayor%20Zalatambor%20-%20DSC%206053.JPG"
+  ],
+  "desc": [
+   "castillo de Estella (Navarra)"
+  ]
+ },
+ "Q1934670": {
+  "label": [
+   "Castillo de Olite"
+  ],
+  "labelEu": [
+   "Erriberriko Errege Jauregia"
+  ],
+  "coord": [
+   "Point(-1.649563 42.481731)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "monumento",
+   "residencia real"
+  ],
+  "inicio": [
+   "1201-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Olite"
+  ],
+  "herLabel": [
+   "Bien de Interés Cultural (Navarra)",
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0000306"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Palacio_Real_de_Olite"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Erriberriko_Errege_Jauregia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Palacio%20de%20Olite.JPG"
+  ],
+  "desc": [
+   "edificio protegido en Olite"
+  ]
+ },
+ "Q3324672": {
+  "label": [
+   "Fuerte de Alfonso XII"
+  ],
+  "labelEu": [
+   "San Kristobal gotorlekua"
+  ],
+  "coord": [
+   "Point(-1.6663303 42.855972)"
+  ],
+  "tipoLabel": [
+   "fortaleza",
+   "monumento",
+   "prisión"
+  ],
+  "inicio": [
+   "1910-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Berrioplano",
+   "Pamplona"
+  ],
+  "herLabel": [
+   "Lugar de Memoria Democrática",
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0010464"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Fuerte_de_Alfonso_XII_(Navarra)"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/San_Kristobal_gotorlekua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Entrada%20fuerte%20San%20Crist%C3%B3bal.JPG"
+  ],
+  "desc": [
+   "bien de interés cultural de Navarra"
+  ]
+ },
+ "Q3571711": {
+  "label": [
+   "Castillo de Monjardín"
+  ],
+  "labelEu": [
+   "Deioko gaztelua"
+  ],
+  "coord": [
+   "Point(-2.10638889 42.63388889)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "edificio",
+   "monumento"
+  ],
+  "munLabel": [
+   "Villamayor de Monjardín"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0012364"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_San_Esteban_de_Deyo"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Deioko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Villamayor%20de%20Monjard%C3%ADn%20-%20Castillo%20-%20DSC%209747.JPG"
+  ],
+  "desc": [
+   "Edificio del Camino de Santiago en Villamayor de Monjardín"
+  ]
+ },
+ "Q3752979": {
+  "label": [
+   "Torre Monreal"
+  ],
+  "labelEu": [
+   "Monreal dorrea"
+  ],
+  "coord": [
+   "Point(-1.60638889 42.05888889)"
+  ],
+  "tipoLabel": [
+   "fortín de fusileros",
+   "monumento",
+   "torre"
+  ],
+  "munLabel": [
+   "Tudela"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0012361"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Torre_Monreal"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Monreal_dorrea"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/TorreMonreal%28Tudela%2907-04-2007.JPG"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q5475466": {
+  "label": [
+   "La Custodia"
+  ],
+  "labelEu": [
+   "La Custodia"
+  ],
+  "coord": [
+   "Point(-2.39122745 42.50453398)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "ciudad antigua"
+  ],
+  "munLabel": [
+   "Viana"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/La_Custodia"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/La_Custodia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/La%20Custodia%2C%202020.jpg"
+  ],
+  "desc": [
+   "yacimiento arqueológico de la Edad del Hierro en Viana, Navarra, España"
+  ]
+ },
+ "Q5664103": {
+  "label": [
+   "Alcazaba y Castillo de Tudela"
+  ],
+  "labelEu": [
+   "Tuterako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.60694444 42.06722222)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Tudela"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-55-0000465"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Alcazaba_y_Castillo_de_Tudela"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Tuterako_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Castillo%20Tudela.jpg"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q5689696": {
+  "label": [
+   "Castillo de Punicastro"
+  ],
+  "labelEu": [
+   "Punicastro"
+  ],
+  "coord": [
+   "Point(-2.33333333 42.6)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Navarra",
+   "Torralba del Río"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_Punicastro"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Punicastro"
+  ],
+  "desc": [
+   "castillo navarro"
+  ]
+ },
+ "Q6058583": {
+  "label": [
+   "Palacio Marqués de Huarte"
+  ],
+  "labelEu": [
+   "Uharteko markesaren jauregia"
+  ],
+  "coord": [
+   "Point(-1.60731944 42.06280833)"
+  ],
+  "tipoLabel": [
+   "monumento",
+   "palacio"
+  ],
+  "munLabel": [
+   "Tudela"
+  ],
+  "herLabel": [
+   "Bien Inventariado (Navarra)",
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0006921"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Palacio_del_Marqu%C3%A9s_de_Huarte_(Tudela)"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Uharteko_markesaren_jauregia_(Tutera)"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Vista%20de%20la%20escalera.jpg"
+  ],
+  "desc": [
+   "edificio protegido en Tudela"
+  ]
+ },
+ "Q2376049": {
+  "label": [
+   "Castillo de Santacara"
+  ],
+  "labelEu": [
+   "Santakarako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.55527778 42.37694444)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Santacara"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_Santacara"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Santakarako_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Santacara%20torre%20contraluz.JPG"
+  ]
+ },
+ "Q2969860": {
+  "label": [
+   "Castillo de Maya"
+  ],
+  "labelEu": [
+   "Amaiurko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.48139 43.2039)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "estructura arquitectónica desaparecida"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Baztán"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_Maya"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Amaiurko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Amaiur%20Maya.%20Basti%C3%B3n.jpg",
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Amaiur-Maya.%20Obelisco.jpg",
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Amaiurko%20gaztelua.jpg"
+  ]
+ },
+ "Q3326877": {
+  "label": [
+   "Castillo de Peña"
+  ],
+  "labelEu": [
+   "Peña"
+  ],
+  "coord": [
+   "Point(-1.299613 42.494255)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Javier"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_Pe%C3%B1a"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Pe%C3%B1ako_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Pe%C3%B1a%20-%20Vista%20de%20las%20ruinas%20del%20castillo.jpg"
+  ]
+ },
+ "Q3573709": {
+  "label": [
+   "Castillo de Mirapeix"
+  ],
+  "labelEu": [
+   "Mirapeix gaztelua"
+  ],
+  "coord": [
+   "Point(-1.527107 42.1243987)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Ribera Navarra"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_Mirapeix"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Mirapeix_gaztelua"
+  ]
+ },
+ "Q6032925": {
+  "label": [
+   "Murallas de Tudela"
+  ],
+  "labelEu": [
+   "Tuterako harresiak"
+  ],
+  "coord": [
+   "Point(-1.60829444 42.06401944)"
+  ],
+  "tipoLabel": [
+   "muralla urbana"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Navarra"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Murallas_de_Tudela"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Tuterako_harresiak"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/MurallaGranados%28Tudela%29%2807-11-2008%29.JPG"
+  ]
+ },
+ "Q8342347": {
+  "label": [
+   "Castillo de Garaño"
+  ],
+  "labelEu": [
+   "Garaño"
+  ],
+  "coord": [
+   "Point(-1.819347222 42.855288888)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Navarra"
+  ],
+  "herLabel": [
+   "bien de interés cultural (genérico)"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_Gara%C3%B1o"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Gara%C3%B1o"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Gara%C3%B1oko%20gaztelua%20airetik.jpg"
+  ]
+ },
+ "Q8342494": {
+  "label": [
+   "Castillo de Orzorrotz"
+  ],
+  "labelEu": [
+   "Orzorrotzeko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.74527778 43.14416667)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Navarra"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_Orzorrotz"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Orzorrotzeko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Makilipurdi.JPG"
+  ]
+ },
+ "Q9705655": {
+  "label": [
+   "Castillo de Petilla"
+  ],
+  "labelEu": [
+   "Petillako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.092523097 42.46201888)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Petilla",
+   "Petilla de Aragón"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Petillako_gaztelua"
+  ]
+ },
+ "Q19947823": {
+  "labelEu": [
+   "Arradako gaztelua"
+  ],
+  "coord": [
+   "Point(-1.6188848 42.3411294)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Murillo el Cuende"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Arradako_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Rada.1.jpg"
+  ]
+ },
+ "Q20492098": {
+  "label": [
+   "Centro de Interpretación de las Murallas de Pamplona"
+  ],
+  "labelEu": [
+   "Iruñeko Harresien Interpretazio Zentroa"
+  ],
+  "coord": [
+   "Point(-1.63749444 42.81658889)"
+  ],
+  "tipoLabel": [
+   "centro de interpretación",
+   "fortificación"
+  ],
+  "munLabel": [
+   "Navarra",
+   "Pamplona"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Iru%C3%B1eko_Harresien_Interpretazio_Zentroa"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Fort%C3%ADn%20de%20San%20bartolom%C3%A9%2006.jpg"
+  ]
+ },
+ "Q20492790": {
+  "label": [
+   "torre de Celigüeta"
+  ],
+  "labelEu": [
+   "Zilegietako dorrea"
+  ],
+  "coord": [
+   "Point(-1.40985833 42.67642778)"
+  ],
+  "tipoLabel": [
+   "casa torre"
+  ],
+  "munLabel": [
+   "Ibargoiti"
+  ],
+  "herLabel": [
+   "bien de interés cultural",
+   "parte de un sitio Patrimonio de la Humanidad"
+  ],
+  "bic": [
+   "RI-51-0011005"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Zilegietako_dorrea"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Celig%C3%BCeta%20010.jpg"
+  ]
+ },
+ "Q25475886": {
+  "labelEu": [
+   "Amaiurko arkua"
+  ],
+  "coord": [
+   "Point(-1.48013056 43.20035)"
+  ],
+  "munLabel": [
+   "Maya"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Amaiurko_arkua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Amaiur%20%28pueblo%29.JPG"
+  ]
+ },
+ "Q31187786": {
+  "labelEu": [
+   "Aranibar jauregia"
+  ],
+  "coord": [
+   "Point(-1.71143889 43.206725)"
+  ],
+  "tipoLabel": [
+   "casa torre"
+  ],
+  "munLabel": [
+   "Aranaz"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Aranibar_jauregia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Aranibar%20jauregia.jpg"
+  ]
+ },
+ "Q141673748": {
+  "labelEu": [
+   "El Castillo (Miranda Arga)"
+  ],
+  "coord": [
+   "Point(-1.833226781 42.484313322)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Miranda de Arga"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Miranda%20Arga%20-%20Arga%205.jpg",
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Miranda%20Arga%20-%20Arga%207.jpg"
+  ]
+ },
+ "Q141676912": {
+  "labelEu": [
+   "Panadiago"
+  ],
+  "coord": [
+   "Point(-1.845108204 42.491945929)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "no excavado",
+   "parcialmente destruido"
+  ],
+  "munLabel": [
+   "Miranda de Arga"
+  ]
+ },
+ "Q141677034": {
+  "labelEu": [
+   "San Gregorio"
+  ],
+  "coord": [
+   "Point(-1.813420728 42.487583897)"
+  ],
+  "tipoLabel": [
+   "castro",
+   "yacimiento arqueológico"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Miranda de Arga"
+  ]
+ },
+ "Q20492603": {
+  "label": [
+   "Palacio de Guenduláin"
+  ],
+  "labelEu": [
+   "Gendulaingo jauregia"
+  ],
+  "coord": [
+   "Point(-1.715158 42.762754)"
+  ],
+  "tipoLabel": [
+   "iglesia",
+   "mansión",
+   "monumento"
+  ],
+  "munLabel": [
+   "Cendea de Cizur",
+   "Guenduláin (Cizur)"
+  ],
+  "herLabel": [
+   "bien de interés cultural",
+   "elemento de la Lista Roja del Patrimonio"
+  ],
+  "bic": [
+   "RI-51-0011319"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Gendulaingo_jauregia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Palacio%20de%20Guendul%C3%A1in%20%28Cizur%29.jpg"
+  ],
+  "desc": [
+   "Edificio del Camino de Santiago en la Cendea de Cizur"
+  ]
+ },
+ "Q20492674": {
+  "label": [
+   "Portal de Taconera"
+  ],
+  "labelEu": [
+   "San Nikolas atea"
+  ],
+  "coord": [
+   "Point(-1.65152778 42.81564444)"
+  ],
+  "tipoLabel": [
+   "puerta de la ciudad"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/San_Nikolas_atea_(Iru%C3%B1ea)"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Portal%20de%20Taconera%20Pamplona.JPG"
+  ],
+  "desc": [
+   "antiguo portal de acceso a Pamplona"
+  ]
+ },
+ "Q20492733": {
+  "label": [
+   "Conjunto amurallado de Torralba del Río"
+  ],
+  "labelEu": [
+   "Torralba del Ríoko harresia"
+  ],
+  "coord": [
+   "Point(-2.330473 42.607647)"
+  ],
+  "tipoLabel": [
+   "monumento",
+   "muralla"
+  ],
+  "munLabel": [
+   "Torralba del Río"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0011017"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Torralba_del_R%C3%ADoko_harresia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Torralba%20del%20R%C3%ADo%20-%20DSC%209009.JPG"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q20492753": {
+  "label": [
+   "Torre de Úriz"
+  ],
+  "labelEu": [
+   "Urizko dorrea"
+  ],
+  "coord": [
+   "Point(-1.380112 42.881644)"
+  ],
+  "tipoLabel": [
+   "casa torre",
+   "monumento"
+  ],
+  "inicio": [
+   "1785-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Arce"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0012362"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Urizko_dorrea"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Torre%20de%20%C3%9Ariz%20%28Navarra%29%2002.jpg"
+  ],
+  "desc": [
+   "bien de interés cultural"
+  ]
+ },
+ "Q25404414": {
+  "label": [
+   "Castillo-Palacio de Monteagudo"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Monteagudo"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo-Palacio_de_Monteagudo"
+  ],
+  "desc": [
+   "edificio navarro"
+  ]
+ },
+ "Q25475808": {
+  "label": [
+   "Palacio de Mendillorri"
+  ],
+  "labelEu": [
+   "Mendillorriko jauregia"
+  ],
+  "coord": [
+   "Point(-1.61562222 42.81047778)"
+  ],
+  "tipoLabel": [
+   "palacio"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "herLabel": [
+   "Bien Inventariado (Navarra)"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Mendillorriko_jauregia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Palacio%20de%20Mendillorri%20-%2001.jpg"
+  ],
+  "desc": [
+   "Edificio protegido en Pamplona"
+  ]
+ },
+ "Q25475850": {
+  "label": [
+   "Casa Palacio Beola"
+  ],
+  "labelEu": [
+   "Beola jauregia"
+  ],
+  "coord": [
+   "Point(-1.60536944 43.09057778)"
+  ],
+  "munLabel": [
+   "Baztán"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Beola_jauregia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Galtzada%20edo%20Beola%20jauregia%202%2C%20almandoz%2C%20Baztan.%20Nafarroa%2C%20Euskal%20Herria.jpg"
+  ],
+  "desc": [
+   "Casa Palacio de Almandoz"
+  ]
+ },
+ "Q29345474": {
+  "label": [
+   "Castillo de Añués"
+  ],
+  "labelEu": [
+   "Añozeko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.287673254 42.521469877)"
+  ],
+  "tipoLabel": [
+   "castillo"
+  ],
+  "munLabel": [
+   "Sangüesa",
+   "Sos del Rey Católico"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_A%C3%B1u%C3%A9s"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/A%C3%B1ozeko_gaztelua"
+  ],
+  "desc": [
+   "castillo en Sos del Rey Católico"
+  ]
+ },
+ "Q42449594": {
+  "label": [
+   "Castillo de Tiebas"
+  ],
+  "labelEu": [
+   "Tebasko gaztelua"
+  ],
+  "coord": [
+   "Point(-1.637897 42.696818)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "edificio",
+   "monumento",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Tiebas-Muruarte de Reta"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "bic": [
+   "RI-51-0009116"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Castillo_de_Tiebas"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Tebasko_gaztelua"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Tiebas%20-%20Castle.jpg"
+  ],
+  "desc": [
+   "edificios del Camino de Santiago en Tiebas-Muruarte de Reta"
+  ]
+ },
+ "Q48781610": {
+  "label": [
+   "Santa Criz de Eslava"
+  ],
+  "labelEu": [
+   "Santakriz"
+  ],
+  "coord": [
+   "Point(-1.450944444 42.545361111)"
+  ],
+  "tipoLabel": [
+   "bien de interés cultural",
+   "castro",
+   "ciudad romana",
+   "yacimiento arqueológico"
+  ],
+  "munLabel": [
+   "Eslava"
+  ],
+  "herLabel": [
+   "bien de interés cultural"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Santa_Criz_de_Eslava"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Santakriz_aztarnategia"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Santa%20Criz.jpg"
+  ],
+  "desc": [
+   "Yacimiento arqueológico de Navarra."
+  ]
+ },
+ "Q65995777": {
+  "label": [
+   "Torre de Sorauren"
+  ],
+  "labelEu": [
+   "Soraurengo dorrea"
+  ],
+  "coord": [
+   "Point(-1.608992 42.867951)"
+  ],
+  "tipoLabel": [
+   "casa torre"
+  ],
+  "munLabel": [
+   "Ezcabarte"
+  ],
+  "desc": [
+   "edificios del Camino de Santiago en Ezcabarte"
+  ]
+ },
+ "Q66040782": {
+  "label": [
+   "Palacio Subiza"
+  ],
+  "labelEu": [
+   "Subiza Jauregia"
+  ],
+  "coord": [
+   "Point(-1.671 42.717703)"
+  ],
+  "tipoLabel": [
+   "edificio"
+  ],
+  "munLabel": [
+   "Galar"
+  ],
+  "herLabel": [
+   "parte de un sitio Patrimonio de la Humanidad"
+  ],
+  "desc": [
+   "edificios del Camino de Santiago en Galar"
+  ]
+ },
+ "Q66317901": {
+  "label": [
+   "Recinto amurallado y portales"
+  ],
+  "labelEu": [
+   "Erriberriko harresiak"
+  ],
+  "coord": [
+   "Point(-1.649427 42.479429)"
+  ],
+  "tipoLabel": [
+   "fortificación",
+   "monumento",
+   "muralla"
+  ],
+  "munLabel": [
+   "Olite"
+  ],
+  "herLabel": [
+   "Bien de Interés Cultural (Navarra)"
+  ],
+  "eu": [
+   "https://eu.wikipedia.org/wiki/Erriberriko_harresiak"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Olite%20-%2003.jpg"
+  ],
+  "desc": [
+   "edificio protegido en Olite"
+  ]
+ },
+ "Q66438649": {
+  "label": [
+   "Pabellón de Mixtos"
+  ],
+  "labelEu": [
+   "Mistoen pabiloia"
+  ],
+  "coord": [
+   "Point(-1.649825 42.812702)"
+  ],
+  "tipoLabel": [
+   "edificio",
+   "exhibición de arte",
+   "fortificación"
+  ],
+  "inicio": [
+   "1680-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Navarra",
+   "Pamplona"
+  ],
+  "herLabel": [
+   "Bien de Interés Cultural (Navarra)"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Ciudadela%20Edificio%20de%20Mixtos%2007.jpg"
+  ],
+  "desc": [
+   "Edificio protegido en Pamplona"
+  ]
+ },
+ "Q66438652": {
+  "label": [
+   "Sala de Armas"
+  ],
+  "labelEu": [
+   "Arma gela"
+  ],
+  "coord": [
+   "Point(-1.648685 42.811472)"
+  ],
+  "tipoLabel": [
+   "edificio",
+   "fortificación",
+   "sala de exposición"
+  ],
+  "inicio": [
+   "1725-01-01T00:00:00Z"
+  ],
+  "munLabel": [
+   "Pamplona"
+  ],
+  "herLabel": [
+   "Bien de Interés Cultural (Navarra)"
+  ],
+  "img": [
+   "http://commons.wikimedia.org/wiki/Special:FilePath/Ciudadela%20Sala%20de%20Armas%2002.jpg"
+  ],
+  "desc": [
+   "Edificio protegido en Pamplona"
+  ]
+ },
+ "Q98635930": {
+  "label": [
+   "Castillo de Leguín"
+  ],
+  "labelEu": [
+   "Leguín gaztelua"
+  ],
+  "coord": [
+   "Point(-1.423848562 42.757170342)"
+  ],
+  "tipoLabel": [
+   "castillo",
+   "estructura arquitectónica desaparecida"
+  ],
+  "estadoLabel": [
+   "demolido o destruido"
+  ],
+  "munLabel": [
+   "Izagaondoa"
+  ],
+  "desc": [
+   "antiguo castillo en Navarra"
+  ]
+ },
+ "Q99670624": {
+  "label": [
+   "Eulza"
+  ],
+  "coord": [
+   "Point(-1.6984362 42.8023657)"
+  ],
+  "tipoLabel": [
+   "asentamiento"
+  ],
+  "munLabel": [
+   "Barañáin"
+  ],
+  "es": [
+   "https://es.wikipedia.org/wiki/Eulza"
+  ],
+  "desc": [
+   "lugar en Barañáin (Navarra, España)"
+  ]
+ }
+}
