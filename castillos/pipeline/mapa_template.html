@@ -132,7 +132,7 @@ body.comparing #band{display:block}
   <div class="search" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
     <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Buscar castillo o pueblo" data-en-placeholder="Search a castle or town" aria-label="Buscar castillo o pueblo" data-en-aria-label="Search a castle or town" role="combobox" aria-expanded="false" aria-controls="results" aria-autocomplete="list">
     <ul id="results" role="listbox" hidden></ul></div>
-  <p class="sub hide-min" data-en="80 fortifications, coloured by the period of their first record. Move the timeline or press ▶ to watch the kingdom fortify itself. Right-click and drag (or use two fingers) to tilt the relief.">80 fortificaciones, coloreadas por la época de su primera noticia. Mueve la línea de tiempo o pulsa ▶ para ver cómo se fortificó el reino. Arrastra con clic derecho (o dos dedos) para inclinar el relieve.</p>
+  <p class="sub hide-min" data-en="80 fortifications, coloured by the period of their first record. Move the timeline or press ▶ to watch the kingdom fortify itself. Drag with the right button or the wheel pressed (or two fingers) to turn and tilt the relief.">80 fortificaciones, coloreadas por la época de su primera noticia. Mueve la línea de tiempo o pulsa ▶ para ver cómo se fortificó el reino. Arrastra con clic derecho o con la rueda pulsada (o dos dedos) para girar e inclinar el relieve.</p>
   <div class="legend hide-min" id="legend"></div>
   <div class="shapes hide-min" id="estados" aria-label="Filtrar por estado" data-en-aria-label="Filter by condition"></div>
   <div class="layers hide-min"><label><input type="checkbox" id="ly-places" checked> <span data-en="Towns">Pueblos</span></label><label><input type="checkbox" id="ly-vias" checked> <span data-en="Roads">Carreteras</span></label><label><input type="checkbox" id="ly-rios" checked> <span data-en="Rivers">Ríos</span></label></div>
@@ -260,8 +260,21 @@ const map = new maplibregl.Map({
   bounds: [[-2.55, 41.88], [-0.7, 43.33]], fitBoundsOptions: {padding: {top: 60, bottom: 130, left: 40, right: 40}},
   maxBounds: [[-4.5, 40.8], [1.2, 44.4]], pitch: 55, maxPitch: 75, minZoom: 6.5
 });
+// Bottom corners stack upwards, so the attribution goes in first to sit under the zoom and compass buttons
+map.addControl(new maplibregl.AttributionControl({compact: true, customAttribution: L("Datos", "Data") + ": Wikidata, Wikipedia, © OpenStreetMap (ODbL)"}), "bottom-right");
 map.addControl(new maplibregl.NavigationControl({visualizePitch: true}), "bottom-right");
-map.addControl(new maplibregl.AttributionControl({compact: true, customAttribution: L("Datos", "Data") + ": Wikidata, Wikipedia, © OpenStreetMap (ODbL)"}));
+// Middle button (wheel pressed) + drag: sideways turns the map, up and down tilts it
+map.getCanvasContainer().addEventListener("mousedown", e => {
+  if (e.button !== 1) return;
+  e.preventDefault();  // stops the browser's autoscroll
+  let x = e.clientX, y = e.clientY;
+  const move = ev => {
+    map.jumpTo({bearing: map.getBearing() + (ev.clientX - x) * 0.4, pitch: Math.max(0, Math.min(75, map.getPitch() - (ev.clientY - y) * 0.3))});
+    x = ev.clientX; y = ev.clientY;
+  };
+  const up = ev => { if (ev.button !== 1) return; window.removeEventListener("mousemove", move); window.removeEventListener("mouseup", up); };
+  window.addEventListener("mousemove", move); window.addEventListener("mouseup", up);
+});
 
 function colorExpr(){ return ["match", ["get", "p"], 0, tok("--p0"), 1, tok("--p1"), 2, tok("--p2"), 3, tok("--p3"), 4, tok("--p4"), tok("--pn")]; }
 function paintTheme(){
