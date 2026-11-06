@@ -5,6 +5,7 @@
   --accent:#17708C; --accent-soft:#DCEBEF;
   --run:#8A540A; --run-soft:#F4E7CF;   /* in progress */
   --ok:#2A7655;  --ok-soft:#DCEEE5;    /* done */
+  --bad:#B4442F; --bad-soft:#F6E1DB;   /* rejected */
   --stage-bg:#0B1519;                  /* dark panels, both themes */
   --circuit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' fill='none' stroke='rgba(23,112,140,.17)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30H80l20 20h52M30 96v52l20 20h62M196 26v54l-20 20h-44l-20 20v70M154 180h52l20 20v22M66 212h22M192 140h34M210 60h22'/%3E%3Ccircle cx='14' cy='30' r='4'/%3E%3Ccircle cx='156' cy='50' r='4'/%3E%3Ccircle cx='30' cy='92' r='4'/%3E%3Ccircle cx='116' cy='168' r='4'/%3E%3Ccircle cx='196' cy='22' r='4'/%3E%3Ccircle cx='112' cy='194' r='4'/%3E%3Ccircle cx='150' cy='180' r='4'/%3E%3Ccircle cx='226' cy='226' r='4'/%3E%3Crect x='56' y='206' width='10' height='12' rx='2'/%3E%3Crect x='88' y='206' width='10' height='12' rx='2'/%3E%3Crect x='186' y='134' width='6' height='12' rx='1'/%3E%3Crect x='204' y='54' width='6' height='12' rx='1'/%3E%3C/svg%3E");   /* circuit background */
   --display:"Kumbh Sans","Helvetica Neue",Arial,sans-serif;
@@ -13,10 +14,10 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0E171B; --surface:#14222A; --ink:#E3ECEC; --muted:#94A7AA; --line:#2A3C42;
-  --accent:#5FB8D4; --accent-soft:#17343F; --run:#E4AC52; --run-soft:#3A2D16; --ok:#6CC59A; --ok-soft:#173A2B; --stage-bg:#15303A; --circuit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' fill='none' stroke='rgba(108,197,154,.12)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30H80l20 20h52M30 96v52l20 20h62M196 26v54l-20 20h-44l-20 20v70M154 180h52l20 20v22M66 212h22M192 140h34M210 60h22'/%3E%3Ccircle cx='14' cy='30' r='4'/%3E%3Ccircle cx='156' cy='50' r='4'/%3E%3Ccircle cx='30' cy='92' r='4'/%3E%3Ccircle cx='116' cy='168' r='4'/%3E%3Ccircle cx='196' cy='22' r='4'/%3E%3Ccircle cx='112' cy='194' r='4'/%3E%3Ccircle cx='150' cy='180' r='4'/%3E%3Ccircle cx='226' cy='226' r='4'/%3E%3Crect x='56' y='206' width='10' height='12' rx='2'/%3E%3Crect x='88' y='206' width='10' height='12' rx='2'/%3E%3Crect x='186' y='134' width='6' height='12' rx='1'/%3E%3Crect x='204' y='54' width='6' height='12' rx='1'/%3E%3C/svg%3E"); color-scheme:dark}}
+  --accent:#5FB8D4; --accent-soft:#17343F; --run:#E4AC52; --run-soft:#3A2D16; --ok:#6CC59A; --ok-soft:#173A2B; --bad:#F08A70; --bad-soft:#3B211B; --stage-bg:#15303A; --circuit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' fill='none' stroke='rgba(108,197,154,.12)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30H80l20 20h52M30 96v52l20 20h62M196 26v54l-20 20h-44l-20 20v70M154 180h52l20 20v22M66 212h22M192 140h34M210 60h22'/%3E%3Ccircle cx='14' cy='30' r='4'/%3E%3Ccircle cx='156' cy='50' r='4'/%3E%3Ccircle cx='30' cy='92' r='4'/%3E%3Ccircle cx='116' cy='168' r='4'/%3E%3Ccircle cx='196' cy='22' r='4'/%3E%3Ccircle cx='112' cy='194' r='4'/%3E%3Ccircle cx='150' cy='180' r='4'/%3E%3Ccircle cx='226' cy='226' r='4'/%3E%3Crect x='56' y='206' width='10' height='12' rx='2'/%3E%3Crect x='88' y='206' width='10' height='12' rx='2'/%3E%3Crect x='186' y='134' width='6' height='12' rx='1'/%3E%3Crect x='204' y='54' width='6' height='12' rx='1'/%3E%3C/svg%3E"); color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0E171B; --surface:#14222A; --ink:#E3ECEC; --muted:#94A7AA; --line:#2A3C42;
-  --accent:#5FB8D4; --accent-soft:#17343F; --run:#E4AC52; --run-soft:#3A2D16; --ok:#6CC59A; --ok-soft:#173A2B; --stage-bg:#15303A; --circuit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' fill='none' stroke='rgba(108,197,154,.12)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30H80l20 20h52M30 96v52l20 20h62M196 26v54l-20 20h-44l-20 20v70M154 180h52l20 20v22M66 212h22M192 140h34M210 60h22'/%3E%3Ccircle cx='14' cy='30' r='4'/%3E%3Ccircle cx='156' cy='50' r='4'/%3E%3Ccircle cx='30' cy='92' r='4'/%3E%3Ccircle cx='116' cy='168' r='4'/%3E%3Ccircle cx='196' cy='22' r='4'/%3E%3Ccircle cx='112' cy='194' r='4'/%3E%3Ccircle cx='150' cy='180' r='4'/%3E%3Ccircle cx='226' cy='226' r='4'/%3E%3Crect x='56' y='206' width='10' height='12' rx='2'/%3E%3Crect x='88' y='206' width='10' height='12' rx='2'/%3E%3Crect x='186' y='134' width='6' height='12' rx='1'/%3E%3Crect x='204' y='54' width='6' height='12' rx='1'/%3E%3C/svg%3E"); color-scheme:dark}
+  --accent:#5FB8D4; --accent-soft:#17343F; --run:#E4AC52; --run-soft:#3A2D16; --ok:#6CC59A; --ok-soft:#173A2B; --bad:#F08A70; --bad-soft:#3B211B; --stage-bg:#15303A; --circuit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' fill='none' stroke='rgba(108,197,154,.12)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30H80l20 20h52M30 96v52l20 20h62M196 26v54l-20 20h-44l-20 20v70M154 180h52l20 20v22M66 212h22M192 140h34M210 60h22'/%3E%3Ccircle cx='14' cy='30' r='4'/%3E%3Ccircle cx='156' cy='50' r='4'/%3E%3Ccircle cx='30' cy='92' r='4'/%3E%3Ccircle cx='116' cy='168' r='4'/%3E%3Ccircle cx='196' cy='22' r='4'/%3E%3Ccircle cx='112' cy='194' r='4'/%3E%3Ccircle cx='150' cy='180' r='4'/%3E%3Ccircle cx='226' cy='226' r='4'/%3E%3Crect x='56' y='206' width='10' height='12' rx='2'/%3E%3Crect x='88' y='206' width='10' height='12' rx='2'/%3E%3Crect x='186' y='134' width='6' height='12' rx='1'/%3E%3Crect x='204' y='54' width='6' height='12' rx='1'/%3E%3C/svg%3E"); color-scheme:dark}
 
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:5rem;overflow-x:clip}
@@ -176,12 +177,42 @@ kbd{font:600 .72rem var(--display);padding:.12rem .4rem;border-radius:6px;border
 .dag.focus .pk{opacity:.18}
 .dag.focus .edge.hl{opacity:1;stroke:var(--accent);stroke-width:2.2}
 .dag.focus .pk.hl{opacity:1}
+/* tabs over the hero diagrams */
+.dag-tabs{display:flex;gap:2px;justify-self:start;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.dag-tabs button{all:unset;cursor:pointer;font-family:var(--display);font-size:.86rem;font-weight:600;line-height:1;padding:.5rem .95rem;border-radius:999px;color:var(--muted);transition:background .2s,color .2s}
+.dag-tabs button:hover{color:var(--ink)}
+.dag-tabs button[aria-selected="true"]{background:var(--accent);color:var(--bg)}
+.dag-tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* data pipeline: packets drawn as icons (file, row, checked row, rejected row, chart) */
+.dag .pk.pk-ic{opacity:.95}
+.dag .pk-ic>*{fill:var(--surface);stroke:var(--accent);stroke-width:1.1;stroke-linejoin:round}
+.dag .pk-ic .ln{fill:none;stroke-linecap:round}
+.dag .pk-file>*{stroke:var(--run)} .dag .pk-file>:first-child{fill:var(--run-soft)}
+.dag .pk-row>:first-child{fill:var(--accent-soft)}
+.dag .pk-ok>*,.dag .pk-chart>*{stroke:var(--ok)} .dag .pk-ok>:first-child,.dag .pk-chart>:first-child{fill:var(--ok-soft)}
+.dag .pk-bad>*{stroke:var(--bad)} .dag .pk-bad>:first-child{fill:var(--bad-soft)}
+.dag.focus .pk.pk-ic{opacity:.25} .dag.focus .pk.pk-ic.hl{opacity:1}
+.dag .n.bad .box{stroke:var(--bad);stroke-dasharray:4 3}
+.dag .n.bad .pip{fill:var(--bad)}
+.dag .n.bad .pulse{stroke:var(--bad)}
+.dag .n.sched .box{stroke-dasharray:4 3}
+.dag .clock{fill:none;stroke:var(--muted);stroke-width:1.4}
+.dag .clock-hand{stroke:var(--accent);stroke-width:1.7;stroke-linecap:round}
+.dag .n .cnt{font-size:10.5px;font-weight:600;fill:var(--muted);font-variant-numeric:tabular-nums}
+.dag .n .cnt.bad{fill:var(--bad)}
+.dag .n.sel .cnt{font-weight:600}
+.dag .verdict .vbg{fill:var(--surface);stroke:var(--line);stroke-width:1.2;transition:fill .2s,stroke .2s}
+.dag .verdict path{fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .2s}
+.dag .n.v-ok .vbg{fill:var(--ok-soft);stroke:var(--ok)} .dag .n.v-ok .v-ok{opacity:1;stroke:var(--ok)}
+.dag .n.v-bad .vbg{fill:var(--bad-soft);stroke:var(--bad)} .dag .n.v-bad .v-bad{opacity:1;stroke:var(--bad)}
+.dag-info[data-kind="Schedule"] .dag-kind{color:var(--muted)}
 /* one-time entrance: lanes fade, edges draw, nodes rise column by column */
 .dag.enter .lanes{animation:fade-in .6s ease both}
 .dag.enter .edge{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .9s cubic-bezier(.4,0,.2,1) .35s forwards}
 .dag.enter .n{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
 .dag.enter .n[data-kind="Processing"]{animation-delay:.25s}
 .dag.enter .n[data-kind="Output"]{animation-delay:.5s}
+.dag.enter .n[data-kind="Schedule"]{animation-delay:.1s}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes fade-in{from{opacity:0}}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}}

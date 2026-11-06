@@ -17,141 +17,235 @@
     new IntersectionObserver(function (es) { el.classList.toggle('idle', !es[0].isIntersecting); }).observe(el);
   }
 
-  /* ---------- hero: living data network ----------
-     Static edges, small data packets travelling along them (SVG animateMotion, paused off screen),
-     a pulse when a packet reaches a node, and a selectable step with a description panel. */
-  var dag = document.querySelector('.dag');
-  if (dag) {
+  /* ---------- hero: two living diagrams ----------
+     A data pipeline (shown first) and an LLM workflow, switched with tabs, share one description panel.
+     Each has static edges and packets travelling along them (SVG animateMotion, paused off screen or
+     while its tab is hidden), a pulse when a packet reaches a node, and steps you can select.
+     Packets with data-pk on their edge are drawn as small icons, so in the data pipeline you can watch
+     a file become a row, a checked row and finally a chart. A node with data-verdict shows ✓ or ✗ as
+     each row leaves it, and nodes with data-count tick up as rows arrive. */
+  // own scope: the rest of this file reuses names like tabs and visible
+  (function () {
+    var dags = $$('.dag');
+    var info = document.querySelector('.dag-info');
     var SVGNS = 'http://www.w3.org/2000/svg';
     var mk = function (n, a) { var e = document.createElementNS(SVGNS, n); for (var k in a) e.setAttribute(k, a[k]); return e; };
-    var paths = $$('[data-link]', dag), dnodes = $$('.n', dag);
-    var byId = {};
-    dnodes.forEach(function (n) {
-      byId[n.getAttribute('data-node')] = n;
-      n.classList.add('k-' + (n.getAttribute('data-kind') || '').toLowerCase());
-      var r = n.querySelector('.box');
-      var x = +r.getAttribute('x'), y = +r.getAttribute('y'), w = +r.getAttribute('width'), h = +r.getAttribute('height');
-      // a pulse plate that flashes when a packet arrives (shadow and focus ring are in the markup)
-      n.insertBefore(mk('rect', { 'class': 'pulse', x: x, y: y, width: w, height: h, rx: 8 }), r);
-    });
-    var packets = mk('g', { 'class': 'packets' });
-    if (!reduce) dag.classList.add('enter'); // one-time draw-in of edges and nodes
-    if (!reduce) {
-      paths.forEach(function (p, i) {
-        var ends = p.getAttribute('data-link').split(' ');
-        p.id = 'edge-' + ends.join('-');
-        var dur = 2.8 + (i % 3) * 0.35;
-        var c = mk('circle', { 'class': 'pk', r: 2.6, 'data-link': p.getAttribute('data-link') });
-        var am = mk('animateMotion', { dur: dur + 's', repeatCount: 'indefinite', begin: (-i * 0.53).toFixed(2) + 's', calcMode: 'spline', keyTimes: '0;1', keySplines: '.45 0 .55 1' });
-        am.appendChild(mk('mpath', { href: '#' + p.id }));
-        c.appendChild(am);
-        packets.appendChild(c);
-        // pulse the node the packet arrives at
-        var target = byId[ends[1]];
-        am.addEventListener('repeatEvent', function () {
-          if (!target || dag.classList.contains('idle')) return;
-          target.classList.remove('ping'); void target.getBoundingClientRect(); target.classList.add('ping');
-        });
-      });
-      // packets travel under the nodes, over the edges
-      dag.querySelector('.particles').appendChild(packets);
-    }
-    if (hasIO) new IntersectionObserver(function (es) {
-      var on = es[0].isIntersecting;
-      dag.classList.toggle('idle', !on);
-      if (dag.pauseAnimations) { if (on) dag.unpauseAnimations(); else dag.pauseAnimations(); }
-    }).observe(dag);
-
-    var wrap = dag.closest('.dag-wrap');
-    var info = wrap && wrap.querySelector('.dag-info');
-    var selected = null, shownId = null;
-    var KIND_ES = { Source: 'Fuente', Processing: 'Procesamiento', Output: 'Salida' };
+    var KIND_ES = { Source: 'Fuente', Processing: 'Procesamiento', Output: 'Salida', Schedule: 'Programación' };
     var kindOf = function (n) { var k = n.getAttribute('data-kind'); return T(k, KIND_ES[k] || k); };
     var infoOf = function (n) { return T(n.getAttribute('data-info'), n.getAttribute('data-info-es') || n.getAttribute('data-info')); };
-    function highlight(node) {
-      var id = node.getAttribute('data-node');
-      dag.classList.add('focus');
-      dnodes.forEach(function (n) { n.classList.toggle('hl', n === node); });
-      paths.concat($$('.pk', dag)).forEach(function (p) {
-        var ends = p.getAttribute('data-link').split(' ');
-        var on = ends.indexOf(id) !== -1;
-        p.classList.toggle('hl', on);
-        if (on) ends.forEach(function (e) { if (byId[e]) byId[e].classList.add('hl'); });
+    var ICONS = {
+      file: '<path d="M-3.6-4.6h4.4l2.8 2.8v6.4h-7.2z"/><path class="ln" d="M-1.8-.4h3.6M-1.8 1.9h3.6"/>',
+      row: '<rect x="-5.2" y="-2.4" width="10.4" height="4.8" rx="1.6"/>',
+      ok: '<rect x="-5.2" y="-2.4" width="10.4" height="4.8" rx="1.6"/><path class="ln" d="M-2 .1l1.3 1.2 2.7-2.5"/>',
+      bad: '<circle r="3.8"/><path class="ln" d="M-1.5-1.5l3 3M1.5-1.5l-3 3"/>',
+      chart: '<rect x="-4.6" y="-4.6" width="9.2" height="9.2" rx="2.2"/><path class="ln" d="M-2.2 2.2V.4M0 2.2v-3.8M2.2 2.2V-.6"/>'
+    };
+    var shownId = null;
+
+    function setupDag(dag) {
+      var key = dag.id || 'dag';
+      var paths = $$('[data-link]', dag), dnodes = $$('.n', dag);
+      var byId = {};
+      var api = { dag: dag, nodes: dnodes, selected: null };
+      dnodes.forEach(function (n) {
+        byId[n.getAttribute('data-node')] = n;
+        n.classList.add('k-' + (n.getAttribute('data-kind') || '').toLowerCase());
+        var r = n.querySelector('.box');
+        var x = +r.getAttribute('x'), y = +r.getAttribute('y'), w = +r.getAttribute('width'), h = +r.getAttribute('height');
+        // a pulse plate that flashes when a packet arrives (shadow and focus ring are in the markup)
+        n.insertBefore(mk('rect', { 'class': 'pulse', x: x, y: y, width: w, height: h, rx: 8 }), r);
       });
-      if (info && shownId !== id) {
-        shownId = id;
-        info.querySelector('.dag-kind > span').textContent = kindOf(node);
-        info.querySelector('.dag-title').textContent = node.querySelector('text').textContent;
-        info.querySelector('.dag-text').textContent = infoOf(node);
-        info.setAttribute('data-kind', node.getAttribute('data-kind'));
-        if (!reduce) { info.classList.remove('swap'); void info.offsetWidth; info.classList.add('swap'); }
+
+      // counters: rows that reached a node during this visit (an illustration, not real figures)
+      var counts = {};
+      function countText(n) {
+        var c = n.querySelector('.cnt'); if (!c) return;
+        var v = counts[n.getAttribute('data-node')] || 0;
+        var num = v.toLocaleString(T('en-US', 'es-ES'));
+        c.textContent = T(num + (v === 1 ? ' row' : ' rows'), num + (v === 1 ? ' fila' : ' filas'));
+      }
+      function bump(n) {
+        var step = n.getAttribute('data-count'); if (!step) return;
+        var id = n.getAttribute('data-node'), lim = step.split('-');
+        counts[id] = (counts[id] || 0) + Math.round(+lim[0] + Math.random() * ((+lim[1] || +lim[0]) - +lim[0]));
+        countText(n);
+      }
+      dnodes.forEach(countText);
+      onLang(function () { dnodes.forEach(countText); });
+
+      var verdictTimer;
+      function verdict(n, ok) {
+        n.classList.remove('v-ok', 'v-bad'); void n.getBoundingClientRect();
+        n.classList.add(ok ? 'v-ok' : 'v-bad');
+        clearTimeout(verdictTimer);
+        verdictTimer = setTimeout(function () { n.classList.remove('v-ok', 'v-bad'); }, 900);
+      }
+
+      if (!reduce) {
+        dag.classList.add('enter'); // one-time draw-in of edges and nodes
+        var packets = mk('g', { 'class': 'packets' });
+        paths.forEach(function (p, i) {
+          var ends = p.getAttribute('data-link').split(' ');
+          p.id = key + '-edge-' + ends.join('-');
+          var dur = +p.getAttribute('data-dur') || 2.8 + (i % 3) * 0.35;
+          var kind = p.getAttribute('data-pk');
+          var c;
+          if (kind && ICONS[kind]) {
+            c = mk('g', { 'class': 'pk pk-ic pk-' + kind, 'data-link': p.getAttribute('data-link') });
+            c.innerHTML = ICONS[kind];
+          } else {
+            c = mk('circle', { 'class': 'pk', r: 2.6, 'data-link': p.getAttribute('data-link') });
+          }
+          var am = mk('animateMotion', { dur: dur + 's', repeatCount: 'indefinite', begin: (-i * 0.53).toFixed(2) + 's', calcMode: 'spline', keyTimes: '0;1', keySplines: '.45 0 .55 1' });
+          am.appendChild(mk('mpath', { href: '#' + p.id }));
+          c.appendChild(am);
+          packets.appendChild(c);
+          var source = byId[ends[0]], target = byId[ends[1]];
+          am.addEventListener('repeatEvent', function () {
+            if (dag.classList.contains('idle')) return;
+            // the packet arrived at its target and a new one leaves the source
+            if (target) { target.classList.remove('ping'); void target.getBoundingClientRect(); target.classList.add('ping'); bump(target); }
+            if (source && source.hasAttribute('data-verdict') && (kind === 'ok' || kind === 'bad')) verdict(source, kind === 'ok');
+          });
+        });
+        // packets travel under the nodes, over the edges
+        dag.querySelector('.particles').appendChild(packets);
+        // the schedule clock's hand turns
+        $$('.clock-hand', dag).forEach(function (h) {
+          var cx = h.getAttribute('x1'), cy = h.getAttribute('y1');
+          h.appendChild(mk('animateTransform', { attributeName: 'transform', type: 'rotate', from: '0 ' + cx + ' ' + cy, to: '360 ' + cx + ' ' + cy, dur: '6s', repeatCount: 'indefinite' }));
+        });
+      }
+      // off screen, or in a hidden tab, everything stops
+      if (hasIO) new IntersectionObserver(function (es) {
+        var on = es[0].isIntersecting;
+        dag.classList.toggle('idle', !on);
+        if (dag.pauseAnimations) { if (on) dag.unpauseAnimations(); else dag.pauseAnimations(); }
+      }).observe(dag);
+
+      function highlight(node) {
+        var id = node.getAttribute('data-node');
+        dag.classList.add('focus');
+        dnodes.forEach(function (n) { n.classList.toggle('hl', n === node); });
+        paths.concat($$('.pk', dag)).forEach(function (p) {
+          var ends = p.getAttribute('data-link').split(' ');
+          var on = ends.indexOf(id) !== -1;
+          p.classList.toggle('hl', on);
+          if (on) ends.forEach(function (e) { if (byId[e]) byId[e].classList.add('hl'); });
+        });
+        if (info && shownId !== key + id) {
+          shownId = key + id;
+          info.querySelector('.dag-kind > span').textContent = kindOf(node);
+          info.querySelector('.dag-title').textContent = node.querySelector('text').textContent;
+          info.querySelector('.dag-text').textContent = infoOf(node);
+          info.setAttribute('data-kind', node.getAttribute('data-kind'));
+          if (!reduce) { info.classList.remove('swap'); void info.offsetWidth; info.classList.add('swap'); }
+        }
+      }
+      api.highlight = highlight;
+      function choose(node) {
+        if (api.selected) { api.selected.classList.remove('sel'); api.selected.setAttribute('aria-pressed', 'false'); }
+        api.selected = node;
+        node.classList.add('sel'); node.setAttribute('aria-pressed', 'true');
+        highlight(node);
+      }
+      api.choose = choose;
+      dnodes.forEach(function (node, i) {
+        node.setAttribute('tabindex', '0');
+        node.setAttribute('role', 'button');
+        node.setAttribute('aria-pressed', 'false');
+        node.addEventListener('click', function () { choose(node); });
+        node.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(node); }
+          // arrow keys move between steps
+          if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            var d = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : -1;
+            dnodes[(i + d + dnodes.length) % dnodes.length].focus();
+          }
+        });
+        node.addEventListener('focus', function () { highlight(node); });
+        node.addEventListener('blur', function () { if (api.selected) highlight(api.selected); });
+        // hover previews a step; leaving goes back to the selected one
+        node.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') highlight(node); });
+        node.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && api.selected) highlight(api.selected); });
+      });
+      dag.setAttribute('role', 'group');
+      function nodeLabels() {
+        dnodes.forEach(function (node) {
+          var label = node.querySelector('text').textContent;
+          node.setAttribute('aria-label', T(label + ', ' + kindOf(node).toLowerCase() + ' step', label + ', paso de ' + kindOf(node).toLowerCase()));
+        });
+      }
+      nodeLabels();
+      api.start = byId[dag.getAttribute('data-start')] || dnodes[0];
+      onLang(function () { nodeLabels(); shownId = null; if (api.selected && !dag.hasAttribute('hidden')) highlight(api.selected); });
+      return api;
+    }
+
+    if (dags.length) {
+      var views = dags.map(setupDag);
+      // SVG elements have no .hidden property, so the attribute is read and written directly
+      var shown = function () { return views.filter(function (v) { return !v.dag.hasAttribute('hidden'); })[0]; };
+      var visible = shown() || views[0];
+      visible.choose(visible.start);
+
+      // tabs: switch diagrams; the panel follows the selected step of the one on show
+      var tabs = $$('.dag-tabs [role="tab"]');
+      function show(tab, focus) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.tabIndex = on ? 0 : -1;
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          if (panel) { if (on) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', ''); }
+        });
+        if (focus) tab.focus();
+        var v = shown();
+        if (!v) return;
+        if (!reduce) { v.dag.classList.remove('enter'); void v.dag.getBoundingClientRect(); v.dag.classList.add('enter'); }
+        shownId = null;
+        v.choose(v.selected || v.start);
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () { if (t.getAttribute('aria-selected') !== 'true') show(t); });
+        t.addEventListener('keydown', function (e) {
+          if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+          e.preventDefault();
+          show(tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length], true);
+        });
+      });
+
+      // Keep the panel the height of its longest description (across both diagrams), so the page
+      // under it doesn't jump while you move between steps or tabs. Measured on a hidden copy.
+      var reserve = function () {
+        if (!info || !info.offsetWidth) return;
+        var probe = info.cloneNode(true);
+        probe.removeAttribute('aria-live');
+        probe.classList.remove('swap');
+        probe.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;left:0;top:0;min-height:0;width:' + info.offsetWidth + 'px';
+        info.parentNode.appendChild(probe);
+        var tallest = 0;
+        views.forEach(function (v) {
+          v.nodes.forEach(function (n) {
+            probe.querySelector('.dag-kind > span').textContent = kindOf(n);
+            probe.querySelector('.dag-title').textContent = n.querySelector('text').textContent;
+            probe.querySelector('.dag-text').textContent = infoOf(n);
+            tallest = Math.max(tallest, probe.offsetHeight);
+          });
+        });
+        probe.remove();
+        info.style.minHeight = tallest + 'px';
+      };
+      if (info) {
+        reserve();
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(reserve);
+        var rt;
+        window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(reserve, 150); });
+        onLang(reserve);
       }
     }
-    // Keep the panel the height of its longest description, so the page under it doesn't jump
-    // while you move between steps. Measured on a hidden copy at the panel's real width.
-    function reserve() {
-      if (!info || !info.offsetWidth) return;
-      var probe = info.cloneNode(true);
-      probe.removeAttribute('aria-live');
-      probe.classList.remove('swap');
-      probe.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;left:0;top:0;min-height:0;width:' + info.offsetWidth + 'px';
-      info.parentNode.appendChild(probe);
-      var tallest = 0;
-      dnodes.forEach(function (n) {
-        probe.querySelector('.dag-kind > span').textContent = kindOf(n);
-        probe.querySelector('.dag-title').textContent = n.querySelector('text').textContent;
-        probe.querySelector('.dag-text').textContent = infoOf(n);
-        tallest = Math.max(tallest, probe.offsetHeight);
-      });
-      probe.remove();
-      info.style.minHeight = tallest + 'px';
-    }
-    if (info) {
-      reserve();
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(reserve);
-      var rt;
-      window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(reserve, 150); });
-      onLang(reserve);
-    }
-    function choose(node) {
-      if (selected) { selected.classList.remove('sel'); selected.setAttribute('aria-pressed', 'false'); }
-      selected = node;
-      node.classList.add('sel'); node.setAttribute('aria-pressed', 'true');
-      highlight(node);
-    }
-    var order = dnodes.slice();
-    dnodes.forEach(function (node, i) {
-      node.setAttribute('tabindex', '0');
-      node.setAttribute('role', 'button');
-      node.setAttribute('aria-pressed', 'false');
-      node.addEventListener('click', function () { choose(node); });
-      node.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(node); }
-        // arrow keys move between steps
-        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-          e.preventDefault();
-          var d = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : -1;
-          order[(i + d + order.length) % order.length].focus();
-        }
-      });
-      node.addEventListener('focus', function () { highlight(node); });
-      node.addEventListener('blur', function () { if (selected) highlight(selected); });
-      // hover previews a step; leaving goes back to the selected one
-      node.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') highlight(node); });
-      node.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && selected) highlight(selected); });
-    });
-    dag.setAttribute('role', 'group');
-    function nodeLabels() {
-      dnodes.forEach(function (node) {
-        var label = node.querySelector('text').textContent;
-        node.setAttribute('aria-label', T(label + ', ' + kindOf(node).toLowerCase() + ' step', label + ', paso de ' + kindOf(node).toLowerCase()));
-      });
-    }
-    nodeLabels();
-    var start = byId.val;
-    if (start) choose(start);
-    onLang(function () { nodeLabels(); shownId = null; if (selected) highlight(selected); });
-  }
+  })();
 
   /* ---------- project picker ("select your character") ---------- */
   var picker = document.querySelector('.picker');
