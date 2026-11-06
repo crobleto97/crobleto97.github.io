@@ -56,9 +56,12 @@ h1{font:700 26px/1.1 var(--display); margin:0}
 .legend .n{margin-left:auto; font:500 12px var(--mono); color:var(--muted); font-variant-numeric:tabular-nums}
 .dot{width:11px; height:11px; border-radius:50%; flex:none}
 .shapes{display:flex; flex-wrap:wrap; gap:4px 12px; font-size:12px; color:var(--muted); border-top:1px solid var(--line); padding-top:8px}
-.shapes span{display:flex; align-items:center; gap:5px}
+.shapes button{all:unset; display:flex; align-items:center; gap:5px; cursor:pointer; border-radius:4px; padding:2px 4px; margin:0 -4px}
+.shapes button:focus-visible{outline:2px solid var(--accent)}
+.shapes button[aria-pressed="false"]{opacity:.35; text-decoration:line-through}
+.shapes .n{font:500 11px var(--mono); font-variant-numeric:tabular-nums}
 .s{width:10px; height:10px; border-radius:50%; border:2px solid var(--muted); box-sizing:border-box}
-.s.full{background:var(--muted)} .s.half{background:color-mix(in srgb, var(--muted) 45%, transparent)}
+.s.dash{border-style:dashed; background:color-mix(in srgb, var(--muted) 70%, transparent)} .s.full{background:var(--muted)} .s.half{background:color-mix(in srgb, var(--muted) 45%, transparent)}
 #toggle{all:unset; font:600 12px var(--body); color:var(--accent); cursor:pointer}
 #head.min .hide-min{display:none}
 #panel{position:absolute; top:calc(12px + env(safe-area-inset-top,0px)); right:max(12px, env(safe-area-inset-right,0px)); width:min(360px, calc(100% - 24px)); max-height:calc(100% - 150px); overflow:auto; padding:18px; display:grid; gap:10px; z-index:3}
@@ -101,7 +104,7 @@ h1{font:700 26px/1.1 var(--display); margin:0}
   <h1>Castillos de Navarra</h1>
   <p class="sub hide-min">80 fortificaciones, coloreadas por la época de su primera noticia. Mueve la línea de tiempo o pulsa ▶ para ver cómo se fortificó el reino. Arrastra con clic derecho (o dos dedos) para inclinar el relieve.</p>
   <div class="legend hide-min" id="legend"></div>
-  <div class="shapes hide-min"><span><i class="s full"></i>en pie</span><span><i class="s half"></i>ruina / restos</span><span><i class="s"></i>desaparecido</span></div>
+  <div class="shapes hide-min" id="estados" aria-label="Filtrar por estado"></div>
   <div class="layers hide-min"><label><input type="checkbox" id="ly-places" checked> Pueblos</label><label><input type="checkbox" id="ly-vias" checked> Carreteras</label><label><input type="checkbox" id="ly-rios" checked> Ríos</label></div>
   <button id="toggle" type="button">Ocultar leyenda</button>
 </div>
@@ -161,6 +164,21 @@ PERIODS.forEach(p => {
 }));
 document.getElementById("ly-places").addEventListener("change", e => document.body.classList.toggle("layers-off-places", !e.target.checked));
 document.getElementById("toggle").onclick = e => { const h = document.getElementById("head"); h.classList.toggle("min"); e.target.textContent = h.classList.contains("min") ? "Mostrar leyenda" : "Ocultar leyenda"; };
+// Condition filter: same toggle behaviour as the periods
+const ESTADOS = [
+  {k:"pie", name:"en pie", cls:"full", e:["en pie", "restaurado"]},
+  {k:"ruina", name:"ruina / restos", cls:"half", e:["ruina", "restos"]},
+  {k:"desap", name:"desaparecido", cls:"", e:["desaparecido"]},
+  {k:"sd", name:"sin datos", cls:"dash", e:["sin estado"]}
+];
+const activeE = new Set(ESTADOS.map(x => x.k));
+ESTADOS.forEach(x => {
+  const n = CASTLES.features.filter(f => x.e.includes(f.properties.e)).length;
+  const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-pressed", "true");
+  b.innerHTML = `<i class="s ${x.cls}"></i>${x.name} <span class="n">${n}</span>`;
+  b.onclick = () => { activeE.has(x.k) ? activeE.delete(x.k) : activeE.add(x.k); b.setAttribute("aria-pressed", activeE.has(x.k)); applyFilter(); };
+  document.getElementById("estados").appendChild(b);
+});
 document.getElementById("nund").textContent = CASTLES.features.filter(f => f.properties.a < 0).length;
 
 // Histogram by 50-year bins
@@ -246,7 +264,8 @@ function applyFilter(){
   const y = +yr.value; yb.textContent = y >= 1900 ? "Hoy" : y;
   [...hist.children].forEach((el, i) => el.classList.toggle("on", MIN + i * BIN <= y));
   if (!map.getLayer("c")) return;
-  map.setFilter("c", ["all", ["in", ["get", "p"], ["literal", [...active]]],
+  const es = ESTADOS.filter(x => activeE.has(x.k)).flatMap(x => x.e);
+  map.setFilter("c", ["all", ["in", ["get", "p"], ["literal", [...active]]], ["in", ["get", "e"], ["literal", es]],
     ["any", ["all", [">=", ["get", "a"], 0], ["<=", ["get", "a"], y]], ["all", ["<", ["get", "a"], 0], und.checked]]]);
 }
 yr.addEventListener("input", applyFilter); und.addEventListener("change", applyFilter);
