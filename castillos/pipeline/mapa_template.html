@@ -27,7 +27,7 @@ body.zoomed .place.t2{display:block}
 body.layers-off-places .place{display:none!important}
 .layers{display:flex; flex-wrap:wrap; gap:4px 12px; font-size:12.5px; border-top:1px solid var(--line); padding-top:8px}
 .layers label{display:flex; gap:5px; align-items:center; cursor:pointer}
-.maplibregl-ctrl-bottom-right{margin-bottom:112px}
+.maplibregl-ctrl-bottom-right{margin-bottom:140px}
 .maplibregl-ctrl-attrib{font:11px var(--body)}
 .card{box-sizing:border-box; background:var(--surface); border:1px solid var(--line); border-radius:8px; box-shadow:0 6px 24px rgb(0 0 0 / .12)}
 #head{position:absolute; top:calc(12px + env(safe-area-inset-top,0px)); left:max(12px, env(safe-area-inset-left,0px)); width:min(300px, calc(100% - 24px)); padding:14px 16px; display:grid; gap:10px; z-index:2}
@@ -79,20 +79,59 @@ h1{font:700 26px/1.1 var(--display); margin:0}
 .ticks{display:flex; justify-content:space-between; font:500 10.5px var(--mono); color:var(--muted)}
 #undated{grid-column:1 / -1; font-size:12.5px; color:var(--muted); display:flex; gap:6px; align-items:center}
 .tip{font:600 13px var(--body)}
+/* Counter under the year */
+.ybox{display:grid; justify-items:end; gap:3px}
+#ycount{font:500 11.5px/1.2 var(--mono); color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap; text-align:right}
+#ycount b{color:var(--fg); font-weight:600}
+#ycount .plus{color:var(--accent); display:block}
+/* Historical events: marks on the track and a caption line */
+.track{position:relative}
+#marks{position:absolute; left:0; right:0; top:0; height:28px; pointer-events:none}
+#marks i{position:absolute; top:-3px; bottom:-2px; width:0; border-left:1.5px dotted var(--fg); opacity:.45}
+#marks i.past{opacity:.9; border-left-style:solid; border-color:var(--accent)}
+#evento{grid-column:1 / -1; min-height:20px; font-size:13.5px; line-height:1.35; display:flex; gap:8px; align-items:baseline; transition:opacity .25s}
+#evento .ey{font:600 12px var(--mono); color:var(--accent); flex:none}
+#evento.fresh{animation:evIn .5s ease}
+@keyframes evIn{from{opacity:0; transform:translateY(3px)} to{opacity:1; transform:none}}
+@media (prefers-reduced-motion: reduce){#evento.fresh{animation:none}}
+/* Bottom row: undated toggle + compare */
+.trow{grid-column:1 / -1; display:flex; flex-wrap:wrap; gap:4px 16px; align-items:center; justify-content:space-between}
+#undated{grid-column:auto}
+#cmp{all:unset; font:600 12.5px var(--body); color:var(--accent); cursor:pointer; display:flex; gap:6px; align-items:center}
+#cmp:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+#cmp .x{font-size:15px; line-height:1}
+#band{position:absolute; top:0; height:28px; background:color-mix(in srgb, var(--accent) 12%, transparent); border-left:2px solid var(--accent); pointer-events:none; display:none}
+body.comparing #band{display:block}
+/* Search */
+.search{position:relative}
+.search input{width:100%; box-sizing:border-box; font:14px var(--body); color:var(--fg); background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:7px 10px 7px 30px}
+.search input:focus{outline:2px solid var(--accent); outline-offset:0; border-color:transparent}
+.search svg{position:absolute; left:9px; top:50%; transform:translateY(-50%); width:14px; height:14px; fill:none; stroke:var(--muted); stroke-width:2}
+#results{position:absolute; left:0; right:0; top:calc(100% + 4px); margin:0; padding:4px; list-style:none; background:var(--surface); border:1px solid var(--line); border-radius:6px; box-shadow:0 8px 24px rgb(0 0 0 / .14); z-index:5; max-height:280px; overflow:auto}
+#results[hidden]{display:none}
+#results li{padding:6px 8px; border-radius:4px; cursor:pointer; display:grid; gap:1px}
+#results li[aria-selected="true"], #results li:hover{background:var(--bg)}
+#results .rn{font-weight:600; font-size:13.5px}
+#results .rm{font-size:12px; color:var(--muted)}
+#results .empty{color:var(--muted); font-size:13px; cursor:default}
 .maplibregl-popup-content{background:var(--surface); color:var(--fg); padding:6px 10px; border-radius:6px}
 .maplibregl-popup-tip{border-top-color:var(--surface)!important; border-bottom-color:var(--surface)!important}
 @media (max-width:640px){
   #head{width:calc(100% - 24px)}
   #head .legend{grid-template-columns:1fr 1fr; column-gap:12px}
-  #panel{top:auto; bottom:calc(150px + env(safe-area-inset-bottom,0px)); max-height:45%}
+  #panel{top:auto; bottom:calc(178px + env(safe-area-inset-bottom,0px)); max-height:45%}
   #yearbox{font-size:20px}
-  .maplibregl-ctrl-bottom-right{margin-bottom:150px}
+  .maplibregl-ctrl-bottom-right{margin-bottom:178px}
+  #evento{font-size:12.5px}
 }
 </style>
 <div id="map" aria-label="Mapa de los castillos de Navarra" data-en-aria-label="Map of the castles of Navarre"></div>
 <div id="head" class="card">
   <div class="toprow"><div class="eyebrow"><a href="../projects/castles-map.html" style="color:inherit" data-en="Project">Proyecto</a> · <span data-en="open data">datos abiertos</span></div><div class="lsw" role="group" aria-label="Idioma" data-en-aria-label="Language"><button type="button" data-set-lang="en" title="English">EN</button><button type="button" data-set-lang="es" title="Español">ES</button></div></div>
   <h1 data-en="Castles of Navarre">Castillos de Navarra</h1>
+  <div class="search" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+    <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Buscar castillo o pueblo" data-en-placeholder="Search a castle or town" aria-label="Buscar castillo o pueblo" data-en-aria-label="Search a castle or town" role="combobox" aria-expanded="false" aria-controls="results" aria-autocomplete="list">
+    <ul id="results" role="listbox" hidden></ul></div>
   <p class="sub hide-min" data-en="80 fortifications, coloured by the period of their first record. Move the timeline or press ▶ to watch the kingdom fortify itself. Right-click and drag (or use two fingers) to tilt the relief.">80 fortificaciones, coloreadas por la época de su primera noticia. Mueve la línea de tiempo o pulsa ▶ para ver cómo se fortificó el reino. Arrastra con clic derecho (o dos dedos) para inclinar el relieve.</p>
   <div class="legend hide-min" id="legend"></div>
   <div class="shapes hide-min" id="estados" aria-label="Filtrar por estado" data-en-aria-label="Filter by condition"></div>
@@ -104,14 +143,18 @@ h1{font:700 26px/1.1 var(--display); margin:0}
   <div id="pbody" style="display:grid;gap:10px"></div>
 </div>
 <div id="timeline" class="card">
+  <div id="evento" aria-live="polite"></div>
   <button id="play" type="button" aria-label="Reproducir línea de tiempo" data-en-aria-label="Play timeline">▶</button>
   <div class="track">
-    <div id="hist" aria-hidden="true"></div>
+    <div id="hist" aria-hidden="true"></div><div id="band" aria-hidden="true"></div><div id="marks" aria-hidden="true"></div>
     <input id="year" type="range" min="700" max="1900" step="10" value="1900" aria-label="Año" data-en-aria-label="Year">
     <div class="ticks"><span>700</span><span>1000</span><span>1300</span><span>1512</span><span>1900</span></div>
   </div>
-  <div id="yearbox">1900</div>
-  <label id="undated"><input id="und" type="checkbox" checked> <span><span data-en="Show undated castles">Mostrar castillos sin fecha</span> (<span id="nund"></span>)</span></label>
+  <div class="ybox"><div id="yearbox">1900</div><div id="ycount"></div></div>
+  <div class="trow">
+    <label id="undated"><input id="und" type="checkbox" checked> <span><span data-en="Show undated castles">Mostrar castillos sin fecha</span> (<span id="nund"></span>)</span></label>
+    <button id="cmp" type="button" aria-pressed="false"></button>
+  </div>
 </div>
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script>
@@ -234,8 +277,7 @@ function paintTheme(){
   map.setPaintProperty("rios", "line-color", tok("--river"));
   map.setPaintProperty("vias", "line-color", tok("--road"));
   map.setPaintProperty("vias-casing", "line-color", tok("--nav"));
-  map.setPaintProperty("c", "circle-color", colorExpr());
-  map.setPaintProperty("c", "circle-stroke-color", ["case", ["==", ["get", "e"], "desaparecido"], colorExpr(), tok("--surface")]);
+  paintCastles();
   map.setPaintProperty("sel", "circle-stroke-color", tok("--fg"));
 }
 map.on("load", () => {
@@ -276,13 +318,74 @@ map.on("load", () => {
 new MutationObserver(paintTheme).observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme"]});
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", paintTheme);
 
+// Historical events shown on the timeline (general history of the kingdom, for context)
+const EVENTS = [
+  {y:824,  es:"Íñigo Arista, primer rey de Pamplona (h. 824)", en:"Íñigo Arista, first king of Pamplona (c. 824)"},
+  {y:924,  es:"Abd al-Rahman III arrasa Pamplona y destruye Leguín", en:"Abd al-Rahman III sacks Pamplona and destroys Leguín"},
+  {y:1004, es:"Reinado de Sancho III el Mayor (1004–1035), apogeo del reino", en:"Reign of Sancho III the Great (1004–1035), the kingdom at its height"},
+  {y:1076, es:"Asesinato de Sancho IV en Peñalén: Navarra se une a Aragón", en:"Sancho IV is killed at Peñalén and Navarre joins Aragon"},
+  {y:1134, es:"García Ramírez restaura el reino de Navarra", en:"García Ramírez restores the kingdom of Navarre"},
+  {y:1234, es:"Teobaldo I de Champaña: empiezan las casas francesas", en:"Theobald I of Champagne: the French houses begin"},
+  {y:1276, es:"Guerra de la Navarrería en Pamplona", en:"War of the Navarrería in Pamplona"},
+  {y:1328, es:"Llega la casa de Évreux con Juana II y Felipe III", en:"The house of Évreux arrives with Joan II and Philip III"},
+  {y:1451, es:"Guerra civil entre agramonteses y beaumonteses", en:"Civil war between Agramonteses and Beaumonteses"},
+  {y:1512, es:"Conquista castellana de Navarra", en:"Castile conquers Navarre"},
+  {y:1516, es:"Cisneros ordena derribar las fortalezas navarras", en:"Cardinal Cisneros orders Navarre's fortresses pulled down"},
+  {y:1522, es:"Cae Amaiur, último reducto del reino", en:"Amaiur falls, the kingdom's last stronghold"},
+  {y:1841, es:"Ley Paccionada: Navarra pasa a provincia foral", en:"The Ley Paccionada makes Navarre a chartered province"},
+  {y:1872, es:"Tercera Guerra Carlista: se fortifican pueblos y alturas", en:"Third Carlist War: towns and hilltops are fortified"}
+];
+const pct = y => (y - MIN) / (MAX - MIN) * 100;
+const marks = document.getElementById("marks");
+EVENTS.forEach(ev => { const i = document.createElement("i"); i.style.left = pct(ev.y) + "%"; marks.appendChild(i); });
+const evBox = document.getElementById("evento"); let evShown = null;
+function showEvent(y){
+  const ev = [...EVENTS].reverse().find(e => e.y <= y);
+  [...marks.children].forEach((m, i) => m.classList.toggle("past", EVENTS[i].y <= y));
+  const key = ev ? ev.y + LANG : "none" + LANG;
+  if (key === evShown) return; evShown = key;
+  evBox.classList.remove("fresh"); void evBox.offsetWidth;
+  evBox.innerHTML = ev ? `<span class="ey">${ev.y}</span><span>${esc(L(ev.es, ev.en))}</span>` : `<span style="color:var(--muted)">${L("Mueve la línea de tiempo o pulsa ▶", "Move the timeline or press ▶")}</span>`;
+  if (ev) evBox.classList.add("fresh");
+}
+
+// Compare: pin a starting year; castles recorded by then turn grey, those that appear afterwards keep their colour
+let cmpFrom = null;
+const cmpBtn = document.getElementById("cmp"), band = document.getElementById("band");
+function cmpText(){
+  cmpBtn.setAttribute("aria-pressed", cmpFrom !== null);
+  cmpBtn.innerHTML = cmpFrom === null ? `⇆ ${L("Comparar desde este año", "Compare from this year")}` : `${L("Comparando desde", "Comparing from")} ${cmpFrom} <span class="x" aria-hidden="true">×</span>`;
+  cmpBtn.title = cmpFrom === null ? L("Fija el año actual y mueve la línea de tiempo para ver qué castillos aparecen después", "Pin the current year, then move the timeline to see which castles appear after it") : L("Quitar comparación", "Stop comparing");
+}
+cmpBtn.onclick = () => {
+  if (cmpFrom !== null) cmpFrom = null;
+  else { cmpFrom = +yr.value >= 1900 ? 1512 : +yr.value; yr.value = 1900; }  // from "today" there's nothing to compare, so start at the conquest
+  document.body.classList.toggle("comparing", cmpFrom !== null);
+  cmpText(); paintCastles(); applyFilter();
+};
+function paintCastles(){
+  if (!map.getLayer("c")) return;
+  const col = cmpFrom === null ? colorExpr() : ["case", ["all", [">=", ["get", "a"], 0], ["<=", ["get", "a"], cmpFrom]], tok("--edge"), ["<", ["get", "a"], 0], tok("--edge"), colorExpr()];
+  map.setPaintProperty("c", "circle-color", col);
+  map.setPaintProperty("c", "circle-stroke-color", ["case", ["==", ["get", "e"], "desaparecido"], col, tok("--surface")]);
+}
+
 // Timeline
-const yr = document.getElementById("year"), yb = document.getElementById("yearbox"), und = document.getElementById("und");
+const yr = document.getElementById("year"), yb = document.getElementById("yearbox"), und = document.getElementById("und"), yc = document.getElementById("ycount");
 function applyFilter(){
   const y = +yr.value; yb.textContent = y >= 1900 ? L("Hoy", "Today") : y;
   [...hist.children].forEach((el, i) => el.classList.toggle("on", MIN + i * BIN <= y));
-  if (!map.getLayer("c")) return;
+  showEvent(y);
+  if (cmpFrom !== null) { band.style.left = pct(cmpFrom) + "%"; band.style.width = Math.max(0, pct(y) - pct(cmpFrom)) + "%"; }
+  // Counter: castles documented by this year that pass the period and condition filters
   const es = ESTADOS.filter(x => activeE.has(x.k)).flatMap(x => x.e);
+  const ok = f => active.has(f.properties.p) && es.includes(f.properties.e);
+  const dated = CASTLES.features.filter(f => ok(f) && f.properties.a >= 0);
+  const n = dated.filter(f => f.properties.a <= y).length;
+  let t = `<b>${n}</b> ${n === 1 ? L("castillo", "castle") : L("castillos", "castles")}`;
+  if (cmpFrom !== null) { const nw = dated.filter(f => f.properties.a > cmpFrom && f.properties.a <= y).length; t += `<span class="plus">+${nw} ${L("desde", "since")} ${cmpFrom}</span>`; }
+  yc.innerHTML = t;
+  if (!map.getLayer("c")) return;
   map.setFilter("c", ["all", ["in", ["get", "p"], ["literal", [...active]]], ["in", ["get", "e"], ["literal", es]],
     ["any", ["all", [">=", ["get", "a"], 0], ["<=", ["get", "a"], y]], ["all", ["<", ["get", "a"], 0], und.checked]]]);
 }
@@ -293,7 +396,13 @@ play.onclick = () => {
   if (+yr.value >= 1900) yr.value = 700;
   play.textContent = "❚❚";
   const step = matchMedia("(prefers-reduced-motion: reduce)").matches ? 100 : 10;
-  timer = setInterval(() => { yr.value = Math.min(1900, +yr.value + step); applyFilter(); if (+yr.value >= 1900) { clearInterval(timer); timer = null; play.textContent = "▶"; } }, 120);
+  let hold = 0;  // pause ~1.4 s on each historical event so the caption can be read
+  timer = setInterval(() => {
+    if (hold > 0) { hold--; return; }
+    const prev = +yr.value; yr.value = Math.min(1900, prev + step); applyFilter();
+    if (step === 10 && EVENTS.some(e => e.y > prev && e.y <= +yr.value)) hold = 12;
+    if (+yr.value >= 1900) { clearInterval(timer); timer = null; play.textContent = "▶"; }
+  }, 120);
 };
 
 // Panel
@@ -314,6 +423,45 @@ function openPanel(f){
   panel.hidden = false;
 }
 document.getElementById("close").onclick = () => { panel.hidden = true; openF = null; map.setFilter("sel", ["==", ["id"], -1]); };
+// Search by castle name, Basque name or municipality; picking one flies there and opens its record
+const qi = document.getElementById("q"), rl = document.getElementById("results");
+const norm = t => String(t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+let hits = [], sel = -1;
+function runSearch(){
+  const q = norm(qi.value.trim());
+  if (!q) { rl.hidden = true; qi.setAttribute("aria-expanded", "false"); return; }
+  const score = f => { const p = f.properties, n = norm(p.n), s = norm(p.n + " " + p.eu + " " + p.m);
+    return n.replace(/^(castillo|torre|palacio|fortaleza|fuerte|alcazaba) (de |del |de la )?/, "").startsWith(q) ? 0 : n.includes(q) ? 1 : s.includes(q) ? 2 : 9; };
+  hits = CASTLES.features.map(f => [score(f), f]).filter(x => x[0] < 9).sort((a, b) => a[0] - b[0] || a[1].properties.n.localeCompare(b[1].properties.n)).slice(0, 8).map(x => x[1]);
+  sel = hits.length ? 0 : -1;
+  rl.innerHTML = hits.length ? hits.map((f, i) => `<li role="option" id="r${i}" aria-selected="${i === sel}" data-i="${i}"><span class="rn">${esc(f.properties.n)}</span><span class="rm">${esc(f.properties.m)} · ${f.properties.a > 0 ? f.properties.a : L("sin fecha", "undated")} · ${esc(T_EST(f.properties.e))}</span></li>`).join("")
+    : `<li class="empty">${L("Ningún castillo coincide", "No castle matches")}</li>`;
+  rl.hidden = false; qi.setAttribute("aria-expanded", "true"); qi.setAttribute("aria-activedescendant", sel >= 0 ? "r0" : "");
+}
+function pick(f){
+  const p = f.properties;
+  // Make sure the castle is visible: its period and condition on, timeline past its date
+  if (!active.has(p.p)) document.getElementById("per-" + p.p)?.click();
+  const est = ESTADOS.find(x => x.e.includes(p.e)); if (est && !activeE.has(est.k)) [...document.getElementById("estados").children][ESTADOS.indexOf(est)].click();
+  if (p.a < 0 && !und.checked) { und.checked = true; }
+  if (p.a > +yr.value) yr.value = 1900;
+  if (timer) play.click();
+  applyFilter();
+  map.flyTo({center: f.geometry.coordinates, zoom: Math.max(map.getZoom(), 10.5), pitch: 55, duration: matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1800});
+  openPanel(f);
+  qi.value = p.n; rl.hidden = true; qi.setAttribute("aria-expanded", "false"); qi.blur();
+}
+qi.addEventListener("input", runSearch);
+qi.addEventListener("focus", () => { if (qi.value) runSearch(); });
+qi.addEventListener("keydown", e => {
+  if (e.key === "ArrowDown" || e.key === "ArrowUp") { if (!hits.length) return; e.preventDefault(); sel = (sel + (e.key === "ArrowDown" ? 1 : -1) + hits.length) % hits.length;
+    [...rl.children].forEach((li, i) => li.setAttribute("aria-selected", i === sel)); qi.setAttribute("aria-activedescendant", "r" + sel); rl.children[sel].scrollIntoView({block: "nearest"}); }
+  else if (e.key === "Enter" && sel >= 0) { e.preventDefault(); pick(hits[sel]); }
+  else if (e.key === "Escape") { rl.hidden = true; qi.setAttribute("aria-expanded", "false"); }
+});
+rl.addEventListener("mousedown", e => { const li = e.target.closest("li[data-i]"); if (li) { e.preventDefault(); pick(hits[+li.dataset.i]); } });
+qi.addEventListener("blur", () => setTimeout(() => { rl.hidden = true; qi.setAttribute("aria-expanded", "false"); }, 120));
+
 // Swap static text and attributes; the Spanish original is kept in data-es-*.
 function applyLang(){
   document.documentElement.lang = LANG;
@@ -321,7 +469,8 @@ function applyLang(){
   document.querySelectorAll("[data-en-aria-label]").forEach(el => { if (!el.hasAttribute("data-es-aria-label")) el.setAttribute("data-es-aria-label", el.getAttribute("aria-label")); el.setAttribute("aria-label", el.getAttribute(LANG === "en" ? "data-en-aria-label" : "data-es-aria-label")); });
   document.title = document.querySelector("title").textContent;
   document.querySelectorAll("[data-set-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.setLang === LANG));
-  legendText(); toggleText(); applyFilter();
+  document.querySelectorAll("[data-en-placeholder]").forEach(el => { if (!el.hasAttribute("data-es-placeholder")) el.setAttribute("data-es-placeholder", el.placeholder); el.placeholder = el.getAttribute(LANG === "en" ? "data-en-placeholder" : "data-es-placeholder"); });
+  legendText(); toggleText(); cmpText(); applyFilter(); if (qi.value) runSearch();
   const at = document.querySelector(".maplibregl-ctrl-attrib-inner"); if (at) at.innerHTML = at.innerHTML.replace(/^(Datos|Data):/, L("Datos", "Data") + ":");
   if (openF && !panel.hidden) openPanel(openF);
 }
