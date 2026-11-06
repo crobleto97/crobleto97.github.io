@@ -8,10 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="styles.css?v=16">
+<link rel="stylesheet" href="styles.css?v=17">
 <script src="theme.js?v=12"></script>
 <script src="site.js?v=13" defer></script>
-<script src="main.js?v=14" defer></script>
+<script src="main.js?v=15" defer></script>
 <link rel="canonical" href="https://crobleto97.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Christian Robleto Romero">
@@ -63,10 +63,9 @@
     </div>
   </div>
   <figure class="dag-wrap">
-  <div class="dag-tabs" role="tablist" aria-label="Diagrams" data-es-aria-label="Diagramas">
-      <button type="button" role="tab" id="tab-data" aria-controls="dag-data" aria-selected="true"><span lang="en">Data pipeline</span><span lang="es">Pipeline de datos</span></button>
-      <button type="button" role="tab" id="tab-ai" aria-controls="dag-ai" aria-selected="false" tabindex="-1"><span lang="en">LLM workflow</span><span lang="es">Flujo con IA</span></button>
-    </div>
+  <div class="dag-pair">
+  <div class="dag-col">
+  <p class="dag-label" aria-hidden="true"><i></i><span lang="en">Data pipeline</span><span lang="es">Pipeline de datos</span></p>
   <svg class="dag dag-data" id="dag-data" data-start="gate" viewBox="0 0 478 296" role="group" aria-labelledby="dag-data-t">
       <title id="dag-data-t" data-es="Cómo se mueven los datos: los datos en bruto se limpian y se comprueban fila a fila, las filas malas se apartan y el resto se carga en un esquema en estrella que alimenta los informes. Selecciona un paso para leer qué ocurre en él.">How data moves: raw data is cleaned and checked row by row, bad rows are set aside, and the rest is loaded into a star schema that feeds the reports. Select a step to read about it.</title>
       <g class="rail" aria-hidden="true">
@@ -93,7 +92,10 @@
         <g class="n" data-node="rep" data-kind="Output" data-info="Power BI reports, SQL views and alerts built on the warehouse, with the KPIs a team checks every week." data-info-es="Informes de Power BI, vistas SQL y alertas construidos sobre el almacén, con los KPIs que un equipo revisa cada semana."><rect class="sh" x="318" y="217" width="148" height="52" rx="10"/><rect class="ring" x="314" y="210" width="156" height="60" rx="13"/><rect class="box" x="318" y="214" width="148" height="52" rx="10"/><circle class="pip" cx="329" cy="230" r="3"/><text x="339" y="234.5" data-es="Informes">Reports</text><text class="tag" x="330" y="258" data-es="Power BI · SQL · alertas">Power BI · SQL · alerts</text><g class="chart" aria-hidden="true"><line class="axis" x1="414" y1="246.5" x2="458" y2="246.5"/><rect class="cbar" style="animation-delay:0.00s;transform-origin:419px 246.5px" x="416.0" y="236" width="6" height="10" rx="1.2"/><rect class="cbar" style="animation-delay:0.35s;transform-origin:427.5px 246.5px" x="424.5" y="231" width="6" height="15" rx="1.2"/><rect class="cbar" style="animation-delay:0.70s;transform-origin:436px 246.5px" x="433.0" y="234" width="6" height="12" rx="1.2"/><rect class="cbar" style="animation-delay:1.05s;transform-origin:444.5px 246.5px" x="441.5" y="227" width="6" height="19" rx="1.2"/><rect class="cbar" style="animation-delay:1.40s;transform-origin:453px 246.5px" x="450.0" y="224" width="6" height="22" rx="1.2"/></g></g>
       </g>
     </svg>
-  <svg class="dag dag-ai" id="dag-ai" data-start="val" hidden viewBox="0 0 478 296" role="group" aria-labelledby="dag-t">
+  </div>
+  <div class="dag-col">
+  <p class="dag-label ai" aria-hidden="true"><i></i><span lang="en">LLM workflow</span><span lang="es">Flujo con IA</span></p>
+  <svg class="dag dag-ai" id="dag-ai" data-start="val" viewBox="0 0 478 296" role="group" aria-labelledby="dag-t">
       <title id="dag-t" data-es="Cómo se mueven los datos: las fuentes se validan y se modelan, y alimentan dashboards, flujos con LLM y agentes. Selecciona un paso para leer qué ocurre en él.">How data moves: sources are validated and modelled, then feed dashboards, LLM workflows and agents. Select a step to read about it.</title>
       <defs><radialGradient id="dag-glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="var(--accent)" stop-opacity=".22"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></radialGradient></defs>
       <g class="lanes" aria-hidden="true">
@@ -124,11 +126,13 @@
         <g class="n" data-node="agt" data-kind="Output" data-info="Retrieval agents that answer from documents, cite their sources and hand off when unsure." data-info-es="Agentes de recuperación que responden a partir de documentos, citan sus fuentes y pasan el caso a una persona cuando dudan."><rect class="sh" x="342" y="225" width="124" height="32" rx="8"/><rect class="ring" x="338" y="218" width="132" height="40" rx="11"/><rect class="box" x="342" y="222" width="124" height="32" rx="8"/><circle class="pip" cx="353" cy="238" r="3"/><text x="363" y="242.5" data-es="Agentes">Agents</text></g>
       </g>
     </svg>
+  </div>
+  </div>
     <figcaption class="dag-info" aria-live="polite">
       <span class="dag-kind"><i aria-hidden="true"></i><span><span lang="en">Processing</span><span lang="es">Procesamiento</span></span></span>
       <strong class="dag-title"><span lang="en">Validate</span><span lang="es">Validar</span></strong>
       <span class="dag-text"><span lang="en">Checks on keys, nulls, duplicates and value ranges. Rejected rows are logged, so bad data stops here.</span><span lang="es">Comprobaciones de claves, nulos, duplicados y rangos de valores. Las filas rechazadas quedan registradas, así que los datos malos se paran aquí.</span></span>
-      <span class="dag-hint"><span lang="en">Select a step in the diagram to see what happens there.</span><span lang="es">Selecciona un paso del diagrama para ver qué ocurre en él.</span></span>
+      <span class="dag-hint"><span lang="en">Select a step in either diagram to see what happens there.</span><span lang="es">Selecciona un paso de cualquiera de los dos diagramas para ver qué ocurre en él.</span></span>
     </figcaption>
   </figure>
 </section>

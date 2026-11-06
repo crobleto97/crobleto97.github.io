@@ -18,7 +18,7 @@
   }
 
   /* ---------- hero: two living diagrams ----------
-     A data pipeline (shown first) and an LLM workflow, switched with tabs, share one description panel.
+     A data pipeline and an LLM workflow side by side share one description panel.
      Each has static edges and packets travelling along them (SVG animateMotion, paused off screen or
      while its tab is hidden), a pulse when a packet reaches a node, and steps you can select.
      Packets with data-pk on their edge are drawn as small icons, so in the data pipeline you can watch
@@ -41,6 +41,7 @@
       chart: '<rect x="-4.6" y="-4.6" width="9.2" height="9.2" rx="2.2"/><path class="ln" d="M-2.2 2.2V.4M0 2.2v-3.8M2.2 2.2V-.6"/>'
     };
     var shownId = null;
+    var current = null; // the diagram whose step is selected; the panel shows it
 
     function setupDag(dag) {
       var key = dag.id || 'dag';
@@ -143,7 +144,22 @@
         }
       }
       api.highlight = highlight;
+      function unhighlight() {
+        dag.classList.remove('focus');
+        dnodes.concat(paths, $$('.pk', dag)).forEach(function (x) { x.classList.remove('hl'); });
+      }
+      api.unhighlight = unhighlight;
+      // after a hover or focus elsewhere, go back to the selected step (which may be in the other diagram)
+      function restore() {
+        if (current && current !== api) unhighlight();
+        if (current && current.selected) current.highlight(current.selected);
+      }
       function choose(node) {
+        if (current && current !== api && current.selected) {
+          current.selected.classList.remove('sel'); current.selected.setAttribute('aria-pressed', 'false');
+          current.selected = null; current.unhighlight();
+        }
+        current = api;
         if (api.selected) { api.selected.classList.remove('sel'); api.selected.setAttribute('aria-pressed', 'false'); }
         api.selected = node;
         node.classList.add('sel'); node.setAttribute('aria-pressed', 'true');
@@ -165,10 +181,10 @@
           }
         });
         node.addEventListener('focus', function () { highlight(node); });
-        node.addEventListener('blur', function () { if (api.selected) highlight(api.selected); });
+        node.addEventListener('blur', restore);
         // hover previews a step; leaving goes back to the selected one
         node.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') highlight(node); });
-        node.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && api.selected) highlight(api.selected); });
+        node.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') restore(); });
       });
       dag.setAttribute('role', 'group');
       function nodeLabels() {
@@ -179,45 +195,17 @@
       }
       nodeLabels();
       api.start = byId[dag.getAttribute('data-start')] || dnodes[0];
-      onLang(function () { nodeLabels(); shownId = null; if (api.selected && !dag.hasAttribute('hidden')) highlight(api.selected); });
+      onLang(function () { nodeLabels(); shownId = null; if (current === api && api.selected) highlight(api.selected); });
       return api;
     }
 
     if (dags.length) {
       var views = dags.map(setupDag);
-      // SVG elements have no .hidden property, so the attribute is read and written directly
-      var shown = function () { return views.filter(function (v) { return !v.dag.hasAttribute('hidden'); })[0]; };
-      var visible = shown() || views[0];
-      visible.choose(visible.start);
-
-      // tabs: switch diagrams; the panel follows the selected step of the one on show
-      var tabs = $$('.dag-tabs [role="tab"]');
-      function show(tab, focus) {
-        tabs.forEach(function (t) {
-          var on = t === tab;
-          t.setAttribute('aria-selected', on ? 'true' : 'false');
-          t.tabIndex = on ? 0 : -1;
-          var panel = document.getElementById(t.getAttribute('aria-controls'));
-          if (panel) { if (on) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', ''); }
-        });
-        if (focus) tab.focus();
-        var v = shown();
-        if (!v) return;
-        if (!reduce) { v.dag.classList.remove('enter'); void v.dag.getBoundingClientRect(); v.dag.classList.add('enter'); }
-        shownId = null;
-        v.choose(v.selected || v.start);
-      }
-      tabs.forEach(function (t, i) {
-        t.addEventListener('click', function () { if (t.getAttribute('aria-selected') !== 'true') show(t); });
-        t.addEventListener('keydown', function (e) {
-          if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-          e.preventDefault();
-          show(tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length], true);
-        });
-      });
+      // the data pipeline comes first and starts with its quality gate selected
+      views[0].choose(views[0].start);
 
       // Keep the panel the height of its longest description (across both diagrams), so the page
-      // under it doesn't jump while you move between steps or tabs. Measured on a hidden copy.
+      // under it doesn't jump while you move between steps or diagrams. Measured on a hidden copy.
       var reserve = function () {
         if (!info || !info.offsetWidth) return;
         var probe = info.cloneNode(true);
