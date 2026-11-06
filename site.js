@@ -440,6 +440,8 @@ function onLang(fn) { document.addEventListener('langchange', fn); }
   var KIND = { 'in': 'Input', mid: 'Step', out: 'Output', data: 'Data store', side: 'Service', gate: 'Check' };
   var KIND_ES = { 'in': 'Entrada', mid: 'Paso', out: 'Salida', data: 'Almacén de datos', side: 'Servicio', gate: 'Comprobación' };
   var kindOf = function (k) { return T(KIND[k] || 'Step', KIND_ES[k] || 'Paso'); };
+  // a node can name its own type with "tag" / "tag_es"
+  var typeOf = function (n) { return L(n, 'tag') || kindOf(n.kind); };
   // a field in the current language: "label" or "label_es"
   var L = function (o, k) { return (window.I18N && I18N.lang === 'es' && o[k + '_es']) || o[k] || ''; };
 
@@ -517,7 +519,7 @@ function onLang(fn) { document.addEventListener('langchange', fn); }
         if (on) buttons.forEach(function (b) { if (b._node.id === e.from || b._node.id === e.to) b.classList.add('hl'); });
       });
       svg.classList.add('focus');
-      panel.querySelector('.xp-kind').textContent = kindOf(n.kind);
+      panel.querySelector('.xp-kind').textContent = typeOf(n);
       panel.querySelector('.xp-title').textContent = L(n, 'label');
       panel.querySelector('.xp-text').textContent = L(n, 'info');
       panel.setAttribute('data-kind', n.kind);
@@ -547,7 +549,7 @@ function onLang(fn) { document.addEventListener('langchange', fn); }
       buttons.forEach(function (g) {
         var n = g._node;
         g.querySelector('text').textContent = L(n, 'label');
-        g.setAttribute('aria-label', L(n, 'label') + ', ' + kindOf(n.kind).toLowerCase());
+        g.setAttribute('aria-label', L(n, 'label') + ', ' + typeOf(n).toLowerCase());
       });
       groupLabels.forEach(function (x) { x.el.textContent = L(x.g, 'label'); });
       edges.forEach(function (e) { if (e.label) e.label.textContent = L(e.spec, 'label'); });
