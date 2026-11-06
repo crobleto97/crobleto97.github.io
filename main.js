@@ -87,6 +87,32 @@
         if (!reduce) { info.classList.remove('swap'); void info.offsetWidth; info.classList.add('swap'); }
       }
     }
+    // Keep the panel the height of its longest description, so the page under it doesn't jump
+    // while you move between steps. Measured on a hidden copy at the panel's real width.
+    function reserve() {
+      if (!info || !info.offsetWidth) return;
+      var probe = info.cloneNode(true);
+      probe.removeAttribute('aria-live');
+      probe.classList.remove('swap');
+      probe.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;left:0;top:0;min-height:0;width:' + info.offsetWidth + 'px';
+      info.parentNode.appendChild(probe);
+      var tallest = 0;
+      dnodes.forEach(function (n) {
+        probe.querySelector('.dag-kind > span').textContent = kindOf(n);
+        probe.querySelector('.dag-title').textContent = n.querySelector('text').textContent;
+        probe.querySelector('.dag-text').textContent = infoOf(n);
+        tallest = Math.max(tallest, probe.offsetHeight);
+      });
+      probe.remove();
+      info.style.minHeight = tallest + 'px';
+    }
+    if (info) {
+      reserve();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(reserve);
+      var rt;
+      window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(reserve, 150); });
+      onLang(reserve);
+    }
     function choose(node) {
       if (selected) { selected.classList.remove('sel'); selected.setAttribute('aria-pressed', 'false'); }
       selected = node;
