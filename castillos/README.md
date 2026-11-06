@@ -23,7 +23,7 @@ Run from any folder; every script resolves its own paths.
 3. `refine.py`, `final.py`: fix Basque-only names, separate prehistoric hillforts and city gates, flag and merge duplicates. 295 candidates become 80 castles.
 4. `wiki.py`, `wiki_retry.py`: download the Spanish and Basque Wikipedia articles for each castle (rate limited, so it retries).
 5. `fichas_data.py`: the hand-written record for each castle, drafted from those articles. `fichas.py` joins it with the inventory.
-6. `capas.py`: rivers, roads and towns for the map, from OpenStreetMap (Overpass). Raw downloads go in `geo/raw/`, which isn't committed.
+6. `capas.py`: rivers, roads and towns for the map, from OpenStreetMap (Overpass). Town labels use the OSM town centre (`data/osm_places.json`), because Wikidata's municipality coordinate can be kilometres away from the town. Raw downloads go in `geo/raw/`, which isn't committed.
 7. `build_mapa.py`: writes `index.html` from `mapa_template.html`, the records and the layers.
 
 Python 3 with pandas. The map uses MapLibre GL JS 4.7.

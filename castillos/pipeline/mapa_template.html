@@ -6,22 +6,21 @@
 /* Layout: mapa a pantalla completa; tarjeta de título y leyenda arriba a la izquierda, ficha a la derecha (abajo en móvil), línea de tiempo abajo */
 :root{
   --bg:#efebe5; --land:#e4ddd2; --nav:#f8f5f0; --edge:#b9ada0; --surface:#fbfaf8; --fg:#24201d; --muted:#6b635c; --line:#ddd6cf; --accent:#a3262e;
-  --shade:#5b4a3b; --light:#ffffff; --river:#5f8fa6; --road:#b8574a; --p0:#6e2238; --p1:#b5462e; --p2:#c08414; --p3:#2f7a66; --p4:#3c5c96; --pn:#8d857c;
+  --shade:#5b4a3b; --light:#ffffff; --river:#6f98ab; --road:#a0958a; --p0:#6e2238; --p1:#b5462e; --p2:#c08414; --p3:#2f7a66; --p4:#3c5c96; --pn:#8d857c;
   --labelhalo:#ffffff; --display:"Spectral", Georgia, serif; --body:"Source Sans 3", system-ui, sans-serif; --mono:"IBM Plex Mono", ui-monospace, monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#171615; --land:#211f1d; --nav:#2b2825; --edge:#5a524b; --surface:#24211e; --fg:#ece6df; --muted:#a59c93; --line:#3a3531; --accent:#e0646b;
-  --shade:#000000; --light:#6b625a; --river:#6fa3bd; --road:#d8806f; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}}
+  --shade:#000000; --light:#6b625a; --river:#5f8ea6; --road:#6e655d; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#171615; --land:#211f1d; --nav:#2b2825; --edge:#5a524b; --surface:#24211e; --fg:#ece6df; --muted:#a59c93; --line:#3a3531; --accent:#e0646b;
-  --shade:#000000; --light:#6b625a; --river:#6fa3bd; --road:#d8806f; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}
+  --shade:#000000; --light:#6b625a; --river:#5f8ea6; --road:#6e655d; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}
 html,body{height:100%}
 body{background:var(--bg); color:var(--fg); font:15px/1.5 var(--body); overflow:hidden}
 #map{position:absolute; inset:0}
 #panel[hidden]{display:none}
 .place{font:600 12px/1 var(--body); color:var(--fg); pointer-events:none; white-space:nowrap; text-shadow:0 0 3px var(--labelhalo), 0 0 3px var(--labelhalo), 0 0 6px var(--labelhalo)}
 .place.t1{font:700 15px/1 var(--display); letter-spacing:.01em}
-.place.t1::before{content:""; display:inline-block; width:6px; height:6px; margin-right:5px; vertical-align:middle; background:var(--fg); border-radius:1px}
 .place.t2{display:none; font-size:11.5px}
 body.zoomed .place.t2{display:block}
 .place.t3{font:italic 500 12px/1 var(--body); color:var(--muted)}
@@ -113,7 +112,8 @@ const CAPAS = __CAPAS__;
 function addPlaces(){
   CAPAS.places.forEach(pl => {
     const el = document.createElement("div"); el.className = "place t" + pl.t; el.textContent = pl.n;
-    new maplibregl.Marker({element: el, anchor: "center"}).setLngLat(pl.c).addTo(map);
+    // Above the point, so a castle in the same town stays visible
+    new maplibregl.Marker({element: el, anchor: "bottom", offset: [0, pl.t === 3 ? 0 : -9]}).setLngLat(pl.c).addTo(map);
   });
   const z = () => document.body.classList.toggle("zoomed", map.getZoom() >= 8.3);
   map.on("zoom", z); z();
@@ -179,6 +179,7 @@ function paintTheme(){
   map.setPaintProperty("hill", "hillshade-highlight-color", tok("--light"));
   map.setPaintProperty("hill", "hillshade-accent-color", tok("--shade"));
   map.setPaintProperty("nav-line", "line-color", tok("--fg"));
+  map.setPaintProperty("fuera", "fill-color", tok("--bg"));
   map.setPaintProperty("rios", "line-color", tok("--river"));
   map.setPaintProperty("vias", "line-color", tok("--road"));
   map.setPaintProperty("vias-casing", "line-color", tok("--nav"));
@@ -191,19 +192,21 @@ map.on("load", () => {
   map.addLayer({id: "prov", type: "fill", source: "prov", paint: {"fill-color": "#ccc"}});
   map.addSource("dem", {type: "raster-dem", tiles: ["dem://{z}/{x}/{y}"], encoding: "terrarium", tileSize: 256, minzoom: 7, maxzoom: 10, bounds: [-3.2, 41.5, -0.1, 43.55]});
   map.addSource("dem-h", {type: "raster-dem", tiles: ["dem://{z}/{x}/{y}"], encoding: "terrarium", tileSize: 256, minzoom: 7, maxzoom: 10, bounds: [-3.2, 41.5, -0.1, 43.55]});
-  map.addLayer({id: "hill", type: "hillshade", source: "dem-h", paint: {"hillshade-exaggeration": 0.8, "hillshade-shadow-color": "#000", "hillshade-highlight-color": "#fff", "hillshade-accent-color": "#000"}});
+  map.addLayer({id: "hill", type: "hillshade", source: "dem-h", paint: {"hillshade-exaggeration": 0.55, "hillshade-shadow-color": "#000", "hillshade-highlight-color": "#fff", "hillshade-accent-color": "#000"}});
   map.setTerrain({source: "dem", exaggeration: 2.2});
   map.addControl(new maplibregl.TerrainControl({source: "dem", exaggeration: 2.2}), "bottom-right");
-  map.addLayer({id: "prov-line", type: "line", source: "prov", paint: {"line-color": "#999", "line-width": 0.8}});
-  map.addLayer({id: "nav-line", type: "line", source: "prov", filter: ["get", "nav"], paint: {"line-color": "#000", "line-width": 1.6}});
   map.addSource("rios", {type: "geojson", data: CAPAS.rivers});
   map.addLayer({id: "rios", type: "line", source: "rios", layout: {"line-cap": "round", "line-join": "round"},
     paint: {"line-color": "#7aa", "line-width": ["interpolate", ["linear"], ["zoom"], 7, ["case", ["get", "major"], 1.6, 0.8], 11, ["case", ["get", "major"], 3.5, 2]]}});
   map.addSource("vias", {type: "geojson", data: CAPAS.roads});
   map.addLayer({id: "vias-casing", type: "line", source: "vias", layout: {"line-cap": "round", "line-join": "round"},
-    paint: {"line-color": "#fff", "line-width": ["interpolate", ["linear"], ["zoom"], 7, ["match", ["get", "cls"], "auto", 3, 2], 11, ["match", ["get", "cls"], "auto", 6, 4]]}});
+    paint: {"line-color": "#fff", "line-width": ["interpolate", ["linear"], ["zoom"], 7, ["match", ["get", "cls"], "auto", 2.6, 1.4], 11, ["match", ["get", "cls"], "auto", 5, 3]]}});
   map.addLayer({id: "vias", type: "line", source: "vias", layout: {"line-cap": "round", "line-join": "round"},
-    paint: {"line-color": "#c66", "line-width": ["interpolate", ["linear"], ["zoom"], 7, ["match", ["get", "cls"], "auto", 1.6, 0.9], 11, ["match", ["get", "cls"], "auto", 3.5, 2]]}});
+    paint: {"line-color": "#c66", "line-width": ["interpolate", ["linear"], ["zoom"], 7, ["match", ["get", "cls"], "auto", 1.3, 0.6], 11, ["match", ["get", "cls"], "auto", 3, 1.6]]}});
+  // Dim everything outside Navarre so the castles carry the map
+  map.addLayer({id: "fuera", type: "fill", source: "prov", filter: ["!", ["get", "nav"]], paint: {"fill-color": "#fff", "fill-opacity": 0.55}});
+  map.addLayer({id: "prov-line", type: "line", source: "prov", paint: {"line-color": "#999", "line-width": 0.8}});
+  map.addLayer({id: "nav-line", type: "line", source: "prov", filter: ["get", "nav"], paint: {"line-color": "#000", "line-width": 1.6}});
   addPlaces();
   map.addSource("c", {type: "geojson", data: CASTLES});
   map.addLayer({id: "c", type: "circle", source: "c", paint: {
