@@ -206,6 +206,32 @@ kbd{font:600 .72rem var(--display);padding:.12rem .4rem;border-radius:6px;border
 .dag .n.v-ok .vbg{fill:var(--ok-soft);stroke:var(--ok)} .dag .n.v-ok .v-ok{opacity:1;stroke:var(--ok)}
 .dag .n.v-bad .vbg{fill:var(--bad-soft);stroke:var(--bad)} .dag .n.v-bad .v-bad{opacity:1;stroke:var(--bad)}
 .dag-info[data-kind="Schedule"] .dag-kind{color:var(--muted)}
+/* data pipeline v2: a raw table being read, a scanner, a star schema and a growing chart */
+.dag .rail line{stroke:var(--line);stroke-width:1.4;stroke-dasharray:2 4}
+.dag .rail circle{fill:var(--accent)}
+.dag .rail .cap{font-family:var(--display);font-size:11px;font-weight:600;fill:var(--muted)}
+.dag .n .tag{font-size:9.5px;font-weight:500;fill:var(--muted)}
+.dag .tbl .c{fill:var(--bg);stroke:var(--line);stroke-width:1}
+.dag .tbl .hd{fill:var(--line);stroke:none}
+.dag .tbl .null{fill:none;stroke-dasharray:2 2}
+.dag .tbl .bad{fill:var(--bad-soft);stroke:var(--bad)}
+.dag .tbl .dup{fill:var(--run-soft);stroke:var(--run)}
+.dag .tbl .r{animation:row-read 3.6s ease-in-out infinite}
+@keyframes row-read{0%,20%,100%{opacity:1}8%{opacity:.35}}
+.dag .scan-bed{fill:var(--bg);stroke:var(--line);stroke-width:1}
+.dag .scan-row{fill:var(--line);opacity:.7}
+.dag .scan{stroke:var(--accent);stroke-width:2;stroke-linecap:round;filter:drop-shadow(0 0 3px var(--accent));animation:scan 2.4s ease-in-out infinite alternate}
+@keyframes scan{to{transform:translateY(40px)}}
+.dag .star .st{stroke:var(--line);stroke-width:1.2}
+.dag .star .dim{fill:var(--bg);stroke:var(--line);stroke-width:1.1}
+.dag .star .fact{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}
+.dag .n .star text{font-size:8.5px;font-weight:600;fill:var(--muted)}
+.dag .n .star .fact-t{fill:var(--accent);font-size:9.5px}
+.dag .n.ping .star .fact{animation:fact-in .6s ease-out}
+@keyframes fact-in{40%{fill:var(--accent)}}
+.dag .chart .axis{stroke:var(--line);stroke-width:1}
+.dag .chart .cbar{fill:var(--ok);opacity:.8;transform-box:view-box;animation:bar-grow 3s ease-in-out infinite alternate}
+@keyframes bar-grow{0%{transform:scaleY(.45)}100%{transform:scaleY(1)}}
 /* one-time entrance: lanes fade, edges draw, nodes rise column by column */
 .dag.enter .lanes{animation:fade-in .6s ease both}
 .dag.enter .edge{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .9s cubic-bezier(.4,0,.2,1) .35s forwards}
@@ -646,6 +672,7 @@ body{background-color:var(--bg);
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  .dag .tbl .r,.dag .scan,.dag .chart .cbar,.dag .n.ping .star .fact{animation:none}
   .dag .pk,.dag .n .pulse,.dag.enter *,.dag-info.swap *,.tile-dot,.packet::after,.stage,.pick,.pick .meter i,.viz .flow,.viz .vn rect,.hbar i::before,.fnd-ring .val,.dash-panel.enter,.dash-panel .bar i,.dash-ring .val,.xp-info.swap>*,.pick .pick-visual{animation:none !important}
   .dag .edge,.dag .n .box,.btn,.navlink,.site-head,.theme-toggle,.tile,.pick-arrow,.packet .tail,.menu-btn path,.cmdk-btn{transition:none}
   .cmdk[open],.term[open],.flow li.flash{animation:none}

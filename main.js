@@ -35,8 +35,8 @@
     var infoOf = function (n) { return T(n.getAttribute('data-info'), n.getAttribute('data-info-es') || n.getAttribute('data-info')); };
     var ICONS = {
       file: '<path d="M-3.6-4.6h4.4l2.8 2.8v6.4h-7.2z"/><path class="ln" d="M-1.8-.4h3.6M-1.8 1.9h3.6"/>',
-      row: '<rect x="-5.2" y="-2.4" width="10.4" height="4.8" rx="1.6"/>',
-      ok: '<rect x="-5.2" y="-2.4" width="10.4" height="4.8" rx="1.6"/><path class="ln" d="M-2 .1l1.3 1.2 2.7-2.5"/>',
+      row: '<rect x="-7" y="-2.8" width="14" height="5.6" rx="1.5"/><path class="ln" d="M-2.3-2.8v5.6M2.3-2.8v5.6"/>',
+      ok: '<rect x="-7" y="-2.8" width="14" height="5.6" rx="1.5"/><path class="ln" d="M-2.3-2.8v5.6M2.3-2.8v5.6"/>',
       bad: '<circle r="3.8"/><path class="ln" d="M-1.5-1.5l3 3M1.5-1.5l-3 3"/>',
       chart: '<rect x="-4.6" y="-4.6" width="9.2" height="9.2" rx="2.2"/><path class="ln" d="M-2.2 2.2V.4M0 2.2v-3.8M2.2 2.2V-.6"/>'
     };
