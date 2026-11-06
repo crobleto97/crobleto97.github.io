@@ -6,22 +6,21 @@
 /* Layout: mapa a pantalla completa; tarjeta de título y leyenda arriba a la izquierda, ficha a la derecha (abajo en móvil), línea de tiempo abajo */
 :root{
   --bg:#efebe5; --land:#e4ddd2; --nav:#f8f5f0; --edge:#b9ada0; --surface:#fbfaf8; --fg:#24201d; --muted:#6b635c; --line:#ddd6cf; --accent:#a3262e;
-  --shade:#5b4a3b; --light:#ffffff; --river:#5f8fa6; --road:#b8574a; --p0:#6e2238; --p1:#b5462e; --p2:#c08414; --p3:#2f7a66; --p4:#3c5c96; --pn:#8d857c;
+  --shade:#5b4a3b; --light:#ffffff; --river:#6f98ab; --road:#a0958a; --p0:#6e2238; --p1:#b5462e; --p2:#c08414; --p3:#2f7a66; --p4:#3c5c96; --pn:#8d857c;
   --labelhalo:#ffffff; --display:"Spectral", Georgia, serif; --body:"Source Sans 3", system-ui, sans-serif; --mono:"IBM Plex Mono", ui-monospace, monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#171615; --land:#211f1d; --nav:#2b2825; --edge:#5a524b; --surface:#24211e; --fg:#ece6df; --muted:#a59c93; --line:#3a3531; --accent:#e0646b;
-  --shade:#000000; --light:#6b625a; --river:#6fa3bd; --road:#d8806f; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}}
+  --shade:#000000; --light:#6b625a; --river:#5f8ea6; --road:#6e655d; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#171615; --land:#211f1d; --nav:#2b2825; --edge:#5a524b; --surface:#24211e; --fg:#ece6df; --muted:#a59c93; --line:#3a3531; --accent:#e0646b;
-  --shade:#000000; --light:#6b625a; --river:#6fa3bd; --road:#d8806f; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}
+  --shade:#000000; --light:#6b625a; --river:#5f8ea6; --road:#6e655d; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}
 html,body{height:100%}
 body{background:var(--bg); color:var(--fg); font:15px/1.5 var(--body); overflow:hidden}
 #map{position:absolute; inset:0}
 #panel[hidden]{display:none}
 .place{font:600 12px/1 var(--body); color:var(--fg); pointer-events:none; white-space:nowrap; text-shadow:0 0 3px var(--labelhalo), 0 0 3px var(--labelhalo), 0 0 6px var(--labelhalo)}
 .place.t1{font:700 15px/1 var(--display); letter-spacing:.01em}
-.place.t1::before{content:""; display:inline-block; width:6px; height:6px; margin-right:5px; vertical-align:middle; background:var(--fg); border-radius:1px}
 .place.t2{display:none; font-size:11.5px}
 body.zoomed .place.t2{display:block}
 .place.t3{font:italic 500 12px/1 var(--body); color:var(--muted)}
@@ -42,9 +41,12 @@ h1{font:700 26px/1.1 var(--display); margin:0}
 .legend .n{margin-left:auto; font:500 12px var(--mono); color:var(--muted); font-variant-numeric:tabular-nums}
 .dot{width:11px; height:11px; border-radius:50%; flex:none}
 .shapes{display:flex; flex-wrap:wrap; gap:4px 12px; font-size:12px; color:var(--muted); border-top:1px solid var(--line); padding-top:8px}
-.shapes span{display:flex; align-items:center; gap:5px}
+.shapes button{all:unset; display:flex; align-items:center; gap:5px; cursor:pointer; border-radius:4px; padding:2px 4px; margin:0 -4px}
+.shapes button:focus-visible{outline:2px solid var(--accent)}
+.shapes button[aria-pressed="false"]{opacity:.35; text-decoration:line-through}
+.shapes .n{font:500 11px var(--mono); font-variant-numeric:tabular-nums}
 .s{width:10px; height:10px; border-radius:50%; border:2px solid var(--muted); box-sizing:border-box}
-.s.full{background:var(--muted)} .s.half{background:color-mix(in srgb, var(--muted) 45%, transparent)}
+.s.dash{border-style:dashed; background:color-mix(in srgb, var(--muted) 70%, transparent)} .s.full{background:var(--muted)} .s.half{background:color-mix(in srgb, var(--muted) 45%, transparent)}
 .toprow{display:flex; align-items:center; justify-content:space-between; gap:8px}
 .lsw{display:flex; border:1px solid var(--line); border-radius:999px; padding:2px; flex:none}
 .lsw button{all:unset; font:600 11px/1 var(--mono); padding:5px 8px; border-radius:999px; cursor:pointer; color:var(--muted)}
@@ -93,7 +95,7 @@ h1{font:700 26px/1.1 var(--display); margin:0}
   <h1 data-en="Castles of Navarre">Castillos de Navarra</h1>
   <p class="sub hide-min" data-en="80 fortifications, coloured by the period of their first record. Move the timeline or press ▶ to watch the kingdom fortify itself. Right-click and drag (or use two fingers) to tilt the relief.">80 fortificaciones, coloreadas por la época de su primera noticia. Mueve la línea de tiempo o pulsa ▶ para ver cómo se fortificó el reino. Arrastra con clic derecho (o dos dedos) para inclinar el relieve.</p>
   <div class="legend hide-min" id="legend"></div>
-  <div class="shapes hide-min"><span><i class="s full"></i><span data-en="standing">en pie</span></span><span><i class="s half"></i><span data-en="ruin / remains">ruina / restos</span></span><span><i class="s"></i><span data-en="vanished">desaparecido</span></span></div>
+  <div class="shapes hide-min" id="estados" aria-label="Filtrar por estado" data-en-aria-label="Filter by condition"></div>
   <div class="layers hide-min"><label><input type="checkbox" id="ly-places" checked> <span data-en="Towns">Pueblos</span></label><label><input type="checkbox" id="ly-vias" checked> <span data-en="Roads">Carreteras</span></label><label><input type="checkbox" id="ly-rios" checked> <span data-en="Rivers">Ríos</span></label></div>
   <button id="toggle" type="button">Ocultar leyenda</button>
 </div>
@@ -140,7 +142,8 @@ const CAPAS = __CAPAS__;
 function addPlaces(){
   CAPAS.places.forEach(pl => {
     const el = document.createElement("div"); el.className = "place t" + pl.t; el.textContent = pl.n;
-    new maplibregl.Marker({element: el, anchor: "center"}).setLngLat(pl.c).addTo(map);
+    // Above the point, so a castle in the same town stays visible
+    new maplibregl.Marker({element: el, anchor: "bottom", offset: [0, pl.t === 3 ? 0 : -9]}).setLngLat(pl.c).addTo(map);
   });
   const z = () => document.body.classList.toggle("zoomed", map.getZoom() >= 8.3);
   map.on("zoom", z); z();
@@ -179,6 +182,21 @@ function legendText(){
 document.getElementById("ly-places").addEventListener("change", e => document.body.classList.toggle("layers-off-places", !e.target.checked));
 document.getElementById("toggle").onclick = e => { const h = document.getElementById("head"); h.classList.toggle("min"); toggleText(); };
 function toggleText(){ document.getElementById("toggle").textContent = document.getElementById("head").classList.contains("min") ? L("Mostrar leyenda", "Show legend") : L("Ocultar leyenda", "Hide legend"); }
+// Condition filter: same toggle behaviour as the periods
+const ESTADOS = [
+  {k:"pie", name:"en pie", en:"standing", cls:"full", e:["en pie", "restaurado"]},
+  {k:"ruina", name:"ruina / restos", en:"ruin / remains", cls:"half", e:["ruina", "restos"]},
+  {k:"desap", name:"desaparecido", en:"vanished", cls:"", e:["desaparecido"]},
+  {k:"sd", name:"sin datos", en:"no data", cls:"dash", e:["sin estado"]}
+];
+const activeE = new Set(ESTADOS.map(x => x.k));
+ESTADOS.forEach(x => {
+  const n = CASTLES.features.filter(f => x.e.includes(f.properties.e)).length;
+  const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-pressed", "true");
+  b.innerHTML = `<i class="s ${x.cls}"></i><span data-en="${x.en}">${x.name}</span> <span class="n">${n}</span>`;
+  b.onclick = () => { activeE.has(x.k) ? activeE.delete(x.k) : activeE.add(x.k); b.setAttribute("aria-pressed", activeE.has(x.k)); applyFilter(); };
+  document.getElementById("estados").appendChild(b);
+});
 document.getElementById("nund").textContent = CASTLES.features.filter(f => f.properties.a < 0).length;
 
 // Histogram by 50-year bins
@@ -212,6 +230,7 @@ function paintTheme(){
   map.setPaintProperty("hill", "hillshade-highlight-color", tok("--light"));
   map.setPaintProperty("hill", "hillshade-accent-color", tok("--shade"));
   map.setPaintProperty("nav-line", "line-color", tok("--fg"));
+  map.setPaintProperty("fuera", "fill-color", tok("--bg"));
   map.setPaintProperty("rios", "line-color", tok("--river"));
   map.setPaintProperty("vias", "line-color", tok("--road"));
   map.setPaintProperty("vias-casing", "line-color", tok("--nav"));
@@ -224,19 +243,21 @@ map.on("load", () => {
   map.addLayer({id: "prov", type: "fill", source: "prov", paint: {"fill-color": "#ccc"}});
   map.addSource("dem", {type: "raster-dem", tiles: ["dem://{z}/{x}/{y}"], encoding: "terrarium", tileSize: 256, minzoom: 7, maxzoom: 10, bounds: [-3.2, 41.5, -0.1, 43.55]});
   map.addSource("dem-h", {type: "raster-dem", tiles: ["dem://{z}/{x}/{y}"], encoding: "terrarium", tileSize: 256, minzoom: 7, maxzoom: 10, bounds: [-3.2, 41.5, -0.1, 43.55]});
-  map.addLayer({id: "hill", type: "hillshade", source: "dem-h", paint: {"hillshade-exaggeration": 0.8, "hillshade-shadow-color": "#000", "hillshade-highlight-color": "#fff", "hillshade-accent-color": "#000"}});
+  map.addLayer({id: "hill", type: "hillshade", source: "dem-h", paint: {"hillshade-exaggeration": 0.55, "hillshade-shadow-color": "#000", "hillshade-highlight-color": "#fff", "hillshade-accent-color": "#000"}});
   map.setTerrain({source: "dem", exaggeration: 2.2});
   map.addControl(new maplibregl.TerrainControl({source: "dem", exaggeration: 2.2}), "bottom-right");
-  map.addLayer({id: "prov-line", type: "line", source: "prov", paint: {"line-color": "#999", "line-width": 0.8}});
-  map.addLayer({id: "nav-line", type: "line", source: "prov", filter: ["get", "nav"], paint: {"line-color": "#000", "line-width": 1.6}});
   map.addSource("rios", {type: "geojson", data: CAPAS.rivers});
   map.addLayer({id: "rios", type: "line", source: "rios", layout: {"line-cap": "round", "line-join": "round"},
     paint: {"line-color": "#7aa", "line-width": ["interpolate", ["linear"], ["zoom"], 7, ["case", ["get", "major"], 1.6, 0.8], 11, ["case", ["get", "major"], 3.5, 2]]}});
   map.addSource("vias", {type: "geojson", data: CAPAS.roads});
   map.addLayer({id: "vias-casing", type: "line", source: "vias", layout: {"line-cap": "round", "line-join": "round"},
-    paint: {"line-color": "#fff", "line-width": ["interpolate", ["linear"], ["zoom"], 7, ["match", ["get", "cls"], "auto", 3, 2], 11, ["match", ["get", "cls"], "auto", 6, 4]]}});
+    paint: {"line-color": "#fff", "line-width": ["interpolate", ["linear"], ["zoom"], 7, ["match", ["get", "cls"], "auto", 2.6, 1.4], 11, ["match", ["get", "cls"], "auto", 5, 3]]}});
   map.addLayer({id: "vias", type: "line", source: "vias", layout: {"line-cap": "round", "line-join": "round"},
-    paint: {"line-color": "#c66", "line-width": ["interpolate", ["linear"], ["zoom"], 7, ["match", ["get", "cls"], "auto", 1.6, 0.9], 11, ["match", ["get", "cls"], "auto", 3.5, 2]]}});
+    paint: {"line-color": "#c66", "line-width": ["interpolate", ["linear"], ["zoom"], 7, ["match", ["get", "cls"], "auto", 1.3, 0.6], 11, ["match", ["get", "cls"], "auto", 3, 1.6]]}});
+  // Dim everything outside Navarre so the castles carry the map
+  map.addLayer({id: "fuera", type: "fill", source: "prov", filter: ["!", ["get", "nav"]], paint: {"fill-color": "#fff", "fill-opacity": 0.55}});
+  map.addLayer({id: "prov-line", type: "line", source: "prov", paint: {"line-color": "#999", "line-width": 0.8}});
+  map.addLayer({id: "nav-line", type: "line", source: "prov", filter: ["get", "nav"], paint: {"line-color": "#000", "line-width": 1.6}});
   addPlaces();
   map.addSource("c", {type: "geojson", data: CASTLES});
   map.addLayer({id: "c", type: "circle", source: "c", paint: {
@@ -261,7 +282,8 @@ function applyFilter(){
   const y = +yr.value; yb.textContent = y >= 1900 ? L("Hoy", "Today") : y;
   [...hist.children].forEach((el, i) => el.classList.toggle("on", MIN + i * BIN <= y));
   if (!map.getLayer("c")) return;
-  map.setFilter("c", ["all", ["in", ["get", "p"], ["literal", [...active]]],
+  const es = ESTADOS.filter(x => activeE.has(x.k)).flatMap(x => x.e);
+  map.setFilter("c", ["all", ["in", ["get", "p"], ["literal", [...active]]], ["in", ["get", "e"], ["literal", es]],
     ["any", ["all", [">=", ["get", "a"], 0], ["<=", ["get", "a"], y]], ["all", ["<", ["get", "a"], 0], und.checked]]]);
 }
 yr.addEventListener("input", applyFilter); und.addEventListener("change", applyFilter);
