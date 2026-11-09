@@ -682,3 +682,9 @@ body{background-color:var(--bg);
   .xp.enter *,.viz.enter *,.timeline::after{animation:none !important}
   .btn-xl svg,.copy *{transition:none}
 }
+
+/* project screenshots */
+.shots{display:grid;gap:1.5rem}
+.shots figure{margin:0;display:grid;gap:.5rem}
+.shots img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+.shots figcaption{color:var(--muted);font-size:.9rem}
