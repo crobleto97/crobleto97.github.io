@@ -241,7 +241,7 @@ function legendText(){
   (k === "vias" ? ["vias", "vias-casing"] : ["rios"]).forEach(id => map.getLayer(id) && map.setLayoutProperty(id, "visibility", v));
 }));
 document.getElementById("ly-places").addEventListener("change", e => document.body.classList.toggle("layers-off-places", !e.target.checked));
-document.getElementById("toggle").onclick = e => { const h = document.getElementById("head"); h.classList.toggle("min"); toggleText(); };
+document.getElementById("toggle").onclick = e => { const h = document.getElementById("head"); h.classList.toggle("min"); autoMin = false; toggleText(); };
 function toggleText(){ document.getElementById("toggle").textContent = document.getElementById("head").classList.contains("min") ? L("Mostrar leyenda", "Show legend") : L("Ocultar leyenda", "Hide legend"); }
 // Condition filter: same toggle behaviour as the periods
 const ESTADOS = [
@@ -452,8 +452,15 @@ function openPanel(f){
     ${p.no ? `<p class="note" lang="es">${esc(p.no)}</p>` : ""}
     <div class="src">${L("Confianza", "Confidence")}: <b>${esc(T_CONF(p.c))}</b>${p.src ? ` · <a href="${esc(p.src)}" target="_blank" rel="noopener">${L("fuente", "source")}</a>` : ""}</div>`;
   panel.hidden = false;
+  // On phones the record and the legend don't fit together: fold the legend while a record is open
+  const head = document.getElementById("head");
+  if (matchMedia("(max-width:640px)").matches && !head.classList.contains("min")) { head.classList.add("min"); autoMin = true; toggleText(); }
 }
-document.getElementById("close").onclick = () => { panel.hidden = true; openF = null; map.setFilter("sel", ["==", ["id"], -1]); };
+let autoMin = false;
+document.getElementById("close").onclick = () => {
+  panel.hidden = true; openF = null; map.setFilter("sel", ["==", ["id"], -1]);
+  if (autoMin) { document.getElementById("head").classList.remove("min"); autoMin = false; toggleText(); }
+};
 // Search by castle name, Basque name or municipality; picking one flies there and opens its record
 const qi = document.getElementById("q"), rl = document.getElementById("results");
 const norm = t => String(t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
