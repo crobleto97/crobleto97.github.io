@@ -72,5 +72,43 @@ labels = {"Baztán": "Elizondo", "Vera de Bidasoa": "Bera"}
 places = [{"n": labels.get(n, n), "c": pt(n, labels.get(n)), "t": 1} for n in T1] + [{"n": labels.get(n, n), "c": pt(n, labels.get(n)), "t": 2} for n in T2] + [{"n": "Elizondo", "c": pt("Baztán", "Elizondo"), "t": 2}]
 places += [{"n": "Logroño", "c": [-2.4455, 42.4650], "t": 3}, {"n": "Donostia", "c": [-1.9812, 43.3183], "t": 3}, {"n": "Jaca", "c": [-0.5495, 42.5700], "t": 3},
            {"n": "Vitoria-Gasteiz", "c": [-2.6727, 42.8467], "t": 3}, {"n": "Donibane Garazi", "c": [-1.2372, 43.1633], "t": 3}, {"n": "Zaragoza →", "c": [-1.18, 41.80], "t": 3}]
-json.dump({"rivers": rivers, "roads": roads, "places": places}, open("geo/capas.json", "w"), ensure_ascii=False)
+# River names: one label per river, on a straight stretch inside Navarre, as far as possible from towns and castles
+import csv, math
+nav = next(f for f in json.load(open("geo/provincias.geojson"))["features"] if f["properties"]["name"] == "Navarra")["geometry"]["coordinates"]
+def inside(x, y):
+    hit = False
+    for poly in nav:
+        ring = poly[0]
+        for (x1, y1), (x2, y2) in zip(ring, ring[1:] + ring[:1]):
+            if (y1 > y) != (y2 > y) and x < x1 + (y - y1) * (x2 - x1) / (y2 - y1): hit = not hit
+    return hit
+KM = lambda a, b: math.hypot((a[0] - b[0]) * 82, (a[1] - b[1]) * 111)
+obst = [pl["c"] for pl in places if pl["t"] < 3] + [[float(r["Lon"]), float(r["Lat"])] for r in csv.DictReader(open("data/fichas_castillos.csv"))]
+rlabels = []
+for k, parts in riv.items():
+    cand = []
+    for part in parts:
+        for i, q in enumerate(part):
+            if not inside(*q): continue
+            # direction over about 2.5 km either side of the point
+            j0 = i
+            while j0 > 0 and KM(part[j0], q) < 2.5: j0 -= 1
+            j1 = i
+            while j1 < len(part) - 1 and KM(part[j1], q) < 2.5: j1 += 1
+            a, b = part[j0], part[j1]; span = KM(a, b)
+            if span < 2.5: continue
+            path = sum(KM(part[m], part[m + 1]) for m in range(j0, j1))
+            rot = -math.degrees(math.atan2((b[1] - a[1]) * 111, (b[0] - a[0]) * 82))  # clockwise on screen
+            rot = rot - 180 if rot > 90 else rot + 180 if rot < -90 else rot
+            cand.append((q, rot, span / path))
+    if not cand: continue
+    cx = sum(c[0][0] for c in cand) / len(cand); cy = sum(c[0][1] for c in cand) / len(cand)
+    def score(c):
+        q, rot, straight = c
+        # clear of labels and castles, straight, near the middle of its course, and as level as possible (steep text is hard to read)
+        return min(min(KM(q, o) for o in obst), 5) + 4 * straight - 0.06 * KM(q, (cx, cy)) - 0.06 * max(0, abs(rot) - 30)
+    q, rot, _ = max(cand, key=score)
+    rlabels.append({"n": k, "c": [round(q[0], 4), round(q[1], 4)], "r": round(rot), "major": k in ("Ebro", "Aragón", "Arga", "Ega")})
+print("etiquetas de ríos:", [(r["n"], r["r"]) for r in rlabels])
+json.dump({"rivers": rivers, "roads": roads, "places": places, "rlabels": rlabels}, open("geo/capas.json", "w"), ensure_ascii=False)
 print("lugares:", len(places), "tamaño KB:", os.path.getsize("geo/capas.json") // 1024)

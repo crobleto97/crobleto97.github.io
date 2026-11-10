@@ -6,15 +6,15 @@
 /* Layout: mapa a pantalla completa; tarjeta de título y leyenda arriba a la izquierda, ficha a la derecha (abajo en móvil), línea de tiempo abajo */
 :root{
   --bg:#efebe5; --land:#e4ddd2; --nav:#f8f5f0; --edge:#b9ada0; --surface:#fbfaf8; --fg:#24201d; --muted:#6b635c; --line:#ddd6cf; --accent:#a3262e;
-  --shade:#5b4a3b; --light:#ffffff; --river:#6f98ab; --road:#a0958a; --p0:#6e2238; --p1:#b5462e; --p2:#c08414; --p3:#2f7a66; --p4:#3c5c96; --pn:#8d857c;
+  --shade:#5b4a3b; --light:#ffffff; --river:#6f98ab; --rivertext:#2f6178; --road:#a0958a; --p0:#6e2238; --p1:#b5462e; --p2:#c08414; --p3:#2f7a66; --p4:#3c5c96; --pn:#8d857c;
   --labelhalo:#ffffff; --display:"Spectral", Georgia, serif; --body:"Source Sans 3", system-ui, sans-serif; --mono:"IBM Plex Mono", ui-monospace, monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#171615; --land:#211f1d; --nav:#2b2825; --edge:#5a524b; --surface:#24211e; --fg:#ece6df; --muted:#a59c93; --line:#3a3531; --accent:#e0646b;
-  --shade:#000000; --light:#6b625a; --river:#5f8ea6; --road:#6e655d; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}}
+  --shade:#000000; --light:#6b625a; --river:#5f8ea6; --rivertext:#8dbad0; --road:#6e655d; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#171615; --land:#211f1d; --nav:#2b2825; --edge:#5a524b; --surface:#24211e; --fg:#ece6df; --muted:#a59c93; --line:#3a3531; --accent:#e0646b;
-  --shade:#000000; --light:#6b625a; --river:#5f8ea6; --road:#6e655d; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}
+  --shade:#000000; --light:#6b625a; --river:#5f8ea6; --rivertext:#8dbad0; --road:#6e655d; --labelhalo:#1b1917; --p0:#d07a95; --p1:#e98a6f; --p2:#e6b347; --p3:#5fc0a3; --p4:#86a6e6; --pn:#9c948c; color-scheme:dark}
 html,body{height:100%}
 body{background:var(--bg); color:var(--fg); font:15px/1.5 var(--body); overflow:hidden}
 #map{position:absolute; inset:0}
@@ -25,6 +25,12 @@ body{background:var(--bg); color:var(--fg); font:15px/1.5 var(--body); overflow:
 body.zoomed .place.t2{display:block}
 .place.t3{font:italic 500 12px/1 var(--body); color:var(--muted)}
 body.layers-off-places .place{display:none!important}
+/* River names: italic in the river's colour, the four main rivers always, the rest when zoomed in */
+.rlabel{font:italic 600 12.5px/1 var(--body); letter-spacing:.04em; color:var(--rivertext); pointer-events:none; white-space:nowrap; text-shadow:0 0 3px var(--labelhalo), 0 0 3px var(--labelhalo), 0 0 6px var(--labelhalo)}
+.rlabel.major{font-size:14px; letter-spacing:.08em}
+.rlabel.minor{display:none}
+body.zoomed .rlabel.minor{display:block}
+body.layers-off-rios .rlabel{display:none!important}
 .layers{display:flex; flex-wrap:wrap; gap:4px 12px; font-size:12.5px; border-top:1px solid var(--line); padding-top:8px}
 .layers label{display:flex; gap:5px; align-items:center; cursor:pointer}
 .maplibregl-ctrl-bottom-right{margin-bottom:140px}
@@ -188,6 +194,11 @@ function addPlaces(){
     // Above the point, so a castle in the same town stays visible
     new maplibregl.Marker({element: el, anchor: "bottom", offset: [0, pl.t === 3 ? 0 : -9]}).setLngLat(pl.c).addTo(map);
   });
+  // River names turn with the map so they keep following the river
+  CAPAS.rlabels.forEach(r => {
+    const el = document.createElement("div"); el.className = "rlabel " + (r.major ? "major" : "minor"); el.textContent = r.n;
+    new maplibregl.Marker({element: el, anchor: "center", rotation: r.r, rotationAlignment: "map", pitchAlignment: "viewport"}).setLngLat(r.c).addTo(map);
+  });
   const z = () => document.body.classList.toggle("zoomed", map.getZoom() >= 8.3);
   map.on("zoom", z); z();
 }
@@ -221,6 +232,7 @@ function legendText(){
 ["vias", "rios"].forEach(k => document.getElementById("ly-" + k).addEventListener("change", e => {
   const v = e.target.checked ? "visible" : "none";
   (k === "vias" ? ["vias", "vias-casing"] : ["rios"]).forEach(id => map.getLayer(id) && map.setLayoutProperty(id, "visibility", v));
+  if (k === "rios") document.body.classList.toggle("layers-off-rios", !e.target.checked);
 }));
 document.getElementById("ly-places").addEventListener("change", e => document.body.classList.toggle("layers-off-places", !e.target.checked));
 document.getElementById("toggle").onclick = e => { const h = document.getElementById("head"); h.classList.toggle("min"); autoMin = false; toggleText(); };
