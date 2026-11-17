@@ -39,8 +39,11 @@ html:not([data-lang="es"]) body [lang="es"],html[data-lang="es"] body [lang="en"
 /* header: sticks to the top, turns solid once you scroll, shows reading progress */
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
 .site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:space-between;align-items:center;gap:1rem;
-  padding-block:1rem;background:color-mix(in srgb,var(--bg) 95%,transparent);
-  box-shadow:0 0 0 100vmax color-mix(in srgb,var(--bg) 95%,transparent);clip-path:inset(0 -100vmax)}
+  padding-block:1rem;background:var(--bg);
+  /* the background reaches both edges of the screen: border-image outset paints sideways only.
+     (A huge box-shadow trimmed with clip-path did the same, but some iPhones ignored the trim and
+     the shadow covered the whole page, which looked washed out.) */
+  border-image:linear-gradient(var(--bg),var(--bg)) fill 0/0/0 100vmax}
 /* the header keeps the same height when scrolled: resizing a sticky header near the top made the page shake */
 .site-head .progress{position:absolute;left:calc(50% - 50vw);right:calc(50% - 50vw);bottom:0;height:2px;background:var(--accent);
   transform-origin:left;transform:scaleX(0);will-change:transform}
@@ -84,11 +87,12 @@ kbd{font:600 .72rem var(--display);padding:.12rem .4rem;border-radius:6px;border
 .menu-btn[aria-expanded="true"] .l2{opacity:0}
 .menu-btn[aria-expanded="true"] .l3{transform:translateY(-5px) rotate(-45deg)}
 .mobile-menu[hidden]{display:none}
-.mobile-menu{position:absolute;top:100%;left:0;right:0;display:grid;background:var(--bg);box-shadow:0 0 0 100vmax var(--bg);clip-path:inset(0 -100vmax);gap:.25rem;padding-block:.75rem 1.25rem;font-family:var(--display)}
+.mobile-menu{position:absolute;top:100%;left:0;right:0;display:grid;background:var(--bg);border-image:linear-gradient(var(--bg),var(--bg)) fill 0/0/0 100vmax;gap:.25rem;padding-block:.75rem 1.25rem;font-family:var(--display)}
 .mobile-menu a:not(.btn),.mobile-menu .mm-search{display:block;padding:.85rem .25rem;font-size:1.15rem;font-weight:600;color:var(--ink);text-decoration:none;
   border:0;border-bottom:1px solid var(--line);background:none;text-align:left;cursor:pointer;font-family:inherit}
 .mobile-menu .btn{margin-top:.9rem;justify-self:start}
-.menu-open .site-head{clip-path:inset(0 -100vmax -100vh -100vmax)}
+/* with the menu open, the page behind it is veiled */
+.menu-open .site-head::after{content:"";position:fixed;inset:0;z-index:-1;background:var(--bg);opacity:.95}
 
 .cmdk{width:min(560px,calc(100% - 32px));max-height:min(70vh,560px);margin:12vh auto auto;padding:0;border:1px solid var(--line);border-radius:16px;
   background:var(--surface);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.45);overflow:hidden}
