@@ -144,6 +144,14 @@ kbd{font:600 .72rem var(--display);padding:.12rem .4rem;border-radius:6px;border
 .btn-solid{background:var(--accent);border-color:var(--accent);color:var(--surface)}
 .btn-sm{font-size:.9rem;padding:.45rem 1rem}
 .cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.5rem}
+/* quick links under the hero buttons: LinkedIn, GitHub and the email (click to copy) */
+.quick{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-top:.15rem}
+.qi{display:inline-flex;align-items:center;gap:.4rem;padding:.42rem .85rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);
+  color:var(--muted);font-family:var(--display);font-size:.88rem;font-weight:600;line-height:1.2;text-decoration:none;cursor:pointer;transition:color .2s,border-color .2s}
+.qi:hover{color:var(--ink);border-color:var(--accent)}
+.qi:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.qi .copy-l{display:inline-flex;align-items:center;gap:.4rem}
+.qi svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round}
 
 /* hero */
 .hero{padding-block:3.5rem 2.5rem;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:1.5rem 3rem;align-items:center}
